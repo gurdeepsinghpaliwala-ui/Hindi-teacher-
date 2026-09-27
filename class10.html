@@ -9,33 +9,35 @@
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #f5f7fb;
-      color: #222;
-      line-height: 1.6;
+      background: #f0f4f8;
+      color: #1e293b;
+      line-height: 1.7;
     }
 
     header {
       background: linear-gradient(135deg, #4338ca, #6366f1);
       color: white;
-      padding: 30px 15px;
+      padding: 35px 20px;
       text-align: center;
-      box-shadow: 0 4px 12px rgba(67, 56, 202, 0.2);
+      box-shadow: 0 4px 15px rgba(67, 56, 202, 0.25);
     }
 
     header h1 {
       margin: 0;
-      font-size: 28px;
+      font-size: 30px;
+      letter-spacing: 0.5px;
     }
 
     header p {
-      margin: 8px 0 0;
+      margin: 10px 0 0;
       opacity: 0.95;
+      font-size: 15px;
     }
 
     .container {
       max-width: 900px;
       margin: auto;
-      padding: 20px;
+      padding: 20px 15px;
     }
 
     /* आकर्षक नेविगेशन बटन */
@@ -43,7 +45,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
-      margin: 24px 0;
+      margin: 25px 0;
     }
 
     .nav-btn {
@@ -52,19 +54,18 @@
       gap: 8px;
       text-decoration: none;
       padding: 12px 20px;
-      border-radius: 10px;
+      border-radius: 12px;
       font-weight: 600;
       color: #ffffff;
       font-size: 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
       transition: all 0.25s ease-in-out;
       border: 1px solid rgba(255, 255, 255, 0.15);
     }
 
     .nav-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.18);
-      opacity: 0.96;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.18);
     }
 
     .btn-home { background: linear-gradient(135deg, #1e293b, #334155); }
@@ -75,12 +76,13 @@
 
     /* Section Headings */
     .section-title {
-      padding: 12px 18px;
-      border-radius: 8px;
-      margin: 40px 0 20px;
+      padding: 14px 20px;
+      border-radius: 12px;
+      margin: 45px 0 25px;
       font-size: 22px;
       font-weight: bold;
       border-left: 6px solid;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
     }
 
     .title-kavita {
@@ -98,35 +100,83 @@
     /* Content Cards */
     .card {
       background: white;
-      padding: 20px;
-      margin-bottom: 18px;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-      border: 1px solid #f1f5f9;
+      padding: 22px;
+      margin-bottom: 22px;
+      border-radius: 14px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+      border: 1px solid #e2e8f0;
+    }
+
+    /* Modern Question-Answer Design */
+    .qa-box {
+      margin-bottom: 20px;
+      padding-bottom: 18px;
+      border-bottom: 1px dashed #cbd5e1;
+    }
+
+    .qa-box:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .qa-box h3 {
+      font-size: 16px;
+      font-weight: 700;
+      color: #1e1b4b;
+      margin: 0 0 10px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .qa-box h3 .q-tag {
+      background: linear-gradient(135deg, #4f46e5, #6366f1);
+      color: white;
+      font-size: 12px;
+      padding: 3px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+      margin-top: 2px;
+    }
+
+    .ans-box {
+      background: #f8fafc;
+      padding: 12px 16px;
+      border-radius: 8px;
+      border-left: 4px solid #10b981;
+      margin: 0;
+      color: #334155;
+      font-size: 15px;
+    }
+
+    .ans-box strong {
+      color: #047857;
     }
 
     .badge {
       display: inline-block;
-      padding: 4px 10px;
-      border-radius: 6px;
-      font-size: 12px;
-      font-weight: bold;
-      margin-bottom: 8px;
+      padding: 5px 12px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 10px;
     }
 
-    .badge-poem { background: #e0f2fe; color: #0369a1; }
-    .badge-lesson { background: #dcfce7; color: #15803d; }
+    .badge-poem { background: #e0f2fe; color: #0284c7; }
+    .badge-lesson { background: #dcfce7; color: #16a34a; }
+    .badge-sub { background: #f1f5f9; color: #475569; border: 1px solid #cbd5e1; }
 
     .pdf-btn {
       display: inline-block;
       background: linear-gradient(135deg, #4338ca, #6366f1);
       color: white;
-      padding: 10px 20px;
-      border-radius: 8px;
+      padding: 12px 24px;
+      border-radius: 10px;
       text-decoration: none;
       font-weight: bold;
       margin-top: 10px;
-      box-shadow: 0 4px 8px rgba(67, 56, 202, 0.2);
+      box-shadow: 0 4px 10px rgba(67, 56, 202, 0.25);
     }
   </style>
 </head>
@@ -167,189 +217,161 @@
     <!-- 1. तुलसीदास जी के पद -->
     <div class="card" style="border-left: 5px solid #0284c7;">
       <span class="badge badge-poem">कविता 1</span>
-      <h2>तुलसीदास जी के पद / दोहे</h2>
-      <p>महत्वपूर्ण परीक्षा-उपयोगी प्रश्न एवं सरल उत्तर</p>
-    </div>
+      <h2 style="margin: 5px 0;">तुलसीदास जी के पद / दोहे</h2>
+      <p style="color: #64748b; margin-bottom: 20px;">महत्वपूर्ण परीक्षा-उपयोगी प्रश्न एवं सरल उत्तर</p>
 
-    <div class="card">
-      <span class="badge badge-poem">प्रश्न 1</span>
-      <h3>तुलसीदास जी के अनुसार भगवान राम जी के निर्मल यश का गान करने से कौन-कौन से चार फल प्राप्त होते हैं?</h3>
-      <p><strong>उत्तर:</strong> भगवान राम जी के निर्मल यश का गान करने से धर्म, अर्थ, काम तथा मोक्ष—ये चार फल प्राप्त होते हैं।</p>
-    </div>
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 1</span> तुलसीदास जी के अनुसार भगवान राम जी के निर्मal यश का गान करने से कौन-कौन से चार फल प्राप्त होते हैं?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> भगवान राम जी के निर्मल यश का गान करने से धर्म, अर्थ, काम तथा मोक्ष—ये चार फल प्राप्त होते हैं।</p>
+      </div>
 
-    <div class="card">
-      <span class="badge badge-poem">प्रश्न 2</span>
-      <h3>मन के भीतर और बाहर उजाला करने के लिए तुलसी कौन-सा दीपक हृदय में रखने की बात करते हैं?</h3>
-      <p><strong>उत्तर:</strong> मन के भीतर और बाहर दोनों जगह उजाला करने के लिए तुलसीदास जी राम-नाम रूपी मणियों का दीपक हृदय में रखने की बात कहते हैं।</p>
-    </div>
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 2</span> मन के भीतर और बाहर उजाला करने के लिए तुलसी कौन-सा दीपक हृदय में रखने की बात करते हैं?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> मन के भीतर और बाहर दोनों जगह उजाला करने के लिए तुलसीदास जी राम-नाम रूपी मणियों का दीपक हृदय में रखने की बात कहते हैं।</p>
+      </div>
 
-    <div class="card">
-      <span class="badge badge-poem">प्रश्न 3</span>
-      <h3>संत किसकी भाँति नीर-क्षीर विवेक करते हैं?</h3>
-      <p><strong>उत्तर:</strong> संत हंस की भाँति नीर-क्षीर विवेक करते हैं (अर्थात गुण रूपी दूध को ग्रहण करते हैं और दोष रूपी जल को छोड़ देते हैं)।</p>
-    </div>
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 3</span> संत किसकी भाँति नीर-क्षीर विवेक करते हैं?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> संत हंस की भाँति नीर-क्षीर विवेक करते हैं (अर्थात गुण रूपी दूध को ग्रहण करते हैं और दोष रूपी जल को छोड़ देते हैं)।</p>
+      </div>
 
-    <div class="card">
-      <span class="badge badge-poem">प्रश्न 4</span>
-      <h3>तुलसीदास के अनुसार भवसागर को कैसे पार किया जा सकता है?</h3>
-      <p><strong>उत्तर:</strong> भगवान राम जी से सच्चा और निष्काम प्रेम करके ही भवसागर को पार किया जा सकता है।</p>
-    </div>
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 4</span> तुलसीदास के अनुसार भवसागर को कैसे पार किया जा सकता है?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> भगवान राम जी से सच्चा और निष्काम प्रेम करके ही भवसागर को पार किया जा सकता है।</p>
+      </div>
 
-    <div class="card">
-      <span class="badge badge-poem">प्रश्न 5</span>
-      <h3>जो व्यक्ति दूसरों के सुख और समृद्धि को देखकर ईर्ष्या से जलता है, उसके भाग्य में क्या मिलता है?</h3>
-      <p><strong>उत्तर:</strong> जो व्यक्ति दूसरों के सुख और समृद्धि को देखकर ईर्ष्या से जलता है, उसके जीवन से सुख, शांति और खुशहाली नष्ट हो जाती है।</p>
-    </div>
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 5</span> जो व्यक्ति दूसरों के सुख और समृद्धि को देखकर ईर्ष्या से जलता है, उसके भाग्य में क्या मिलता है?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> जो व्यक्ति दूसरों के सुख और समृद्धि को देखकर ईर्ष्या से जलता है, उसके जीवन से सुख, शांति और खुशहाली नष्ट हो जाती है।</p>
+      </div>
 
-    <div class="card">
-      <span class="badge badge-poem">प्रश्न 6</span>
-      <h3>रामभक्ति के लिए गोस्वामी तुलसीदास किसकी आवश्यकता बतलाते हैं?</h3>
-      <p><strong>उत्तर:</strong> रामभक्ति के लिए गोस्वामी तुलसीदास जी मन में सच्चे समर्पण और अटूट विश्वास की आवश्यकता बतलाते हैं।</p>
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 6</span> रामभक्ति के लिए गोस्वामी तुलसीदास किसकी आवश्यकता बतलाते हैं?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> रामभक्ति के लिए गोस्वामी तुलसीदास जी मन में सच्चे समर्पण और अटूट विश्वास की आवश्यकता बतलाते हैं।</p>
+      </div>
     </div>
 
     <!-- 2. मीराबाई (पदावली) -->
-    <div class="card" style="margin-top: 30px; border-left: 5px solid #0284c7;">
+    <div class="card" style="border-left: 5px solid #0284c7;">
       <span class="badge badge-poem">कविता 2</span>
-      <h2>पाठ 2 : मीराबाई (पदावली)</h2>
-      <p>महत्वपूर्ण परीक्षा-उपयोगी प्रश्न एवं सरल उत्तर</p>
-    </div>
+      <h2 style="margin: 5px 0;">पाठ 2 : मीराबाई (पदावली)</h2>
+      <p style="color: #64748b; margin-bottom: 20px;">महत्वपूर्ण परीक्षा-उपयोगी प्रश्न एवं सरल उत्तर</p>
 
-    <div class="card">
-      <span class="badge badge-poem">प्रश्न 1</span>
-      <h3>श्री कृष्ण ने कौन-सा पर्वत धारण किया था?</h3>
-      <p><strong>उत्तर:</strong> श्री कृष्ण ने अपनी उँगली पर 'गोवर्धन पर्वत' धारण किया था।</p>
-    </div>
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 1</span> श्री कृष्ण ने कौन-सा पर्वत धारण किया था?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> श्री कृष्ण ने अपनी उँगली पर 'गोवर्धन पर्वत' धारण किया था।</p>
+      </div>
 
-    <div class="card">
-      <span class="badge badge-poem">प्रश्न 2</span>
-      <h3>मीरा किसे अपने नयनों (आँखों) में बसाना चाहती हैं?</h3>
-      <p><strong>उत्तर:</strong> मीरा श्री कृष्ण के सुंदर और मनमोहक रूप को अपने नयनों में बसाना चाहती हैं।</p>
-    </div>
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 2</span> मीरा किसे अपने नयनों (आँखों) में बसाना चाहती हैं?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> मीरा श्री कृष्ण के सुंदर और मनमोहक रूप को अपने नयनों में बसाना चाहती हैं।</p>
+      </div>
 
-    <div class="card">
-      <span class="badge badge-poem">प्रश्न 3</span>
-      <h3>श्री कृष्ण ने किस प्रकार का मुकुट और कुंडल धारण किए हैं?</h3>
-      <p><strong>उत्तर:</strong> श्री कृष्ण ने सिर पर मोर के पंखों का मुकुट और कानों में मछली (मकर) की आकृति के कुंडल धारण किए हैं।</p>
-    </div>
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 3</span> श्री कृष्ण ने किस प्रकार का मुकुट और कुंडल धारण किए हैं?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> श्री कृष्ण ने सिर पर मोर के पंखों का मुकुट और कानों में मछली (मकर) की आकृति के कुंडल धारण किए हैं।</p>
+      </div>
 
-    <div class="card">
-      <span class="badge badge-poem">प्रश्न 4</span>
-      <h3>मीरा किसे देखकर प्रसन्न हुईं और किसे देखकर दुखी हुईं?</h3>
-      <p><strong>उत्तर:</strong> मीरा प्रभु भक्तों को देखकर प्रसन्न हुईं और संसार के मोह-माया रूपी झमेले को देखकर दुखी हुईं।</p>
-    </div>
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 4</span> मीरा किसे देखकर प्रसन्न हुईं और किसे देखकर दुखी हुईं?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> मीरा प्रभु भक्तों को देखकर प्रसन्न हुईं और संसार के मोह-माया रूपी झमेले को देखकर दुखी हुईं।</p>
+      </div>
 
-    <div class="card">
-      <span class="badge badge-poem">प्रश्न 5</span>
-      <h3>संतों की संगति में रहकर मीरा ने क्या छोड़ दिया?</h3>
-      <p><strong>उत्तर:</strong> संतों की संगति में बैठकर मीरा ने कुल की झूठी मर्यादा और लोक-लाज को त्याग दिया।</p>
-    </div>
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 5</span> संतों की संगति में रहकर मीरा ने क्या छोड़ दिया?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> संतों की संगति में बैठकर मीरा ने कुल की झूठी मर्यादा और लोक-लाज को त्याग दिया।</p>
+      </div>
 
-    <div class="card">
-      <span class="badge badge-poem">प्रश्न 6</span>
-      <h3>मीरा अपने आँसुओं के जल से किस बेल को सींच रही थीं?</h3>
-      <p><strong>उत्तर:</strong> मीरा अपने आँसुओं के जल से श्री कृष्ण के प्रेम रूपी बेल को सींच रही थीं।</p>
-    </div>
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 6</span> मीरा अपने आँसुओं के जल से किस बेल को सींच रही थीं?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> मीरा अपने आँसुओं के जल से श्री कृष्ण के प्रेम रूपी बेल को सींच रही थीं।</p>
+      </div>
 
-    <div class="card">
-      <span class="badge badge-poem">प्रश्न 7</span>
-      <h3>पदावली के दूसरे पद में मीराबाई गिरिधर से क्या प्रार्थना करती हैं?</h3>
-      <p><strong>उत्तर:</strong> मीराबाई प्रार्थना करती हैं कि प्रभु उन्हें अपनी दासी मानकर इस भवसागर (संसार) से उनका उद्धार करें।</p>
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 7</span> पदावली के दूसरे पद में मीराबाई गिरिधर से क्या प्रार्थना करती हैं?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> मीराबाई प्रार्थना करती हैं कि प्रभु उन्हें अपनी दासी मानकर इस भवसागर (संसार) से उनका उद्धार करें।</p>
+      </div>
     </div>
 
     <!-- 3. नीति के दोहे -->
-    <div class="card" style="margin-top: 30px; border-left: 5px solid #0284c7;">
+    <div class="card" style="border-left: 5px solid #0284c7;">
       <span class="badge badge-poem">कविता 3</span>
-      <h2>पाठ 3 : नीति के दोहे (रहीम, बिहारी, वृन्द)</h2>
-      <p>महत्वपूर्ण परीक्षा-उपयोगी प्रश्न एवं सरल उत्तर</p>
-    </div>
+      <h2 style="margin: 5px 0;">पाठ 3 : नीति के दोहे (रहीम, बिहारी, वृन्द)</h2>
+      <p style="color: #64748b; margin-bottom: 20px;">महत्वपूर्ण परीक्षा-उपयोगी प्रश्न एवं सरल उत्तर</p>
 
-    <div class="card">
-      <span class="badge badge-poem">प्रश्न 1</span>
-      <h3>रहीम जी के अनुसार सच्चे मित्र की क्या पहचान है?</h3>
-      <p><strong>उत्तर:</strong> सच्चा मित्र वही होता है जो विपत्ति, दुख या कठिन समय में भी साथ नहीं छोड़ता।</p>
-    </div>
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 1</span> रहीम जी के अनुसार सच्चे मित्र की क्या पहचान है?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> सच्चा मित्र वही होता है जो विपत्ति, दुख या कठिन समय में भी साथ नहीं छोड़ता।</p>
+      </div>
 
-    <div class="card">
-      <span class="badge badge-poem">प्रश्न 2</span>
-      <h3>ज्ञानी एवं सज्जन व्यक्ति संपत्ति का संचय किसलिए करते हैं?</h3>
-      <p><strong>उत्तर:</strong> सज्जन व्यक्ति संपत्ति का संचय अपने लिए नहीं, बल्कि दूसरों की भलाई (परोपकार) के लिए करते हैं।</p>
-    </div>
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 2</span> ज्ञानी एवं सज्जन व्यक्ति संपत्ति का संचय किसलिए करते हैं?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> सज्जन व्यक्ति संपत्ति का संचय अपने लिए नहीं, बल्कि दूसरों की भलाई (परोपकार) के लिए करते हैं।</p>
+      </div>
 
-    <div class="card">
-      <span class="badge badge-poem">प्रश्न 3</span>
-      <h3>बिहारी जी के अनुसार किसका साथ शोभा देता है?</h3>
-      <p><strong>उत्तर:</strong> एक समान स्वभाव और प्रकृति वाले लोगों का साथ ही हमेशा शोभा देता है।</p>
-    </div>
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 3</span> बिहारी जी के अनुसार किसका साथ शोभा देता है?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> एक समान स्वभाव और प्रकृति वाले लोगों का साथ ही हमेशा शोभा देता है।</p>
+      </div>
 
-    <div class="card">
-      <span class="badge badge-poem">प्रश्न 4</span>
-      <h3>बिहारी जी ने मानव को आशावादी होने का क्या संदेश दिया है?</h3>
-      <p><strong>उत्तर:</strong> जैसे भँवरा पतझड़ में भी बसंत ऋतु आने की उम्मीद रखता है, वैसे ही मनुष्य को कठिन समय में भी अच्छे दिनों की आशा रखनी चाहिए।</p>
-    </div>
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 4</span> बिहारी जी ने मानव को आशावादी होने का क्या संदेश दिया है?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> जैसे भँवरा पतझड़ में भी बसंत ऋतु आने की उम्मीद रखता है, वैसे ही मनुष्य को कठिन समय में भी अच्छे दिनों की आशा रखनी चाहिए।</p>
+      </div>
 
-    <div class="card">
-      <span class="badge badge-poem">प्रश्न 5</span>
-      <h3>छल-कपट का व्यवहार बार-बार नहीं चल सकता—इसके लिए वृन्द जी ने क्या उदाहरण दिया है?</h3>
-      <p><strong>उत्तर:</strong> जैसे काठ (लकड़ी) की हाँडी आग पर दोबारा नहीं चढ़ सकती, वैसे ही कपट का व्यवहार भी बार-बार नहीं चल सकता।</p>
-    </div>
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 5</span> छल-कपट का व्यवहार बार-बार नहीं चल सकता—इसके लिए वृन्द जी ने क्या उदाहरण दिया है?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> जैसे काठ (लकड़ी) की हाँडी आग पर दोबारा नहीं चढ़ सकती, वैसे ही कपट का व्यवहार भी बार-बार नहीं चल सकता।</p>
+      </div>
 
-    <div class="card">
-      <span class="badge badge-poem">प्रश्न 6</span>
-      <h3>निरंतर अभ्यास से व्यक्ति कैसे योग्य बन जाता है? इसके लिए क्या उदाहरण दिया गया है?</h3>
-      <p><strong>उत्तर:</strong> जिस प्रकार बार-बार घिसने से कोमल रस्सी भी कठोर पत्थर पर निशान बना देती है, उसी प्रकार निरंतर अभ्यास से मूर्ख व्यक्ति भी बुद्धिमान बन जाता है।</p>
-    </div>
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 6</span> निरंतर अभ्यास से व्यक्ति कैसे योग्य बन जाता है? इसके लिए क्या उदाहरण दिया गया है?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> जिस प्रकार बार-बार घिसने से कोमल रस्सी भी कठोर पत्थर पर निशान बना देती है, उसी प्रकार निरंतर अभ्यास से मूर्ख व्यक्ति भी बुद्धिमान बन जाता है।</p>
+      </div>
 
-    <div class="card">
-      <span class="badge badge-poem">प्रश्न 7</span>
-      <h3>शत्रु को कमज़ोर या छोटा क्यों नहीं समझना चाहिए?</h3>
-      <p><strong>उत्तर:</strong> क्योंकि जिस प्रकार आग की एक छोटी-सी चिंगारी तिनकों के ढेर को जला सकती है, वैसे ही छोटा शत्रु भी बड़ा नुकसान पहुँचा सकता है।</p>
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 7</span> शत्रु को कमज़ोर या छोटा क्यों नहीं समझना चाहिए?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> क्योंकि जिस प्रकार आग की एक छोटी-सी चिंगारी तिनकों के ढेर को जला सकती है, वैसे ही छोटा शत्रु भी बड़ा नुकसान पहुँचा सकता है।</p>
+      </div>
     </div>
 
     <!-- 4. हम राज्य लिए मरते हैं -->
-    <div class="card" style="margin-top: 30px; border-left: 5px solid #0284c7;">
+    <div class="card" style="border-left: 5px solid #0284c7;">
       <span class="badge badge-poem">कविता 4</span>
-      <h2>हम राज्य लिए मरते हैं</h2>
-      <p><strong>कवि:</strong> मैथिलीशरण गुप्त (महाकाव्य 'साकेत' के नवम सर्ग से) – सप्रसंग व्याख्या एवं प्रश्न</p>
-    </div>
+      <h2 style="margin: 5px 0;">हम राज्य लिए मरते हैं</h2>
+      <p style="color: #64748b; margin-bottom: 20px;"><strong>कवि:</strong> मैथिलीशरण गुप्त (महाकाव्य 'साकेत' के नवम सर्ग से)</p>
 
-    <div class="card">
-      <span class="badge badge-poem">पद्यांश 1</span>
-      <p style="font-style: italic; color: #334155; line-height: 1.8;">
-        "हम राज्य लिए मरते हैं।<br>
-        सच्चा राज्य परंतु हमारे कर्षक ही करते हैं।<br>
-        जिन के खेतों में है अन्न,<br>
-        कौन अधिक उनसे संपन्न ?<br>
-        पत्नी-सहित विचरते हैं वे,<br>
-        वह वैभव भरते हैं।"
-      </p>
-      <hr style="border: none; border-top: 1px dashed #cbd5e1; margin: 15px 0;">
-      <p><strong>प्रसंग:</strong> प्रस्तुत पंक्तियाँ मैथिलीशरण गुप्त द्वारा रचित महाकाव्य 'साकेत' की कविता 'हम राज्य लिए मरते हैं' से ली गई हैं। इसमें उर्मिला किसानों के सरल और सुखी जीवन की प्रशंसा कर रही हैं।</p>
-      <p><strong>सरल व्याख्या:</strong> उर्मिला कहती हैं कि हम राज-परिवार के लोग सत्ता के लिए कलह में उलझकर दुखी रहते हैं, जबकि सच्चा राज्य हमारे किसान करते हैं। वे खेतों में अन्न उगाते हैं, इसलिए सबसे संपन्न हैं और संतोषपूर्वक जीवन जीते हैं।</p>
-    </div>
+      <div style="background: #f8fafc; padding: 15px; border-radius: 10px; margin-bottom: 15px; border-left: 4px solid #0284c7;">
+        <p style="font-style: italic; margin: 0; color: #334155;">
+          "हम राज्य लिए मरते हैं।<br>
+          सच्चा राज्य परंतु हमारे कर्षक ही करते हैं।<br>
+          जिन के खेतों में है अन्न,<br>
+          कौन अधिक उनसे संपन्न ?<br>
+          पत्नी-सहित विचरते हैं वे,<br>
+          वह वैभव भरते हैं।"
+        </p>
+        <p style="margin-top: 10px; font-size: 14px; color: #475569;"><strong>सरल व्याख्या:</strong> उर्मिला कहती हैं कि हम राज-परिवार के लोग सत्ता के कलह में उलझकर दुखी रहते हैं, जबकि वास्तविक सच्चा राज्य तो किसान करते हैं जो अन्न उगाकर संतोष से जीवन जीते हैं।</p>
+      </div>
 
-    <div class="card">
-      <span class="badge badge-poem">पद्यांश 2</span>
-      <p style="font-style: italic; color: #334155; line-height: 1.8;">
-        "हम राज्य लिए मरते हैं।<br>
-        वे गोधन के धनी उदार,<br>
-        उनको सुलभ सुधा की धार,<br>
-        सहनशीलता के आगर वे श्रम सागर तरते हैं।<br>
-        हम राज्य लिए मरते हैं।"
-      </p>
-      <hr style="border: none; border-top: 1px dashed #cbd5e1; margin: 15px 0;">
-      <p><strong>सरल व्याख्या:</strong> किसान गाय रूपी धन के धनी और उदार होते हैं। उन्हें गायों का अमृत तुल्य दूध आसानी से मिल जाता है। किसान सहनशीलता के भंडार हैं, जो परिश्रम से जीवन रूपी सागर को पार कर लेते हैं।</p>
-    </div>
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 1</span> प्रस्तुत कविता में उर्मिला किसकी प्रशंसा कर रही हैं?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> प्रस्तुत कविता में उर्मिला किसानों के सरल, परिश्रमी और संतोषी जीवन की प्रशंसा कर रही हैं।</p>
+      </div>
 
-    <div class="card">
-      <span class="badge badge-poem">अभ्यास प्रश्न</span>
-      <h3>1. प्रस्तुत कविता में उर्मिला किसकी प्रशंसा कर रही हैं?</h3>
-      <p><strong>उत्तर:</strong> प्रस्तुत कविता में उर्मिला किसानों के सरल, परिश्रमी और संतोषी जीवन की प्रशंसा कर रही हैं।</p>
-      <h3>2. किसान संसार को समृद्ध कैसे बनाते हैं?</h3>
-      <p><strong>उत्तर:</strong> किसान खेतों में कठिन परिश्रम करके अन्न उपजाते हैं और पूरे संसार का भरण-पोषण करके उसे समृद्ध बनाते हैं।</p>
-      <h3>3. किसान का अपने आप पर गर्व करना क्यों उचित है?</h3>
-      <p><strong>उत्तर:</strong> क्योंकि किसान समस्त मानव जाति का अन्नदाता है और बिना किसी स्वार्थ के संसार की सेवा करता है।</p>
-      <h3>4. किसान व्यर्थ के वाद-विवाद को छोड़कर किस धर्म का पालन करते हैं?</h3>
-      <p><strong>उत्तर:</strong> किसान व्यर्थ के कुतर्कों को छोड़कर कर्म और मानवता के मूल धर्म का पालन करते हैं।</p>
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 2</span> किसान संसार को समृद्ध कैसे बनाते हैं?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> किसान खेतों में कठिन परिश्रम करके अन्न उपजाते हैं और पूरे संसार का भरण-पोषण करके उसे समृद्ध बनाते हैं।</p>
+      </div>
+
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 3</span> किसान का अपने आप पर गर्व करना क्यों उचित है?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> क्योंकि किसान समस्त मानव जाति का अन्नदाता है और बिना किसी स्वार्थ के संसार की सेवा करता है।</p>
+      </div>
+
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 4</span> किसान व्यर्थ के वाद-विवाद को छोड़कर किस धर्म का पालन करते हैं?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> किसान व्यर्थ के कुतर्कों को छोड़कर कर्म और मानवता के मूल धर्म का पालन करते हैं।</p>
+      </div>
     </div>
   </section>
 
@@ -364,62 +386,78 @@
     <!-- 1. पाठ : ममता -->
     <div class="card" style="border-left: 5px solid #16a34a;">
       <span class="badge badge-lesson">कहानी</span>
-      <h2>पाठ : ममता</h2>
-      <p><strong>कहानीकार:</strong> जयशंकर प्रसाद</p>
-    </div>
+      <h2 style="margin: 5px 0;">पाठ : ममता</h2>
+      <p style="color: #64748b; margin-bottom: 20px;"><strong>कहानीकार:</strong> जयशंकर प्रसाद</p>
 
-    <div class="card">
-      <span class="badge badge-lesson">अति लघु प्रश्न (1-2 पंक्तियाँ)</span>
-      <h3>1. ममता कौन थी?</h3>
-      <p><strong>उत्तर:</strong> ममता रोहतास दुर्ग के मंत्री चूड़ामणि की एकमात्र विधवा पुत्री थी[span_0](start_span)[span_0](end_span)!</p>
-      <h3>2. मंत्री चूड़ामणि को किसकी चिंता थी?</h3>
-      <p><strong>उत्तर:</strong> मंत्री चूड़ामणि को अपनी जवान विधवा बेटी ममता के भविष्य तथा अपने दुर्ग की चिंता थी[span_1](start_span)[span_1](end_span)!</p>
-      <h3>3. मंत्री चूड़ामणि ने अपनी विधवा पुत्री ममता को उपहार में क्या देना चाहा?</h3>
-      <p><strong>उत्तर:</strong> मंत्री चूड़ामणि ने ममता को सोने-चाँदी के आभूषण उपहार में देने चाहे[span_2](start_span)[span_2](end_span)!</p>
-      <h3>4. डोलियों में छिपकर दुर्ग के अंदर कौन आए?</h3>
-      <p><strong>उत्तर:</strong> डोलियों में स्त्री-वेश में शेरशाह सूरी के सिपाही छिपकर दुर्ग के अंदर आए[span_3](start_span)[span_3](end_span)!</p>
-      <h3>5. ममता रोहतास दुर्ग छोड़कर कहाँ रहने लगी?</h3>
-      <p><strong>उत्तर:</strong> पिता की मृत्यु के बाद ममता काशी के निकट बौद्ध विहार के खंडहरों में झोपड़ी बनाकर रहने लगी[span_4](start_span)[span_4](end_span)!</p>
-      <h3>6. ममता से झोपड़ी में किसने आश्रय माँगा?</h3>
-      <p><strong>उत्तर:</strong> ममता से झोपड़ी में सातों देशों के नरेश हुमायूँ ने आश्रय माँगा था[span_5](start_span)[span_5](end_span)!</p>
-      <h3>7. ममता पथिक को झोपड़ी में स्थान देकर स्वयं कहाँ चली गई?</h3>
-      <p><strong>उत्तर:</strong> ममता पथिक को झोपड़ी में स्थान देकर स्वयं खंडहरों में रात बिताने के लिए चली गई[span_6](start_span)[span_6](end_span)!</p>
-      <h3>8. चौसा का युद्ध किनके मध्य हुआ?</h3>
-      <p><strong>उत्तर:</strong> चौसा का युद्ध हुमायूँ और शेरशाह सूरी के मध्य हुआ[span_7](start_span)[span_7](end_span)!</p>
-      <h3>9. विश्राम के बाद जाते हुए पथिक ने मिरजा को क्या आदेश दिया?</h3>
-      <p><strong>उत्तर:</strong> हुमायूँ ने आदेश दिया कि उस स्त्री का घर बनवा देना, क्योंकि विपत्ति में मैंने यहाँ आश्रय पाया था[span_8](start_span)[span_8](end_span)!</p>
-      <h3>10. ममता की जीर्ण-कंकाल अवस्था में उसकी सेवा कौन कर रही थीं?</h3>
-      <p><strong>उत्तर:</strong> ममता की सेवा गाँव की स्त्रियाँ कर रही थीं, जिनके सुख-दुख में वह जीवन भर साथ रही थी[span_9](start_span)[span_9](end_span)!</p>
-    </div>
+      <span class="badge badge-sub">अति लघु उत्तरीय प्रश्न (1-2 पंक्तियाँ)</span>
+      
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 1</span> ममता कौन थी?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> ममता रोहतास दुर्ग के मंत्री चूड़ामणि की एकमात्र विधवा पुत्री थी[span_4](start_span)[span_4](end_span)!</p>
+      </div>
 
-    <div class="card">
-      <span class="badge badge-lesson">लघु प्रश्न (3-4 पंक्तियाँ)</span>
-      <h3>1. ब्राह्मण चूड़ामणि कैसे मारे गए?</h3>
-      <p><strong>उत्तर:</strong> चूड़ामणि ने रिश्वत स्वीकार कर ली थी[span_10](start_span)[span_10](end_span)। डोलियों में जब शेरशाह के सिपाही घुसे तो चूड़ामणि ने पर्दा खुलवाना चाहा[span_11](start_span)[span_11](end_span)। पठानों ने इसे महिलाओं का अपमान बताकर तलवारें खींच लीं और चूड़ामणि मारे गए[span_12](start_span)[span_12](end_span)!</p>
-      <h3>2. ममता ने झोपड़ी में आए व्यक्ति की सहायता किस प्रकार की?</h3>
-      <p><strong>उत्तर:</strong> ममता ने 'अतिथि देवो भव' के धर्म का पालन करते हुए बिना भेदभाव के प्यासे हुमायूँ को पानी पिलाया और अपनी झोपड़ी रात बिताने के लिए दे दी[span_13](start_span)[span_13](end_span)!</p>
-      <h3>3. ममता ने अश्वारोही को बुलाकर क्या कहा?</h3>
-      <p><strong>उत्तर:</strong> ममता ने कहा कि वह नहीं जानती कि वह शहंशाह था या सिपाही, पर वह घर बनवाने का आदेश दे गया था[span_14](start_span)[span_14](end_span)। अब वह अपने चिर-विश्राम गृह जा रही है, अतः तुम यहाँ मकान बनाओ या महल[span_15](start_span)[span_15](end_span)!</p>
-      <h3>4. हुमायूँ के आदेश का पालन कितने वर्षों बाद और किस रूप में हुआ?</h3>
-      <p><strong>उत्तर:</strong> हुमायूँ के आदेश का पालन 47 वर्षों के बाद उसके पुत्र अकबर द्वारा किया गया[span_16](start_span)[span_16](end_span)। उसने वहाँ एक विशाल अष्टकोण मंदिर बनवाया[span_17](start_span)[span_17](end_span)!</p>
-      <h3>5. मंदिर में लगाए शिलालेख पर क्या लिखा गया?</h3>
-      <p><strong>उत्तर:</strong> शिलालेख पर लिखा था कि सातों देशों के नरेश हुमायूँ ने यहाँ विश्राम किया था और उनके पुत्र अकबर ने यह गगनचुंबी मंदिर बनवाया, परंतु आश्रय देने वाली ममता का नाम कहीं नहीं था[span_18](start_span)[span_18](end_span)!</p>
-    </div>
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 2</span> मंत्री चूड़ामणि को किसकी चिंता थी?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> मंत्री चूड़ामणि को अपनी जवान विधवा बेटी ममता के भविष्य तथा अपने दुर्ग की चिंता थी[span_5](start_span)[span_5](end_span)!</p>
+      </div>
 
-    <div class="card">
-      <span class="badge badge-lesson">दीर्घ प्रश्न (6-7 पंक्तियाँ)</span>
-      <h3>1. ममता का चरित्र-चित्रण कीजिए।</h3>
-      <p><strong>उत्तर:</strong> ममता जयशंकर प्रसाद की कहानी की मुख्य पात्रा है[span_19](start_span)[span_19](end_span)। वह एक स्वाभिमानी, कर्तव्यनिष्ठ और त्यागी ब्राह्मण कन्या है[span_20](start_span)[span_20](end_span)। पिता द्वारा ली गई रिश्वत का वह कड़ा विरोध करती है[span_21](start_span)[span_21](end_span)। पिता के हत्यारों की जाति का होने पर भी वह संकट में पड़े हुमायूँ को शरण देकर 'अतिथि देवो भव' का आदर्श प्रस्तुत करती है[span_22](start_span)[span_22](end_span)। वह निस्वार्थ भाव से गाँव वालों की सेवा करती है और बदले में कोई भौतिक लाभ नहीं चाहती[span_23](start_span)[span_23](end_span)!</p>
-      <h3>2. 'ममता' कहानी से हमें क्या शिक्षा मिलती है?</h3>
-      <p><strong>उत्तर:</strong> इस कहानी से हमें कर्तव्यनिष्ठ, त्यागी और संतोषी जीवन जीने की प्रेरणा मिलती है[span_24](start_span)[span_24](end_span)। हमें भ्रष्टाचार का विरोध करने, संकटग्रस्त व्यक्ति को बिना किसी भेदभाव के आश्रय देने तथा उपकार का कभी बदला न चाहने की सीख मिलती है[span_25](start_span)[span_25](end_span)। साथ ही यह संदेश मिलता है कि इतिहास में राजाओं के साथ-साथ आम व्यक्ति का भी बड़ा योगदान होता है[span_26](start_span)[span_26](end_span)!</p>
-    </div>
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 3</span> मंत्री चूड़ामणि ने अपनी विधवा पुत्री ममता को उपहार में क्या देना चाहा?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> मंत्री चूड़ामणि ने ममता को सोने-चाँदी के आभूषण उपहार में देने चाहे[span_6](start_span)[span_6](end_span)!</p>
+      </div>
 
-    <!-- 2. पाठ : अशिक्षित का हृदय -->
-    <div class="card" style="margin-top: 30px; border-left: 5px solid #16a34a;">
-      <span class="badge badge-lesson">कहानी</span>
-      <h2>पाठ : अशिक्षित का हृदय</h2>
-      <p><strong>कहानीकार:</strong> विश्वंभर नाथ शर्मा 'कौशिक[span_27](start_span)'[span_27](end_span)</p>
-    </div>
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 4</span> डोलियों में छिपकर दुर्ग के अंदर कौन आए?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> डोलियों में स्त्री-वेश में शेरशाह सूरी के सिपाही छिपकर दुर्ग के अंदर आए[span_7](start_span)[span_7](end_span)!</p>
+      </div>
 
-    <div class="card">
-      <span class="badge badge-lesson">अति लघु प्रश्न (1-2 पंक्तिया
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 5</span> ममता रोहतास दुर्ग छोड़कर कहाँ रहने लगी?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> पिता की मृत्यु के बाद ममता काशी के निकट बौद्ध विहार के खंडहरों में झोपड़ी बनाकर रहने लगी[span_8](start_span)[span_8](end_span)!</p>
+      </div>
+
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 6</span> ममता से झोपड़ी में किसने आश्रय माँगा?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> ममता से झोपड़ी में सातों देशों के नरेश हुमायूँ ने आश्रय माँगा था[span_9](start_span)[span_9](end_span)!</p>
+      </div>
+
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 7</span> ममता पथिक को झोपड़ी में स्थान देकर स्वयं कहाँ चली गई?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> ममता पथिक को झोपड़ी में स्थान देकर स्वयं खंडहरों में रात बिताने के लिए चली गई[span_10](start_span)[span_10](end_span)!</p>
+      </div>
+
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 8</span> चौसा का युद्ध किनके मध्य हुआ?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> चौसा का युद्ध हुमायूँ और शेरशाह सूरी के मध्य हुआ[span_11](start_span)[span_11](end_span)!</p>
+      </div>
+
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 9</span> विश्राम के बाद जाते हुए पथिक ने मिरजा को क्या आदेश दिया?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> हुमायूँ ने आदेश दिया कि उस स्त्री का घर बनवा देना, क्योंकि विपत्ति में मैंने यहाँ आश्रय पाया था[span_12](start_span)[span_12](end_span)!</p>
+      </div>
+
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 10</span> ममता की जीर्ण-कंकाल अवस्था में उसकी सेवा कौन कर रही थीं?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> ममता की सेवा गाँव की स्त्रियाँ कर रही थीं, जिनके सुख-दुख में वह जीवन भर साथ रही थी[span_13](start_span)[span_13](end_span)!</p>
+      </div>
+
+      <span class="badge badge-sub" style="margin-top: 15px;">लघु उत्तरीय प्रश्न (3-4 पंक्तियाँ)</span>
+
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 1</span> ब्राह्मण चूड़ामणि कैसे मारे गए?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> चूड़ामणि ने रिश्वत स्वीकार कर ली थी[span_14](start_span)[span_14](end_span)। डोलियों में जब शेरशाह के सिपाही घुसे तो चूड़ामणि ने पर्दा खुलवाना चाहा[span_15](start_span)[span_15](end_span)। पठानों ने इसे महिलाओं का अपमान बताकर तलवारें खींच लीं और चूड़ामणि मारे गए[span_16](start_span)[span_16](end_span)!</p>
+      </div>
+
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 2</span> ममता ने झोपड़ी में आए व्यक्ति की सहायता किस प्रकार की?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> ममता ने 'अतिथि देवो भव' के धर्म का पालन करते हुए बिना भेदभाव के प्यासे हुमायूँ को पानी पिलाया और अपनी झोपड़ी रात बिताने के लिए दे दी[span_17](start_span)[span_17](end_span)!</p>
+      </div>
+
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 3</span> ममता ने अश्वारोही को बुलाकर क्या कहा?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> ममता ने कहा कि वह नहीं जानती कि वह शहंशाह था या सिपाही, पर वह घर बनवाने का आदेश दे गया था[span_18](start_span)[span_18](end_span)। अब वह अपने चिर-विश्राम गृह जा रही है, अतः तुम यहाँ मकान बनाओ या महल[span_19](start_span)[span_19](end_span)!</p>
+      </div>
+
+      <div class="qa-box">
+        <h3><span class="q-tag">प्र. 4</span> हुमायूँ के आदेश का पालन कितने वर्षों बाद और किस रूप में हुआ?</h3>
+        <p class="ans-box"><strong>उत्तर:</strong> हुमायूँ के आदेश का पालन 47 वर्षों के बाद उस
