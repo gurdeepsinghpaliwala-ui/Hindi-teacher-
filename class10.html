@@ -106,8 +106,8 @@
 
     .tab-container {
       display: flex;
-      flex-wrap: wrap;
-      gap: 6px;
+      flex-direction: row;
+      gap: 8px;
       margin: 18px 0 22px;
       background: #f1f5f9;
       padding: 6px;
@@ -117,7 +117,6 @@
 
     .tab-btn {
       flex: 1;
-      min-width: 100px;
       padding: 10px 8px;
       border: none;
       border-radius: 8px;
@@ -134,12 +133,6 @@
       background: #16a34a;
       color: white;
       box-shadow: 0 3px 8px rgba(22, 163, 74, 0.25);
-    }
-
-    /* Most Important बटन के लिए स्पेशल स्टाइल */
-    .tab-btn.btn-important.active {
-      background: linear-gradient(135deg, #d97706, #f59e0b);
-      box-shadow: 0 3px 8px rgba(245, 158, 11, 0.35);
     }
 
     .tab-btn:hover:not(.active) {
@@ -185,16 +178,6 @@
 
     .qa-box h3 .q-tag {
       background: linear-gradient(135deg, #4f46e5, #6366f1);
-      color: white;
-      font-size: 12px;
-      padding: 3px 8px;
-      border-radius: 6px;
-      white-space: nowrap;
-      margin-top: 2px;
-    }
-
-    .qa-box h3 .q-tag-imp {
-      background: linear-gradient(135deg, #d97706, #f59e0b);
       color: white;
       font-size: 12px;
       padding: 3px 8px;
@@ -449,59 +432,62 @@
       <h2 style="margin: 5px 0;">पाठ : ममता</h2>
       <p style="color: #64748b; margin-bottom: 15px;"><strong>कहानीकार:</strong> जयशंकर प्रसाद</p>
 
-      <!-- टैब बटन्स (छोटे, बड़े, और Most Important अलग-अलग) -->
       <div class="tab-container">
-        <button class="tab-btn active" onclick="openLessonTab(this, 'mamtatab1')">🟢 छोटे प्रश्न</button>
-        <button class="tab-btn" onclick="openLessonTab(this, 'mamtatab2')">🔵 बड़े प्रश्न</button>
-        <button class="tab-btn btn-important" onclick="openLessonTab(this, 'mamtatab3')">⭐ Most Important ✅</button>
+        <button class="tab-btn active" onclick="openLessonTab(this, 'mamtatab1')">छोटे प्रश्न</button>
+        <button class="tab-btn" onclick="openLessonTab(this, 'mamtatab2')">बड़े प्रश्न</button>
+        <button class="tab-btn" onclick="openLessonTab(this, 'mamtatab3')">और बड़े प्रश्न</button>
       </div>
 
-      <!-- Tab 1: छोटे प्रश्न -->
-      <div id="mamtatab1" class="tab-content active">
-        <div class="qa-box">
-          <h3><span class="q-tag">प्र. 1</span> ममता कौन थी?</h3>
-          <p class="ans-box"><strong>उत्तर:</strong> ममता रोहतास दुर्ग के मंत्री चूड़ामणि की पुत्री थी।</p>
-        </div>
-        <div class="qa-box">
-          <h3><span class="q-tag">प्र. 2</span> मंत्री चूड़ामणि को किस की चिंता थी?</h3>
-          <p class="ans-box"><strong>उत्तर:</strong> मंत्री चूड़ामणि को अपनी जवान विधवा बेटी ममता के भविष्य तथा अपने दुर्ग की सुरक्षा की चिंता थी।</p>
-        </div>
-        <div class="qa-box">
-          <h3><span class="q-tag">प्र. 3</span> मंत्री चूड़ामणि ने अपनी विधवा पुत्री ममता को उपहार में क्या देना चाहा?</h3>
-          <p class="ans-box"><strong>उत्तर:</strong> मंत्री चूड़ामणि ने अपनी विधवा पुत्री ममता को सोने-चाँदी के आभूषण उपहार में देने चाहे।</p>
-        </div>
-        <div class="qa-box">
-          <h3><span class="q-tag">प्र. 4</span> डोलियों में छिपकर दुर्ग के अंदर कौन आए?</h3>
-          <p class="ans-box"><strong>उत्तर:</strong> डोलियों में स्त्री-वेश में शेरशाह के सिपाही छिपकर दुर्ग के अंदर आए।</p>
-        </div>
-        <div class="qa-box">
-          <h3><span class="q-tag">प्र. 5</span> ममता रोहतास दुर्ग छोड़कर कहाँ रहने लगी?</h3>
-          <p class="ans-box"><strong>उत्तर:</strong> पिता की मृत्यु के बाद ममता दुर्ग छोड़कर काशी के निकट बौद्ध विहार के खंडहरों में झोपड़ी बनाकर रहने लगी।</p>
-        </div>
-        <div class="qa-box">
-          <h3><span class="q-tag">प्र. 6</span> ममता से झोपड़ी में किसने आश्रय माँगा?</h3>
-          <p class="ans-box"><strong>उत्तर:</strong> ममता से झोपड़ी में मुग़ल सम्राट हुमायूँ ने आश्रय माँगा।</p>
-        </div>
-        <div class="qa-box">
-          <h3><span class="q-tag">प्र. 7</span> ममता पथिक को झोपड़ी में स्थान देकर स्वयं कहाँ चली गई?</h3>
-          <p class="ans-box"><strong>उत्तर:</strong> ममता पथिक को झोपड़ी में स्थान देकर स्वयं खंडहरों में रात बिताने के लिए चली गई।</p>
-        </div>
-        <div class="qa-box">
-          <h3><span class="q-tag">प्र. 8</span> चौसा युद्ध किन-किन के मध्य हुआ?</h3>
-          <p class="ans-box"><strong>उत्तर:</strong> चौसा युद्ध हुमायूँ और शेरशाह सूरी के मध्य हुआ।</p>
-        </div>
-        <div class="qa-box">
-          <h3><span class="q-tag">प्र. 9</span> विश्राम के बाद जाते हुए पथिक ने मिरजा को क्या आदेश दिया?</h3>
-          <p class="ans-box"><strong>उत्तर:</strong> विश्राम के बाद जाते हुए पथिक ने मिरजा को यह आदेश दिया कि उस स्त्री का घर बनवा देना क्योंकि उसने विपत्ति में मुझे आश्रय दिया था।</p>
-        </div>
-        <div class="qa-box">
-          <h3><span class="q-tag">प्र. 10</span> ममता की जीर्ण-कंकाल अवस्था में उसकी सेवा कौन कर रही थीं?</h3>
-          <p class="ans-box"><strong>उत्तर:</strong> ममता की जीर्ण-कंकाल अवस्था में उसकी सेवा गाँव की स्त्रियाँ कर रही थीं।</p>
-        </div>
-      </div>
+        <!-- Tab 1: छोटे प्रश्न -->
+  <div id="mamtatab1" class="tab-content active">
+    <div class="qa-box">
+      <h3><span class="q-tag">प्र. 1</span> ममता कौन थी?</h3>
+      <p class="ans-box"><strong>उत्तर:</strong> ममता रोहतास दुर्ग के मंत्री चूड़ामणि की पुत्री थी।</p>
+    </div>
+    <div class="qa-box">
+      <h3><span class="q-tag">प्र. 2</span> मंत्री चूड़ामणि को किस की चिंता थी?</h3>
+      <p class="ans-box"><strong>उत्तर:</strong> मंत्री चूड़ामणि को अपनी जवान विधवा बेटी ममता के भविष्य तथा अपने दुर्ग की चिंता थी।</p>
+    </div>
+    <div class="qa-box">
+      <h3><span class="q-tag">प्र. 3</span> मंत्री चूड़ामणि ने अपनी विधवा पुत्री ममता को उपहार में क्या देना चाहा?</h3>
+      <p class="ans-box"><strong>उत्तर:</strong> मंत्री चूड़ामणि ने अपनी विधवा पुत्री ममता को सोने-चाँदी के आभूषण उपहार में देने चाहे।</p>
+    </div>
+    <div class="qa-box">
+      <h3><span class="q-tag">प्र. 4</span> डोलियों में छिपकर दुर्ग के अंदर कौन आए?</h3>
+      <p class="ans-box"><strong>उत्तर:</strong> डोलियों में स्त्री-वेश में शेरशाह के सिपाही छिपकर दुर्ग के अंदर आए।</p>
+    </div>
+    <div class="qa-box">
+      <h3><span class="q-tag">प्र. 5</span> रोहतास दुर्ग छोड़कर कहाँ रहने लगी?</h3>
+      <p class="ans-box"><strong>उत्तर:</strong> अपने पिता चूड़ामणि की मृत्यु के बाद ममता दुर्ग छोड़कर काशी के निकट बौद्ध विहार के खंडहरों में झोपड़ी बनाकर रहने लगी।</p>
+    </div>
+    <div class="qa-box">
+      <h3><span class="q-tag">प्र. 6</span> ममता से झोपड़ी में किसने आश्रय माँगा?</h3>
+      <p class="ans-box"><strong>उत्तर:</strong> ममता से झोपड़ी में सातों देशों के नरेश हुमायूँ ने आश्रय माँगा।</p>
+    </div>
+    <div class="qa-box">
+      <h3><span class="q-tag">प्र. 7</span> ममता पथिक को झोपड़ी में स्थान देकर स्वयं कहाँ चली गई?</h3>
+      <p class="ans-box"><strong>उत्तर:</strong> ममता पथिक को झोपड़ी में स्थान देकर स्वयं खंडहरों में रात बिताने के लिए चली गई।</p>
+    </div>
+    <div class="qa-box">
+      <h3><span class="q-tag">प्र. 8</span> चौसा युद्ध किन-किन के मध्य हुआ?</h3>
+      <p class="ans-box"><strong>उत्तर:</strong> चौसा युद्ध हुमायूँ और शेरशाह सूरी के मध्य हुआ।</p>
+    </div>
+    <div class="qa-box">
+      <h3><span class="q-tag">प्र. 9</span> विश्राम के बाद जाते हुए पथिक ने मिरजा को क्या आदेश दिया?</h3>
+      <p class="ans-box"><strong>उत्तर:</strong> विश्राम के बाद जाते हुए पथिक ने मिरजा को यह आदेश दिया—"मिरजा! उस स्त्री को मैं कुछ भी न दे सका। उसका घर बनवा देना, क्योंकि विपत्ति में मैंने यहाँ आश्रय पाया था। यह स्थान भूलना मत।"</p>
+    </div>
+    <div class="qa-box">
+      <h3><span class="q-tag">प्र. 10</span> ममता की जीर्ण-कंकाल अवस्था में उसकी सेवा कौन कर रही थीं?</h3>
+      <p class="ans-box"><strong>उत्तर:</strong> ममता की जीर्ण-कंकाल अवस्था में उसकी सेवा गाँव की स्त्रियाँ कर रही थीं, जिनके सुख-दुख में ममता जीवन भर सहभागिनी रही।</p>
+    </div>
+  </div>
 
-      <!-- Tab 2: बड़े प्रश्न (सरल भाषा में) -->
-      <div id="mamtatab2" class="tab-content">
-        <div class="qa-box">
-          <h3><span class="q-tag">प्र. 1</span> ब्राह्मण चूड़ामणि कैसे मारा गया?</h3>
-          <p class="an
+  <!-- Tab 2: बड़े प्रश्न -->
+  <div id="mamtatab2" class="tab-content">
+    <div class="qa-box">
+      <h3><span class="q-tag">प्र. 1</span> ब्राह्मण चूड़ामणि कैसे मारा गया?</h3>
+      <p class="ans-box"><strong>उत्तर:</strong> ब्राह्मण चूड़ामणि रोहतास दुर्ग का मंत्री था। उसे अपनी विधवा बेटी ममता के भविष्य की चिंता रहती थी, जिसके कारण उसने म्लेच्छों से रिश्वत स्वीकार कर ली। दूसरे दिन डोलियों में भरकर स्त्री-वेश में शेरशाह सूरी के सिपाही रोहतास दुर्ग में प्रवेश कर गए। चूड़ामणि ने जब डोलियों का आवरण खुलवाना चाहा तो पठानों ने इसे महिलाओं का अपमान कहा। तभी वहाँ पर तलवारें खिंच गईं और चूड़ामणि मारा गया।</p>
+    </div>
+    <div class="qa-box">
+      <h3><span class="q-tag">प्र. 2</span> ममता ने झोपड़ी में आए व्यक्ति की सहायता किस प्रकार की?</h3>
+      <p class="ans-box"><strong>उत्तर:</strong> एक रात जब ममता पूजा-पाठ कर रही थी तब उसे एक भीषण आकृ
