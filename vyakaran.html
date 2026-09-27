@@ -1,9 +1,152 @@
-परीक्षा के दृष्टिकोण से सबसे महत्वपूर्ण केवल 4 बहुविकल्पीय प्रश्न (MCQs) नियम संक्षेप के साथ तैयार हैं।
-इसे आप अपनी vyakaran.html फ़ाइल में <div id="sandhi" class="section-title">1. स्वर संधि (वस्तुनिष्ठ प्रश्न)</div> वाले भाग में अपडेट कर सकते हैं:
-  <!-- 1. स्वर संधि (वस्तुनिष्ठ प्रश्न) -->
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>कक्षा 10 हिन्दी - व्यावहारिक व्याकरण</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #6d28d9, #8b5cf6);
+      color: white;
+      padding: 25px 15px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(109, 40, 217, 0.2);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 26px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #1e293b;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    /* Index Menu Box */
+    .topics-menu {
+      background: white;
+      padding: 18px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+      margin-bottom: 25px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .topics-menu h3 {
+      margin-top: 0;
+      color: #6d28d9;
+      font-size: 18px;
+    }
+
+    .topic-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .topic-links a {
+      text-decoration: none;
+      background: #ede9fe;
+      color: #5b21b6;
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .topic-links a:hover {
+      background: #7c3aed;
+      color: white;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      margin-bottom: 16px;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+      border: 1px solid #f1f5f9;
+    }
+
+    .badge {
+      display: inline-block;
+      background: #ede9fe;
+      color: #6d28d9;
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: bold;
+      color: #6d28d9;
+      border-left: 5px solid #7c3aed;
+      padding-left: 12px;
+      margin: 35px 0 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>📚 कक्षा 10 हिन्दी : व्यावहारिक व्याकरण</h1>
+  <p>पंजाब बोर्ड – परीक्षा उपयोगी संपूर्ण व्याकरण सामग्री (वस्तुनिष्ठ प्रश्न सहित)</p>
+</header>
+
+<div class="container">
+
+  <!-- Back Button -->
+  <a class="back-btn" href="class10.html">⬅️ वापस Class 10</a>
+
+  <!-- Topics Quick Index -->
+  <div class="topics-menu">
+    <h3>📌 व्याकरण विषय सूची (Quick Links):</h3>
+    <div class="topic-links">
+      <a href="#sandhi">1. स्वर संधि</a>
+      <a href="#bhavvachak">2. भाववाचक संज्ञा</a>
+      <a href="#visheshan">3. विशेषण निर्माण</a>
+      <a href="#anek-shabd">4. अनेक शब्दों के लिए एक शब्द</a>
+      <a href="#muhavare">5. मुहावरे</a>
+      <a href="#lokokti">6. लोकोक्तियाँ</a>
+      <a href="#vilom">7. विलोम शब्द</a>
+      <a href="#samas">8. समास</a>
+    </div>
+  </div>
+
+  <!-- 1. स्वर संधि (10 महत्वपूर्ण MCQs) -->
   <div id="sandhi" class="section-title">1. स्वर संधि (वस्तुनिष्ठ प्रश्न)</div>
 
-  <!-- नियम संक्षेप में -->
   <div class="card">
     <span class="badge">नियम संक्षेप में</span>
     <h3>स्वर संधि के मुख्य नियम</h3>
@@ -11,51 +154,222 @@
       <li><strong>दीर्घ:</strong> दो समान स्वर मिलकर बड़े बनते हैं (अ+आ = आ, इ+ई = ई, उ+ऊ = ऊ)। जैसे: <em>विद्या + अर्थी = विद्यार्थी</em></li>
       <li><strong>गुण:</strong> अ/आ के बाद इ/उ आने पर 'ए' या 'ओ' बनता है। जैसे: <em>नर + ईश = नरेश, सूर्य + उदय = सूर्योदय</em></li>
       <li><strong>वृद्धि:</strong> 'ऐ' या 'औ' की मात्रा लगती है। जैसे: <em>सदा + एव = सदैव, मत + ऐक्य = मतैक्य</em></li>
-      <li><strong>यण / अयादि:</strong> य, व या अय, अव की ध्वनि बनती है। जैसे: <em>प्रति + एक = प्रत्येक, पो + अन = पवन</em></li>
+      <li><strong>यण:</strong> य, व आधा अक्षर जोड़कर बनता है। जैसे: <em>प्रति + एक = प्रत्येक, सु + आगत = स्वागत</em></li>
+      <li><strong>अयादि:</strong> अय, आय, अव, आव बनता है। जैसे: <em>ने + अन = नयन, पो + अन = पवन</em></li>
     </ul>
   </div>
 
-  <!-- प्रश्न 1 -->
   <div class="card">
     <span class="badge">प्रश्न 1</span>
     <h3>'सदा + एव' की सही संधि क्या होगी?</h3>
-    <p>(क) सदाएव<br>
-       (ख) सदैव<br>
-       (ग) सदोव<br>
-       (घ) सादैव</p>
+    <p>(क) सदाएव<br>(ख) सदैव<br>(ग) सदोव<br>(घ) सादैव</p>
     <p><strong>उत्तर: (ख) सदैव</strong> (वृद्धि संधि)</p>
   </div>
 
-  <!-- प्रश्न 2 -->
   <div class="card">
     <span class="badge">प्रश्न 2</span>
     <h3>'सूर्योदय' शब्द का सही संधि-विच्छेद चुनिए:</h3>
-    <p>(क) सूर्य + दय<br>
-       (ख) सूर्यो + दय<br>
-       (ग) सूर्य + उदय<br>
-       (घ) सूरी + उदय</p>
+    <p>(क) सूर्य + दय<br>(ख) सूर्यो + दय<br>(ग) सूर्य + उदय<br>(घ) सूरी + उदय</p>
     <p><strong>उत्तर: (ग) सूर्य + उदय</strong> (गुण संधि)</p>
   </div>
 
-  <!-- प्रश्न 3 -->
   <div class="card">
     <span class="badge">प्रश्न 3</span>
     <h3>'प्रति + एक' के मेल से कौन-सा शब्द बनेगा?</h3>
-    <p>(क) प्रत्येक<br>
-       (ख) प्रतिक<br>
-       (ग) प्रत्यक<br>
-       (घ) प्रतिएक</p>
+    <p>(क) प्रत्येक<br>(ख) प्रतिक<br>(ग) प्रत्यक<br>(घ) प्रतिएक</p>
     <p><strong>उत्तर: (क) प्रत्येक</strong> (यण संधि)</p>
   </div>
 
-  <!-- प्रश्न 4 -->
   <div class="card">
     <span class="badge">प्रश्न 4</span>
     <h3>'पवन' शब्द का सही संधि-विच्छेद क्या होगा?</h3>
-    <p>(क) पव + न<br>
-       (ख) पो + अन<br>
-       (ग) पौ + अन<br>
-       (घ) पा + वन</p>
+    <p>(क) पव + न<br>(ख) पो + अन<br>(ग) पौ + अन<br>(घ) पा + वन</p>
     <p><strong>उत्तर: (ख) पो + अन</strong> (अयादि संधि)</p>
   </div>
 
+  <div class="card">
+    <span class="badge">प्रश्न 5</span>
+    <h3>'पुस्तकालय' (पुस्तक + आलय) में कौन-सी संधि है?</h3>
+    <p>(क) गुण संधि<br>(ख) यण संधि<br>(ग) दीर्घ संधि<br>(घ) अयादि संधि</p>
+    <p><strong>उत्तर: (ग) दीर्घ संधि</strong></p>
+  </div>
+
+  <div class="card">
+    <span class="badge">प्रश्न 6</span>
+    <h3>'महेश' शब्द का सही संधि-विच्छेद क्या होगा?</h3>
+    <p>(क) मह + ईश<br>(ख) महा + ईश<br>(ग) महि + ईश<br>(घ) मा + हेश</p>
+    <p><strong>उत्तर: (ख) महा + ईश</strong> (गुण संधि)</p>
+  </div>
+
+  <div class="card">
+    <span class="badge">प्रश्न 7</span>
+    <h3>'सु + आगत' के मेल से कौन-सा शब्द बनेगा?</h3>
+    <p>(क) सुआगत<br>(ख) स्वागत<br>(ग) स्वगत<br>(घ) सवागत</p>
+    <p><strong>उत्तर: (ख) स्वागत</strong> (यण संधि)</p>
+  </div>
+
+  <div class="card">
+    <span class="badge">प्रश्न 8</span>
+    <h3>'मतैक्य' शब्द का सही संधि-विच्छेद चुनिए:</h3>
+    <p>(क) मत + एक्य<br>(ख) मति + एक्य<br>(ग) मतो + एक्य<br>(घ) माता + एक्य</p>
+    <p><strong>उत्तर: (क) मत + एक्य</strong> (वृद्धि संधि)</p>
+  </div>
+
+  <div class="card">
+    <span class="badge">प्रश्न 9</span>
+    <h3>'नयन' शब्द का सही संधि-विच्छेद क्या होगा?</h3>
+    <p>(क) नय + न<br>(ख) नै + अन<br>(ग) ने + अन<br>(घ) नो + अन</p>
+    <p><strong>उत्तर: (ग) ने + अन</strong> (अयादि संधि)</p>
+  </div>
+
+  <div class="card">
+    <span class="badge">प्रश्न 10</span>
+    <h3>'इति + आदि' की सही संधि क्या होगी?</h3>
+    <p>(क) इतिआदि<br>(ख) इत्यादि<br>(ग) इतादि<br>(घ) इत्यदि</p>
+    <p><strong>उत्तर: (ख) इत्यादि</strong> (यण संधि)</p>
+  </div>
+
+  <!-- 2. भाववाचक संज्ञा निर्माण -->
+  <div id="bhavvachak" class="section-title">2. भाववाचक संज्ञा निर्माण</div>
+
+  <div class="card">
+    <span class="badge">प्रश्न 1</span>
+    <h3>'मीठा' शब्द की भाववाचक संज्ञा क्या होगी?</h3>
+    <p>(क) मीठाई<br>(ख) मिठास<br>(ग) मीठापन<br>(घ) मीठी</p>
+    <p><strong>उत्तर: (ख) मिठास</strong></p>
+  </div>
+
+  <div class="card">
+    <span class="badge">प्रश्न 2</span>
+    <h3>'बच्चा' शब्द से सही भाववाचक संज्ञा चुनिए:</h3>
+    <p>(क) बचपन<br>(ख) बचपना<br>(ग) बच्ची<br>(घ) बचाना</p>
+    <p><strong>उत्तर: (क) बचपन</strong></p>
+  </div>
+
+  <div class="card">
+    <span class="badge">प्रश्न 3</span>
+    <h3>'अपना' शब्द की भाववाचक संज्ञा क्या बनेगी?</h3>
+    <p>(क) अपनाना<br>(ख) अपनापन / अपनत्व<br>(ग) अपनी<br>(घ) अपन</p>
+    <p><strong>उत्तर: (ख) अपनापन / अपनत्व</strong></p>
+  </div>
+
+  <!-- 3. विशेषण निर्माण -->
+  <div id="visheshan" class="section-title">3. विशेषण निर्माण</div>
+
+  <div class="card">
+    <span class="badge">प्रश्न 1</span>
+    <h3>'भारत' शब्द से सही विशेषण शब्द बनेगा:</h3>
+    <p>(क) भारतीयता<br>(ख) भरत<br>(ग) भारतीय<br>(घ) भारती</p>
+    <p><strong>उत्तर: (ग) भारतीय</strong></p>
+  </div>
+
+  <div class="card">
+    <span class="badge">प्रश्न 2</span>
+    <h3>'दिन' शब्द का सही विशेषण रूप क्या होगा?</h3>
+    <p>(क) दैनिक<br>(ख) दिनी<br>(ग) दिनभर<br>(घ) दीना</p>
+    <p><strong>उत्तर: (क) दैनिक</strong></p>
+  </div>
+
+  <!-- 4. अनेक शब्दों के लिए एक शब्द -->
+  <div id="anek-shabd" class="section-title">4. अनेक शब्दों के लिए एक शब्द</div>
+
+  <div class="card">
+    <span class="badge">प्रश्न 1</span>
+    <h3>'जो कभी न मरे' वाक्यांश के लिए एक शब्द होगा:</h3>
+    <p>(क) अमर<br>(ख) अजर<br>(ग) अविनाशी<br>(घ) अजेय</p>
+    <p><strong>उत्तर: (क) अमर</strong></p>
+  </div>
+
+  <div class="card">
+    <span class="badge">प्रश्न 2</span>
+    <h3>'जिसका कोई शत्रु न जन्मा हो' उसे कहते हैं:</h3>
+    <p>(क) शत्रुहीन<br>(ख) अजातशत्रु<br>(ग) मित्र<br>(घ) विजयी</p>
+    <p><strong>उत्तर: (ख) अजातशत्रु</strong></p>
+  </div>
+
+  <!-- 5. मुहावरे -->
+  <div id="muhavare" class="section-title">5. मुहावरे</div>
+
+  <div class="card">
+    <span class="badge">प्रश्न 1</span>
+    <h3>'अंगूठा दिखाना' मुहावरे का सही अर्थ क्या है?</h3>
+    <p>(क) चिढ़ाना<br>(ख) साफ़ मना करना<br>(ग) अंगूठे से लिखना<br>(घ) इशारा करना</p>
+    <p><strong>उत्तर: (ख) साफ़ मना करना</strong></p>
+  </div>
+
+  <div class="card">
+    <span class="badge">प्रश्न 2</span>
+    <h3>'आँखों का तारा होना' का सही अर्थ चुनिए:</h3>
+    <p>(क) बहुत प्यारा होना<br>(ख) आँख में चमक होना<br>(ग) दूर देखना<br>(घ) तारा दिखाई देना</p>
+    <p><strong>उत्तर: (क) बहुत प्यारा होना</strong></p>
+  </div>
+
+  <!-- 6. लोकोक्तियाँ -->
+  <div id="lokokti" class="section-title">6. लोकोक्तियाँ</div>
+
+  <div class="card">
+    <span class="badge">प्रश्न 1</span>
+    <h3>'नाच न जाने आँगन टेढ़ा' लोकोक्ति का सही भाव क्या है?</h3>
+    <p>(क) नाचना नहीं आना<br>(ख) अपनी कमी छिपाने के लिए दूसरों में दोष निकालना<br>(ग) आँगन खराब होना<br>(घ) बेकार बैठना</p>
+    <p><strong>उत्तर: (ख) अपनी कमी छिपाने के लिए दूसरों में दोष निकालना</strong></p>
+  </div>
+
+  <div class="card">
+    <span class="badge">प्रश्न 2</span>
+    <h3>'ऊँट के मुँह में जीरा' का उचित अर्थ क्या है?</h3>
+    <p>(क) ऊँट को जीरा खिलाना<br>(ख) बहुत अधिक आवश्यकता में बहुत कम वस्तु मिलना<br>(ग) कम खाना खाना<br>(घ) जानवर की सेवा करना</p>
+    <p><strong>उत्तर: (ख) बहुत अधिक आवश्यकता में बहुत कम वस्तु मिलना</strong></p>
+  </div>
+
+  <!-- 7. विलोम शब्द -->
+  <div id="vilom" class="section-title">7. विलोम शब्द</div>
+
+  <div class="card">
+    <span class="badge">प्रश्न 1</span>
+    <h3>'उदय' शब्द का सही विलोम शब्द क्या होगा?</h3>
+    <p>(क) अस्त<br>(ख) अंत<br>(ग) रात<br>(घ) उषा</p>
+    <p><strong>उत्तर: (क) अस्त</strong></p>
+  </div>
+
+  <div class="card">
+    <span class="badge">प्रश्न 2</span>
+    <h3>'अनुराग' का विलोम शब्द चुनिए:</h3>
+    <p>(क) प्रेम<br>(ख) विराग<br>(ग) राग<br>(घ) क्रोध</p>
+    <p><strong>उत्तर: (ख) विराग</strong></p>
+  </div>
+
+  <!-- 8. समास -->
+  <div id="samas" class="section-title">8. समास</div>
+
+  <div class="card">
+    <span class="badge">नियम संक्षेप में</span>
+    <h3>समास के मुख्य भेद</h3>
+    <ul>
+      <li><strong>द्वंद्व समास:</strong> दोनों पद प्रधान होते हैं (उदा. माता-पिता = माता और पिता)।</li>
+      <li><strong>द्विगु समास:</strong> पहला पद संख्यावाची होता है (उदा. त्रिलोक = तीन लोकों का समूह)।</li>
+      <li><strong>तत्पुरुष समास:</strong> कारक चिह्नों (का, के, की, में) का लोप होता है (उदा. राजपुत्र = राजा का पुत्र)।</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <span class="badge">प्रश्न 1</span>
+    <h3>'दिन-रात' में कौन-सा समास है?</h3>
+    <p>(क) द्विगु समास<br>(ख) द्वंद्व समास<br>(ग) तत्पुरुष समास<br>(घ) अव्ययीभाव समास</p>
+    <p><strong>उत्तर: (ख) द्वंद्व समास</strong></p>
+  </div>
+
+  <div class="card">
+    <span class="badge">प्रश्न 2</span>
+    <h3>'चौराहा' किस समास का उदाहरण है?</h3>
+    <p>(क) द्विगु समास<br>(ख) द्वंद्व समास<br>(ग) कर्मधारय समास<br>(घ) बहुव्रीहि समास</p>
+    <p><strong>उत्तर: (क) द्विगु समास</strong></p>
+  </div>
+
+  <div style="text-align: center; margin-top: 35px;">
+    <a class="back-btn" href="class10.html">⬅️ वापस Class 10 पेज पर जाएं</a>
+  </div>
+
+</div>
+
+</body>
+</html>
