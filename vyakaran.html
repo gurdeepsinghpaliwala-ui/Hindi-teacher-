@@ -738,27 +738,9 @@
     loadQuiz('quiz-container', quizData);
     loadQuiz('bhav-quiz-container', bhavQuizData);
     loadQuiz('visheshan-quiz-container', visheshanQuizData);
-  };
-  const anekQuizData = [
-    { q: "1. 'जो कभी न मरे' के लिए एक शब्द क्या होगा?", options: ["अजय", "अमर", "अनंत", "अजर"], correct: 1 },
-    { q: "2. 'जो सब कुछ जानता है' कहलाता है:", options: ["अल्पज्ञ", "सर्वज्ञ", "विद्वान", "ज्ञानी"], correct: 1 },
-    { q: "3. 'जो कम बोलता है' उसके लिए एक शब्द है:", options: ["वाचाल", "मितभाषी", "मूक", "वक्ता"], correct: 1 },
-    { q: "4. 'जो ईश्वर में विश्वास रखता है' उसे क्या कहते हैं?", options: ["नास्तिक", "आस्तिक", "धार्मिक", "भक्त"], correct: 1 },
-    { q: "5. 'जो कम खर्च करता है' कहलाता है:", options: ["अपव्ययी", "मितव्ययी", "कंजूस", "उदार"], correct: 1 }
-  ];
-
-  function evaluateAnekQuiz() {
-    evaluateQuiz('anek-quiz-container', anekQuizData, 'anek-quiz-result');
-    }
-      // window.onload ko update karne ke liye (Ise line 737 wale window.onload mein update kar dein)
-  window.onload = function() {
-    loadQuiz('quiz-container', quizData);
-    loadQuiz('bhav-quiz-container', bhavQuizData);
-    loadQuiz('visheshan-quiz-container', visheshanQuizData);
-    loadQuiz('anek-quiz-container', anekQuizData); // Yeh nayi line jodni hai
+    loadQuiz('anek-quiz-container', anekQuizData);
   };
 </script>
 
 </body>
 </html>
-
