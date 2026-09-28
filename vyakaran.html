@@ -722,10 +722,43 @@
     evaluateQuiz('bhav-quiz-container', bhavQuizData, 'bhav-quiz-result');
   }
 
+  const visheshanQuizData = [
+    { q: "1. 'इतिहास' शब्द से कौन-सा विशेषण बनेगा?", options: ["इतिहासक", "ऐतिहासिक", "इतिहासी", "ऐतिहाश"], correct: 1 },
+    { q: "2. 'विज्ञान' शब्द का विशेषण रूप क्या होगा?", options: ["विज्ञानी", "वैज्ञानिक", "विज्ञानमय", "विज्ञ"], correct: 1 },
+    { q: "3. 'समाज' शब्द से बनने वाला विशेषण चुनिए:", options: ["सामाजक", "सामाजिक", "समाजी", "समाजवादी"], correct: 1 },
+    { q: "4. 'भूगोल' शब्द का सही विशेषण क्या है?", options: ["भूगोलीय", "भौगोलिक", "भूगोलक", "भागोलिंक"], correct: 1 },
+    { q: "5. 'दया' शब्द में 'ालु' प्रत्यय जोड़ने से क्या विशेषण बनेगा?", options: ["दयी", "दयालु", "दशालु", "दयावान"], correct: 1 }
+  ];
+
+  function evaluateVisheshanQuiz() {
+    evaluateQuiz('visheshan-quiz-container', visheshanQuizData, 'visheshan-quiz-result');
+  }
+
   window.onload = function() {
     loadQuiz('quiz-container', quizData);
     loadQuiz('bhav-quiz-container', bhavQuizData);
+    loadQuiz('visheshan-quiz-container', visheshanQuizData);
+  };
+  const anekQuizData = [
+    { q: "1. 'जो कभी न मरे' के लिए एक शब्द क्या होगा?", options: ["अजय", "अमर", "अनंत", "अजर"], correct: 1 },
+    { q: "2. 'जो सब कुछ जानता है' कहलाता है:", options: ["अल्पज्ञ", "सर्वज्ञ", "विद्वान", "ज्ञानी"], correct: 1 },
+    { q: "3. 'जो कम बोलता है' उसके लिए एक शब्द है:", options: ["वाचाल", "मितभाषी", "मूक", "वक्ता"], correct: 1 },
+    { q: "4. 'जो ईश्वर में विश्वास रखता है' उसे क्या कहते हैं?", options: ["नास्तिक", "आस्तिक", "धार्मिक", "भक्त"], correct: 1 },
+    { q: "5. 'जो कम खर्च करता है' कहलाता है:", options: ["अपव्ययी", "मितव्ययी", "कंजूस", "उदार"], correct: 1 }
+  ];
+
+  function evaluateAnekQuiz() {
+    evaluateQuiz('anek-quiz-container', anekQuizData, 'anek-quiz-result');
+    }
+      // window.onload ko update karne ke liye (Ise line 737 wale window.onload mein update kar dein)
+  window.onload = function() {
+    loadQuiz('quiz-container', quizData);
+    loadQuiz('bhav-quiz-container', bhavQuizData);
+    loadQuiz('visheshan-quiz-container', visheshanQuizData);
+    loadQuiz('anek-quiz-container', anekQuizData); // Yeh nayi line jodni hai
   };
 </script>
+
 </body>
 </html>
+
