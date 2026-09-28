@@ -594,5 +594,54 @@
 </div>
 
 </body>
+  <script>
+  const quizData = [
+    { q: "1. 'सदा + एव' की सही संधि क्या होगी?", options: ["सदाएव", "सदैव", "सदोव", "सादैव"], correct: 1 },
+    { q: "2. 'सूर्योदय' शब्द का सही संधि-विच्छेद चुनिए:", options: ["सूर्य + दय", "सूर्यो + दय", "सूर्य + उदय", "सूरी + उदय"], correct: 2 },
+    { q: "3. 'प्रति + एक' के मेल से कौन-सा शब्द बनेगा?", options: ["प्रत्येक", "प्रतिक", "प्रत्यक", "प्रतिएक"], correct: 0 },
+    { q: "4. 'पवन' शब्द का सही संधि-विच्छेद क्या होगा?", options: ["पव + न", "पो + अन", "पौ + अन", "पा + वन"], correct: 1 },
+    { q: "5. 'पुस्तकालय' में कौन-सी संधि है?", options: ["गुण संधि", "यण संधि", "दीर्घ संधि", "अयादि संधि"], correct: 2 },
+    { q: "6. 'महेश' शब्द का सही संधि-विच्छेद क्या होगा?", options: ["मह + ईश", "महा + ईश", "महि + ईश", "मा + हेश"], correct: 1 },
+    { q: "7. 'सु + आगत' के मेल से कौन-सा शब्द बनेगा?", options: ["सुआगत", "स्वागत", "स्वगत", "सवागत"], correct: 1 },
+    { q: "8. 'नयन' शब्द का सही संधि-विच्छेद क्या होगा?", options: ["नय + न", "नै + अन", "ने + अन", "नो + अन"], correct: 2 },
+    { q: "9. 'इति + आदि' की सही संधि क्या होगी?", options: ["इतिआदि", "इत्यादि", "इतादि", "इत्यदि"], correct: 1 },
+    { q: "10. 'हिमालय' शब्द का सही संधि-विच्छेद क्या है?", options: ["हिम + आलय", "हिमो + लय", "हिमा + लय", "हिम + लय"], correct: 0 },
+    { q: "11. 'परोपकार' शब्द का संधि-विच्छेद चुनिए:", options: ["परो + उपकार", "पर + उपकार", "पर + अपकार", "पारा + उपकार"], correct: 1 },
+    { q: "12. 'रवीन्द्र' शब्द का सही संधि-विच्छेद क्या है?", options: ["रवि + इन्द्र", "रव + इन्द्र", "रवी + इन्द्र", "रवि + इंद्र"], correct: 0 },
+    { q: "13. 'सुरेन्द्र' का सही संधि-विच्छेद क्या होगा?", options: ["सुर + इन्द्र", "सु + इन्द्र", "सुरे + इन्द्र", "सुरा + इन्द्र"], correct: 0 },
+    { q: "14. 'अत्याचार' शब्द का संधि-विच्छेद क्या है?", options: ["अति + आचार", "अत + आचार", "अत्या + चार", "अति + चार"], correct: 0 },
+    { q: "15. 'गजानन' शब्द का सही संधि-विच्छेद क्या होगा?", options: ["गज + आनन", "गजा + नन", "गज + नान", "गीज + आनन"], correct: 0 }
+  ];
+
+  function loadQuiz() {
+    const container = document.getElementById('quiz-container');
+    if (!container) return;
+    let output = '';
+    quizData.forEach((item, index) => {
+      output += `<div class="quiz-q-box" style="margin-bottom:15px;">
+        <div class="quiz-q-title" style="font-weight:bold; font-size:14px; margin-bottom:6px;">${item.q}</div>
+        <div class="quiz-options" style="margin-left:15px; font-size:14px;">`;
+      item.options.forEach((opt, oIndex) => {
+        output += `<label style="display:block; margin-bottom:4px; cursor:pointer;"><input type="radio" name="q${index}" value="${oIndex}"> ${opt}</label>`;
+      });
+      output += `</div></div>`;
+    });
+    container.innerHTML = output;
+  }
+
+  function evaluateQuiz() {
+    let score = 0;
+    quizData.forEach((item, index) => {
+      const selected = document.querySelector(`input[name="q${index}"]:checked`);
+      if (selected && parseInt(selected.value) === item.correct) {
+        score++;
+      }
+    });
+    document.getElementById('quiz-result').innerHTML = `आपका स्कोर: ${score} / ${quizData.length}`;
+  }
+
+  window.onload = loadQuiz;
+</script>
+
 </html>
 
