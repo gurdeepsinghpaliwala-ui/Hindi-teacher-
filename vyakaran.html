@@ -642,6 +642,92 @@
 
   window.onload = loadQuiz;
 </script>
+    <div class="card" style="margin-top: 20px;">
+    <span class="badge badge-bhav">ऑनलाइन टेस्ट (15 प्रश्न)</span>
+    <h3>भाववाचक संज्ञा लाइव क्विज़</h3>
+    <p style="font-size: 13px; color: #64748b;">सही विकल्प चुनकर अपना स्कोर जाँचें:</p>
+    <div id="bhav-quiz-container"></div>
+    <button class="submit-btn" onclick="evaluateBhavQuiz()" style="background-color: #7c3aed; color: white; padding: 10px 18px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">क्विज़ सबमिट करें</button>
+    <div id="bhav-quiz-result" style="margin-top: 10px; font-weight: bold; font-size: 16px;"></div>
+    </div>
+  <script>
+  const quizData = [
+    { q: "1. 'सदा + एव' की सही संधि क्या होगी?", options: ["सदाएव", "सदैव", "सदोव", "सादैव"], correct: 1 },
+    { q: "2. 'सूर्योदय' शब्द का सही संधि-विच्छेद चुनिए:", options: ["सूर्य + दय", "सूर्यो + दय", "सूर्य + उदय", "सूरी + उदय"], correct: 2 },
+    { q: "3. 'प्रति + एक' के मेल से कौन-सा शब्द बनेगा?", options: ["प्रत्येक", "प्रतिक", "प्रत्यक", "प्रतिएक"], correct: 0 },
+    { q: "4. 'पवन' शब्द का सही संधि-विच्छेद क्या होगा?", options: ["पव + न", "पो + अन", "पौ + अन", "पा + वन"], correct: 1 },
+    { q: "5. 'पुस्तकालय' में कौन-सी संधि है?", options: ["गुण संधि", "यण संधि", "दीर्घ संधि", "अयादि संधि"], correct: 2 },
+    { q: "6. 'महेश' शब्द का सही संधि-विच्छेद क्या होगा?", options: ["मह + ईश", "महा + ईश", "महि + ईश", "मा + हेश"], correct: 1 },
+    { q: "7. 'सु + आगत' के मेल से कौन-सा शब्द बनेगा?", options: ["सुआगत", "स्वागत", "स्वगत", "सवागत"], correct: 1 },
+    { q: "8. 'नयन' शब्द का सही संधि-विच्छेद क्या होगा?", options: ["नय + न", "नै + अन", "ने + अन", "नो + अन"], correct: 2 },
+    { q: "9. 'इति + आदि' की सही संधि क्या होगी?", options: ["इतिआदि", "इत्यादि", "इतादि", "इत्यदि"], correct: 1 },
+    { q: "10. 'हिमालय' शब्द का सही संधि-विच्छेद क्या है?", options: ["हिम + आलय", "हिमो + लय", "हिमा + लय", "हिम + लय"], correct: 0 },
+    { q: "11. 'परोपकार' शब्द का संधि-विच्छेद चुनिए:", options: ["परो + उपकार", "पर + उपकार", "पर + अपकार", "पारा + उपकार"], correct: 1 },
+    { q: "12. 'रवीन्द्र' शब्द का सही संधि-विच्छेद क्या है?", options: ["रवि + इन्द्र", "रव + इन्द्र", "रवी + इन्द्र", "रवि + इंद्र"], correct: 0 },
+    { q: "13. 'सुरेन्द्र' का सही संधि-विच्छेद क्या होगा?", options: ["सुर + इन्द्र", "सु + इन्द्र", "सुरे + इन्द्र", "सुरा + इन्द्र"], correct: 0 },
+    { q: "14. 'अत्याचार' शब्द का संधि-विच्छेद क्या है?", options: ["अति + आचार", "अत + आचार", "अत्या + चार", "अति + चार"], correct: 0 },
+    { q: "15. 'गजानन' शब्द का सही संधि-विच्छेद क्या होगा?", options: ["गज + आनन", "गजा + नन", "गज + नान", "गीज + आनन"], correct: 0 }
+  ];
+
+  const bhavQuizData = [
+    { q: "1. 'नेता' जातिवाचक संज्ञा से कौन-सी भाववाचक संज्ञा बनेगी?", options: ["नेतापन", "नेतृत्व", "नेताई", "नेतात"], correct: 1 },
+    { q: "2. 'अपना' सर्वनाम से बनने वाली भाववाचक संज्ञा क्या है?", options: ["अपनापन", "अपनीता", "अपनेपन", "अपनताई"], correct: 0 },
+    { q: "3. 'खामोश' विशेषण में कौन-सा प्रत्यय लगाने से 'खामोशी' बनेगा?", options: ["-ता", "-पन", "-ई", "-आई"], correct: 2 },
+    { q: "4. 'लिखना' क्रिया शब्द से भाववाचक संज्ञा क्या बनेगी?", options: ["लिखाई", "लिखत", "लिखता", "लिखावट"], correct: 0 },
+    { q: "5. 'शीघ्र' अव्यय शब्द में 'ता' प्रत्यय लगाने से क्या बनेगा?", options: ["शीघ्रपन", "शीघ्रता", "शीघ्रई", "शीघ्रताएँ"], correct: 1 },
+    { q: "6. 'बूढ़ा' शब्द में 'आपा' प्रत्यय लगाने पर क्या बनेगा?", options: ["बुढ़ापन", "बुढ़ापा", "बूढ़ई", "बुढ़ता"], correct: 1 },
+    { q: "7. 'पंडित' शब्द से भाववाचक संज्ञा क्या बनेगी?", options: ["पंडिताई", "पंडितता", "पांडित्य", "पंडितपन"], correct: 2 },
+    { q: "8. 'मित्र' शब्द से कौन-सी भाववाचक संज्ञा बनती है?", options: ["मित्री", "मित्रता", "मित्रपन", "मैत्र"], correct: 1 },
+    { q: "9. 'सुन्दर' शब्द में 'ता' प्रत्यय जोड़ने से क्या बनेगा?", options: ["सुंदरी", "सुन्दरता", "सुंदरताई", "सुन्दरपन"], correct: 1 },
+    { q: "10. 'चतुर' शब्द से बनने वाली भाववाचक संज्ञा कौन-सी है?", options: ["चतुराई", "चतुरता", "चातुर्य", "उपर्युक्त सभी"], correct: 3 },
+    { q: "11. 'मीठा' विशेषण से भाववाचक संज्ञा क्या बनेगी?", options: ["मीठापन", "मिठास", "मीठाई", "मिष्टता"], correct: 1 },
+    { q: "12. 'काला' शब्द में 'इमा' प्रत्यय लगाने से क्या बनेगा?", options: ["कालिमा", "कालाई", "कालापन", "कालीता"], correct: 0 },
+    { q: "13. 'स्वस्थ' शब्द से भाववाचक संज्ञा का रूप क्या होगा?", options: ["स्वस्थता", "स्वास्थ", "स्वास्थ्य", "स्वस्थपन"], correct: 2 },
+    { q: "14. 'अहं' सर्वनाम शब्द से कौन-सी भाववाचक संज्ञा बनती है?", options: ["अहंकार", "अहंता", "अहत्व", "अहंपन"], correct: 0 },
+    { q: "15. 'लड़का' जातिवाचक संज्ञा से भाववाचक संज्ञा क्या बनेगी?", options: ["लड़कापन", "लड़कपन", "लड़काई", "लड़क्यता"], correct: 1 }
+  ];
+
+  function loadQuiz(containerId, data) {
+    const container = document.getElementById(containerId);
+    if (!container) return;
+    let output = '';
+    data.forEach((item, index) => {
+      output += `<div class="quiz-q-box" style="margin-bottom:15px;">
+        <div class="quiz-q-title" style="font-weight:bold; font-size:14px; margin-bottom:6px;">${item.q}</div>
+        <div class="quiz-options" style="margin-left:15px; font-size:14px;">`;
+      item.options.forEach((opt, oIndex) => {
+        output += `<label style="display:block; margin-bottom:4px; cursor:pointer;"><input type="radio" name="${containerId}_q${index}" value="${oIndex}"> ${opt}</label>`;
+      });
+      output += `</div></div>`;
+    });
+    container.innerHTML = output;
+  }
+
+  function evaluateQuiz(containerId, data, resultId) {
+    let score = 0;
+    data.forEach((item, index) => {
+      const selected = document.querySelector(`input[name="${containerId}_q${index}"]:checked`);
+      if (selected && parseInt(selected.value) === item.correct) {
+        score++;
+      }
+    });
+    document.getElementById(resultId).innerHTML = `आपका स्कोर: ${score} / ${data.length}`;
+  }
+
+  function evaluateSandhiQuiz() {
+    evaluateQuiz('quiz-container', quizData, 'quiz-result');
+  }
+
+  function evaluateBhavQuiz() {
+    evaluateQuiz('bhav-quiz-container', bhavQuizData, 'bhav-quiz-result');
+  }
+
+  window.onload = function() {
+    loadQuiz('quiz-container', quizData);
+    loadQuiz('bhav-quiz-container', bhavQuizData);
+  };
+      </script>
+  
 
 </html>
 
