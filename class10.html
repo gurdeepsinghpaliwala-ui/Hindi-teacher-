@@ -798,28 +798,492 @@
 
 <!-- Interactive Tab Script -->
 <script>
-  function openLessonTab(button, tabId) {
-    var card = button.closest('.card');
-    if (!card) return;
 
-    var allButtons = card.querySelectorAll('.tab-btn');
-    for (var i = 0; i < allButtons.length; i++) {
-      allButtons[i].classList.remove('active');
-    }
+/* ================================
+   TAB SYSTEM
+   ================================ */
 
-    var allContents = card.querySelectorAll('.tab-content');
-    for (var j = 0; j < allContents.length; j++) {
-      allContents[j].classList.remove('active');
-    }
+function openLessonTab(button, tabId) {
 
-    button.classList.add('active');
+  var card = button.closest('.card');
 
-    var target = card.querySelector('#' + tabId);
-    if (target) {
-      target.classList.add('active');
-    }
+  if (!card) return;
+
+  var allButtons = card.querySelectorAll('.tab-btn');
+
+  for (var i = 0; i < allButtons.length; i++) {
+    allButtons[i].classList.remove('active');
   }
-</script>
 
+  var allContents = card.querySelectorAll('.tab-content');
+
+  for (var j = 0; j < allContents.length; j++) {
+    allContents[j].classList.remove('active');
+  }
+
+  button.classList.add('active');
+
+  var target = card.querySelector('#' + tabId);
+
+  if (target) {
+    target.classList.add('active');
+  }
+}
+
+
+/* ================================
+   TEXT SAFE
+   ================================ */
+
+function escapeHTML(text) {
+
+  return String(text)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;')
+    .replace(/\n/g, '<br>');
+
+}
+
+
+/* ================================
+   🌸 नई कविता
+   ================================ */
+
+function addKavita(data) {
+
+  var section = document.getElementById('kavita-bhag');
+
+  if (!section) return;
+
+  var card = document.createElement('div');
+
+  card.className = 'card';
+
+  card.style.borderLeft = '5px solid #0284c7';
+
+  var html = '';
+
+  html += '<span class="badge badge-poem">कविता</span>';
+
+  html += '<h2 style="margin: 5px 0;">' +
+    escapeHTML(data.title) +
+    '</h2>';
+
+  html += '<p style="color: #64748b; margin-bottom: 20px;">';
+
+  if (data.author) {
+    html += '<strong>कवि:</strong> ' +
+      escapeHTML(data.author);
+  } else {
+    html += 'महत्वपूर्ण परीक्षा-उपयोगी प्रश्न एवं सरल उत्तर';
+  }
+
+  html += '</p>';
+
+  if (data.questions) {
+
+    data.questions.forEach(function(item, index) {
+
+      html += `
+        <div class="qa-box">
+
+          <h3>
+            <span class="q-tag">
+              प्र. ${index + 1}
+            </span>
+
+            ${escapeHTML(item[0])}
+          </h3>
+
+          <p class="ans-box">
+            <strong>उत्तर:</strong>
+            ${escapeHTML(item[1])}
+          </p>
+
+        </div>
+      `;
+
+    });
+
+  }
+
+  card.innerHTML = html;
+
+  section.appendChild(card);
+
+}
+
+
+/* ================================
+   📖 नया गद्य पाठ
+   ================================ */
+
+function addLesson(data) {
+
+  var section = document.getElementById('gadya-bhag');
+
+  if (!section) return;
+
+  var id = 'newLesson' +
+    Date.now() +
+    Math.floor(Math.random() * 1000);
+
+  var tab1 = id + 'tab1';
+  var tab2 = id + 'tab2';
+  var tab3 = id + 'tab3';
+
+  var card = document.createElement('div');
+
+  card.className = 'card';
+
+  card.style.borderLeft = '5px solid #16a34a';
+
+
+  function makeQuestions(list) {
+
+    if (!list || list.length === 0) {
+
+      return '<p style="color:#64748b;">' +
+        'अभी प्रश्न उपलब्ध नहीं हैं।' +
+        '</p>';
+
+    }
+
+    var html = '';
+
+    list.forEach(function(item, index) {
+
+      html += `
+        <div class="qa-box">
+
+          <h3>
+            <span class="q-tag">
+              प्र. ${index + 1}
+            </span>
+
+            ${escapeHTML(item[0])}
+          </h3>
+
+          <p class="ans-box">
+            <strong>उत्तर:</strong>
+            ${escapeHTML(item[1])}
+          </p>
+
+        </div>
+      `;
+
+    });
+
+    return html;
+
+  }
+
+
+  card.innerHTML = `
+
+    <span class="badge badge-lesson">
+      ${escapeHTML(data.type || 'कहानी')}
+    </span>
+
+    <h2 style="margin: 5px 0;">
+      पाठ : ${escapeHTML(data.title)}
+    </h2>
+
+    <p style="color: #64748b; margin-bottom: 15px;">
+
+      <strong>
+        ${escapeHTML(data.authorLabel || 'कहानीकार')}:
+      </strong>
+
+      ${escapeHTML(data.author || '')}
+
+    </p>
+
+
+    <div class="tab-container">
+
+      <button
+        type="button"
+        class="tab-btn active"
+        onclick="openLessonTab(this, '${tab1}')">
+        छोटे प्रश्न
+      </button>
+
+      <button
+        type="button"
+        class="tab-btn"
+        onclick="openLessonTab(this, '${tab2}')">
+        बड़े प्रश्न
+      </button>
+
+      <button
+        type="button"
+        class="tab-btn"
+        onclick="openLessonTab(this, '${tab3}')">
+        और बड़े प्रश्न
+      </button>
+
+    </div>
+
+
+    <div id="${tab1}" class="tab-content active">
+      ${makeQuestions(data.short)}
+    </div>
+
+
+    <div id="${tab2}" class="tab-content">
+      ${makeQuestions(data.long)}
+    </div>
+
+
+    <div id="${tab3}" class="tab-content">
+      ${makeQuestions(data.veryLong)}
+    </div>
+
+  `;
+
+  section.appendChild(card);
+
+}
+
+
+/* ================================
+   पुराने पाठ में प्रश्न जोड़ना
+   ================================ */
+
+function addQuestion(
+  lessonTitle,
+  tab,
+  question,
+  answer
+) {
+
+  var section =
+    document.getElementById('gadya-bhag');
+
+  if (!section) return;
+
+  var cards =
+    section.querySelectorAll('.card');
+
+  var targetCard = null;
+
+
+  for (var i = 0; i < cards.length; i++) {
+
+    var heading =
+      cards[i].querySelector('h2');
+
+    if (!heading) continue;
+
+    if (
+      heading.textContent
+        .trim()
+        .indexOf(lessonTitle) !== -1
+    ) {
+
+      targetCard = cards[i];
+
+      break;
+
+    }
+
+  }
+
+
+  if (!targetCard) {
+
+    console.warn(
+      'Lesson नहीं मिला: ' + lessonTitle
+    );
+
+    return;
+
+  }
+
+
+  var tabNumber = 0;
+
+  if (tab === 'long') {
+    tabNumber = 1;
+  }
+
+  if (tab === 'veryLong') {
+    tabNumber = 2;
+  }
+
+
+  var contents =
+    targetCard.querySelectorAll('.tab-content');
+
+  var target =
+    contents[tabNumber];
+
+  if (!target) return;
+
+
+  var questions =
+    target.querySelectorAll('.qa-box');
+
+  var number =
+    questions.length + 1;
+
+
+  var box =
+    document.createElement('div');
+
+  box.className = 'qa-box';
+
+
+  box.innerHTML = `
+
+    <h3>
+
+      <span class="q-tag">
+        प्र. ${number}
+      </span>
+
+      ${escapeHTML(question)}
+
+    </h3>
+
+    <p class="ans-box">
+
+      <strong>उत्तर:</strong>
+
+      ${escapeHTML(answer)}
+
+    </p>
+
+  `;
+
+
+  target.appendChild(box);
+
+}
+
+
+/* ================================
+   ✏️ यहां से नया CONTENT डालना है
+   ================================ */
+
+var CONTENT = {
+
+  /* 🌸 नई कविताएं */
+
+  kavita: [
+
+    /*
+    {
+      title: "नई कविता",
+      author: "कवि का नाम",
+
+      questions: [
+
+        ["प्रश्न 1", "उत्तर 1"],
+        ["प्रश्न 2", "उत्तर 2"]
+
+      ]
+    }
+    */
+
+  ],
+
+
+  /* 📖 नए गद्य पाठ */
+
+  lesson: [
+
+    /*
+    {
+      title: "नया पाठ",
+      author: "लेखक का नाम",
+      authorLabel: "कहानीकार",
+
+      short: [
+        ["छोटा प्रश्न", "उत्तर"]
+      ],
+
+      long: [
+        ["बड़ा प्रश्न", "उत्तर"]
+      ],
+
+      veryLong: [
+        ["और बड़ा प्रश्न", "उत्तर"]
+      ]
+    }
+    */
+
+  ],
+
+
+  /* 📚 पुराने पाठ में नया प्रश्न */
+
+  existingQuestions: [
+
+    /*
+    {
+      lesson: "ममता",
+      tab: "short",
+      question: "नया प्रश्न?",
+      answer: "नया उत्तर।"
+    }
+    */
+
+  ]
+
+};
+
+
+/* ================================
+   AUTOMATIC LOAD
+   ================================ */
+
+document.addEventListener(
+  'DOMContentLoaded',
+  function() {
+
+
+    /* नई कविताएं */
+
+    CONTENT.kavita.forEach(
+      function(item) {
+        addKavita(item);
+      }
+    );
+
+
+    /* नए पाठ */
+
+    CONTENT.lesson.forEach(
+      function(item) {
+        addLesson(item);
+      }
+    );
+
+
+    /* पुराने पाठ में नए प्रश्न */
+
+    CONTENT.existingQuestions.forEach(
+      function(item) {
+
+        addQuestion(
+          item.lesson,
+          item.tab,
+          item.question,
+          item.answer
+        );
+
+      }
+    );
+
+  }
+);
+
+</script>
+  
 </body>
 </html>
