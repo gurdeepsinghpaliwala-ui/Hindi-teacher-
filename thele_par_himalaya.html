@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>पाठ 16 : ठेले पर हिमालय</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+
+body{
+  margin:0;
+  font-family:"Noto Sans Devanagari","Mangal",Arial,sans-serif;
+  background:linear-gradient(135deg,#eff6ff,#f0fdf4);
+  color:#172033;
+  line-height:1.7;
+}
+
+.container{
+  width:94%;
+  max-width:900px;
+  margin:auto;
+  padding:15px 0 35px;
+}
+
+/* HEADER */
+.header{
+  background:linear-gradient(135deg,#075985,#0284c7,#0ea5e9);
+  color:white;
+  padding:25px 16px;
+  border-radius:0 0 25px 25px;
+  text-align:center;
+  box-shadow:0 8px 25px rgba(2,132,199,.25);
+}
+
+.header h1{
+  margin:0;
+  font-size:27px;
+}
+
+.header p{
+  margin:7px 0 0;
+  font-size:16px;
+}
+
+/* IMAGE */
+.mountain-img{
+  width:100%;
+  max-height:250px;
+  object-fit:cover;
+  border-radius:18px;
+  margin:18px 0;
+  box-shadow:0 6px 18px rgba(0,0,0,.12);
+}
+
+/* CARD */
+.card{
+  background:white;
+  margin:16px 0;
+  padding:18px;
+  border-radius:18px;
+  box-shadow:0 5px 18px rgba(15,23,42,.08);
+}
+
+/* TABS */
+.tab-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-bottom:15px;
+}
+
+.tab-btn{
+  flex:1;
+  min-width:120px;
+  border:0;
+  padding:12px 8px;
+  border-radius:12px;
+  background:#e0f2fe;
+  color:#075985;
+  font-weight:bold;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.tab-btn.active{
+  background:linear-gradient(135deg,#0284c7,#0369a1);
+  color:white;
+  box-shadow:0 4px 10px rgba(3,105,161,.25);
+}
+
+.tab-content{
+  display:none;
+}
+
+.tab-content.active{
+  display:block;
+}
+
+/* QUESTION */
+.question{
+  background:#f8fafc;
+  border-radius:14px;
+  padding:14px;
+  margin:13px 0;
+  border-left:5px solid #0284c7;
+}
+
+.question-title{
+  font-weight:bold;
+  color:#0f172a;
+  margin-bottom:8px;
+}
+
+/* ANSWER */
+.answer{
+  background:linear-gradient(135deg,#f0fdf4,#ecfdf5);
+  border-left:5px solid #16a34a;
+  padding:12px 14px;
+  border-radius:10px;
+  margin-top:8px;
+  color:#14532d;
+}
+
+.answer strong{
+  color:#15803d;
+}
+
+/* SECTION TITLE */
+.section-title{
+  color:#075985;
+  text-align:center;
+  margin:8px 0 18px;
+}
+
+/* QUIZ */
+.quiz-card{
+  background:white;
+  padding:18px;
+  border-radius:18px;
+  box-shadow:0 5px 18px rgba(15,23,42,.08);
+  margin-top:18px;
+}
+
+.quiz-question{
+  background:#f8fafc;
+  border-radius:14px;
+  padding:15px;
+  margin:15px 0;
+  border:1px solid #e2e8f0;
+}
+
+.option{
+  display:block;
+  width:100%;
+  margin:8px 0;
+  padding:11px;
+  border:1px solid #cbd5e1;
+  border-radius:10px;
+  background:white;
+  text-align:left;
+  cursor:pointer;
+  font-size:14px;
+}
+
+.option:hover{
+  background:#eff6ff;
+}
+
+.option.correct{
+  background:#dcfce7;
+  border-color:#16a34a;
+  color:#166534;
+}
+
+.option.wrong{
+  background:#fee2e2;
+  border-color:#dc2626;
+  color:#991b1b;
+}
+
+.feedback{
+  font-weight:bold;
+  margin-top:8px;
+}
+
+/* BACK */
+.back-btn{
+  display:block;
+  text-align:center;
+  text-decoration:none;
+  background:linear-gradient(135deg,#7c3aed,#a855f7);
+  color:white;
+  padding:13px;
+  border-radius:12px;
+  font-weight:bold;
+  margin-top:25px;
+}
+
+/* FOOTER */
+.footer{
+  text-align:center;
+  color:#64748b;
+  font-size:13px;
+  margin-top:20px;
+}
+
+/* MOBILE */
+@media(max-width:600px){
+  .header h1{
+    font-size:23px;
+  }
+
+  .tab-btn{
+    min-width:45%;
+    font-size:13px;
+  }
+
+  .card{
+    padding:14px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <h1>🏔️ पाठ 16 : ठेले पर हिमालय</h1>
+  <p>लेखक — डॉ० धर्मवीर भारती</p>
+</div>
+
+<div class="container">
+
+<!-- PICTURE 1 -->
+<img
+  class="mountain-img"
+  src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&w=1200&q=80"
+  alt="हिमालय पर्वत">
+
+<div class="card">
+
+  <h2 class="section-title">📚 पाठ सामग्री</h2>
+
+  <div class="tab-buttons">
+
+    <button type="button"
+            class="tab-btn active"
+            onclick="openTab('shortQ',this)">
+      📘 छोटे प्रश्न
+    </button>
+
+    <button type="button"
+            class="tab-btn"
+            onclick="openTab('bigQ',this)">
+      📝 बड़े प्रश्न
+    </button>
+
+    <button type="button"
+            class="tab-btn"
+            onclick="openTab('longQ',this)">
+      📚 6–7 पंक्तियाँ
+    </button>
+
+    <button type="button"
+            class="tab-btn"
+            onclick="openTab('bhasha',this)">
+      🔤 भाषा-बोध
+    </button>
+
+  </div>
+
+
+  <!-- छोटे प्रश्न -->
+  <div id="shortQ" class="tab-content active">
+
+    <div class="question">
+      <div class="question-title">
+        1. लेखक कौसानी क्यों गए थे?
+      </div>
+
+      <div class="answer">
+        <strong>उत्तर:</strong>
+        लेखक हिमालय पर जमी हुई बर्फ की शोभा को बहुत पास से देखने के लिए कौसानी गए थे।
+      </div>
+    </div>
+
+
+    <div class="question">
+      <div class="question-title">
+        2. बस पर सवार लेखक ने किस नदी का ज़िक्र किया है?
+      </div>
+
+      <div class="answer">
+        <strong>उत्तर:</strong>
+        बस पर सवार लेखक ने साथ-साथ बहने वाली कोसी नदी का ज़िक्र किया है।
+      </div>
+    </div>
+
+
+    <div class="question">
+      <div class="question-title">
+        3. कौसानी कहाँ बसा हुआ है?
+      </div>
+
+      <div class="answer">
+        <strong>उत्तर:</strong>
+        सोमेश्वर की घाटी के उत्तर में ऊँची पर्वतमाला के शिखर पर कौसानी बसा हुआ है।
+      </div>
+    </div>
+
+
+    <div class="question">
+      <div class="question-title">
+        4. लेखक और उनके मित्र कहाँ ठहरे थे?
+      </div>
+
+      <div class="answer">
+        <strong>उत्तर:</strong>
+        लेखक और उनके मित्र डाक बंगले में ठहरे थे।
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- बड़े प्रश्न -->
+  <div id="bigQ" class="tab-content">
+
+    <div class="question">
+      <div class="question-title">
+        1. लेखक को ऐसा क्यों लगा जैसे वे ठगे गए हैं?
+      </div>
+
+      <div class="answer">
+        <strong>उत्तर:</strong>
+        कौसानी के अड्डे पर जाकर जब बस रुकी तो छोटा-सा, बिल्कुल उजड़ा-सा गाँव दिखाई दिया।
+        बरफ़ का कहीं नाम निशान न देखकर लेखक को ऐसा लगा कि जैसे वे ठगे गए हैं।
+      </div>
+    </div>
+
+
+    <div class="question">
+      <div class="question-title">
+        2. सबसे पहले बर्फ दिखाई देने का वर्णन लेखक ने कैसे किया है?
+      </div>
+
+      <div class="answer">
+        <strong>उत्तर:</strong>
+        लेखक को बर्फ बादलों के टुकड़े जैसी लगी थी।
+        उसमें सफेद, रुपहला और हल्का नीला रंग दिखाई दे रहा था।
+        उसे ऐसा लगा जैसे हिमालय पर्वत को बर्फ ने ढक रखा हो।
+        कोई बाल स्वभाव वाला शिखर बादलों की खिड़की से झाँक रहा हो।
+      </div>
+    </div>
+
+
+    <div class="question">
+      <div class="question-title">
+        3. खानसामे ने सब मित्रों को खुशकिस्मत क्यों कहा?
+      </div>
+
+      <div class="answer">
+        <strong>उत्तर:</strong>
+        खानसामे ने सब मित्रों को खुशकिस्मत इसलिए कहा क्योंकि उन्हें वहाँ आते ही पहले दिन बर्फ के दर्शन हो गए थे।
+        इससे पहले 14 पर्यटक पूरा हफ्ता वहाँ रुके थे, लेकिन बादलों के कारण उन्हें बर्फ दिखाई नहीं दी थी।
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- लंबे प्रश्न -->
+  <div id="longQ" class="tab-content">
+
+    <div class="question">
+      <div class="question-title">
+        1. कोसी से कौसानी तक में लेखक को किन-किन दृश्यों ने आकर्षित किया?
+      </div>
+
+      <div class="answer">
+        <strong>उत्तर:</strong><br>
+        कोसी से कौसानी तक लेखक को बहुत से प्राकृतिक दृश्य दिखाई दिए।
+        सोमेश्वर की हरी-भरी घाटी के उत्तर में ऊँची पर्वतमाला के शिखर पर कौसानी बसा हुआ था।
+        नीचे हरे-भरे कालीनों जैसी सुंदर वनस्पतियाँ फैली हुई थीं।
+        घाटी के पार हरे खेत, नदियाँ और वन दिखाई दे रहे थे।
+        बादल हटने पर पर्वतराज हिमालय दिखाई दिया।
+        ग्लेशियरों में डूबता सूर्य पिघले हुए केसर जैसा रंग दिखा रहा था।
+        बर्फ लाल कमल के फूलों जैसी सुंदर प्रतीत हो रही थी।
+      </div>
+    </div>
+
+
+    <div class="question">
+      <div class="question-title">
+        2. लेखक को ऐसा क्यों लगा कि वे किसी दूसरे ही लोक में चले आए हैं?
+      </div>
+
+      <div class="answer">
+        <strong>उत्तर:</strong><br>
+        लेखक अपने मित्रों के साथ सोमेश्वर की घाटी से चला तो उसे उत्तर दिशा में पर्वत शिखर पर कौसानी दिखाई दिया।
+        सारी घाटी में अपार सुंदरता बिखरी हुई थी।
+        हरे-भरे खेत मखमली कालीन जैसे लग रहे थे।
+        गेरू के लाल-लाल रास्ते और बेलों की लड़ियों जैसी सुंदर नदियाँ दिखाई दे रही थीं।
+        चारों ओर रंग-बिरंगे और अद्भुत प्राकृतिक दृश्य थे।
+        इन सुंदर दृश्यों को देखकर लेखक को लगा कि वे किसी दूसरे ही लोक में चले आए हैं।
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- भाषा-बोध -->
+  <div id="bhasha" class="tab-content">
+
+    <h3>🔹 संधि</h3>
+
+    <div class="answer">
+      हिम + आलय = हिमालय<br>
+      हर्ष + अतिरेक = हर्षातिरेक<br>
+      सोम + ईश्वर = सोमेश्वर<br>
+      वि + आकुल = व्याकुल
+    </div>
+
+
+    <h3>🔹 एक शब्द</h3>
+
+    <div class="answer">
+      अच्छी किस्मत वाला — <strong>भाग्यशाली</strong><br>
+      चार रास्तों का समूह — <strong>चौराहा</strong><br>
+      अपने में लीन — <strong>आत्मलीन</strong><br>
+      जहाँ कोई न रहता हो — <strong>निर्जन</strong><br>
+      जिसका कोई पार न हो — <strong>अपार</strong><br>
+      जिसमें कोई कलंक न हो — <strong>निष्कलंक</strong><br>
+      जिसकी कोई सीमा न हो — <strong>असीम</strong>
+    </div>
+
+
+    <h3>🔹 पर्यायवाची</h3>
+
+    <div class="answer">
+      पहाड़ — पर्वत, गिरि, नग<br>
+      धरती — धरा, भूमि, भू<br>
+      मुँह — आनन, मुख<br>
+      बादल — मेघ, घन, जलद<br>
+      सूरज — सूर्य, तरणि, सविता<br>
+      कमल — पंकज, जलज, नीरज<br>
+      नदी — तरंगिणी, निर्झरिणी, तटिनी<br>
+      हाथ — कर, हस्त
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- PICTURE 2 -->
+<img
+  class="mountain-img"
+  src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80"
+  alt="पर्वत और हिमालय">
+
+
+<!-- OBJECTIVE QUIZ -->
+<div class="quiz-card">
+
+  <h2 class="section-title">
+    🎯 Objective Type Quiz
+  </h2>
+
+  <p style="text-align:center;color:#64748b;">
+    सही उत्तर पर टैप करें
+  </p>
+
+
+  <!-- Q1 -->
+  <div class="quiz-question">
+    <strong>1. लेखक कौसानी क्यों गए थे?</strong>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      A. खेल खेलने
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,true)">
+      B. हिमालय की बर्फ की शोभा देखने
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      C. व्यापार करने
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      D. खेती देखने
+    </button>
+
+    <div class="feedback"></div>
+  </div>
+
+
+  <!-- Q2 -->
+  <div class="quiz-question">
+    <strong>2. बस पर सवार लेखक ने किस नदी का ज़िक्र किया है?</strong>
+
+    <button class="option" onclick="checkAnswer(this,true)">
+      A. कोसी
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      B. गोमती
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      C. गंगा
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      D. यमुना
+    </button>
+
+    <div class="feedback"></div>
+  </div>
+
+
+  <!-- Q3 -->
+  <div class="quiz-question">
+    <strong>3. कौसानी कहाँ बसा हुआ है?</strong>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      A. समुद्र के किनारे
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,true)">
+      B. सोमेश्वर की घाटी के उत्तर में ऊँची पर्वतमाला के शिखर पर
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      C. नदी के किनारे
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      D. मैदान में
+    </button>
+
+    <div class="feedback"></div>
+  </div>
+
+
+  <!-- Q4 -->
+  <div class="quiz-question">
+    <strong>4. लेखक और उनके मित्र कहाँ ठहरे थे?</strong>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      A. होटल में
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,true)">
+      B. डाक बंगले में
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      C. मंदिर में
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      D. स्कूल में
+    </button>
+
+    <div class="feedback"></div>
+  </div>
+
+
+  <!-- Q5 -->
+  <div class="quiz-question">
+    <strong>5. कौसानी के अड्डे पर पहुँचकर लेखक को कैसा लगा?</strong>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      A. बहुत खुश
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,true)">
+      B. जैसे वे ठगे गए हों
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      C. बहुत डर
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      D. बहुत गुस्सा
+    </button>
+
+    <div class="feedback"></div>
+  </div>
+
+
+  <!-- Q6 -->
+  <div class="quiz-question">
+    <strong>6. सबसे पहले बर्फ लेखक को कैसी लगी?</strong>
+
+    <button class="option" onclick="checkAnswer(this,true)">
+      A. बादलों के टुकड़े जैसी
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      B. पत्थर जैसी
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      C. फूल जैसी
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      D. पानी जैसी
+    </button>
+
+    <div class="feedback"></div>
+  </div>
+
+
+  <!-- Q7 -->
+  <div class="quiz-question">
+    <strong>7. बर्फ में कौन-कौन से रंग दिखाई दे रहे थे?</strong>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      A. लाल और पीला
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,true)">
+      B. सफेद, रुपहला और हल्का नीला
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      C. हरा और काला
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      D. नारंगी और लाल
+    </button>
+
+    <div class="feedback"></div>
+  </div>
+
+
+  <!-- Q8 -->
+  <div class="quiz-question">
+    <strong>8. खानसामे ने मित्रों को खुशकिस्मत क्यों कहा?</strong>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      A. उन्हें अच्छा खाना मिला
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,true)">
+      B. उन्हें पहले ही दिन बर्फ दिखाई दी
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      C. उन्हें नया घर मिला
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      D. उन्हें पुरस्कार मिला
+    </button>
+
+    <div class="feedback"></div>
+  </div>
+
+
+  <!-- Q9 -->
+  <div class="quiz-question">
+    <strong>9. पहले आए 14 पर्यटकों को बर्फ क्यों नहीं दिखाई दी?</strong>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      A. वे जल्दी चले गए
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,true)">
+      B. बादलों के कारण
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      C. बारिश के कारण
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      D. रास्ता बंद था
+    </button>
+
+    <div class="feedback"></div>
+  </div>
+
+
+  <!-- Q10 -->
+  <div class="quiz-question">
+    <strong>10. सोमेश्वर की घाटी में खेत कैसे लग रहे थे?</strong>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      A. पत्थरों जैसे
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,true)">
+      B. मखमली कालीन जैसे
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      C. समुद्र जैसे
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      D. रेगिस्तान जैसे
+    </button>
+
+    <div class="feedback"></div>
+  </div>
+
+
+  <!-- Q11 -->
+  <div class="quiz-question">
+    <strong>11. बादल हटने पर लेखक को क्या दिखाई दिया?</strong>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      A. समुद्र
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,true)">
+      B. हिमालय
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      C. शहर
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      D. जंगल
+    </button>
+
+    <div class="feedback"></div>
+  </div>
+
+
+  <!-- Q12 -->
+  <div class="quiz-question">
+    <strong>12. लेखक को दूसरे लोक जैसा क्यों लगा?</strong>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      A. वहाँ बहुत लोग थे
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,true)">
+      B. प्राकृतिक दृश्य बहुत सुंदर और अद्भुत थे
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      C. वहाँ बहुत दुकानें थीं
+    </button>
+
+    <button class="option" onclick="checkAnswer(this,false)">
+      D. वहाँ बहुत शोर था
+    </button>
+
+    <div class="feedback"></div>
+  </div>
+
+</div>
+
+
+<!-- BACK BUTTON -->
+<a href="class10.html" class="back-btn">
+  ⬅️ कक्षा 10 हिन्दी पर वापस जाएँ
+</a>
+
+
+<div class="footer">
+  📚 कक्षा 10 हिन्दी • पाठ 16 : ठेले पर हिमालय
+</div>
+
+</div>
+
+
+<script>
+
+/* TABS */
+function openTab(tabId,button){
+
+  var buttons=document.getElementsByClassName("tab-btn");
+  var contents=document.getElementsByClassName("tab-content");
+
+  for(var i=0;i<buttons.length;i++){
+    buttons[i].classList.remove("active");
+  }
+
+  for(var j=0;j<contents.length;j++){
+    contents[j].classList.remove("active");
+    contents[j].style.display="none";
+  }
+
+  button.classList.add("active");
+
+  var target=document.getElementById(tabId);
+
+  if(target){
+    target.classList.add("active");
+    target.style.display="block";
+  }
+}
+
+
+/* QUIZ */
+function checkAnswer(button,isCorrect){
+
+  var parent=button.parentElement;
+  var options=parent.getElementsByClassName("option");
+  var feedback=parent.getElementsByClassName("feedback")[0];
+
+  for(var i=0;i<options.length;i++){
+    options[i].disabled=true;
+  }
+
+  if(isCorrect){
+
+    button.classList.add("correct");
+
+    feedback.innerHTML="✅ सही उत्तर! बहुत बढ़िया।";
+    feedback.style.color="#15803d";
+
+  }else{
+
+    button.classList.add("wrong");
+
+    feedback.innerHTML="❌ गलत उत्तर। सही उत्तर हरे रंग में है।";
+    feedback.style.color="#dc2626";
+
+    for(var j=0;j<options.length;j++){
+
+      var text=options[j].innerText.toLowerCase();
+
+      if(
+        (text.indexOf("हिमालय की बर्फ की शोभा")!==-1) ||
+        (text==="a. कोसी") ||
+        (text.indexOf("सोमेश्वर की घाटी के उत्तर")!==-1) ||
+        (text.indexOf("डाक बंगले")!==-1) ||
+        (text.indexOf("जैसे वे ठगे गए")!==-1) ||
+        (text.indexOf("बादलों के टुकड़े")!==-1) ||
+        (text.indexOf("सफेद, रुपहला")!==-1) ||
+        (text.indexOf("पहले ही दिन बर्फ")!==-1) ||
+        (text.indexOf("बादलों के कारण")!==-1) ||
+        (text.indexOf("मखमली कालीन")!==-1) ||
+        (text==="b. हिमालय") ||
+        (text.indexOf("प्राकृतिक दृश्य बहुत सुंदर")!==-1)
+      ){
+        options[j].classList.add("correct");
+      }
+
+    }
+  }
+}
+
+</script>
+
+</body>
+  </html>
