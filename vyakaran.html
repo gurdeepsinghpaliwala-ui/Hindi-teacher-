@@ -85,6 +85,14 @@
       color: white;
     }
 
+    /* Inactive Topics */
+    .topic-links a.inactive {
+      background: #e5e7eb;
+      color: #9ca3af;
+      cursor: not-allowed;
+      pointer-events: none;
+    }
+
     .card {
       background: white;
       padding: 20px;
@@ -94,30 +102,25 @@
       border: 1px solid #f1f5f9;
     }
 
-    /* अलग-अलग अध्यायों के लिए विशिष्ट रंगीन शीर्षक और बैज */
-    .title-sandhi { color: #2563eb; border-left: 5px solid #3b82f6; }
-    .badge-sandhi { background: #dbeafe; color: #1d4ed8; }
+    .title-sandhi {
+      color: #2563eb;
+      border-left: 5px solid #3b82f6;
+    }
 
-    .title-bhav { color: #7c3aed; border-left: 5px solid #8b5cf6; }
-    .badge-bhav { background: #ede9fe; color: #6d28d9; }
+    .badge-sandhi {
+      background: #dbeafe;
+      color: #1d4ed8;
+    }
 
-    .title-visheshan { color: #059669; border-left: 5px solid #10b981; }
-    .badge-visheshan { background: #d1fae5; color: #047857; }
+    .title-bhav {
+      color: #7c3aed;
+      border-left: 5px solid #8b5cf6;
+    }
 
-    .title-anek { color: #d97706; border-left: 5px solid #f59e0b; }
-    .badge-anek { background: #fef3c7; color: #b45309; }
-
-    .title-muhavare { color: #dc2626; border-left: 5px solid #ef4444; }
-    .badge-muhavare { background: #fee2e2; color: #b91c1c; }
-
-    .title-lokokti { color: #db2777; border-left: 5px solid #ec4899; }
-    .badge-lokokti { background: #fce7f3; color: #be185d; }
-
-    .title-vilom { color: #4f46e5; border-left: 5px solid #6366f1; }
-    .badge-vilom { background: #e0e7ff; color: #3730a3; }
-
-    .title-samas { color: #0891b2; border-left: 5px solid #06b6d4; }
-    .badge-samas { background: #cffafe; color: #0e7490; }
+    .badge-bhav {
+      background: #ede9fe;
+      color: #6d28d9;
+    }
 
     .section-title {
       font-size: 20px;
@@ -141,37 +144,94 @@
       margin-top: 10px;
       margin-bottom: 15px;
     }
+
     th, td {
       border: 1px solid #cbd5e1;
       padding: 8px 10px;
       text-align: left;
       font-size: 13px;
     }
+
     th {
       background-color: #f1f5f9;
       color: #334155;
     }
+
     tr:nth-child(even) {
       background-color: #f8fafc;
     }
 
-    .mcq-box { margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px dashed #e2e8f0; }
-    .mcq-question { font-weight: bold; font-size: 14px; margin-bottom: 6px; color: #1e293b; }
-    .options-list { margin-left: 15px; font-size: 14px; color: #334155; }
-    
-    .quiz-q-box { margin-bottom: 15px; padding-bottom: 10px; border-bottom: 1px dashed #e2e8f0; }
-    .quiz-q-title { font-weight: bold; font-size: 14px; margin-bottom: 6px; color: #1e293b; }
-    .quiz-options label {
-      display: block; background: #f8fafc; padding: 6px 10px;
-      border-radius: 6px; border: 1px solid #e2e8f0; margin-bottom: 4px;
-      cursor: pointer; font-size: 13px;
+    .mcq-box {
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed #e2e8f0;
     }
-    .quiz-options label:hover { background: #f1f5f9; }
-    
-    .submit-btn { background-color: #059669; color: white; border: none; padding: 12px 20px; border-radius: 8px; cursor: pointer; font-size: 15px; font-weight: bold; width: 100%; margin-top: 15px; }
-    .submit-btn:hover { background-color: #047857; }
 
-    #quiz-result, #bhav-quiz-result { margin-top: 15px; font-weight: bold; font-size: 16px; text-align: center; }
+    .mcq-question {
+      font-weight: bold;
+      font-size: 14px;
+      margin-bottom: 6px;
+      color: #1e293b;
+    }
+
+    .options-list {
+      margin-left: 15px;
+      font-size: 14px;
+      color: #334155;
+    }
+
+    .quiz-q-box {
+      margin-bottom: 15px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed #e2e8f0;
+    }
+
+    .quiz-q-title {
+      font-weight: bold;
+      font-size: 14px;
+      margin-bottom: 6px;
+      color: #1e293b;
+    }
+
+    .quiz-options label {
+      display: block;
+      background: #f8fafc;
+      padding: 6px 10px;
+      border-radius: 6px;
+      border: 1px solid #e2e8f0;
+      margin-bottom: 4px;
+      cursor: pointer;
+      font-size: 13px;
+    }
+
+    .quiz-options label:hover {
+      background: #f1f5f9;
+    }
+
+    .submit-btn {
+      background-color: #059669;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: bold;
+      width: 100%;
+      margin-top: 15px;
+    }
+
+    .submit-btn:hover {
+      background-color: #047857;
+    }
+
+    #quiz-result,
+    #bhav-quiz-result {
+      margin-top: 15px;
+      font-weight: bold;
+      font-size: 16px;
+      text-align: center;
+    }
   </style>
 </head>
 
@@ -186,28 +246,84 @@
 
   <a class="back-btn" href="class10.html">वापस Class 10</a>
 
+  <!-- व्याकरण विषय सूची -->
   <div class="topics-menu">
+
     <h3>व्याकरण विषय सूची:</h3>
+
     <div class="topic-links">
-      <a href="#sandhi">1. संधि और संधि-विच्छेद</a>
-      <a href="#bhavvachak">2. भाववाचक संज्ञा</a>
-      <a href="#visheshan">3. विशेषण निर्माण</a>
-      <a href="#anek-shabd">4. अनेक शब्दों के लिए एक शब्द</a>
-      <a href="#muhavare">5. मुहावरे</a>
-      <a href="#lokokti">6. लोकोक्तियाँ</a>
-      <a href="#vilom">7. विलोम शब्द</a>
-      <a href="#samas">8. समास</a>
+
+      <!-- ACTIVE -->
+      <a href="#sandhi">
+        1. संधि और संधि-विच्छेद
+      </a>
+
+      <!-- ACTIVE -->
+      <a href="#bhavvachak">
+        2. भाववाचक संज्ञा
+      </a>
+
+      <!-- INACTIVE -->
+      <a href="#visheshan" class="inactive">
+        3. विशेषण निर्माण
+      </a>
+
+      <!-- SEPARATE FILE ACTIVE -->
+      <a href="anek_shabdon_ek_shabd.html">
+        4. अनेक शब्दों के लिए एक शब्द
+      </a>
+
+      <!-- INACTIVE -->
+      <a href="#muhavare" class="inactive">
+        5. मुहावरे
+      </a>
+
+      <!-- INACTIVE -->
+      <a href="#lokokti" class="inactive">
+        6. लोकोक्तियाँ
+      </a>
+
+      <!-- INACTIVE -->
+      <a href="#vilom" class="inactive">
+        7. विलोम शब्द
+      </a>
+
+      <!-- INACTIVE -->
+      <a href="#samas" class="inactive">
+        8. समास
+      </a>
+
     </div>
   </div>
 
-  <!-- 1. संधि और संधि-विच्छेद -->
-  <div id="sandhi" class="section-title title-sandhi">1. संधि और संधि-विच्छेद</div>
+
+  <!-- ================================================= -->
+  <!-- 1. संधि -->
+  <!-- ================================================= -->
+
+  <div id="sandhi" class="section-title title-sandhi">
+    1. संधि और संधि-विच्छेद
+  </div>
 
   <div class="card">
-    <span class="badge badge-sandhi">महत्वपूर्ण शब्द सारणी (50 शब्द)</span>
+
+    <span class="badge badge-sandhi">
+      महत्वपूर्ण शब्द सारणी (50 शब्द)
+    </span>
+
     <h3>संधि-विच्छेद और संधि शब्द संग्रह</h3>
+
     <table>
-      <tr><th>क्र.</th><th>संधि-विच्छेद</th><th>संधि शब्द</th><th>क्र.</th><th>संधि-विच्छेद</th><th>संधि शब्द</th></tr>
+
+      <tr>
+        <th>क्र.</th>
+        <th>संधि-विच्छेद</th>
+        <th>संधि शब्द</th>
+        <th>क्र.</th>
+        <th>संधि-विच्छेद</th>
+        <th>संधि शब्द</th>
+      </tr>
+
       <tr><td>1</td><td>सत्य + अर्थ</td><td>सत्यार्थ</td><td>26</td><td>जल + ऊर्मि</td><td>जलोर्मि</td></tr>
       <tr><td>2</td><td>महा + ईश</td><td>महेश</td><td>27</td><td>महा + उत्सव</td><td>महोत्सव</td></tr>
       <tr><td>3</td><td>पर + उपकार</td><td>परोपकार</td><td>28</td><td>सप्त + ऋषि</td><td>सप्तर्षि</td></tr>
@@ -233,182 +349,226 @@
       <tr><td>23</td><td>रमा + ईश</td><td>रमेश</td><td>48</td><td>पो + अन</td><td>पवन</td></tr>
       <tr><td>24</td><td>वीर + उचित</td><td>वीरोचित</td><td>49</td><td>नौ + इक</td><td>नाविक</td></tr>
       <tr><td>25</td><td>सर्व + उदय</td><td>सर्वोदय</td><td>50</td><td>पौ + अन</td><td>पावन</td></tr>
+
     </table>
   </div>
 
+
   <div class="card">
-    <span class="badge badge-sandhi">वस्तुनिष्ठ प्रश्न (25 MCQs)</span>
+
+    <span class="badge badge-sandhi">
+      वस्तुनिष्ठ प्रश्न (25 MCQs)
+    </span>
+
     <h3>संधि अभ्यास प्रश्न</h3>
 
     <div class="mcq-box">
       <div class="mcq-question">1. 'सदा + एव' की सही संधि क्या होगी?</div>
       <div class="options-list">(क) सदाएव &nbsp;&nbsp; (ख) सदैव &nbsp;&nbsp; (ग) सदोव &nbsp;&nbsp; (घ) सादैव</div>
-      <div style="font-size:13px; color:#2563eb; margin-top:4px;"><b>उत्तर: (ख) सदैव</b></div>
+      <div style="font-size:13px;color:#2563eb;"><b>उत्तर: (ख) सदैव</b></div>
     </div>
 
     <div class="mcq-box">
       <div class="mcq-question">2. 'सूर्योदय' शब्द का सही संधि-विच्छेद चुनिए:</div>
       <div class="options-list">(क) सूर्य + दय &nbsp;&nbsp; (ख) सूर्यो + दय &nbsp;&nbsp; (ग) सूर्य + उदय &nbsp;&nbsp; (घ) सूरी + उदय</div>
-      <div style="font-size:13px; color:#2563eb; margin-top:4px;"><b>उत्तर: (ग) सूर्य + उदय</b></div>
+      <div style="font-size:13px;color:#2563eb;"><b>उत्तर: (ग) सूर्य + उदय</b></div>
     </div>
 
     <div class="mcq-box">
       <div class="mcq-question">3. 'प्रति + एक' के मेल से कौन-सा शब्द बनेगा?</div>
       <div class="options-list">(क) प्रत्येक &nbsp;&nbsp; (ख) प्रतिक &nbsp;&nbsp; (ग) प्रत्यक &nbsp;&nbsp; (घ) प्रतिएक</div>
-      <div style="font-size:13px; color:#2563eb; margin-top:4px;"><b>उत्तर: (क) प्रत्येक</b></div>
+      <div style="font-size:13px;color:#2563eb;"><b>उत्तर: (क) प्रत्येक</b></div>
     </div>
 
     <div class="mcq-box">
       <div class="mcq-question">4. 'पवन' शब्द का सही संधि-विच्छेद क्या होगा?</div>
       <div class="options-list">(क) पव + न &nbsp;&nbsp; (ख) पो + अन &nbsp;&nbsp; (ग) पौ + अन &nbsp;&nbsp; (घ) पा + वन</div>
-      <div style="font-size:13px; color:#2563eb; margin-top:4px;"><b>उत्तर: (ख) पो + अन</b></div>
+      <div style="font-size:13px;color:#2563eb;"><b>उत्तर: (ख) पो + अन</b></div>
     </div>
 
     <div class="mcq-box">
-      <div class="mcq-question">5. 'पुस्तकालय' (पुस्तक + आलय) में कौन-सी संधि है?</div>
+      <div class="mcq-question">5. 'पुस्तकालय' में कौन-सी संधि है?</div>
       <div class="options-list">(क) गुण संधि &nbsp;&nbsp; (ख) यण संधि &nbsp;&nbsp; (ग) दीर्घ संधि &nbsp;&nbsp; (घ) अयादि संधि</div>
-      <div style="font-size:13px; color:#2563eb; margin-top:4px;"><b>उत्तर: (ग) दीर्घ संधि</b></div>
+      <div style="font-size:13px;color:#2563eb;"><b>उत्तर: (ग) दीर्घ संधि</b></div>
     </div>
 
     <div class="mcq-box">
       <div class="mcq-question">6. 'महेश' शब्द का सही संधि-विच्छेद क्या होगा?</div>
       <div class="options-list">(क) मह + ईश &nbsp;&nbsp; (ख) महा + ईश &nbsp;&nbsp; (ग) महि + ईश &nbsp;&nbsp; (घ) मा + हेश</div>
-      <div style="font-size:13px; color:#2563eb; margin-top:4px;"><b>उत्तर: (ख) महा + ईश</b></div>
+      <div style="font-size:13px;color:#2563eb;"><b>उत्तर: (ख) महा + ईश</b></div>
     </div>
 
     <div class="mcq-box">
       <div class="mcq-question">7. 'सु + आगत' के मेल से कौन-सा शब्द बनेगा?</div>
       <div class="options-list">(क) सुआगत &nbsp;&nbsp; (ख) स्वागत &nbsp;&nbsp; (ग) स्वगत &nbsp;&nbsp; (घ) सवागत</div>
-      <div style="font-size:13px; color:#2563eb; margin-top:4px;"><b>उत्तर: (ख) स्वागत</b></div>
+      <div style="font-size:13px;color:#2563eb;"><b>उत्तर: (ख) स्वागत</b></div>
     </div>
 
     <div class="mcq-box">
       <div class="mcq-question">8. 'मतैक्य' शब्द का सही संधि-विच्छेद चुनिए:</div>
       <div class="options-list">(क) मत + एक्य &nbsp;&nbsp; (ख) मति + एक्य &nbsp;&nbsp; (ग) मतो + एक्य &nbsp;&nbsp; (घ) माता + एक्य</div>
-      <div style="font-size:13px; color:#2563eb; margin-top:4px;"><b>उत्तर: (क) मत + एक्य</b></div>
+      <div style="font-size:13px;color:#2563eb;"><b>उत्तर: (क) मत + एक्य</b></div>
     </div>
 
     <div class="mcq-box">
       <div class="mcq-question">9. 'नयन' शब्द का सही संधि-विच्छेद क्या होगा?</div>
       <div class="options-list">(क) नय + न &nbsp;&nbsp; (ख) नै + अन &nbsp;&nbsp; (ग) ने + अन &nbsp;&nbsp; (घ) नो + अन</div>
-      <div style="font-size:13px; color:#2563eb; margin-top:4px;"><b>उत्तर: (ग) ने + अन</b></div>
+      <div style="font-size:13px;color:#2563eb;"><b>उत्तर: (ग) ने + अन</b></div>
     </div>
 
     <div class="mcq-box">
       <div class="mcq-question">10. 'इति + आदि' की सही संधि क्या होगी?</div>
       <div class="options-list">(क) इतिआदि &nbsp;&nbsp; (ख) इत्यादि &nbsp;&nbsp; (ग) इतादि &nbsp;&nbsp; (घ) इत्यदि</div>
-      <div style="font-size:13px; color:#2563eb; margin-top:4px;"><b>उत्तर: (ख) इत्यादि</b></div>
+      <div style="font-size:13px;color:#2563eb;"><b>उत्तर: (ख) इत्यादि</b></div>
     </div>
 
     <div class="mcq-box">
       <div class="mcq-question">11. 'हिमालय' शब्द का सही संधि-विच्छेद क्या है?</div>
       <div class="options-list">(क) हिम + आलय &nbsp;&nbsp; (ख) हिमो + लय &nbsp;&nbsp; (ग) हिमा + लय &nbsp;&nbsp; (घ) हिम + लय</div>
-      <div style="font-size:13px; color:#2563eb; margin-top:4px;"><b>उत्तर: (क) हिम + आलय</b></div>
+      <div style="font-size:13px;color:#2563eb;"><b>उत्तर: (क) हिम + आलय</b></div>
     </div>
 
     <div class="mcq-box">
       <div class="mcq-question">12. 'परोपकार' शब्द का संधि-विच्छेद चुनिए:</div>
       <div class="options-list">(क) परो + उपकार &nbsp;&nbsp; (ख) पर + उपकार &nbsp;&nbsp; (ग) पर + अपकार &nbsp;&nbsp; (घ) पारा + उपकार</div>
-      <div style="font-size:13px; color:#2563eb; margin-top:4px;"><b>उत्तर: (ख) पर + उपकार</b></div>
+      <div style="font-size:13px;color:#2563eb;"><b>उत्तर: (ख) पर + उपकार</b></div>
     </div>
 
     <div class="mcq-box">
       <div class="mcq-question">13. 'रवीन्द्र' शब्द का सही संधि-विच्छेद क्या है?</div>
       <div class="options-list">(क) रवि + इन्द्र &nbsp;&nbsp; (ख) रव + इन्द्र &nbsp;&nbsp; (ग) रवी + इन्द्र &nbsp;&nbsp; (घ) रवि + इंद्र</div>
-      <div style="font-size:13px; color:#2563eb; margin-top:4px;"><b>उत्तर: (क) रवि + इन्द्र</b></div>
+      <div style="font-size:13px;color:#2563eb;"><b>उत्तर: (क) रवि + इन्द्र</b></div>
     </div>
 
     <div class="mcq-box">
       <div class="mcq-question">14. 'सूक्ति' शब्द का सही संधि-विच्छेद क्या है?</div>
       <div class="options-list">(क) सु + उक्ति &nbsp;&nbsp; (ख) सू + उक्ति &nbsp;&nbsp; (ग) सु + की &nbsp;&nbsp; (घ) सू + क्ति</div>
-      <div style="font-size:13px; color:#2563eb; margin-top:4px;"><b>उत्तर: (क) सु + उक्ति</b></div>
+      <div style="font-size:13px;color:#2563eb;"><b>उत्तर: (क) सु + उक्ति</b></div>
     </div>
 
     <div class="mcq-box">
       <div class="mcq-question">15. 'सुरेन्द्र' का सही संधि-विच्छेद क्या होगा?</div>
       <div class="options-list">(क) सुर + इन्द्र &nbsp;&nbsp; (ख) सु + इन्द्र &nbsp;&nbsp; (ग) सुरे + इन्द्र &nbsp;&nbsp; (घ) सुरा + इन्द्र</div>
-      <div style="font-size:13px; color:#2563eb; margin-top:4px;"><b>उत्तर: (क) सुर + इन्द्र</b></div>
+      <div style="font-size:13px;color:#2563eb;"><b>उत्तर: (क) सुर + इन्द्र</b></div>
     </div>
 
     <div class="mcq-box">
       <div class="mcq-question">16. 'यथेष्ट' शब्द का संधि-विच्छेद क्या है?</div>
       <div class="options-list">(क) यथा + इष्ट &nbsp;&nbsp; (ख) यथ + इष्ट &nbsp;&nbsp; (ग) यथो + इष्ट &nbsp;&nbsp; (घ) यथा + ईष्ट</div>
-      <div style="font-size:13px; color:#2563eb; margin-top:4px;"><b>उत्तर: (क) यथा + इष्ट</b></div>
+      <div style="font-size:13px;color:#2563eb;"><b>उत्तर: (क) यथा + इष्ट</b></div>
     </div>
 
     <div class="mcq-box">
       <div class="mcq-question">17. 'महर्षि' शब्द का सही संधि-विच्छेद चुनिए:</div>
       <div class="options-list">(क) महा + ऋषि &nbsp;&nbsp; (ख) मह + ऋषि &nbsp;&nbsp; (ग) महा + अर्षि &nbsp;&nbsp; (घ) महि + ऋषि</div>
-      <div style="font-size:13px; color:#2563eb; margin-top:4px;"><b>उत्तर: (क) महा + ऋषि</b></div>
+      <div style="font-size:13px;color:#2563eb;"><b>उत्तर: (क) महा + ऋषि</b></div>
     </div>
 
     <div class="mcq-box">
       <div class="mcq-question">18. 'तथैव' का सही संधि-विच्छेद क्या होगा?</div>
       <div class="options-list">(क) तथा + एव &nbsp;&nbsp; (ख) तथ + एव &nbsp;&nbsp; (ग) तथे + व &nbsp;&nbsp; (घ) तथा + व</div>
-      <div style="font-size:13px; color:#2563eb; margin-top:4px;"><b>उत्तर: (क) तथा + एव</b></div>
+      <div style="font-size:13px;color:#2563eb;"><b>उत्तर: (क) तथा + एव</b></div>
     </div>
 
     <div class="mcq-box">
       <div class="mcq-question">19. 'अत्याचार' शब्द का संधि-विच्छेद क्या है?</div>
       <div class="options-list">(क) अति + आचार &nbsp;&nbsp; (ख) अत + आचार &nbsp;&nbsp; (ग) अत्या + चार &nbsp;&nbsp; (घ) अति + चार</div>
-      <div style="font-size:13px; color:#2563eb; margin-top:4px;"><b>उत्तर: (क) अति + आचार</b></div>
+      <div style="font-size:13px;color:#2563eb;"><b>उत्तर: (क) अति + आचार</b></div>
     </div>
 
     <div class="mcq-box">
       <div class="mcq-question">20. 'नायक' शब्द का सही संधि-विच्छेद चुनिए:</div>
       <div class="options-list">(क) नै + अक &nbsp;&nbsp; (ख) ने + अक &nbsp;&nbsp; (ग) ना + यक &nbsp;&nbsp; (घ) नौ + अक</div>
-      <div style="font-size:13px; color:#2563eb; margin-top:4px;"><b>उत्तर: (क) नै + अक</b></div>
+      <div style="font-size:13px;color:#2563eb;"><b>उत्तर: (क) नै + अक</b></div>
     </div>
 
     <div class="mcq-box">
       <div class="mcq-question">21. 'पवित्र' शब्द का सही संधि-विच्छेद क्या है?</div>
       <div class="options-list">(क) पो + इत्र &nbsp;&nbsp; (ख) पौ + इत्र &nbsp;&nbsp; (ग) पा + इत्र &nbsp;&nbsp; (घ) पो + त्र</div>
-      <div style="font-size:13px; color:#2563eb; margin-top:4px;"><b>उत्तर: (क) पो + इत्र</b></div>
+      <div style="font-size:13px;color:#2563eb;"><b>उत्तर: (क) पो + इत्र</b></div>
     </div>
 
     <div class="mcq-box">
       <div class="mcq-question">22. 'नाविक' शब्द का संधि-विच्छेद क्या होगा?</div>
       <div class="options-list">(क) नौ + इक &nbsp;&nbsp; (ख) नो + इक &nbsp;&nbsp; (ग) ना + विक &nbsp;&nbsp; (घ) नै + इक</div>
-      <div style="font-size:13px; color:#2563eb; margin-top:4px;"><b>उत्तर: (क) नौ + इक</b></div>
+      <div style="font-size:13px;color:#2563eb;"><b>उत्तर: (क) नौ + इक</b></div>
     </div>
 
     <div class="mcq-box">
       <div class="mcq-question">23. 'पावन' शब्द का सही संधि-विच्छेद चुनिए:</div>
       <div class="options-list">(क) पौ + अन &nbsp;&nbsp; (ख) पो + अन &nbsp;&nbsp; (ग) पा + वन &nbsp;&nbsp; (घ) पौ + न</div>
-      <div style="font-size:13px; color:#2563eb; margin-top:4px;"><b>उत्तर: (क) पौ + अन</b></div>
+      <div style="font-size:13px;color:#2563eb;"><b>उत्तर: (क) पौ + अन</b></div>
     </div>
 
     <div class="mcq-box">
       <div class="mcq-question">24. 'अभ्यागत' शब्द का संधि-विच्छेद क्या है?</div>
       <div class="options-list">(क) अभि + आगत &nbsp;&nbsp; (ख) अभ्या + गत &nbsp;&nbsp; (ग) अभा + गत &nbsp;&nbsp; (घ) अभी + गत</div>
-      <div style="font-size:13px; color:#2563eb; margin-top:4px;"><b>उत्तर: (क) अभि + आगत</b></div>
+      <div style="font-size:13px;color:#2563eb;"><b>उत्तर: (क) अभि + आगत</b></div>
     </div>
 
     <div class="mcq-box">
       <div class="mcq-question">25. 'गजानन' शब्द का सही संधि-विच्छेद क्या होगा?</div>
       <div class="options-list">(क) गज + आनन &nbsp;&nbsp; (ख) गजा + नन &nbsp;&nbsp; (ग) गज + नान &nbsp;&nbsp; (घ) गीज + आनन</div>
-      <div style="font-size:13px; color:#2563eb; margin-top:4px;"><b>उत्तर: (क) गज + आनन</b></div>
+      <div style="font-size:13px;color:#2563eb;"><b>उत्तर: (क) गज + आनन</b></div>
     </div>
+
   </div>
 
+
+  <!-- Sandhi Live Quiz -->
+
   <div class="card">
-    <span class="badge badge-sandhi">ऑनलाइन टेस्ट (15 प्रश्न)</span>
+
+    <span class="badge badge-sandhi">
+      ऑनलाइन टेस्ट (15 प्रश्न)
+    </span>
+
     <h3>संधि लाइव क्विज़</h3>
-    <p style="font-size: 13px; color: #64748b;">सही विकल्प चुनकर अपना स्कोर जाँचें:</p>
+
+    <p style="font-size:13px;color:#64748b;">
+      सही विकल्प चुनकर अपना स्कोर जाँचें:
+    </p>
+
     <div id="quiz-container"></div>
-    <button class="submit-btn" onclick="evaluateQuiz()">क्विज़ सबमिट करें</button>
+
+    <button
+      class="submit-btn"
+      onclick="evaluateSandhiQuiz()">
+      क्विज़ सबमिट करें
+    </button>
+
     <div id="quiz-result"></div>
+
   </div>
 
 
-  <!-- 2. भाववाचक संज्ञा निर्माण -->
-  <div id="bhavvachak" class="section-title title-bhav">2. भाववाचक संज्ञा - निर्माण (पाठ-3)</div>
+  <!-- ================================================= -->
+  <!-- 2. भाववाचक संज्ञा -->
+  <!-- ================================================= -->
+
+  <div id="bhavvachak" class="section-title title-bhav">
+    2. भाववाचक संज्ञा - निर्माण (पाठ-3)
+  </div>
 
   <div class="card">
-    <span class="badge badge-bhav">महत्वपूर्ण शब्द सारणी (50 शब्द)</span>
+
+    <span class="badge badge-bhav">
+      महत्वपूर्ण शब्द सारणी (50 शब्द)
+    </span>
+
     <h3>भाववाचक संज्ञा निर्माण के प्रमुख शब्द</h3>
+
     <table>
-      <tr><th>क्र.</th><th>मूल शब्द</th><th>भाववाचक संज्ञा</th><th>क्र.</th><th>मूल शब्द</th><th>भाववाचक संज्ञा</th></tr>
+
+      <tr>
+        <th>क्र.</th>
+        <th>मूल शब्द</th>
+        <th>भाववाचक संज्ञा</th>
+        <th>क्र.</th>
+        <th>मूल शब्द</th>
+        <th>भाववाचक संज्ञा</th>
+      </tr>
+
       <tr><td>1</td><td>बूढ़ा</td><td>बुढ़ापा</td><td>26</td><td>मनुष्य</td><td>मनुष्यता</td></tr>
       <tr><td>2</td><td>पंडित</td><td>पांडित्य</td><td>27</td><td>चोर</td><td>चोरी</td></tr>
       <tr><td>3</td><td>युवक</td><td>यौवन</td><td>28</td><td>ठग</td><td>ठगी</td></tr>
@@ -424,323 +584,4 @@
       <tr><td>13</td><td>मीठा</td><td>मिठास</td><td>38</td><td>भला</td><td>भलाई</td></tr>
       <tr><td>14</td><td>कड़वा</td><td>कड़वाहट</td><td>39</td><td>ऊँचा</td><td>ऊँचाई</td></tr>
       <tr><td>15</td><td>काला</td><td>कालिमा</td><td>40</td><td>मोटा</td><td>मोटापा</td></tr>
-      <tr><td>16</td><td>स्वस्थ</td><td>स्वास्थ्य</td><td>41</td><td>खट्टा</td><td>खटास</td></tr>
-      <tr><td>17</td><td>चतुर</td><td>चतुराई</td><td>42</td><td>चिकना</td><td>चिकनाहट</td></tr>
-      <tr><td>18</td><td>सुन्दर</td><td>सुन्दरता</td><td>43</td><td>मीठा</td><td>मिठास</td></tr>
-<tr><td>20</td><td>मूर्ख</td><td>मूर्खता</td><td>45</td><td>सफेद</td><td>सफेदी</td></tr>
-<tr><td>21</td><td>सरल</td><td>सरलता</td><td>46</td><td>लाल</td><td>लाली</td></tr>
-<tr><td>22</td><td>सज्जन</td><td>सज्जनता</td><td>47</td><td>चतुर</td><td>चातुर्य</td></tr>
-<tr><td>23</td><td>विद्वान</td><td>विद्वता</td><td>48</td><td>धीर</td><td>धैर्य</td></tr>
-<tr><td>24</td><td>मधुर</td><td>मधुरता</td><td>49</td><td>उचित</td><td>औचित्य</td></tr>
-<tr><td>25</td><td>इन्सान</td><td>इन्सानियत</td><td>50</td><td>शीघ्र</td><td>शीघ्रता</td></tr>
-    </table>
-  </div>
-
-  <div class="card">
-    <span class="badge badge-bhav">वस्तुनिष्ठ प्रश्न (25 MCQs)</span>
-    <h3>भाववाचक संज्ञा अभ्यास प्रश्न</h3>
-
-    <div class="mcq-box">
-      <div class="mcq-question">1. 'नेता' जातिवाचक संज्ञा शब्द से कौन-सी भाववाचक संज्ञा बनेगी?</div>
-      <div class="options-list">(क) नेतापन &nbsp;&nbsp; (ख) नेतृत्व &nbsp;&nbsp; (ग) नेताई &nbsp;&nbsp; (घ) नेतात</div>
-      <div style="font-size:13px; color:#7c3aed; margin-top:4px;"><b>उत्तर: (ख) नेतृत्व</b></div>
-    </div>
-
-    <div class="mcq-box">
-      <div class="mcq-question">2. 'अपना' सर्वनाम शब्द से बनने वाली भाववाचक संज्ञा क्या है?</div>
-      <div class="options-list">(क) अपनापन &nbsp;&nbsp; (ख) अपनीता &nbsp;&nbsp; (ग) अपनेपन &nbsp;&nbsp; (घ) अपनताई</div>
-      <div style="font-size:13px; color:#7c3aed; margin-top:4px;"><b>उत्तर: (क) अपनापन</b></div>
-    </div>
-
-    <div class="mcq-box">
-      <div class="mcq-question">3. 'खामोश' विशेषण शब्द में कौन-सा प्रत्यय लगाने से भाववाचक संज्ञा 'खामोशी' बनेगी?</div>
-      <div class="options-list">(क) -ता &nbsp;&nbsp; (ख) -पन &nbsp;&nbsp; (ग) -ई &nbsp;&nbsp; (घ) -आई</div>
-      <div style="font-size:13px; color:#7c3aed; margin-top:4px;"><b>उत्तर: (ग) -ई</b></div>
-    </div>
-
-    <div class="mcq-box">
-      <div class="mcq-question">4. 'लिखना' क्रिया शब्द से भाववाचक संज्ञा क्या बनेगी?</div>
-      <div class="options-list">(क) लिखाई &nbsp;&nbsp; (ख) लिखत &nbsp;&nbsp; (ग) लिखता &nbsp;&nbsp; (घ) लिखावट</div>
-      <div style="font-size:13px; color:#7c3aed; margin-top:4px;"><b>उत्तर: (क) लिखाई</b></div>
-    </div>
-
-    <div class="mcq-box">
-      <div class="mcq-question">5. 'शीघ्र' अव्यय शब्द में 'ता' प्रत्यय लगाने से कौन-सा शब्द बनेगा?</div>
-      <div class="options-list">(क) शीघ्रपन &nbsp;&nbsp; (ख) शीघ्रता &nbsp;&nbsp; (ग) शीघ्रई &nbsp;&nbsp; (घ) शीघ्रताएँ</div>
-      <div style="font-size:13px; color:#7c3aed; margin-top:4px;"><b>उत्तर: (ख) शीघ्रता</b></div>
-    </div>
-
-    <div class="mcq-box">
-      <div class="mcq-question">6. 'बूढ़ा' शब्द में 'आपा' प्रत्यय लगाने पर कौन-सी भाववाचक संज्ञा बनेगी?</div>
-      <div class="options-list">(क) बुढ़ापन &nbsp;&nbsp; (ख) बुढ़ापा &nbsp;&nbsp; (ग) बूढ़ई &nbsp;&nbsp; (घ) बुढ़ता</div>
-      <div style="font-size:13px; color:#7c3aed; margin-top:4px;"><b>उत्तर: (ख) बुढ़ापा</b></div>
-    </div>
-
-    <div class="mcq-box">
-      <div class="mcq-question">7. 'पंडित' शब्द से भाववाचक संज्ञा क्या बनेगी?</div>
-      <div class="options-list">(क) पंडिताई &nbsp;&nbsp; (ख) पंडितता &nbsp;&nbsp; (ग) पांडित्य &nbsp;&nbsp; (घ) पंडितपन</div>
-      <div style="font-size:13px; color:#7c3aed; margin-top:4px;"><b>उत्तर: (ग) पांडित्य</b></div>
-    </div>
-
-    <div class="mcq-box">
-      <div class="mcq-question">8. 'मित्र' शब्द से कौन-सी भाववाचक संज्ञा बनती है?</div>
-      <div class="options-list">(क) मित्री &nbsp;&nbsp; (ख) मित्रता &nbsp;&nbsp; (ग) मित्रपन &nbsp;&nbsp; (घ) मैत्र</div>
-      <div style="font-size:13px; color:#7c3aed; margin-top:4px;"><b>उत्तर: (ख) मित्रता</b></div>
-    </div>
-
-    <div class="mcq-box">
-      <div class="mcq-question">9. 'सुन्दर' शब्द में 'ता' प्रत्यय जोड़ने से कौन-सी भाववाचक संज्ञा बनेगी?</div>
-      <div class="options-list">(क) सुंदरी &nbsp;&nbsp; (ख) सुन्दरता &nbsp;&nbsp; (ग) सुंदरताई &nbsp;&nbsp; (घ) सुन्दरपन</div>
-      <div style="font-size:13px; color:#7c3aed; margin-top:4px;"><b>उत्तर: (ख) सुन्दरता</b></div>
-    </div>
-
-    <div class="mcq-box">
-      <div class="mcq-question">10. 'चतुर' शब्द से बनने वाली भाववाचक संज्ञा निम्नलिखित में से कौन-सी है?</div>
-      <div class="options-list">(क) चतुराई &nbsp;&nbsp; (ख) चतुरता &nbsp;&nbsp; (ग) चातुर्य &nbsp;&nbsp; (घ) उपर्युक्त सभी</div>
-      <div style="font-size:13px; color:#7c3aed; margin-top:4px;"><b>उत्तर: (घ) उपर्युक्त सभी</b></div>
-    </div>
-
-    <div class="mcq-box">
-      <div class="mcq-question">11. 'मीठा' विशेषण से भाववाचक संज्ञा क्या बनेगी?</div>
-      <div class="options-list">(क) मीठापन &nbsp;&nbsp; (ख) मिठास &nbsp;&nbsp; (ग) मीठाई &nbsp;&nbsp; (घ) मिष्टता</div>
-      <div style="font-size:13px; color:#7c3aed; margin-top:4px;"><b>उत्तर: (ख) मिठास</b></div>
-    </div>
-
-    <div class="mcq-box">
-      <div class="mcq-question">12. 'काला' शब्द में 'इमा' प्रत्यय लगाने से कौन-सी भाववाचक संज्ञा बनेगी?</div>
-      <div class="options-list">(क) कालिमा &nbsp;&nbsp; (ख) कालाई &nbsp;&nbsp; (ग) कालापन &nbsp;&nbsp; (घ) कालीता</div>
-      <div style="font-size:13px; color:#7c3aed; margin-top:4px;"><b>उत्तर: (क) कालिमा</b></div>
-    </div>
-
-    <div class="mcq-box">
-      <div class="mcq-question">13. 'स्वस्थ' शब्द से भाववाचक संज्ञा का रूप क्या होगा?</div>
-      <div class="options-list">(क) स्वस्थता &nbsp;&nbsp; (ख) स्वास्थ &nbsp;&nbsp; (ग) स्वास्थ्य &nbsp;&nbsp; (घ) स्वस्थपन</div>
-      <div style="font-size:13px; color:#7c3aed; margin-top:4px;"><b>उत्तर: (ग) स्वास्थ्य</b></div>
-    </div>
-
-    <div class="mcq-box">
-      <div class="mcq-question">14. 'अहं' सर्वनाम शब्द से कौन-सी भाववाचक संज्ञा बनती है?</div>
-      <div class="options-list">(क) अहंकार &nbsp;&nbsp; (ख) अहंता &nbsp;&nbsp; (ग) अहत्व &nbsp;&nbsp; (घ) अहंपन</div>
-      <div style="font-size:13px; color:#7c3aed; margin-top:4px;"><b>उत्तर: (क) अहंकार</b></div>
-    </div>
-
-    <div class="mcq-box">
-      <div class="mcq-question">15. 'लड़का' जातिवाचक संज्ञा से भाववाचक संज्ञा क्या बनेगी?</div>
-      <div class="options-list">(क) लड़कापन &nbsp;&nbsp; (ख) लड़कपन &nbsp;&nbsp; (ग) लड़काई &nbsp;&nbsp; (घ) लड़क्यता</div>
-      <div style="font-size:13px; color:#7c3aed; margin-top:4px;"><b>उत्तर: (ख) लड़कपन</b></div>
-    </div>
-
-    <div class="mcq-box">
-      <div class="mcq-question">16. 'बाल' शब्द से बनने वाली भाववाचक संज्ञा कौन-सी है?</div>
-      <div class="options-list">(क) बालपन &nbsp;&nbsp; (ख) बालिमा &nbsp;&nbsp; (ग) बालिता &nbsp;&nbsp; (घ) बाल्य</div>
-      <div style="font-size:13px; color:#7c3aed; margin-top:4px;"><b>उत्तर: (क) बालपन</b></div>
-    </div>
-
-    <div class="mcq-box">
-      <div class="mcq-question">17. 'गुरु' शब्द में 'त्व' प्रत्यय लगाने से क्या बनेगा?</div>
-      <div class="options-list">(क) गुरुता &nbsp;&nbsp; (ख) गुरुत्व &nbsp;&nbsp; (ग) गुरूपन &nbsp;&nbsp; (घ) गौरवान्वित</div>
-      <div style="font-size:13px; color:#7c3aed; margin-top:4px;"><b>उत्तर: (ख) गुरुत्व</b></div>
-    </div>
-
-    <div class="mcq-box">
-      <div class="mcq-question">18. 'चोर' से भाववाचक संज्ञा क्या होगी?</div>
-      <div class="options-list">(क) चोरी &nbsp;&nbsp; (ख) चोरता &nbsp;&nbsp; (ग) चौरत्व &nbsp;&nbsp; (घ) चोरपन</div>
-      <div style="font-size:13px; color:#7c3aed; margin-top:4px;"><b>उत्तर: (क) चोरी</b></div>
-    </div>
-
-    <div class="mcq-box">
-      <div class="mcq-question">19. 'वीर' शब्द से भाववाचक संज्ञा रूप चुनिए:</div>
-      <div class="options-list">(क) वीरी &nbsp;&nbsp; (ख) वीरता &nbsp;&nbsp; (ग) वीरपन &nbsp;&nbsp; (घ) वीरत्व</div>
-      <div style="font-size:13px; color:#7c3aed; margin-top:4px;"><b>उत्तर: (ख) वीरता</b></div>
-    </div>
-
-    <div class="mcq-box">
-      <div class="mcq-question">20. 'उचित' विशेषण शब्द से भाववाचक संज्ञा क्या बनेगी?</div>
-      <div class="options-list">(क) उचितता &nbsp;&nbsp; (ख) औचित्य &nbsp;&nbsp; (ग) उचितपन &nbsp;&nbsp; (घ) उच्चता</div>
-      <div style="font-size:13px; color:#7c3aed; margin-top:4px;"><b>उत्तर: (ख) औचित्य</b></div>
-    </div>
-
-    <div class="mcq-box">
-      <div class="mcq-question">21. 'निर्धन' शब्द में 'ता' प्रत्यय लगाने पर क्या बनेगा?</div>
-      <div class="options-list">(क) निर्धनता &nbsp;&nbsp; (ख) निर्धनीकरण &nbsp;&nbsp; (ग) निर्धनत्व &nbsp;&nbsp; (घ) निर्धनाई</div>
-      <div style="font-size:13px; color:#7c3aed; margin-top:4px;"><b>उत्तर: (क) निर्धनता</b></div>
-    </div>
-
-    <div class="mcq-box">
-      <div class="mcq-question">22. 'कड़वा' शब्द में 'आहट' प्रत्यय जोड़ने से कौन-सी भाववाचक संज्ञा बनेगी?</div>
-      <div class="options-list">(क) कड़वापन &nbsp;&nbsp; (ख) कड़वाहट &nbsp;&nbsp; (ग) कड़वाई &nbsp;&nbsp; (घ) कड़वीता</div>
-      <div style="font-size:13px; color:#7c3aed; margin-top:4px;"><b>उत्तर: (ख) कड़वाहट</b></div>
-    </div>
-
-    <div class="mcq-box">
-      <div class="mcq-question">23. 'मूर्ख' शब्द से भाववाचक संज्ञा कौन-सी बनेगी?</div>
-      <div class="options-list">(क) मूर्खता &nbsp;&nbsp; (ख) मूर्खपन &nbsp;&nbsp; (ग) मूर्खाई &nbsp;&nbsp; (घ) मूर्खी</div>
-      <div style="font-size:13px; color:#7c3aed; margin-top:4px;"><b>उत्तर: (क) मूर्खता</b></div>
-    </div>
-
-    <div class="mcq-box">
-      <div class="mcq-question">24. 'धीर' शब्द से भाववाचक संज्ञा क्या बनेगी?</div>
-      <div class="options-list">(क) धीरता &nbsp;&nbsp; (ख) धैर्य &nbsp;&nbsp; (ग) धीरपन &nbsp;&nbsp; (घ) क और ख दोनों</div>
-      <div style="font-size:13px; color:#7c3aed; margin-top:4px;"><b>उत्तर: (घ) क और ख दोनों</b></div>
-    </div>
-
-    <div class="mcq-box">
-      <div class="mcq-question">25. 'इन्सान' शब्द से भाववाचक संज्ञा क्या बनेगी?</div>
-      <div class="options-list">(क) इन्सानियत &nbsp;&nbsp; (ख) इन्सानता &nbsp;&nbsp; (ग) इन्सानपन &nbsp;&nbsp; (घ) इन्सांनी</div>
-      <div style="font-size:13px; color:#7c3aed; margin-top:4px;"><b>उत्तर: (क) इन्सानियत</b></div>
-    </div>
-  </div>
-
-</div>
-
-</body>
-  <script>
-  const quizData = [
-    { q: "1. 'सदा + एव' की सही संधि क्या होगी?", options: ["सदाएव", "सदैव", "सदोव", "सादैव"], correct: 1 },
-    { q: "2. 'सूर्योदय' शब्द का सही संधि-विच्छेद चुनिए:", options: ["सूर्य + दय", "सूर्यो + दय", "सूर्य + उदय", "सूरी + उदय"], correct: 2 },
-    { q: "3. 'प्रति + एक' के मेल से कौन-सा शब्द बनेगा?", options: ["प्रत्येक", "प्रतिक", "प्रत्यक", "प्रतिएक"], correct: 0 },
-    { q: "4. 'पवन' शब्द का सही संधि-विच्छेद क्या होगा?", options: ["पव + न", "पो + अन", "पौ + अन", "पा + वन"], correct: 1 },
-    { q: "5. 'पुस्तकालय' में कौन-सी संधि है?", options: ["गुण संधि", "यण संधि", "दीर्घ संधि", "अयादि संधि"], correct: 2 },
-    { q: "6. 'महेश' शब्द का सही संधि-विच्छेद क्या होगा?", options: ["मह + ईश", "महा + ईश", "महि + ईश", "मा + हेश"], correct: 1 },
-    { q: "7. 'सु + आगत' के मेल से कौन-सा शब्द बनेगा?", options: ["सुआगत", "स्वागत", "स्वगत", "सवागत"], correct: 1 },
-    { q: "8. 'नयन' शब्द का सही संधि-विच्छेद क्या होगा?", options: ["नय + न", "नै + अन", "ने + अन", "नो + अन"], correct: 2 },
-    { q: "9. 'इति + आदि' की सही संधि क्या होगी?", options: ["इतिआदि", "इत्यादि", "इतादि", "इत्यदि"], correct: 1 },
-    { q: "10. 'हिमालय' शब्द का सही संधि-विच्छेद क्या है?", options: ["हिम + आलय", "हिमो + लय", "हिमा + लय", "हिम + लय"], correct: 0 },
-    { q: "11. 'परोपकार' शब्द का संधि-विच्छेद चुनिए:", options: ["परो + उपकार", "पर + उपकार", "पर + अपकार", "पारा + उपकार"], correct: 1 },
-    { q: "12. 'रवीन्द्र' शब्द का सही संधि-विच्छेद क्या है?", options: ["रवि + इन्द्र", "रव + इन्द्र", "रवी + इन्द्र", "रवि + इंद्र"], correct: 0 },
-    { q: "13. 'सुरेन्द्र' का सही संधि-विच्छेद क्या होगा?", options: ["सुर + इन्द्र", "सु + इन्द्र", "सुरे + इन्द्र", "सुरा + इन्द्र"], correct: 0 },
-    { q: "14. 'अत्याचार' शब्द का संधि-विच्छेद क्या है?", options: ["अति + आचार", "अत + आचार", "अत्या + चार", "अति + चार"], correct: 0 },
-    { q: "15. 'गजानन' शब्द का सही संधि-विच्छेद क्या होगा?", options: ["गज + आनन", "गजा + नन", "गज + नान", "गीज + आनन"], correct: 0 }
-  ];
-
-  function loadQuiz() {
-    const container = document.getElementById('quiz-container');
-    if (!container) return;
-    let output = '';
-    quizData.forEach((item, index) => {
-      output += `<div class="quiz-q-box" style="margin-bottom:15px;">
-        <div class="quiz-q-title" style="font-weight:bold; font-size:14px; margin-bottom:6px;">${item.q}</div>
-        <div class="quiz-options" style="margin-left:15px; font-size:14px;">`;
-      item.options.forEach((opt, oIndex) => {
-        output += `<label style="display:block; margin-bottom:4px; cursor:pointer;"><input type="radio" name="q${index}" value="${oIndex}"> ${opt}</label>`;
-      });
-      output += `</div></div>`;
-    });
-    container.innerHTML = output;
-  }
-
-  function evaluateQuiz() {
-    let score = 0;
-    quizData.forEach((item, index) => {
-      const selected = document.querySelector(`input[name="q${index}"]:checked`);
-      if (selected && parseInt(selected.value) === item.correct) {
-        score++;
-      }
-    });
-    document.getElementById('quiz-result').innerHTML = `आपका स्कोर: ${score} / ${quizData.length}`;
-  }
-
-  window.onload = loadQuiz;
-</script>
-    <div class="card" style="margin-top: 20px;">
-    <span class="badge badge-bhav">ऑनलाइन टेस्ट (15 प्रश्न)</span>
-    <h3>भाववाचक संज्ञा लाइव क्विज़</h3>
-    <p style="font-size: 13px; color: #64748b;">सही विकल्प चुनकर अपना स्कोर जाँचें:</p>
-    <div id="bhav-quiz-container"></div>
-    <button class="submit-btn" onclick="evaluateBhavQuiz()" style="background-color: #7c3aed; color: white; padding: 10px 18px; border: none; border-radius: 6px; cursor: pointer; font-weight: bold;">क्विज़ सबमिट करें</button>
-    <div id="bhav-quiz-result" style="margin-top: 10px; font-weight: bold; font-size: 16px;"></div>
-    </div>
-  <script>
-  const quizData = [
-    { q: "1. 'सदा + एव' की सही संधि क्या होगी?", options: ["सदाएव", "सदैव", "सदोव", "सादैव"], correct: 1 },
-    { q: "2. 'सूर्योदय' शब्द का सही संधि-विच्छेद चुनिए:", options: ["सूर्य + दय", "सूर्यो + दय", "सूर्य + उदय", "सूरी + उदय"], correct: 2 },
-    { q: "3. 'प्रति + एक' के मेल से कौन-सा शब्द बनेगा?", options: ["प्रत्येक", "प्रतिक", "प्रत्यक", "प्रतिएक"], correct: 0 },
-    { q: "4. 'पवन' शब्द का सही संधि-विच्छेद क्या होगा?", options: ["पव + न", "पो + अन", "पौ + अन", "पा + वन"], correct: 1 },
-    { q: "5. 'पुस्तकालय' में कौन-सी संधि है?", options: ["गुण संधि", "यण संधि", "दीर्घ संधि", "अयादि संधि"], correct: 2 },
-    { q: "6. 'महेश' शब्द का सही संधि-विच्छेद क्या होगा?", options: ["मह + ईश", "महा + ईश", "महि + ईश", "मा + हेश"], correct: 1 },
-    { q: "7. 'सु + आगत' के मेल से कौन-सा शब्द बनेगा?", options: ["सुआगत", "स्वागत", "स्वगत", "सवागत"], correct: 1 },
-    { q: "8. 'नयन' शब्द का सही संधि-विच्छेद क्या होगा?", options: ["नय + न", "नै + अन", "ने + अन", "नो + अन"], correct: 2 },
-    { q: "9. 'इति + आदि' की सही संधि क्या होगी?", options: ["इतिआदि", "इत्यादि", "इतादि", "इत्यदि"], correct: 1 },
-    { q: "10. 'हिमालय' शब्द का सही संधि-विच्छेद क्या है?", options: ["हिम + आलय", "हिमो + लय", "हिमा + लय", "हिम + लय"], correct: 0 },
-    { q: "11. 'परोपकार' शब्द का संधि-विच्छेद चुनिए:", options: ["परो + उपकार", "पर + उपकार", "पर + अपकार", "पारा + उपकार"], correct: 1 },
-    { q: "12. 'रवीन्द्र' शब्द का सही संधि-विच्छेद क्या है?", options: ["रवि + इन्द्र", "रव + इन्द्र", "रवी + इन्द्र", "रवि + इंद्र"], correct: 0 },
-    { q: "13. 'सुरेन्द्र' का सही संधि-विच्छेद क्या होगा?", options: ["सुर + इन्द्र", "सु + इन्द्र", "सुरे + इन्द्र", "सुरा + इन्द्र"], correct: 0 },
-    { q: "14. 'अत्याचार' शब्द का संधि-विच्छेद क्या है?", options: ["अति + आचार", "अत + आचार", "अत्या + चार", "अति + चार"], correct: 0 },
-    { q: "15. 'गजानन' शब्द का सही संधि-विच्छेद क्या होगा?", options: ["गज + आनन", "गजा + नन", "गज + नान", "गीज + आनन"], correct: 0 }
-  ];
-
-  const bhavQuizData = [
-    { q: "1. 'नेता' जातिवाचक संज्ञा से कौन-सी भाववाचक संज्ञा बनेगी?", options: ["नेतापन", "नेतृत्व", "नेताई", "नेतात"], correct: 1 },
-    { q: "2. 'अपना' सर्वनाम से बनने वाली भाववाचक संज्ञा क्या है?", options: ["अपनापन", "अपनीता", "अपनेपन", "अपनताई"], correct: 0 },
-    { q: "3. 'खामोश' विशेषण में कौन-सा प्रत्यय लगाने से 'खामोशी' बनेगा?", options: ["-ता", "-पन", "-ई", "-आई"], correct: 2 },
-    { q: "4. 'लिखना' क्रिया शब्द से भाववाचक संज्ञा क्या बनेगी?", options: ["लिखाई", "लिखत", "लिखता", "लिखावट"], correct: 0 },
-    { q: "5. 'शीघ्र' अव्यय शब्द में 'ता' प्रत्यय लगाने से क्या बनेगा?", options: ["शीघ्रपन", "शीघ्रता", "शीघ्रई", "शीघ्रताएँ"], correct: 1 },
-    { q: "6. 'बूढ़ा' शब्द में 'आपा' प्रत्यय लगाने पर क्या बनेगा?", options: ["बुढ़ापन", "बुढ़ापा", "बूढ़ई", "बुढ़ता"], correct: 1 },
-    { q: "7. 'पंडित' शब्द से भाववाचक संज्ञा क्या बनेगी?", options: ["पंडिताई", "पंडितता", "पांडित्य", "पंडितपन"], correct: 2 },
-    { q: "8. 'मित्र' शब्द से कौन-सी भाववाचक संज्ञा बनती है?", options: ["मित्री", "मित्रता", "मित्रपन", "मैत्र"], correct: 1 },
-    { q: "9. 'सुन्दर' शब्द में 'ता' प्रत्यय जोड़ने से क्या बनेगा?", options: ["सुंदरी", "सुन्दरता", "सुंदरताई", "सुन्दरपन"], correct: 1 },
-    { q: "10. 'चतुर' शब्द से बनने वाली भाववाचक संज्ञा कौन-सी है?", options: ["चतुराई", "चतुरता", "चातुर्य", "उपर्युक्त सभी"], correct: 3 },
-    { q: "11. 'मीठा' विशेषण से भाववाचक संज्ञा क्या बनेगी?", options: ["मीठापन", "मिठास", "मीठाई", "मिष्टता"], correct: 1 },
-    { q: "12. 'काला' शब्द में 'इमा' प्रत्यय लगाने से क्या बनेगा?", options: ["कालिमा", "कालाई", "कालापन", "कालीता"], correct: 0 },
-    { q: "13. 'स्वस्थ' शब्द से भाववाचक संज्ञा का रूप क्या होगा?", options: ["स्वस्थता", "स्वास्थ", "स्वास्थ्य", "स्वस्थपन"], correct: 2 },
-    { q: "14. 'अहं' सर्वनाम शब्द से कौन-सी भाववाचक संज्ञा बनती है?", options: ["अहंकार", "अहंता", "अहत्व", "अहंपन"], correct: 0 },
-    { q: "15. 'लड़का' जातिवाचक संज्ञा से भाववाचक संज्ञा क्या बनेगी?", options: ["लड़कापन", "लड़कपन", "लड़काई", "लड़क्यता"], correct: 1 }
-  ];
-
-     function loadQuiz(containerId, data) {
-    const container = document.getElementById(containerId);
-    if (!container) return;
-    let output = '';
-    data.forEach((item, index) => {
-      output += `<div class="quiz-q-box" style="margin-bottom:15px;">
-        <div class="quiz-q-title" style="font-weight:bold; font-size:14px; margin-bottom:6px;">${item.q}</div>
-        <div class="quiz-options" style="margin-left:15px; font-size:14px;">`;
-      item.options.forEach((opt, oIndex) => {
-        output += `<label style="display:block; margin-bottom:4px; cursor:pointer;"><input type="radio" name="${containerId}_q${index}" value="${oIndex}"> ${opt}</label>`;
-      });
-      output += `</div></div>`;
-    });
-    container.innerHTML = output;
-  }
-
-  function evaluateQuiz(containerId, data, resultId) {
-    let score = 0;
-    data.forEach((item, index) => {
-      const selected = document.querySelector(`input[name="${containerId}_q${index}"]:checked`);
-      if (selected && parseInt(selected.value) === item.correct) {
-        score++;
-      }
-    });
-    document.getElementById(resultId).innerHTML = `आपका स्कोर: ${score} / ${data.length}`;
-  }
-
-  function evaluateSandhiQuiz() {
-    evaluateQuiz('quiz-container', quizData, 'quiz-result');
-  }
-
-  function evaluateBhavQuiz() {
-    evaluateQuiz('bhav-quiz-container', bhavQuizData, 'bhav-quiz-result');
-  }
-
-  const visheshanQuizData = [
-    { q: "1. 'इतिहास' शब्द से कौन-सा विशेषण बनेगा?", options: ["इतिहासक", "ऐतिहासिक", "इतिहासी", "ऐतिहाश"], correct: 1 },
-    { q: "2. 'विज्ञान' शब्द का विशेषण रूप क्या होगा?", options: ["विज्ञानी", "वैज्ञानिक", "विज्ञानमय", "विज्ञ"], correct: 1 },
-    { q: "3. 'समाज' शब्द से बनने वाला विशेषण चुनिए:", options: ["सामाजक", "सामाजिक", "समाजी", "समाजवादी"], correct: 1 },
-    { q: "4. 'भूगोल' शब्द का सही विशेषण क्या है?", options: ["भूगोलीय", "भौगोलिक", "भूगोलक", "भागोलिंक"], correct: 1 },
-    { q: "5. 'दया' शब्द में 'ालु' प्रत्यय जोड़ने से क्या विशेषण बनेगा?", options: ["दयी", "दयालु", "दशालु", "दयावान"], correct: 1 }
-  ];
-
-  function evaluateVisheshanQuiz() {
-    evaluateQuiz('visheshan-quiz-container', visheshanQuizData, 'visheshan-quiz-result');
-  }
-
-  <script>
-window.onload = function() {
-    loadQuiz('quiz-container', quizData);
-    loadQuiz('bhav-quiz-container', bhavQuizData);
-    loadQuiz('visheshan-quiz-container', visheshanQuizData);
-};
-</script>
-
-</body>
-</html>
+      <tr><td>16</td><t
