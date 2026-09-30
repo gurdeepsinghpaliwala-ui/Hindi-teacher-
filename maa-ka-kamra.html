@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>माँ का कमरा - कक्षा 10 हिन्दी</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, "Noto Sans Devanagari", sans-serif;
+      background: #f3f6fa;
+      color: #222;
+      line-height: 1.7;
+    }
+
+    .container {
+      width: 95%;
+      max-width: 1000px;
+      margin: 20px auto;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #673ab7, #3f51b5);
+      color: white;
+      text-align: center;
+      padding: 22px 15px;
+      border-radius: 15px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .header h1 {
+      margin: 0;
+      font-size: 30px;
+    }
+
+    .header p {
+      margin: 5px 0 0;
+      font-size: 17px;
+    }
+
+    .card {
+      background: white;
+      margin-top: 20px;
+      padding: 18px;
+      border-radius: 15px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.10);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: #3f51b5;
+      border-bottom: 2px solid #e0e0e0;
+      padding-bottom: 8px;
+    }
+
+    /* TAB BUTTONS */
+
+    .tab-buttons {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+    }
+
+    .tab-btn {
+      flex: 1;
+      min-width: 150px;
+      border: none;
+      padding: 13px 10px;
+      border-radius: 10px;
+      background: #e0e0e0;
+      color: #222;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+
+    .tab-btn:hover {
+      background: #c5cae9;
+    }
+
+    .tab-btn.active {
+      background: #3f51b5;
+      color: white;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    /* QUESTIONS */
+
+    .question {
+      background: #f8f9ff;
+      border-left: 5px solid #3f51b5;
+      padding: 13px 15px;
+      margin: 13px 0;
+      border-radius: 8px;
+    }
+
+    .question-title {
+      font-weight: bold;
+      color: #222;
+      margin-bottom: 5px;
+    }
+
+    .answer {
+      color: #333;
+    }
+
+    /* OBJECTIVE */
+
+    .objective {
+      background: #fff8e1;
+      border-left: 5px solid #ff9800;
+      padding: 14px 15px;
+      margin: 14px 0;
+      border-radius: 8px;
+    }
+
+    .objective-question {
+      font-weight: bold;
+      margin-bottom: 8px;
+    }
+
+    .options {
+      margin: 5px 0 8px 5px;
+    }
+
+    .option {
+      padding: 2px 0;
+    }
+
+    .correct-answer {
+      font-weight: bold;
+      color: #2e7d32;
+      margin-top: 6px;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 20px 10px;
+      color: #666;
+      font-size: 14px;
+    }
+
+    @media (max-width: 600px) {
+      .header h1 {
+        font-size: 24px;
+      }
+
+      .tab-btn {
+        min-width: 100%;
+      }
+
+      .card {
+        padding: 13px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <!-- HEADER -->
+
+    <div class="header">
+      <h1>📚 माँ का कमरा</h1>
+      <p>कक्षा 10 हिन्दी - महत्वपूर्ण प्रश्न एवं Objective Questions</p>
+    </div>
+
+
+    <!-- QUESTIONS CARD -->
+
+    <div class="card">
+
+      <div class="tab-buttons">
+
+        <button
+          class="tab-btn active"
+          onclick="openLessonTab(this, 'smallQuestions')">
+          छोटे प्रश्न
+        </button>
+
+        <button
+          class="tab-btn"
+          onclick="openLessonTab(this, 'bigQuestions')">
+          बड़े प्रश्न
+        </button>
+
+        <button
+          class="tab-btn"
+          onclick="openLessonTab(this, 'objectiveQuestions')">
+          Objective Questions ❓
+        </button>
+
+      </div>
+
+
+      <!-- ========================= -->
+      <!-- छोटे प्रश्न -->
+      <!-- ========================= -->
+
+      <div id="smallQuestions" class="tab-content active">
+
+        <h2>🟢 छोटे प्रश्न</h2>
+        <p><b>उत्तर 1–2 पंक्तियों में दीजिए।</b></p>
+
+
+        <div class="question">
+          <div class="question-title">
+            1. बुजुर्ग बसंती कहाँ रह रही थी?
+          </div>
+          <div class="answer">
+            <b>उत्तर:</b> बुजुर्ग बसंती अपने पुश्तैनी मकान में रह रही थी।
+          </div>
+        </div>
+
+
+        <div class="question">
+          <div class="question-title">
+            2. बुजुर्ग बसंती को किसका पत्र मिला?
+          </div>
+          <div class="answer">
+            <b>उत्तर:</b> बुजुर्ग बसंती को नगर में उच्च पद पर नौकरी करने वाले अपने पुत्र का पत्र मिला।
+          </div>
+        </div>
+
+
+        <div class="question">
+          <div class="question-title">
+            3. बसंती की पड़ोसन कौन थी?
+          </div>
+          <div class="answer">
+            <b>उत्तर:</b> बसंती की पड़ोसन रेशमा थी।
+          </div>
+        </div>
+
+
+        <div class="question">
+          <div class="question-title">
+            4. बसंती बेटे के साथ कहाँ आई थी?
+          </div>
+          <div class="answer">
+            <b>उत्तर:</b> बसंती बेटे के साथ नगर में उसके घर आई थी।
+          </div>
+        </div>
+
+
+        <div class="question">
+          <div class="question-title">
+            5. कोठी में कितने कमरे थे?
+          </div>
+          <div class="answer">
+            <b>उत्तर:</b> कोठी में तीन बैडरूम, एक ड्राईंग रूम और नौकरों के कमरे थे।
+          </div>
+        </div>
+
+
+        <div class="question">
+          <div class="question-title">
+            6. नौकर ने बसंती का सामान कहाँ रखा था?
+          </div>
+          <div class="answer">
+            <b>उत्तर:</b> नौकर ने बसंती का सामान बरामदे के साथ वाले कमरे में रखा था।
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- ========================= -->
+      <!-- बड़े प्रश्न -->
+      <!-- ========================= -->
+
+      <div id="bigQuestions" class="tab-content">
+
+        <h2>🔵 बड़े प्रश्न</h2>
+        <p><b>उत्तर 3–4 पंक्तियों में दीजिए।</b></p>
+
+
+        <div class="question">
+          <div class="question-title">
+            1. बेटे ने पत्र में अपनी माँ बसंती को क्या लिखा?
+          </div>
+
+          <div class="answer">
+            <b>उत्तर:</b>
+            बेटे ने अपनी माँ को लिखा कि उसकी तरक्की हो गई है।
+            कंपनी ने उसे रहने के लिए बहुत बड़ी कोठी दी है।
+            उसने माँ को अपने पास शहर में आकर रहने के लिए कहा और आश्वासन दिया कि उसे किसी तरह की तकलीफ़ नहीं होगी।
+          </div>
+        </div>
+
+
+        <div class="question">
+          <div class="question-title">
+            2. पड़ोसन रेशमा ने बसंती को क्या समझाया?
+          </div>
+
+          <div class="answer">
+            <b>उत्तर:</b>
+            रेशमा ने बसंती को समझाया कि उसे बेटे के पास रहने के लिए नहीं जाना चाहिए।
+            उसके अनुसार शहर में रहने वाले बहू-बेटे बुजुर्गों को सम्मान से नहीं रखते और उनसे नौकरों वाले काम करवाते हैं।
+            वे उन्हें ठीक तरह से खाने-पीने को भी नहीं देते।
+          </div>
+        </div>
+
+
+        <div class="question">
+          <div class="question-title">
+            3. बसंती क्या सोचकर बेटे के साथ शहर आई?
+          </div>
+
+          <div class="answer">
+            <b>उत्तर:</b>
+            बसंती को अपने पुत्र पर भरोसा था, लेकिन रेशमा की बातों से वह भयभीत थी।
+            जब बेटा स्वयं कार लेकर उसे लेने आया तो उसकी ज़िद के कारण वह शहर जाने के लिए तैयार हो गई।
+            उसने सोचा कि ‘जो होगा देखा जावेगा’।
+          </div>
+        </div>
+
+
+        <div class="question">
+          <div class="question-title">
+            4. बसंती के कमरे में कौन-कौन सा सामान था?
+          </div>
+
+          <div class="answer">
+            <b>उत्तर:</b>
+            बसंती के कमरे में डबल बेड, टीवी, टेपरिकॉर्डर और दो कुर्सियाँ थीं।
+            बेड पर बहुत नर्म गद्दे थे।
+            उसे अपना कमरा स्वर्ग जैसा सुंदर लग रहा था।
+          </div>
+        </div>
+
+
+        <div class="question">
+          <div class="question-title">
+            5. बसंती की आँखों में आँसू क्यों आ गए?
+          </div>
+
+          <div class="answer">
+            <b>उत्तर:</b>
+            बसंती की आँखों में खुशी के आँसू थे।
+            उसे ऐसी संपन्नता भरा जीवन पहले कभी नहीं मिला था।
+            अब वह बेटे और उसके परिवार के साथ सुखपूर्वक रह सकती थी और उसका बुढ़ापा आराम से कटने वाला था।
+          </div>
+        </div>
+
+
+        <div class="question">
+          <div class="question-title">
+            6. ‘माँ का कमरा’ कहानी का उद्देश्य क्या है?
+          </div>
+
+          <div class="answer">
+            <b>उत्तर:</b>
+            कहानी में लेखक ने माता-पिता के प्रति बच्चों के व्यवहार को बताया है।
+            कुछ बच्चे बड़े होकर माता-पिता के साथ नौकरों जैसा व्यवहार करते हैं,
+            जबकि कुछ अपने माता-पिता की चिंता और सम्मान करते हैं।
+            कहानी के माध्यम से माता-पिता का सम्मान करने का संदेश दिया गया है।
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- ========================= -->
+      <!-- OBJECTIVE QUESTIONS -->
+      <!-- ========================= -->
+
+      <div id="objectiveQuestions" class="tab-content">
+
+        <h2>🟠 Objective Type Questions ❓</h2>
+
+
+        <div class="objective">
+
+          <div class="objective-question">
+            1. बुजुर्ग बसंती कहाँ रहती थी?
+          </div>
+
+          <div class="options">
+            <div class="option">A. गाँव में</div>
+            <div class="option">B. पुश्तैनी मकान में</div>
+            <div class="option">C. बेटे के घर</div>
+            <div class="option">D. पड़ोसन के घर</div>
+          </div>
+
+          <div class="correct-answer">
+            उत्तर: B. पुश्तैनी मकान में
+          </div>
+
+        </div>
+
+
+        <div class="objective">
+
+          <div class="objective-question">
+            2. बसंती की पड़ोसन का नाम क्या था?
+          </div>
+
+          <div class="options">
+            <div class="option">A. रमा</div>
+            <div class="option">B. गीता</div>
+            <div class="option">C. रेशमा</div>
+            <div class="option">D. कमला</div>
+          </div>
+
+          <div class="correct-answer">
+            उत्तर: C. रेशमा
+          </div>
+
+        </div>
+
+
+        <div class="objective">
+
+          <div class="objective-question">
+            3. बसंती को किसका पत्र मिला?
+          </div>
+
+          <div class="options">
+            <div class="option">A. भाई का</div>
+            <div class="option">B. बेटी का</div>
+            <div class="option">C. पड़ोसन का</div>
+            <div class="option">D. बेटे का</div>
+          </div>
+
+          <div class="correct-answer">
+            उत्तर: D. बेटे का
+          </div>
+
+        </div>
+
+
+        <div class="objective">
+
+          <div class="objective-question">
+            4. बेटे की क्या तरक्की हुई थी?
+          </div>
+
+          <div class="options">
+            <div class="option">A. कंपनी में</div>
+            <div class="option">B. पढ़ाई में</div>
+            <div class="option">C. व्यापार में</div>
+            <div class="option">D. खेती में</div>
+          </div>
+
+          <div class="correct-answer">
+            उत्तर: A. कंपनी में
+          </div>
+
+        </div>
+
+
+        <div class="objective">
+
+          <div class="objective-question">
+            5. कंपनी ने बेटे को रहने के लिए क्या दिया था?
+          </div>
+
+          <div class="options">
+            <div class="option">A. छोटा मकान</div>
+            <div class="option">B. फ्लैट</div>
+            <div class="option">C. बहुत बड़ी कोठी</div>
+            <div class="option">D. कमरा</div>
+          </div>
+
+          <div class="correct-answer">
+            उत्तर: C. बहुत बड़ी कोठी
+          </div>
+
+        </div>
+
+
+        <div class="objective">
+
+          <div class="objective-question">
+            6. बसंती का सामान कहाँ रखा गया था?
+          </div>
+
+          <div class="options">
+            <div class="option">A. ड्राईंग रूम में</div>
+            <div class="option">B. रसोई में</div>
+            <div class="option">C. बरामदे के साथ वाले कमरे में</div>
+            <div class="option">D. नौकर के कमरे में</div>
+          </div>
+
+          <div class="correct-answer">
+            उत्तर: C. बरामदे के साथ वाले कमरे में
+          </div>
+
+        </div>
+
+
+        <div class="objective">
+
+          <div class="objective-question">
+            7. बसंती के कमरे में क्या-क्या था?
+          </div>
+
+          <div class="options">
+            <div class="option">A. डबल बेड</div>
+            <div class="option">B. टीवी</div>
+            <div class="option">C. टेपरिकॉर्डर</div>
+            <div class="option">D. ये सभी</div>
+          </div>
+
+          <div class="correct-answer">
+            उत्तर: D. ये सभी
+          </div>
+
+        </div>
+
+
+        <div class="objective">
+
+          <div class="objective-question">
+            8. बसंती की आँखों में कैसे आँसू थे?
+          </div>
+
+          <div class="options">
+            <div class="option">A. दुख के</div>
+            <div class="option">B. डर के</div>
+            <div class="option">C. खुशी के</div>
+            <div class="option">D. गुस्से के</div>
+          </div>
+
+          <div class="correct-answer">
+            उत्तर: C. खुशी के
+          </div>
+
+        </div>
+
+
+        <div class="objective">
+
+          <div class="objective-question">
+            9. बसंती को अपना कमरा कैसा लगा?
+          </div>
+
+          <div class="options">
+            <div class="option">A. छोटा</div>
+            <div class="option">B. साधारण</div>
+            <div class="option">C. स्वर्ग जैसा सुंदर</div>
+            <div class="option">D. खराब</div>
+          </div>
+
+          <div class="correct-answer">
+            उत्तर: C. स्वर्ग जैसा सुंदर
+          </div>
+
+        </div>
+
+
+        <div class="objective">
+
+          <div class="objective-question">
+            10. ‘माँ का कमरा’ कहानी के लेखक कौन हैं?
+          </div>
+
+          <div class="options">
+            <div class="option">A. प्रेमचंद</div>
+            <div class="option">B. श्याम सुंदर अग्रवाल</div>
+            <div class="option">C. जयशंकर प्रसाद</div>
+            <div class="option">D. उपेंद्रनाथ अश्क</div>
+          </div>
+
+          <div class="correct-answer">
+            उत्तर: B. श्याम सुंदर अग्रवाल
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- FOOTER -->
+
+    <div class="footer">
+      कक्षा 10 हिन्दी | माँ का कमरा
+    </div>
+
+  </div>
+
+
+  <!-- ========================= -->
+  <!-- TAB JAVASCRIPT -->
+  <!-- ========================= -->
+
+  <script>
+    function openLessonTab(button, tabId) {
+
+      var card = button.closest('.card');
+
+      if (!card) return;
+
+      var allButtons = card.querySelectorAll('.tab-btn');
+
+      for (var i = 0; i < allButtons.length; i++) {
+        allButtons[i].classList.remove('active');
+      }
+
+      var allContents = card.querySelectorAll('.tab-content');
+
+      for (var j = 0; j < allContents.length; j++) {
+        allContents[j].classList.remove('active');
+      }
+
+      button.classList.add('active');
+
+      var target = card.querySelector('#' + tabId);
+
+      if (target) {
+        target.classList.add('active');
+      }
+    }
+  </script>
+
+</body>
+  </html>
