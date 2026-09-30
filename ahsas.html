@@ -1,252 +1,1184 @@
-<!-- अहसास पाठ : Objective Quiz -->
-<section class="quiz-section">
-  <h2>📝 अहसास — Objective Quiz</h2>
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <div class="quiz-card">
-    <p><b>1. नए स्कूल में दिवाकर की मदद किसने की?</b></p>
-    <button onclick="checkAnswer(this, true)">A. मैडम नीरू ने</button>
-    <button onclick="checkAnswer(this, false)">B. प्राचार्य ने</button>
-    <button onclick="checkAnswer(this, false)">C. उसके सहपाठियों ने</button>
-    <button onclick="checkAnswer(this, false)">D. उसकी बड़ी मौसी ने</button>
-  </div>
-
-  <div class="quiz-card">
-    <p><b>2. स्कूल बस पर छात्र-छात्राएँ कहाँ जा रहे थे?</b></p>
-    <button onclick="checkAnswer(this, true)">A. शैक्षिक भ्रमण के लिए</button>
-    <button onclick="checkAnswer(this, false)">B. खेल प्रतियोगिता के लिए</button>
-    <button onclick="checkAnswer(this, false)">C. घर लौटने के लिए</button>
-    <button onclick="checkAnswer(this, false)">D. परीक्षा देने के लिए</button>
-  </div>
-
-  <div class="quiz-card">
-    <p><b>3. छात्राएँ बस में क्या कर रही थीं?</b></p>
-    <button onclick="checkAnswer(this, true)">A. अंताक्षरी खेल रही थीं</button>
-    <button onclick="checkAnswer(this, false)">B. कहानी लिख रही थीं</button>
-    <button onclick="checkAnswer(this, false)">C. चित्र बना रही थीं</button>
-    <button onclick="checkAnswer(this, false)">D. पढ़ाई कर रही थीं</button>
-  </div>
-
-  <div class="quiz-card">
-    <p><b>4. दिवाकर बस में बैठकर बाहर क्या देख रहा था?</b></p>
-    <button onclick="checkAnswer(this, true)">A. वृक्ष और दूर तक फैला आसमान</button>
-    <button onclick="checkAnswer(this, false)">B. खेल का मैदान</button>
-    <button onclick="checkAnswer(this, false)">C. नदी और नावें</button>
-    <button onclick="checkAnswer(this, false)">D. बाजार और दुकानें</button>
-  </div>
-
-  <div class="quiz-card">
-    <p><b>5. दिवाकर को अधूरेपन का अहसास क्यों होता था?</b></p>
-    <button onclick="checkAnswer(this, true)">A. वह दूसरे बच्चों की तरह खेलकूद नहीं कर पाता था</button>
-    <button onclick="checkAnswer(this, false)">B. उसे स्कूल पसंद नहीं था</button>
-    <button onclick="checkAnswer(this, false)">C. उसके मित्र उससे नाराज थे</button>
-    <button onclick="checkAnswer(this, false)">D. वह पढ़ाई में कमजोर था</button>
-  </div>
-
-  <div class="quiz-card">
-    <p><b>6. दिवाकर बेंच पर बैठकर क्या याद कर रहा था?</b></p>
-    <button onclick="checkAnswer(this, true)">A. दिल्ली और फन सिटी की पुरानी यादें</button>
-    <button onclick="checkAnswer(this, false)">B. अपनी पहली परीक्षा</button>
-    <button onclick="checkAnswer(this, false)">C. गाँव का विद्यालय</button>
-    <button onclick="checkAnswer(this, false)">D. प्राचार्य का भाषण</button>
-  </div>
-
-  <div class="quiz-card">
-    <p><b>7. दिवाकर फन सिटी में क्या करता था?</b></p>
-    <button onclick="checkAnswer(this, true)">A. खेलता-कूदता और खूब मस्ती करता था</button>
-    <button onclick="checkAnswer(this, false)">B. केवल पढ़ाई करता था</button>
-    <button onclick="checkAnswer(this, false)">C. चित्र प्रदर्शनी देखता था</button>
-    <button onclick="checkAnswer(this, false)">D. परीक्षा देता था</button>
-  </div>
-
-  <div class="quiz-card">
-    <p><b>8. दिवाकर साँप को देखकर क्यों नहीं डरा?</b></p>
-    <button onclick="checkAnswer(this, true)">A. उसने गाँव में साँप कई बार देखे थे और वह निडर था</button>
-    <button onclick="checkAnswer(this, false)">B. उसे साँप पसंद थे</button>
-    <button onclick="checkAnswer(this, false)">C. उसे साँप दिखाई नहीं दिया</button>
-    <button onclick="checkAnswer(this, false)">D. वह बस से बाहर चला गया था</button>
-  </div>
-
-  <div class="quiz-card">
-    <p><b>9. साँप सामने आने पर छात्र-छात्राओं की क्या स्थिति थी?</b></p>
-    <button onclick="checkAnswer(this, true)">A. वे डर गए थे</button>
-    <button onclick="checkAnswer(this, false)">B. वे खुश हो गए थे</button>
-    <button onclick="checkAnswer(this, false)">C. वे खेलने लगे थे</button>
-    <button onclick="checkAnswer(this, false)">D. वे घर चले गए थे</button>
-  </div>
-
-  <div class="quiz-card">
-    <p><b>10. दिवाकर ने साँप को दूर करने के लिए किसका सहारा लिया?</b></p>
-    <button onclick="checkAnswer(this, true)">A. बैसाखी का</button>
-    <button onclick="checkAnswer(this, false)">B. डंडे का</button>
-    <button onclick="checkAnswer(this, false)">C. पत्थर का</button>
-    <button onclick="checkAnswer(this, false)">D. रस्सी का</button>
-  </div>
-
-  <div class="quiz-card">
-    <p><b>11. साँप के सामने दिवाकर ने किस गुण का परिचय दिया?</b></p>
-    <button onclick="checkAnswer(this, true)">A. धैर्य और निडरता का</button>
-    <button onclick="checkAnswer(this, false)">B. आलस्य का</button>
-    <button onclick="checkAnswer(this, false)">C. क्रोध का</button>
-    <button onclick="checkAnswer(this, false)">D. लापरवाही का</button>
-  </div>
-
-  <div class="quiz-card">
-    <p><b>12. दिवाकर को किस कारण पुरस्कृत किया गया?</b></p>
-    <button onclick="checkAnswer(this, true)">A. उसकी समझदारी और निडरता के कारण</button>
-    <button onclick="checkAnswer(this, false)">B. अंताक्षरी जीतने के कारण</button>
-    <button onclick="checkAnswer(this, false)">C. अच्छे अंक प्राप्त करने के कारण</button>
-    <button onclick="checkAnswer(this, false)">D. बस में समय पर बैठने के कारण</button>
-  </div>
-
-  <div class="quiz-card">
-    <p><b>13. दिवाकर को पुरस्कार किसने दिया?</b></p>
-    <button onclick="checkAnswer(this, true)">A. प्राचार्य महोदय ने</button>
-    <button onclick="checkAnswer(this, false)">B. मैडम नीरू ने</button>
-    <button onclick="checkAnswer(this, false)">C. उसकी बड़ी मौसी ने</button>
-    <button onclick="checkAnswer(this, false)">D. बस चालक ने</button>
-  </div>
-
-  <div class="quiz-card">
-    <p><b>14. ‘अहसास’ कहानी का प्रमुख उद्देश्य क्या है?</b></p>
-    <button onclick="checkAnswer(this, true)">A. शारीरिक चुनौतियों वाले बच्चों में आत्मविश्वास जगाना</button>
-    <button onclick="checkAnswer(this, false)">B. विद्यालयी यात्राएँ बंद करना</button>
-    <button onclick="checkAnswer(this, false)">C. साँपों के बारे में जानकारी देना</button>
-    <button onclick="checkAnswer(this, false)">D. खेल प्रतियोगिता का प्रचार करना</button>
-  </div>
-
-  <div class="quiz-card">
-    <p><b>15. ‘अहसास’ शीर्षक क्यों सार्थक है?</b></p>
-    <button onclick="checkAnswer(this, true)">A. दिवाकर को अपनी योग्यता और पूर्णता का अहसास हुआ</button>
-    <button onclick="checkAnswer(this, false)">B. उसे नई बस का अहसास हुआ</button>
-    <button onclick="checkAnswer(this, false)">C. उसे दिल्ली का रास्ता याद आया</button>
-    <button onclick="checkAnswer(this, false)">D. उसे साँप से डर लगने लगा</button>
-  </div>
-
-  <div class="quiz-card">
-    <p><b>16. दिवाकर के कौन-कौन से गुण कहानी में दिखाई देते हैं?</b></p>
-    <button onclick="checkAnswer(this, true)">A. साहस</button>
-    <button onclick="checkAnswer(this, true)">B. निडरता</button>
-    <button onclick="checkAnswer(this, true)">C. सूझबूझ</button>
-    <button onclick="checkAnswer(this, false)">D. लापरवाही</button>
-  </div>
-
-  <div class="quiz-card">
-    <p><b>17. ‘सम्मान’ का विशेषण रूप क्या है?</b></p>
-    <button onclick="checkAnswer(this, true)">A. सम्मानित</button>
-    <button onclick="checkAnswer(this, false)">B. सम्मानिता</button>
-    <button onclick="checkAnswer(this, false)">C. सम्मानना</button>
-    <button onclick="checkAnswer(this, false)">D. सम्मानता</button>
-  </div>
-
-  <div class="quiz-card">
-    <p><b>18. ‘रंग’ का विशेषण रूप क्या है?</b></p>
-    <button onclick="checkAnswer(this, true)">A. रंगीन</button>
-    <button onclick="checkAnswer(this, false)">B. रंगता</button>
-    <button onclick="checkAnswer(this, false)">C. रंगना</button>
-    <button onclick="checkAnswer(this, false)">D. रंगीलीपन</button>
-  </div>
-
-  <div class="quiz-card">
-    <p><b>19. ‘चेहरे का रंग उड़ जाना’ मुहावरे का अर्थ क्या है?</b></p>
-    <button onclick="checkAnswer(this, true)">A. डर जाना</button>
-    <button onclick="checkAnswer(this, false)">B. खुश हो जाना</button>
-    <button onclick="checkAnswer(this, false)">C. गुस्सा करना</button>
-    <button onclick="checkAnswer(this, false)">D. बीमार पड़ना</button>
-  </div>
-
-  <div class="quiz-card">
-    <p><b>20. ‘पीठ थपथपाना’ मुहावरे का अर्थ क्या है?</b></p>
-    <button onclick="checkAnswer(this, true)">A. शाबाशी देना</button>
-    <button onclick="checkAnswer(this, false)">B. डाँटना</button>
-    <button onclick="checkAnswer(this, false)">C. डराना</button>
-    <button onclick="checkAnswer(this, false)">D. सहायता माँगना</button>
-  </div>
-
-  <div id="quiz-result"></div>
-</section>
+<title>अहसास - कक्षा 10 हिन्दी</title>
 
 <style>
-.quiz-section {
-  margin: 25px auto;
-  max-width: 800px;
+
+*{
+  box-sizing:border-box;
 }
 
-.quiz-section h2 {
-  text-align: center;
-  margin-bottom: 20px;
+body{
+  margin:0;
+  font-family:"Noto Sans Devanagari","Mangal",Arial,sans-serif;
+  background:#f1f5f9;
+  color:#1e293b;
+  line-height:1.7;
 }
 
-.quiz-card {
-  background: #fff;
-  padding: 18px;
-  margin-bottom: 15px;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,.12);
+.container{
+  max-width:950px;
+  margin:auto;
+  padding:15px;
 }
 
-.quiz-card p {
-  font-size: 17px;
-  line-height: 1.6;
+/* Header */
+
+.header{
+  background:linear-gradient(135deg,#166534,#22c55e);
+  color:white;
+  padding:25px 18px;
+  border-radius:16px;
+  text-align:center;
+  margin-bottom:20px;
+  box-shadow:0 6px 18px rgba(0,0,0,.12);
 }
 
-.quiz-card button {
-  display: block;
-  width: 100%;
-  margin: 8px 0;
-  padding: 11px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  background: #f7f7f7;
-  cursor: pointer;
-  text-align: left;
-  font-size: 15px;
+.header h1{
+  margin:0;
+  font-size:30px;
 }
 
-.quiz-card button:hover {
-  background: #eee;
+.header p{
+  margin:6px 0 0;
+  font-size:16px;
 }
 
-.quiz-card button.correct {
-  background: #d4edda;
-  border-color: #28a745;
+/* Lesson Card */
+
+.lesson-card{
+  background:white;
+  border-radius:16px;
+  padding:18px;
+  box-shadow:0 4px 14px rgba(0,0,0,.08);
 }
 
-.quiz-card button.wrong {
-  background: #f8d7da;
-  border-color: #dc3545;
+/* Picture */
+
+.lesson-picture{
+  width:100%;
+  min-height:150px;
+  border-radius:14px;
+  background:linear-gradient(135deg,#dcfce7,#f0fdf4);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin-bottom:18px;
+  border:2px solid #bbf7d0;
 }
 
-#quiz-result {
-  text-align: center;
-  font-size: 20px;
-  font-weight: bold;
-  padding: 15px;
+.lesson-picture div{
+  text-align:center;
+  font-size:55px;
 }
+
+.lesson-picture span{
+  display:block;
+  font-size:17px;
+  font-weight:bold;
+  color:#166534;
+  margin-top:5px;
+}
+
+/* Tabs */
+
+.tab-container{
+  display:flex;
+  gap:8px;
+  flex-wrap:wrap;
+  margin-bottom:20px;
+}
+
+.tab-btn{
+  flex:1;
+  min-width:150px;
+  border:none;
+  background:#e2e8f0;
+  color:#334155;
+  padding:13px 10px;
+  border-radius:10px;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.tab-btn:hover{
+  background:#bbf7d0;
+}
+
+.tab-btn.active{
+  background:#16a34a;
+  color:white;
+  box-shadow:0 4px 10px rgba(22,163,74,.25);
+}
+
+/* Tab Content */
+
+.tab-content{
+  display:none;
+}
+
+.tab-content.active{
+  display:block;
+  animation:fadeIn .25s ease;
+}
+
+@keyframes fadeIn{
+  from{
+    opacity:0;
+    transform:translateY(5px);
+  }
+  to{
+    opacity:1;
+    transform:translateY(0);
+  }
+}
+
+/* Section Heading */
+
+.section-title{
+  background:#dcfce7;
+  color:#166534;
+  padding:12px 15px;
+  border-radius:10px;
+  margin:10px 0 18px;
+  font-size:20px;
+}
+
+/* Questions */
+
+.qa-box{
+  background:#f8fafc;
+  border-left:5px solid #16a34a;
+  padding:15px;
+  margin-bottom:16px;
+  border-radius:10px;
+}
+
+.question{
+  font-weight:bold;
+  color:#14532d;
+  margin-bottom:8px;
+}
+
+.answer{
+  background:white;
+  padding:10px 12px;
+  border-radius:8px;
+  border:1px solid #e2e8f0;
+}
+
+.answer strong{
+  color:#166534;
+}
+
+/* Language */
+
+.language-box{
+  background:#f8fafc;
+  border-left:5px solid #16a34a;
+  padding:15px;
+  margin-bottom:16px;
+  border-radius:10px;
+}
+
+.word-table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:10px;
+}
+
+.word-table td{
+  border:1px solid #cbd5e1;
+  padding:10px;
+  text-align:center;
+  background:white;
+}
+
+.word-table td:nth-child(2),
+.word-table td:nth-child(4){
+  font-weight:bold;
+  color:#166534;
+}
+
+/* Back Button */
+
+.back-btn{
+  display:block;
+  text-align:center;
+  margin-top:25px;
+  padding:13px;
+  background:#334155;
+  color:white;
+  text-decoration:none;
+  border-radius:10px;
+  font-weight:bold;
+}
+
+/* Quiz */
+
+.quiz-title{
+  background:linear-gradient(135deg,#166534,#22c55e);
+  color:white;
+  padding:17px;
+  border-radius:12px;
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.quiz-card{
+  background:#f8fafc;
+  border:1px solid #dbeafe;
+  border-radius:12px;
+  padding:16px;
+  margin-bottom:18px;
+}
+
+.quiz-question{
+  font-weight:bold;
+  font-size:17px;
+  margin-bottom:12px;
+  color:#14532d;
+}
+
+.option{
+  width:100%;
+  text-align:left;
+  padding:12px;
+  margin:6px 0;
+  border:1px solid #cbd5e1;
+  background:white;
+  border-radius:9px;
+  cursor:pointer;
+  font-size:15px;
+  transition:.2s;
+}
+
+.option:hover{
+  background:#dcfce7;
+  border-color:#16a34a;
+}
+
+.option.correct{
+  background:#bbf7d0;
+  border-color:#16a34a;
+  color:#14532d;
+  font-weight:bold;
+}
+
+.option.wrong{
+  background:#fee2e2;
+  border-color:#ef4444;
+  color:#991b1b;
+}
+
+.quiz-feedback{
+  display:none;
+  margin-top:8px;
+  padding:9px;
+  border-radius:8px;
+  font-weight:bold;
+}
+
+.quiz-result{
+  text-align:center;
+  background:#dcfce7;
+  color:#14532d;
+  padding:18px;
+  border-radius:12px;
+  margin-top:20px;
+  font-size:20px;
+  font-weight:bold;
+}
+
+.retry-btn{
+  border:none;
+  background:#16a34a;
+  color:white;
+  padding:12px 22px;
+  border-radius:9px;
+  font-weight:bold;
+  cursor:pointer;
+  margin-top:10px;
+}
+
+.hidden{
+  display:none;
+}
+
+@media(max-width:600px){
+
+  .header h1{
+    font-size:25px;
+  }
+
+  .tab-btn{
+    min-width:100%;
+  }
+
+  .question{
+    font-size:16px;
+  }
+
+  .answer{
+    font-size:15px;
+  }
+
+}
+
 </style>
+</head>
 
-<script>
-let quizScore = 0;
-let quizAnswered = 0;
+<body>
 
-function checkAnswer(button, isCorrect) {
-  const card = button.parentElement;
+<div class="container">
 
-  if (card.dataset.answered === "true") return;
+<!-- Header -->
 
-  card.dataset.answered = "true";
-  quizAnswered++;
+<div class="header">
 
-  if (isCorrect) {
-    button.classList.add("correct");
-    quizScore++;
-  } else {
-    button.classList.add("wrong");
-  }
+  <h1>📖 ‘अहसास’</h1>
 
-  if (quizAnswered === 20) {
-    document.getElementById("quiz-result").innerHTML =
-      "🎉 Quiz Complete! आपका स्कोर: " +
-      quizScore + " / 20";
-  }
-}
-  </script>
+  <p>
+    कक्षा 10 हिन्दी | लघुकथा — ऊषा आर. शर्मा
+  </p>
+
+</div>
+
+
+<div class="lesson-card">
+
+<!-- Picture -->
+
+<div class="lesson-picture">
+
+  <div>
+    🧑‍🦽📚🚌🐍
+    <span>अहसास — साहस, आत्मविश्वास और मानवतावाद</span>
+  </div>
+
+</div>
+
+
+<!-- Tabs -->
+
+<div class="tab-container">
+
+  <button class="tab-btn active"
+          onclick="openTab('small',this)">
+    छोटे प्रश्न
+  </button>
+
+  <button class="tab-btn"
+          onclick="openTab('big',this)">
+    बड़े प्रश्न
+  </button>
+
+  <button class="tab-btn"
+          onclick="openTab('language',this)">
+    Long Questions
+  </button>
+
+  <button class="tab-btn"
+          onclick="openTab('quiz',this)">
+    Objective Type ❓
+  </button>
+
+</div>
+
+
+<!-- ================= छोटे प्रश्न ================= -->
+
+<div id="small" class="tab-content active">
+
+<h2 class="section-title">
+  1. निम्नलिखित प्रश्नों के उत्तर एक-दो पंक्तियों में दीजिए:
+</h2>
+
+
+<div class="qa-box">
+
+<div class="question">
+प्रश्न (1) दिवाकर की नए स्कूल में किसने मदद की?
+</div>
+
+<div class="answer">
+<strong>उत्तर:</strong>
+उसकी अध्यापिका मैडम नीरू ने अपने स्नेहपूर्ण व्यवहार से उसका हौसला बढ़ाया और समय-समय पर उसकी मदद भी की।
+</div>
+
+</div>
+
+
+<div class="qa-box">
+
+<div class="question">
+प्रश्न (2) स्कूल बस पर छात्र-छात्राएँ कहाँ जा रहे थे?
+</div>
+
+<div class="answer">
+<strong>उत्तर:</strong>
+स्कूल बस पर छात्र-छात्राएँ शैक्षिक भ्रमण के लिए जा रहे थे।
+</div>
+
+</div>
+
+
+<div class="qa-box">
+
+<div class="question">
+प्रश्न (3) छात्राएँ बस में क्या कर रही थीं?
+</div>
+
+<div class="answer">
+<strong>उत्तर:</strong>
+छात्राएँ बस में अंताक्षरी खेल रही थीं।
+</div>
+
+</div>
+
+
+<div class="qa-box">
+
+<div class="question">
+प्रश्न (4) दिवाकर बस में बैठा क्या देख रहा था?
+</div>
+
+<div class="answer">
+<strong>उत्तर:</strong>
+दिवाकर बस में बैठा खिड़की के बाहर वृक्षों तथा दूर तक फैले आसमान को देख रहा था।
+</div>
+
+</div>
+
+
+<div class="qa-box">
+
+<div class="question">
+प्रश्न (5) दिवाकर को अपने मन में अधूरेपन का अहसास क्यों होता था?
+</div>
+
+<div class="answer">
+<strong>उत्तर:</strong>
+दिवाकर अपाहिज था और वह दूसरे बच्चों की तरह खेलकूद नहीं पाता था। इसलिए उसे अपने मन में अधूरेपन का अहसास होता था।
+</div>
+
+</div>
+
+
+<div class="qa-box">
+
+<div class="question">
+प्रश्न (6) कार्यक्रम के दौरान छात्र-छात्राएँ क्या देखकर डर गए?
+</div>
+
+<div class="answer">
+<strong>उत्तर:</strong>
+कार्यक्रम के दौरान छात्र-छात्राएँ साँप को देखकर डर गए।
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ================= बड़े प्रश्न ================= -->
+
+<div id="big" class="tab-content">
+
+<h2 class="section-title">
+  2. निम्नलिखित प्रश्नों के उत्तर तीन-चार पंक्तियों में दीजिए:
+</h2>
+
+
+<div class="qa-box">
+
+<div class="question">
+प्रश्न (1) दिवाकर बेंच पर बैठकर क्या सोच रहा था?
+</div>
+
+<div class="answer">
+
+<strong>उत्तर:</strong>
+
+वह 2 साल पहले की घटना को याद कर उसी में खोया था। उसे याद आता है कि 2 साल पहले जब वह अपनी बड़ी मौसी के घर दिल्ली गया था, तब उसने वहाँ फन सिटी में कितना मज़ा किया। उस समय उसने खूब खेला-कूदा और मस्ती की थी। यही सब यादें उसके दिमाग में घूम रही थीं।
+
+</div>
+
+</div>
+
+
+<div class="qa-box">
+
+<div class="question">
+प्रश्न (2) साँप को देखकर दिवाकर क्यों नहीं डरा?
+</div>
+
+<div class="answer">
+
+<strong>उत्तर:</strong>
+
+शहर में आने से पहले दिवाकर गाँव के स्कूल में पढ़ता था। वहाँ उसने खेतों में कई बार साँप और अन्य जानवरों को देखा था। उसके लिए साँप को देखना कोई नई बात नहीं थी। इसके साथ-साथ वह एक साहसी, निडर और कर्मशील बालक था। इसलिए वह साँप को देखकर नहीं डरा।
+
+</div>
+
+</div>
+
+
+<div class="qa-box">
+
+<div class="question">
+प्रश्न (3) दिवाकर ने अचानक साँप को सामने देखकर क्या किया?
+</div>
+
+<div class="answer">
+
+<strong>उत्तर:</strong>
+
+दिवाकर ने जब साँप को देखा तब वह नहीं घबराया, जबकि अन्य छात्र-छात्राएँ डर के मारे काँप रहे थे। किसी को कुछ सूझ नहीं रहा था। ऐसे में दिवाकर ने बड़े ही धीरज से काम लिया। उसने बिना डरे और घबराए अपनी बैसाखी से साँप को उठाकर दूर फेंक दिया।
+
+</div>
+
+</div>
+
+
+<div class="qa-box">
+
+<div class="question">
+प्रश्न (4) दिवाकर को क्यों पुरस्कृत किया गया?
+</div>
+
+<div class="answer">
+
+<strong>उत्तर:</strong>
+
+दिवाकर को उसकी समझदारी और निडरता के कारण पुरस्कृत किया गया। शैक्षिक भ्रमण के समय अचानक साँप छात्र-छात्राओं के सामने आ गया। सभी बच्चे डर गए, परंतु दिवाकर ने अपनी सूझबूझ का परिचय देते हुए अपने विवेक और बैसाखी का सहारा लेकर साँप को दूर फेंक दिया था। उसकी इसी बहादुरी के कारण उसे प्रातःकालीन सभा में प्राचार्य महोदय द्वारा पुरस्कृत किया गया।
+
+</div>
+
+</div>
+
+
+<div class="qa-box">
+
+<div class="question">
+प्रश्न (5) लघुकथा ‘अहसास’ का उद्देश्य क्या है?
+</div>
+
+<div class="answer">
+
+<strong>उत्तर:</strong>
+
+‘अहसास’ कहानी ऊषा आर. शर्मा द्वारा रचित है। मानवतावाद का समर्थन करना इसका प्रमुख उद्देश्य है। ‘अहसास’ शारीरिक चुनौतियों का सामना करने वाले बच्चों में आत्मविश्वास जगाने वाली एक प्रेरणादायक लघुकथा है। लेखिका का उद्देश्य ऐसे बच्चों में आत्मविश्वास जगाना और उन्हें अपने आप को किसी से कम न समझने के लिए प्रेरित करना है।
+
+</div>
+
+</div>
+
+
+<div class="qa-box">
+
+<div class="question">
+प्रश्न (6) ‘अहसास’ नामकरण की सार्थकता स्पष्ट करो।
+</div>
+
+<div class="answer">
+
+<strong>उत्तर:</strong>
+
+इस कहानी में ऊषा आर. शर्मा जी ने यह बताना चाहा है कि हमें उन बच्चों को उनकी योग्यता का अहसास करवाना चाहिए जो शारीरिक चुनौतियों से जूझ रहे हैं। कहानी में दिवाकर अपनी टाँग खो चुका था और अपने आप में अधूरेपन का अहसास करता था। जब प्रधानाचार्य द्वारा उसे उसकी बहादुरी और निडरता के लिए सम्मानित किया गया, तो उसे अपने आप में पूर्णता का अहसास हुआ। अतः कहानी का शीर्षक ‘अहसास’ बिल्कुल उपयुक्त एवं सार्थक है।
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ================= भाषा-बोध ================= -->
+
+<div id="language" class="tab-content">
+
+<h2 class="section-title">
+  (ख) भाषा-बोध
+</h2>
+
+
+<div class="language-box">
+
+<h3>1. निम्नलिखित शब्दों के विशेषण शब्द बनाएँ:</h3>
+
+<table class="word-table">
+
+<tr>
+<td>खामोश</td>
+<td>खामोश</td>
+
+<td>सम्मान</td>
+<td>सम्मानित</td>
+</tr>
+
+<tr>
+<td>रंग</td>
+<td>रंगीन</td>
+
+<td>व्यवहार</td>
+<td>व्यावहारिक</td>
+</tr>
+
+<tr>
+<td>बहादुरी</td>
+<td>बहादुर</td>
+
+<td>हिम्मत</td>
+<td>हिम्मती</td>
+</tr>
+
+</table>
+
+</div>
+
+
+<div class="language-box">
+
+<h3>
+2. निम्नलिखित मुहावरों के अर्थ समझकर उनका वाक्य में प्रयोग कीजिए:
+</h3>
+
+
+<p>
+<strong>चेहरे का रंग उड़ जाना</strong>
+(डर जाना)
+</p>
+
+<div class="answer">
+अचानक साँप को सामने देखकर बच्चों के चेहरे का रंग उड़ गया।
+</div>
+
+
+<p>
+<strong>पीठ थपथपाना</strong>
+(शाबाशी देना)
+</p>
+
+<div class="answer">
+परीक्षा में अच्छे अंक पाने पर राम के अध्यापक ने उसकी पीठ थपथपाई।
+</div>
+
+
+<p>
+<strong>जान में जान आ जाना</strong>
+(राहत महसूस करना)
+</p>
+
+<div class="answer">
+जब तेज़ बारिश में मैं घर पहुँची, तब जाकर मेरी जान में जान आई।
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ================= QUIZ ================= -->
+
+<div id="quiz" class="tab-content">
+
+<div class="quiz-title">
+
+<h2>📝 Objective Type Questions ❓</h2>
+
+<p>
+अहसास — Online Quiz
+</p>
+
+</div>
+
+
+<!-- Q1 -->
+
+<div class="quiz-card">
+
+<div class="quiz-question">
+1. दिवाकर की नए स्कूल में किसने मदद की?
+</div>
+
+<button class="option" onclick="checkAnswer(this,true)">
+A. प्रधानाचार्य ने
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. उसके मित्र ने
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. मैडम नीरू ने
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. उसके बड़े भाई ने
+</button>
+
+<div class="quiz-feedback"></div>
+
+</div>
+
+
+<!-- Q2 -->
+
+<div class="quiz-card">
+
+<div class="quiz-question">
+2. छात्र-छात्राएँ स्कूल बस से कहाँ जा रहे थे?
+</div>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. बाजार
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. शैक्षिक भ्रमण
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. खेल प्रतियोगिता
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. अपने गाँव
+</button>
+
+<div class="quiz-feedback"></div>
+
+</div>
+
+
+<!-- Q3 -->
+
+<div class="quiz-card">
+
+<div class="quiz-question">
+3. छात्राएँ बस में क्या कर रही थीं?
+</div>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. कहानी पढ़ रही थीं
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. अंताक्षरी खेल रही थीं
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. खाना खा रही थीं
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. चित्र बना रही थीं
+</button>
+
+<div class="quiz-feedback"></div>
+
+</div>
+
+
+<!-- Q4 -->
+
+<div class="quiz-card">
+
+<div class="quiz-question">
+4. दिवाकर बस में बैठकर क्या देख रहा था?
+</div>
+
+<button class="option" onclick="checkAnswer(this,true)">
+A. वृक्षों और दूर तक फैले आसमान को
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. पहाड़ों को
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. समुद्र को
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. खेल का मैदान
+</button>
+
+<div class="quiz-feedback"></div>
+
+</div>
+
+
+<!-- Q5 -->
+
+<div class="quiz-card">
+
+<div class="quiz-question">
+5. दिवाकर को अधूरेपन का अहसास क्यों होता था?
+</div>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. वह पढ़ाई में कमजोर था
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. वह शारीरिक रूप से दिव्यांग था
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. उसके मित्र नहीं थे
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. वह स्कूल नहीं जाना चाहता था
+</button>
+
+<div class="quiz-feedback"></div>
+
+</div>
+
+
+<!-- Q6 -->
+
+<div class="quiz-card">
+
+<div class="quiz-question">
+6. कार्यक्रम के दौरान छात्र-छात्राएँ किसे देखकर डर गए?
+</div>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. कुत्ते को
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. साँप को
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. बंदर को
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. पक्षी को
+</button>
+
+<div class="quiz-feedback"></div>
+
+</div>
+
+
+<!-- Q7 -->
+
+<div class="quiz-card">
+
+<div class="quiz-question">
+7. दिवाकर अपनी बड़ी मौसी के घर कहाँ गया था?
+</div>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. अमृतसर
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. दिल्ली
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. चंडीगढ़
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. जयपुर
+</button>
+
+<div class="quiz-feedback"></div>
+
+</div>
+
+
+<!-- Q8 -->
+
+<div class="quiz-card">
+
+<div class="quiz-question">
+8. दिवाकर ने दिल्ली में कहाँ खूब खेला-कूदा था?
+</div>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. स्कूल में
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. पार्क में
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+C. फन सिटी में
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. मैदान में
+</button>
+
+<div class="quiz-feedback"></div>
+
+</div>
+
+
+<!-- Q9 -->
+
+<div class="quiz-card">
+
+<div class="quiz-question">
+9. साँप को देखकर दिवाकर क्यों नहीं डरा?
+</div>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. उसने साँप को पहले कभी नहीं देखा था
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. उसने गाँव में कई बार साँप देखे थे
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. वह साँप पकड़ना सीख चुका था
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. साँप वहाँ था ही नहीं
+</button>
+
+<div class="quiz-feedback"></div>
+
+</div>
+
+
+<!-- Q10 -->
+
+<div class="quiz-card">
+
+<div class="quiz-question">
+10. दिवाकर ने साँप को किसकी सहायता से दूर फेंका?
+</div>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. डंडे की
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. बैसाखी की
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. रस्सी की
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. लकड़ी की
+</button>
+
+<div class="quiz-feedback"></div>
+
+</div>
+
+
+<!-- Q11 -->
+
+<div class="quiz-card">
+
+<div class="quiz-question">
+11. दिवाकर के कौन-से गुण कहानी में सामने आते हैं?
+</div>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. आलस्य और डर
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. साहस और निडरता
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. क्रोध और जिद
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. लापरवाही और असावधानी
+</button>
+
+<div class="quiz-feedback"></div>
+
+</div>
+
+
+<!-- Q12 -->
+
+<div class="quiz-card">
+
+<div class="quiz-question">
+12. दिवाकर को किस कारण पुरस्कृत किया गया?
+</div>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. अच्छे अंक प्राप्त करने के कारण
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. समझदारी और निडरता के कारण
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. अंताक्षरी जीतने के कारण
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. बस में गीत गाने के कारण
+</button>
+
+<div class="quiz-feedback"></div>
+
+</div>
+
+
+<!-- Q13 -->
+
+<div class="quiz-card">
+
+<div class="quiz-question">
+13. दिवाकर को पुरस्कार किसने दिया?
+</div>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. मैडम नीरू ने
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. प्राचार्य महोदय ने
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. उसके मित्र ने
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. उसके पिता ने
+</button>
+
+<div class="quiz-feedback"></div>
+
+</div>
+
+
+<!-- Q14 -->
+
+<div class="quiz-card">
+
+<div class="quiz-question">
+14. ‘अहसास’ लघुकथा का प्रमुख उद्देश्य क्या है?
+</div>
+
+<button class="option" onclick="checkAnswer(this,true)">
+A. आत्मविश्वास और मानवतावाद की भावना जगाना
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. केवल मनोरंजन करना
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. खेल प्रतियोगिता कराना
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. यात्रा का वर्णन करना
+</button>
+
+<div class="quiz-feedback"></div>
+
+</div>
+
+
+<!-- Q15 -->
+
+<div class="quiz-card">
+
+<div class="quiz-question">
+15. ‘अहसास’ शीर्षक की सार्थकता किससे जुड़ी है?
+</div>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. दिवाकर के स्कूल बदलने से
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. अपनी क्षमता और पूर्णता का अहसास होने से
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. दिल्ली की यात्रा से
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. बस यात्रा से
+</button>
+
+<div class="quiz-feedback"></div>
+
+</div>
+
+
+<!-- Q16 -->
+
+<div class="quiz-card">
+
+<div class="quiz-question">
+16. इनमें से कौन-सा दिवाकर का गुण नहीं है?
+</div>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. साहसी
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+B. निडर
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+C. लापरवाह
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+D. कर्मशील
+</button>
+
+<div class="quiz-feedback"></div>
+
+</div>
+
+
+<!-- Q17 -->
+
+<div class="quiz-card">
+
+<div class="quiz-question">
+17. ‘सम्मान’ का विशेषण रूप कौन-सा है?
+</div>
+
+<button class="option" onclick="checkAnswer(this,false)">
+A. सम्मानता
+</button>
+
+<button class="option" onclick="checkAnswer(this,true)">
+B. सम्मानित
+</button>
+
+<button class="option" onclick="checkAnswer(this,false)">
+C. सम्मान
