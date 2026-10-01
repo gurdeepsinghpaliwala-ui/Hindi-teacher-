@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>समरूपी भिन्नार्थक शब्द - Online Quiz</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:"Segoe UI",Arial,sans-serif;
+  background:#f8fafc;
+  color:#1e293b;
+}
+
+header{
+  background:linear-gradient(135deg,#7c3aed,#0891b2);
+  color:white;
+  text-align:center;
+  padding:22px 12px;
+}
+
+header h1{
+  margin:0;
+  font-size:24px;
+}
+
+header p{
+  margin:5px 0 0;
+}
+
+.container{
+  max-width:850px;
+  margin:auto;
+  padding:15px;
+}
+
+.buttons{
+  display:flex;
+  gap:8px;
+  justify-content:center;
+  flex-wrap:wrap;
+  margin-bottom:15px;
+}
+
+.buttons a{
+  color:white;
+  text-decoration:none;
+  padding:9px 14px;
+  border-radius:8px;
+  font-weight:bold;
+}
+
+.back{background:#475569}
+.pdf{background:#dc2626}
+.content{background:#0891b2}
+
+.quiz-box{
+  background:white;
+  padding:18px;
+  border-radius:12px;
+  box-shadow:0 2px 10px rgba(0,0,0,.08);
+}
+
+.question{
+  background:#f8fafc;
+  border:1px solid #e2e8f0;
+  border-radius:10px;
+  padding:14px;
+  margin-bottom:14px;
+}
+
+.question h3{
+  margin:0 0 10px;
+  color:#6d28d9;
+  font-size:17px;
+}
+
+label{
+  display:block;
+  background:white;
+  border:1px solid #cbd5e1;
+  padding:9px;
+  margin:6px 0;
+  border-radius:7px;
+  cursor:pointer;
+}
+
+label:hover{
+  background:#f5f3ff;
+}
+
+button{
+  width:100%;
+  border:0;
+  background:#7c3aed;
+  color:white;
+  padding:13px;
+  border-radius:9px;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#6d28d9;
+}
+
+#result{
+  display:none;
+  margin-top:15px;
+  padding:15px;
+  border-radius:10px;
+  background:#ecfdf5;
+  color:#065f46;
+  text-align:center;
+  font-size:20px;
+  font-weight:bold;
+}
+
+.correct{
+  background:#dcfce7 !important;
+  border-color:#16a34a !important;
+}
+
+.wrong{
+  background:#fee2e2 !important;
+  border-color:#dc2626 !important;
+}
+
+footer{
+  margin-top:20px;
+  background:#1e293b;
+  color:white;
+  text-align:center;
+  padding:14px;
+}
+
+@media(max-width:600px){
+  header h1{font-size:21px}
+  .question h3{font-size:16px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>🔤 समरूपी भिन्नार्थक शब्द</h1>
+  <p>कक्षा 10 हिन्दी • Online Quiz</p>
+</header>
+
+<div class="container">
+
+<div class="buttons">
+  <a href="vyakaran.html" class="back">⬅️ वापस</a>
+  <a href="samarupi_bhinnarthak_shabd.pdf" target="_blank" class="pdf">📄 PDF</a>
+  <a href="samarupi_bhinnarthak_shabd.html" class="content">📖 पूरी सामग्री</a>
+</div>
+
+<div class="quiz-box">
+
+<form id="quizForm">
+
+<!-- 1 -->
+<div class="question">
+<h3>1. ‘अवधि’ और ‘अवधी’ में सही अंतर कौन-सा है?</h3>
+<label><input type="radio" name="q1" value="A"> A) अवधि = भाषा, अवधी = समय</label>
+<label><input type="radio" name="q1" value="B"> B) अवधि = समय-सीमा, अवधी = भाषा/बोली</label>
+<label><input type="radio" name="q1" value="C"> C) दोनों का अर्थ भाषा है</label>
+<label><input type="radio" name="q1" value="D"> D) दोनों का अर्थ समय है</label>
+</div>
+
+<!-- 2 -->
+<div class="question">
+<h3>2. “कृपया ______ कार्यालय पहुँचें।” सही शब्द चुनिए।</h3>
+<label><input type="radio" name="q2" value="A"> A) अवलम्ब</label>
+<label><input type="radio" name="q2" value="B"> B) अविलम्ब</label>
+<label><input type="radio" name="q2" value="C"> C) अवश</label>
+<label><input type="radio" name="q2" value="D"> D) अवधि</label>
+</div>
+
+<!-- 3 -->
+<div class="question">
+<h3>3. ‘असमान’ और ‘आसमान’ दोनों का अर्थ एक ही है।</h3>
+<label><input type="radio" name="q3" value="A"> True</label>
+<label><input type="radio" name="q3" value="B"> False</label>
+</div>
+
+<!-- 4 -->
+<div class="question">
+<h3>4. “वह सुबह जल्दी उठने का ______ है।”</h3>
+<label><input type="radio" name="q4" value="A"> A) आदि</label>
+<label><input type="radio" name="q4" value="B"> B) आदी</label>
+<label><input type="radio" name="q4" value="C"> C) अनल</label>
+<label><input type="radio" name="q4" value="D"> D) अनु</label>
+</div>
+
+<!-- 5 -->
+<div class="question">
+<h3>5. ‘उपयुक्त’ शब्द का सही अर्थ क्या है?</h3>
+<label><input type="radio" name="q5" value="A"> A) ऊपर कहा हुआ</label>
+<label><input type="radio" name="q5" value="B"> B) उचित</label>
+<label><input type="radio" name="q5" value="C"> C) बिना देर किए</label>
+<label><input type="radio" name="q5" value="D"> D) सहारा</label>
+</div>
+
+<!-- 6 -->
+<div class="question">
+<h3>6. ‘उपर्युक्त’ का प्रयोग सामान्यतः किस अर्थ में होता है?</h3>
+<label><input type="radio" name="q6" value="A"> A) ऊपर कहा हुआ</label>
+<label><input type="radio" name="q6" value="B"> B) उचित</label>
+<label><input type="radio" name="q6" value="C"> C) ऋण</label>
+<label><input type="radio" name="q6" value="D"> D) मुक्ति</label>
+</div>
+
+<!-- 7 -->
+<div class="question">
+<h3>7. ‘कूल’ शब्द किस अर्थ में प्रयुक्त होता है?</h3>
+<label><input type="radio" name="q7" value="A"> A) परिवार</label>
+<label><input type="radio" name="q7" value="B"> B) किनारा</label>
+<label><input type="radio" name="q7" value="C"> C) पर्वत</label>
+<label><input type="radio" name="q7" value="D"> D) शिक्षक</label>
+</div>
+
+<!-- 8 -->
+<div class="question">
+<h3>8. ‘गुर’ और ‘गुरु’ के बारे में सही कथन कौन-सा है?</h3>
+<label><input type="radio" name="q8" value="A"> A) गुर = शिक्षक, गुरु = युक्ति</label>
+<label><input type="radio" name="q8" value="B"> B) गुर = रहस्य/युक्ति, गुरु = शिक्षक</label>
+<label><input type="radio" name="q8" value="C"> C) दोनों = शिक्षक</label>
+<label><input type="radio" name="q8" value="D"> D) दोनों = रहस्य</label>
+</div>
+
+<!-- 9 -->
+<div class="question">
+<h3>9. “पूर्व ______ से सूरज निकलता है।”</h3>
+<label><input type="radio" name="q9" value="A"> A) दशा</label>
+<label><input type="radio" name="q9" value="B"> B) दिशा</label>
+<label><input type="radio" name="q9" value="C"> C) धारा</label>
+<label><input type="radio" name="q9" value="D"> D) धरा</label>
+</div>
+
+<!-- 10 -->
+<div class="question">
+<h3>10. ‘धरा’ का अर्थ क्या है?</h3>
+<label><input type="radio" name="q10" value="A"> A) पृथ्वी</label>
+<label><input type="radio" name="q10" value="B"> B) प्रवाह</label>
+<label><input type="radio" name="q10" value="C"> C) दिशा</label>
+<label><input type="radio" name="q10" value="D"> D) अवस्था</label>
+</div>
+
+<!-- 11 -->
+<div class="question">
+<h3>11. ‘निश्चल’ और ‘निश्छल’ के अर्थ क्रमशः क्या हैं?</h3>
+<label><input type="radio" name="q11" value="A"> A) कपटरहित और स्थिर</label>
+<label><input type="radio" name="q11" value="B"> B) स्थिर और कपटरहित</label>
+<label><input type="radio" name="q11" value="C"> C) गरीब और स्थिर</label>
+<label><input type="radio" name="q11" value="D"> D) निश्चित और विनम्र</label>
+</div>
+
+<!-- 12 -->
+<div class="question">
+<h3>12. ‘परिणाम’ शब्द का सही अर्थ कौन-सा है?</h3>
+<label><input type="radio" name="q12" value="A"> A) मात्रा</label>
+<label><input type="radio" name="q12" value="B"> B) नतीजा</label>
+<label><input type="radio" name="q12" value="C"> C) प्रमाण</label>
+<label><input type="radio" name="q12" value="D"> D) नमस्कार</label>
+</div>
+
+<!-- 13 -->
+<div class="question">
+<h3>13. ‘प्रमाण’ और ‘प्रणाम’ के बारे में सही कथन चुनिए।</h3>
+<label><input type="radio" name="q13" value="A"> A) प्रमाण = नमस्कार, प्रणाम = सबूत</label>
+<label><input type="radio" name="q13" value="B"> B) प्रमाण = सबूत, प्रणाम = नमस्कार</label>
+<label><input type="radio" name="q13" value="C"> C) दोनों = सबूत</label>
+<label><input type="radio" name="q13" value="D"> D) दोनों = नमस्कार</label>
+</div>
+
+<!-- 14 -->
+<div class="question">
+<h3>14. ‘क्रम’ शब्द किस अर्थ में प्रयुक्त होता है?</h3>
+<label><input type="radio" name="q14" value="A"> A) कार्य</label>
+<label><input type="radio" name="q14" value="B"> B) सिलसिला / क्रमबद्ध व्यवस्था</label>
+<label><input type="radio" name="q14" value="C"> C) उर्वरक</label>
+<label><input type="radio" name="q14" value="D"> D) भोजन</label>
+</div>
+
+<!-- 15 -->
+<div class="question">
+<h3>15. ‘खाद’ और ‘खाद्य’ में सही अंतर क्या है?</h3>
+<label><input type="radio" name="q15" value="A"> A) खाद = उर्वरक, खाद्य = खाने योग्य</label>
+<label><input type="radio" name="q15" value="B"> B) खाद = खाने योग्य, खाद्य = उर्वरक</label>
+<label><input type="radio" name="q15" value="C"> C) दोनों = उर्वरक</label>
+<label><input type="radio" name="q15" value="D"> D) दोनों = भोजन</label>
+</div>
+
+<!-- 16 -->
+<div class="question">
+<h3>16. “पृथ्वी एक ______ है।”</h3>
+<label><input type="radio" name="q16" value="A"> A) गृह</label>
+<label><input type="radio" name="q16" value="B"> B) ग्रह</label>
+<label><input type="radio" name="q16" value="C"> C) गिरि</label>
+<label><input type="radio" name="q16" value="D"> D) कूल</label>
+</div>
+
+<!-- 17 -->
+<div class="question">
+<h3>17. ‘चर्म’ और ‘चरम’ में सही अंतर कौन-सा है?</h3>
+<label><input type="radio" name="q17" value="A"> A) चर्म = अंतिम सीमा, चरम = त्वचा</label>
+<label><input type="radio" name="q17" value="B"> B) चर्म = त्वचा/चमड़ा, चरम = अंतिम सीमा</label>
+<label><input type="radio" name="q17" value="C"> C) दोनों = त्वचा</label>
+<label><input type="radio" name="q17" value="D"> D) दोनों = अंतिम सीमा</label>
+</div>
+
+<!-- 18 -->
+<div class="question">
+<h3>18. ‘नम्र’ शब्द का सही अर्थ क्या है?</h3>
+<label><input type="radio" name="q18" value="A"> A) मुलायम</label>
+<label><input type="radio" name="q18" value="B"> B) विनम्र</label>
+<label><input type="radio" name="q18" value="C"> C) निश्चित</label>
+<label><input type="radio" name="q18" value="D"> D) इरादा</label>
+</div>
+
+<!-- 19 -->
+<div class="question">
+<h3>19. ‘प्रसाद’ और ‘प्रासाद’ में सही अंतर बताइए।</h3>
+<label><input type="radio" name="q19" value="A"> A) प्रसाद = महल, प्रासाद = भोजन</label>
+<label><input type="radio" name="q19" value="B"> B) प्रसाद = देवता को अर्पित भोजन, प्रासाद = महल</label>
+<label><input type="radio" name="q19" value="C"> C) दोनों = महल</label>
+<label><input type="radio" name="q19" value="D"> D) दोनों = भोजन</label>
+</div>
+
+<!-- 20 -->
+<div class="question">
+<h3>20. ‘शोक’ और ‘शौक’ के बारे में सही कथन चुनिए।</h3>
+<label><input type="radio" name="q20" value="A"> A) शोक = रुचि, शौक = दुःख</label>
+<label><input type="radio" name="q20" value="B"> B) शोक = दुःख, शौक = रुचि</label>
+<label><input type="radio" name="q20" value="C"> C) दोनों = दुःख</label>
+<label><input type="radio" name="q20" value="D"> D) दोनों = रुचि</label>
+</div>
+
+<button type="button" onclick="checkQuiz()">📊 परिणाम देखें</button>
+
+</form>
+
+<div id="result"></div>
+
+</div>
+</div>
+
+<footer>
+कक्षा 10 हिन्दी • समरूपी भिन्नार्थक शब्द
+</footer>
+
+<script>
+
+const answers = {
+  q1:"B",
+  q2:"B",
+  q3:"B",
+  q4:"B",
+  q5:"B",
+  q6:"A",
+  q7:"B",
+  q8:"B",
+  q9:"B",
+  q10:"A",
+  q11:"B",
+  q12:"B",
+  q13:"B",
+  q14:"B",
+  q15:"A",
+  q16:"B",
+  q17:"B",
+  q18:"B",
+  q19:"B",
+  q20:"B"
+};
+
+function checkQuiz(){
+
+  let score = 0;
+  let total = Object.keys(answers).length;
+
+  for(let i=1;i<=total;i++){
+
+    const q = "q"+i;
+    const selected = document.querySelector(
+      'input[name="'+q+'"]:checked'
+    );
+
+    const labels = document.querySelectorAll(
+      'input[name="'+q+'"]'
+    );
+
+    labels.forEach(input=>{
+      input.parentElement.classList.remove("correct","wrong");
+    });
+
+    if(selected){
+
+      if(selected.value === answers[q]){
+        score++;
+        selected.parentElement.classList.add("correct");
+      }else{
+        selected.parentElement.classList.add("wrong");
+
+        labels.forEach(input=>{
+          if(input.value === answers[q]){
+            input.parentElement.classList.add("correct");
+          }
+        });
+      }
+    }else{
+
+      labels.forEach(input=>{
+        if(input.value === answers[q]){
+          input.parentElement.classList.add("correct");
+        }
+      });
+
+    }
+  }
+
+  let percent = Math.round((score/total)*100);
+
+  let message = "";
+
+  if(percent >= 80){
+    message = "बहुत बढ़िया! आपकी तैयारी अच्छी है।";
+  }else if(percent >= 50){
+    message = "अच्छा प्रयास! थोड़ी और तैयारी करें।";
+  }else{
+    message = "समरूपी भिन्नार्थक शब्दों को एक बार फिर पढ़ें।";
+  }
+
+  const result = document.getElementById("result");
+
+  result.style.display = "block";
+
+  result.innerHTML =
+    "आपका स्कोर: " + score + " / " + total +
+    "<br>प्रतिशत: " + percent + "%" +
+    "<br><span style='font-size:16px'>" +
+    message +
+    "</span>";
+
+  window.scrollTo({
+    top: document.body.scrollHeight,
+    behavior:"smooth"
+  });
+}
+
+</script>
+
+</body>
+  </html>
