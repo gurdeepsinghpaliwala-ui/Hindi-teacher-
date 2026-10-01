@@ -85,6 +85,22 @@
       color: white;
     }
 
+
+    .chapter-buttons {
+      display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:10px; margin:12px 0 16px;
+    }
+    .chapter-btn {
+      display:flex; align-items:center; justify-content:center; min-height:46px; padding:9px 8px;
+      border-radius:10px; text-decoration:none; font-size:13px; font-weight:700; text-align:center;
+      box-shadow:0 3px 8px rgba(0,0,0,.08); transition:.2s;
+    }
+    .chapter-btn:hover { transform:translateY(-2px); box-shadow:0 6px 14px rgba(0,0,0,.12); }
+    .btn-content { background:#dbeafe; color:#1d4ed8; border:1px solid #bfdbfe; }
+    .btn-objective { background:#fef3c7; color:#b45309; border:1px solid #fde68a; }
+    .btn-online { background:#dcfce7; color:#15803d; border:1px solid #bbf7d0; }
+    @media (max-width:650px) { .chapter-buttons { grid-template-columns:repeat(3,minmax(0,1fr)); } .chapter-btn { min-height:48px; font-size:12px; } }
+    @media (max-width:430px) { .chapter-buttons { grid-template-columns:1fr; } }
+
     .card {
       background: white;
       padding: 20px;
@@ -172,47 +188,6 @@
     .submit-btn:hover { background-color: #047857; }
 
     #quiz-result, #bhav-quiz-result { margin-top: 15px; font-weight: bold; font-size: 16px; text-align: center; }
-
-    .chapter-buttons {
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      gap: 10px;
-      margin: 12px 0 16px;
-    }
-
-    .chapter-btn {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 46px;
-      padding: 9px 8px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-size: 13px;
-      font-weight: 700;
-      text-align: center;
-      box-shadow: 0 3px 8px rgba(0,0,0,.08);
-      transition: .2s;
-    }
-
-    .chapter-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 14px rgba(0,0,0,.12);
-    }
-
-    .btn-content { background:#dbeafe; color:#1d4ed8; border:1px solid #bfdbfe; }
-    .btn-objective { background:#fef3c7; color:#b45309; border:1px solid #fde68a; }
-    .btn-online { background:#dcfce7; color:#15803d; border:1px solid #bbf7d0; }
-    .btn-pdf { background:#fee2e2; color:#b91c1c; border:1px solid #fecaca; }
-
-    @media (max-width:650px) {
-      .chapter-buttons { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .chapter-btn { min-height:48px; }
-    }
-
-    @media (max-width:380px) {
-      .chapter-buttons { grid-template-columns:1fr; }
-    }
   </style>
 </head>
 
@@ -243,15 +218,15 @@
 
   <!-- 1. संधि और संधि-विच्छेद -->
   <div id="sandhi" class="section-title title-sandhi">1. संधि और संधि-विच्छेद</div>
+
   <div class="chapter-buttons">
-    <a class="chapter-btn btn-content" href="#sandhi-content">📚 पूरा Content</a>
-    <a class="chapter-btn btn-objective" href="#sandhi-objective">❓ Objective Questions</a>
+    <a class="chapter-btn btn-content" href="#sandhi-content">📚 Content</a>
+    <a class="chapter-btn btn-objective" href="#sandhi-objective">❓ Objective Type Questions</a>
     <a class="chapter-btn btn-online" href="#sandhi-quiz">📝 Online Quiz</a>
-    <a class="chapter-btn btn-pdf" href="sandhi_vichhed.pdf?v=2" target="_blank">📄 PDF Download</a>
   </div>
 
-
-  <div id="sandhi-content" class="card">
+  <div id="sandhi-content"></div>
+  <div class="card">
     <span class="badge badge-sandhi">महत्वपूर्ण शब्द सारणी (50 शब्द)</span>
     <h3>संधि-विच्छेद और संधि शब्द संग्रह</h3>
     <table>
@@ -284,7 +259,8 @@
     </table>
   </div>
 
-  <div id="sandhi-objective" class="card">
+  <div id="sandhi-objective"></div>
+  <div class="card">
     <span class="badge badge-sandhi">वस्तुनिष्ठ प्रश्न (25 MCQs)</span>
     <h3>संधि अभ्यास प्रश्न</h3>
 
@@ -439,8 +415,9 @@
     </div>
   </div>
 
+  <div id="sandhi-quiz"></div>
   <div class="card">
-    <span id="sandhi-quiz" class="badge badge-sandhi">ऑनलाइन टेस्ट (15 प्रश्न)</span>
+    <span class="badge badge-sandhi">ऑनलाइन टेस्ट (15 प्रश्न)</span>
     <h3>संधि लाइव क्विज़</h3>
     <p style="font-size: 13px; color: #64748b;">सही विकल्प चुनकर अपना स्कोर जाँचें:</p>
     <div id="quiz-container"></div>
@@ -451,7 +428,16 @@
 
   <!-- 2. भाववाचक संज्ञा निर्माण -->
   <div id="bhavvachak" class="section-title title-bhav">2. भाववाचक संज्ञा - निर्माण (पाठ-3)</div>
+
   <div class="chapter-buttons">
-    <a class="chapter-btn btn-content" href="#bhavvachak-content">📚 पूरा Content</a>
-    <a class="chapter-btn btn-objective" href="#bhavvachak-objective">❓ Objective Questions</a>
-    <a class="chapter-btn btn-online" href=
+    <a class="chapter-btn btn-content" href="#bhav-content">📚 Content</a>
+    <a class="chapter-btn btn-objective" href="#bhav-objective">❓ Objective Type Questions</a>
+    <a class="chapter-btn btn-online" href="#bhav-quiz">📝 Online Quiz</a>
+  </div>
+
+  <div id="bhav-content"></div>
+  <div class="card">
+    <span class="badge badge-bhav">महत्वपूर्ण शब्द सारणी (50 शब्द)</span>
+    <h3>भाववाचक संज्ञा निर्माण के प्रमुख शब्द</h3>
+    <table>
+      <tr><th>क्र.</th><th>मूल शब्द</th><
