@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>कक्षा 10 हिन्दी - व्यावहारिक व्याकरण</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #f8fafc;
+      color: #1e293b;
+      line-height: 1.6;
+    }
+
+    header {
+      background: linear-gradient(135deg, #6d28d9, #8b5cf6);
+      color: #fff;
+      padding: 25px 15px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(109, 40, 217, 0.2);
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 26px;
+    }
+
+    header p {
+      margin: 6px 0 0;
+      font-size: 14px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #1e293b;
+      color: #fff;
+      padding: 10px 18px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .topics-menu {
+      background: #fff;
+      padding: 18px;
+      border-radius: 14px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+      margin-bottom: 22px;
+      border: 1px solid #e2e8f0;
+    }
+
+    .topics-menu h3 {
+      margin: 0 0 12px;
+      color: #6d28d9;
+    }
+
+    .topic-links {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .topic-links a {
+      text-decoration: none;
+      background: #ede9fe;
+      color: #5b21b6;
+      padding: 11px 13px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      transition: 0.2s;
+      display: block;
+    }
+
+    .topic-links a:hover {
+      background: #7c3aed;
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    .info-card {
+      background: #fff;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 20px;
+      margin-bottom: 15px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+      scroll-margin-top: 15px;
+    }
+
+    .info-card h2 {
+      margin: 0 0 8px;
+      font-size: 20px;
+    }
+
+    .info-card p {
+      margin: 6px 0 12px;
+      color: #64748b;
+      font-size: 14px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 10px;
+    }
+
+    .open-btn {
+      display: inline-block;
+      padding: 9px 14px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    .pdf-btn {
+      background: #fee2e2;
+      color: #b91c1c;
+      border: 1px solid #fecaca;
+    }
+
+    .quiz-btn {
+      background: #dcfce7;
+      color: #15803d;
+      border: 1px solid #bbf7d0;
+    }
+
+    .content-btn {
+      background: #dbeafe;
+      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+    }
+
+    .purple {
+      background: #ede9fe;
+      color: #6d28d9;
+      border: 1px solid #ddd6fe;
+    }
+
+    .orange {
+      background: #fef3c7;
+      color: #b45309;
+      border: 1px solid #fde68a;
+    }
+
+    .pink {
+      background: #fce7f3;
+      color: #be185d;
+      border: 1px solid #fbcfe8;
+    }
+
+    .teal {
+      background: #ccfbf1;
+      color: #0f766e;
+      border: 1px solid #99f6e4;
+    }
+
+    .note {
+      background: #fff7ed;
+      color: #9a3412;
+      border: 1px solid #fed7aa;
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 13px;
+      margin-top: 20px;
+    }
+
+    footer {
+      text-align: center;
+      color: #64748b;
+      font-size: 12px;
+      padding: 10px 15px 25px;
+    }
+
+    @media (max-width: 650px) {
+      .container {
+        padding: 12px;
+      }
+
+      .topic-links {
+        grid-template-columns: 1fr;
+      }
+
+      .info-card {
+        padding: 14px;
+      }
+
+      .info-card h2 {
+        font-size: 18px;
+      }
+
+      header h1 {
+        font-size: 21px;
+      }
+
+      .button-row {
+        flex-direction: column;
+      }
+
+      .open-btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>कक्षा 10 हिन्दी : व्यावहारिक व्याकरण</h1>
+    <p>पंजाब बोर्ड – परीक्षा उपयोगी संपूर्ण व्याकरण सामग्री</p>
+  </header>
+
+  <div class="container">
+
+    <a class="back-btn" href="class10.html">← वापस Class 10</a>
+
+    <div class="topics-menu">
+      <h3>📚 व्याकरण विषय सूची</h3>
+
+      <div class="topic-links">
+        <a href="#sandhi">📘 1. संधि और संधि-विच्छेद</a>
+        <a href="#bhavvachak">💜 2. भाववाचक संज्ञा</a>
+        <a href="#visheshan">🟦 3. विशेषण निर्माण</a>
+        <a href="#anek-shabd">📚 4. अनेक शब्दों के लिए एक शब्द ✨</a>
+        <a href="#muhavare">💬 5. मुहावरे</a>
+        <a href="#lokokti">📖 6. लोकोक्तियाँ</a>
+        <a href="#vilom">🔄 7. विलोम शब्द</a>
+        <a href="#samas">📝 8. समास</a>
+      </div>
+    </div>
+
+    <div id="sandhi" class="info-card">
+      <h2 style="color:#2563eb;">📘 1. संधि और संधि-विच्छेद</h2>
+      <p>50 महत्वपूर्ण शब्द, 25 वस्तुनिष्ठ प्रश्न और 15 प्रश्नों का ऑनलाइन टेस्ट।</p>
+
+      <div class="button-row">
+        <a class="open-btn pdf-btn" href="sandhi_vichhed.pdf" target="_blank">📄 PDF</a>
+        <a class="open-btn quiz-btn" href="sandhi_quiz.html">📝 Online Quiz</a>
+        <a class="open-btn content-btn" href="sandhi_vichhed.html">📘 पूरी सामग्री</a>
+      </div>
+    </div>
+
+    <div id="bhavvachak" class="info-card">
+      <h2 style="color:#7c3aed;">💜 2. भाववाचक संज्ञा</h2>
+      <p>महत्वपूर्ण शब्द-सारणी, अभ्यास प्रश्न और ऑनलाइन टेस्ट।</p>
+
+      <div class="button-row">
+        <a class="open-btn pdf-btn" href="bhavvachak_sangya.pdf" target="_blank">📄 PDF</a>
+        <a class="open-btn quiz-btn" href="bhavvachak_quiz.html">📝 Online Quiz</a>
+        <a class="open-btn purple" href="bhavvachak_sangya.html">💜 पूरी सामग्री</a>
+      </div>
+    </div>
+
+    <div id="visheshan" class="info-card">
+      <h2 style="color:#0f766e;">🟦 3. विशेषण निर्माण</h2>
+      <p>विशेषण निर्माण की अध्ययन सामग्री, PDF और ऑनलाइन अभ्यास।</p>
+
+      <div class="button-row">
+        <a class="open-btn pdf-btn" href="visheshan_nirman.pdf" target="_blank">📄 PDF</a>
+        <a class="open-btn quiz-btn" href="visheshan_quiz.html">📝 Online Quiz</a>
+        <a class="open-btn teal" href="visheshan_nirman.html">📘 पूरी सामग्री</a>
+      </div>
+    </div>
+
+    <div id="anek-shabd" class="info-card">
+      <h2 style="color:#d97706;">📚 4. अनेक शब्दों के लिए एक शब्द ✨</h2>
+      <p>अनेक शब्दों के लिए एक शब्द की अध्ययन सामग्री और ऑनलाइन अभ्यास।</p>
+
+      <div class="button-row">
+        <a class="open-btn pdf-btn" href="anek_shabdon_ek_shabd.pdf" target="_blank">📄 PDF</a>
+        <a class="open-btn quiz-btn" href="anek_shabdon_ek_shabd_quiz.html">📝 Online Quiz</a>
+        <a class="open-btn orange" href="anek_shabdon_ek_shabd.html">📚 पूरी सामग्री</a>
+      </div>
+    </div>
+
+    <div id="muhavare" class="info-card">
+      <h2 style="color:#be185d;">💬 5. मुहावरे</h2>
+      <p>महत्वपूर्ण मुहावरे, अर्थ, प्रयोग और ऑनलाइन अभ्यास।</p>
+
+      <div class="button-row">
+        <a class="open-btn pdf-btn" href="muhavare.pdf" target="_blank">📄 PDF</a>
+        <a class="open-btn quiz-btn" href="muhavare_quiz.html">📝 Online Quiz</a>
+        <a class="open-btn pink" href="muhavare.html">💬 पूरी सामग्री</a>
+      </div>
+    </div>
+
+    <div id="lokokti" class="info-card">
+      <h2 style="color:#0369a1;">📖 6. लोकोक्तियाँ</h2>
+      <p>महत्वपूर्ण लोकोक्तियाँ, अर्थ और परीक्षा उपयोगी अभ्यास।</p>
+
+      <div class="button-row">
+        <a class="open-btn pdf-btn" href="lokokti.pdf" target="_blank">📄 PDF</a>
+        <a class="open-btn quiz-btn" href="lokokti_quiz.html">📝 Online Quiz</a>
+        <a class="open-btn content-btn" href="lokokti.html">📖 पूरी सामग्री</a>
+      </div>
+    </div>
+
+    <div id="vilom" class="info-card">
+      <h2 style="color:#4338ca;">🔄 7. विलोम शब्द</h2>
+      <p>महत्वपूर्ण विलोम शब्दों की सूची और ऑनलाइन अभ्यास।</p>
+
+      <div class="button-row">
+        <a class="open-btn pdf-btn" href="vilom_shabd.pdf" target="_blank">📄 PDF</a>
+        <a class="open-btn quiz-btn" href="vilom_shabd_quiz.html">📝 Online Quiz</a>
+        <a class="open-btn purple" href="vilom_shabd.html">🔄 पूरी सामग्री</a>
+      </div>
+    </div>
+
+    <div id="samas" class="info-card">
+      <h2 style="color:#15803d;">📝 8. समास</h2>
+      <p>समास के महत्वपूर्ण नियम, उदाहरण और ऑनलाइन अभ्यास।</p>
+
+      <div class="button-row">
+        <a class="open-btn pdf-btn" href="samas.pdf" target="_blank">📄 PDF</a>
+        <a class="open-btn quiz-btn" href="samas_quiz.html">📝 Online Quiz</a>
+        <a class="open-btn teal" href="samas.html">📝 पूरी सामग्री</a>
+      </div>
+    </div>
+
+    <div class="note">
+      <strong>नोट:</strong>
+      PDF और Online Quiz के links ऊपर निर्धारित filenames के अनुसार रखे गए हैं।
+      जिन files को अभी GitHub पर upload नहीं किया गया है, उन्हें इन्हीं filenames से upload करना होगा।
+    </div>
+
+  </div>
+
+  <footer>
+    कक्षा 10 हिन्दी • व्यावहारिक व्याकरण
+  </footer>
+
+</body>
+</html>
