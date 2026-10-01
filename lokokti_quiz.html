@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>कक्षा 10 हिन्दी — लोकोक्तियाँ Online Quiz</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:"Noto Sans Devanagari","Mangal","Segoe UI",sans-serif;
+  background:#f8fafc;
+  color:#1e293b;
+}
+
+header{
+  background:linear-gradient(135deg,#7c3aed,#db2777);
+  color:#fff;
+  text-align:center;
+  padding:25px 15px;
+}
+
+header h1{
+  margin:0;
+  font-size:27px;
+}
+
+header p{
+  margin:6px 0 0;
+}
+
+.top-buttons{
+  display:flex;
+  justify-content:center;
+  flex-wrap:wrap;
+  gap:10px;
+  padding:18px 10px;
+}
+
+.btn{
+  text-decoration:none;
+  color:#fff;
+  padding:9px 16px;
+  border-radius:8px;
+  font-weight:bold;
+}
+
+.back{background:#475569}
+.pdf{background:#dc2626}
+.content{background:#7c3aed}
+
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:5px 15px 40px;
+}
+
+.question{
+  background:#fff;
+  margin:16px 0;
+  padding:17px;
+  border-radius:12px;
+  box-shadow:0 2px 9px rgba(0,0,0,.08);
+  border-left:5px solid #a855f7;
+}
+
+.question h3{
+  margin:0 0 12px;
+  font-size:17px;
+  color:#334155;
+}
+
+.option{
+  display:block;
+  background:#f8fafc;
+  margin:7px 0;
+  padding:9px 10px;
+  border-radius:7px;
+  cursor:pointer;
+}
+
+.option:hover{
+  background:#f3e8ff;
+}
+
+.option input{
+  margin-right:8px;
+}
+
+.submit-box{
+  text-align:center;
+  margin:25px 0;
+}
+
+button{
+  border:0;
+  padding:12px 25px;
+  border-radius:9px;
+  color:white;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+  margin:5px;
+}
+
+.submit{
+  background:#7c3aed;
+}
+
+.reset{
+  background:#475569;
+}
+
+#result{
+  display:none;
+  background:#fff;
+  border-radius:12px;
+  padding:20px;
+  margin:20px 0;
+  box-shadow:0 2px 10px rgba(0,0,0,.1);
+  text-align:center;
+}
+
+.result-title{
+  color:#7c3aed;
+  font-size:23px;
+  font-weight:bold;
+}
+
+.score{
+  font-size:30px;
+  font-weight:bold;
+  color:#15803d;
+}
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:10px;
+  margin-top:15px;
+}
+
+.stat{
+  background:#f8fafc;
+  padding:12px;
+  border-radius:8px;
+}
+
+.stat b{
+  display:block;
+  font-size:21px;
+  color:#7c3aed;
+}
+
+footer{
+  background:#1e293b;
+  color:#fff;
+  text-align:center;
+  padding:18px;
+}
+
+@media(max-width:600px){
+  header h1{font-size:22px}
+
+  .stats{
+    grid-template-columns:repeat(2,1fr);
+  }
+
+  .question h3{
+    font-size:16px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>📝 कक्षा 10 हिन्दी — लोकोक्तियाँ Online Quiz</h1>
+  <p>25 महत्वपूर्ण लोकोक्तियों पर आधारित Objective Quiz</p>
+</header>
+
+<div class="top-buttons">
+  <a href="vyakaran.html" class="btn back">⬅️ वापस</a>
+  <a href="lokokti.html" class="btn content">📘 पूरी सामग्री</a>
+  <a href="lokokti.pdf" target="_blank" class="btn pdf">📄 PDF</a>
+</div>
+
+<div class="container">
+
+<form id="quizForm">
+
+<div class="question">
+<h3>1. “अपना लाल गंवाय के दर-दर माँगे भीख” का अर्थ क्या है?</h3>
+<label class="option"><input type="radio" name="q1" value="A"> A. अपनी वस्तु खोकर दूसरों से माँगते फिरना</label>
+<label class="option"><input type="radio" name="q1" value="B"> B. बहुत धन कमाना</label>
+<label class="option"><input type="radio" name="q1" value="C"> C. दूसरों की सहायता करना</label>
+<label class="option"><input type="radio" name="q1" value="D"> D. घर छोड़कर जाना</label>
+</div>
+
+<div class="question">
+<h3>2. “अधूरा छोड़े सो पड़ा रहे” का सही अर्थ है—</h3>
+<label class="option"><input type="radio" name="q2" value="A"> A. काम जल्दी पूरा करना</label>
+<label class="option"><input type="radio" name="q2" value="B"> B. बीच में छोड़ा काम अधूरा रह जाता है</label>
+<label class="option"><input type="radio" name="q2" value="C"> C. नया काम शुरू करना</label>
+<label class="option"><input type="radio" name="q2" value="D"> D. काम भूल जाना</label>
+</div>
+
+<div class="question">
+<h3>3. “आसमान से गिरा खजूर में अटका” का अर्थ क्या है?</h3>
+<label class="option"><input type="radio" name="q3" value="A"> A. बहुत खुश होना</label>
+<label class="option"><input type="radio" name="q3" value="B"> B. एक मुसीबत से निकलकर दूसरी में फँसना</label>
+<label class="option"><input type="radio" name="q3" value="C"> C. ऊँचे पेड़ पर चढ़ना</label>
+<label class="option"><input type="radio" name="q3" value="D"> D. अचानक धन मिलना</label>
+</div>
+
+<div class="question">
+<h3>4. “आँखों देखी सच्ची, कानों सुनी झूठी” किस बात की सीख देती है?</h3>
+<label class="option"><input type="radio" name="q4" value="A"> A. हर बात पर विश्वास करना</label>
+<label class="option"><input type="radio" name="q4" value="B"> B. दूसरों की बात न सुनना</label>
+<label class="option"><input type="radio" name="q4" value="C"> C. अपनी आँखों से देखी बात पर विश्वास करना</label>
+<label class="option"><input type="radio" name="q4" value="D"> D. हमेशा चुप रहना</label>
+</div>
+
+<div class="question">
+<h3>5. “ऊँट किस करवट बैठता है” कब कहा जाता है?</h3>
+<label class="option"><input type="radio" name="q5" value="A"> A. जब परिणाम निश्चित न हो</label>
+<label class="option"><input type="radio" name="q5" value="B"> B. जब काम पूरा हो जाए</label>
+<label class="option"><input type="radio" name="q5" value="C"> C. जब कोई यात्रा करे</label>
+<label class="option"><input type="radio" name="q5" value="D"> D. जब सफलता निश्चित हो</label>
+</div>
+
+<div class="question">
+<h3>6. “एक तंदुरुस्ती हज़ार नियामत” किससे संबंधित है?</h3>
+<label class="option"><input type="radio" name="q6" value="A"> A. धन</label>
+<label class="option"><input type="radio" name="q6" value="B"> B. स्वास्थ्य</label>
+<label class="option"><input type="radio" name="q6" value="C"> C. व्यापार</label>
+<label class="option"><input type="radio" name="q6" value="D"> D. शिक्षा</label>
+</div>
+
+<div class="question">
+<h3>7. “ओखली में सिर दिया तो मूसलों से क्या डर” का अर्थ है—</h3>
+<label class="option"><input type="radio" name="q7" value="A"> A. काम शुरू करके कठिनाइयों से डरना नहीं चाहिए</label>
+<label class="option"><input type="radio" name="q7" value="B"> B. काम शुरू नहीं करना चाहिए</label>
+<label class="option"><input type="radio" name="q7" value="C"> C. हमेशा घर में रहना चाहिए</label>
+<label class="option"><input type="radio" name="q7" value="D"> D. कठिन काम छोड़ देना चाहिए</label>
+</div>
+
+<div class="question">
+<h3>8. “का वर्षा जब कृषि सुखाने” का अर्थ क्या है?</h3>
+<label class="option"><input type="radio" name="q8" value="A"> A. समय पर सहायता मिलना</label>
+<label class="option"><input type="radio" name="q8" value="B"> B. समय निकल जाने के बाद की सहायता बेकार होना</label>
+<label class="option"><input type="radio" name="q8" value="C"> C. खेती करना</label>
+<label class="option"><input type="radio" name="q8" value="D"> D. वर्षा का आनंद लेना</label>
+</div>
+
+<div class="question">
+<h3>9. “कथनी नहीं करनी चाहिए” का संदेश क्या है?</h3>
+<label class="option"><input type="radio" name="q9" value="A"> A. केवल बातें करनी चाहिए</label>
+<label class="option"><input type="radio" name="q9" value="B"> B. केवल काम करना चाहिए, बात नहीं</label>
+<label class="option"><input type="radio" name="q9" value="C"> C. केवल बातें नहीं, काम भी करना चाहिए</label>
+<label class="option"><input type="radio" name="q9" value="D"> D. दूसरों की नकल करनी चाहिए</label>
+</div>
+
+<div class="question">
+<h3>10. “काठ की हाँडी बार-बार नहीं चढ़ती” का अर्थ है—</h3>
+<label class="option"><input type="radio" name="q10" value="A"> A. खाना जल्दी बनाना</label>
+<label class="option"><input type="radio" name="q10" value="B"> B. किसी को बार-बार धोखा नहीं दिया जा सकता</label>
+<label class="option"><input type="radio" name="q10" value="C"> C. लकड़ी की हाँडी मजबूत होती है</label>
+<label class="option"><input type="radio" name="q10" value="D"> D. भोजन बनाना कठिन है</label>
+</div>
+
+<div class="question">
+<h3>11. “घर का भेदी लंका ढाए” का अर्थ है—</h3>
+<label class="option"><input type="radio" name="q11" value="A"> A. पड़ोसी नुकसान करे</label>
+<label class="option"><input type="radio" name="q11" value="B"> B. अपना ही व्यक्ति घर या संस्था को नुकसान पहुँचा दे</label>
+<label class="option"><input type="radio" name="q11" value="C"> C. घर बनाना</label>
+<label class="option"><input type="radio" name="q11" value="D"> D. यात्रा करना</label>
+</div>
+
+<div class="question">
+<h3>12. “जो गरजते हैं वे बरसते नहीं” का अर्थ क्या है?</h3>
+<label class="option"><input type="radio" name="q12" value="A"> A. अधिक धमकी देने वाले अक्सर कुछ नहीं करते</label>
+<label class="option"><input type="radio" name="q12" value="B"> B. बादल कभी नहीं बरसते</label>
+<label class="option"><input type="radio" name="q12" value="C"> C. बारिश बहुत होती है</label>
+<label class="option"><input type="radio" name="q12" value="D"> D. मेहनत करने वाला हार जाता है</label>
+</div>
+
+<div class="question">
+<h3>13. “जोते हल तो होंवे फल” किस बात की सीख देता है?</h3>
+<label class="option"><input type="radio" name="q13" value="A"> A. आराम करने की</label>
+<label class="option"><input type="radio" name="q13" value="B"> B. मेहनत करने वाले को सफलता मिलती है</label>
+<label class="option"><input type="radio" name="q13" value="C"> C. धन खर्च करने की</label>
+<label class="option"><input type="radio" name="q13" value="D"> D. काम छोड़ने की</label>
+</div>
+
+<div class="question">
+<h3>14. “जाके पैर न फटे बिवाई, सो क्या जाने पीर पराई” का अर्थ है—</h3>
+<label class="option"><input type="radio" name="q14" value="A"> A. यात्रा करना</label>
+<label class="option"><input type="radio" name="q14" value="B"> B. जिसने स्वयं दुख नहीं सहा, वह दूसरे का दुख नहीं समझता</label>
+<label class="option"><input type="radio" name="q14" value="C"> C. पैर में चोट लगना</label>
+<label class="option"><input type="radio" name="q14" value="D"> D. दूसरों की सहायता करना</label>
+</div>
+
+<div class="question">
+<h3>15. “तेते पाँव पसारिए जेती लंबी सौर” क्या सिखाती है?</h3>
+<label class="option"><input type="radio" name="q15" value="A"> A. अधिक खर्च करना</label>
+<label class="option"><input type="radio" name="q15" value="B"> B. अपनी आय के अनुसार खर्च करना</label>
+<label class="option"><input type="radio" name="q15" value="C"> C. अधिक उधार लेना</label>
+<label class="option"><input type="radio" name="q15" value="D"> D. धन छिपाना</label>
+</div>
+
+<div class="question">
+<h3>16. “तू डाल-डाल, मैं पात-पात” का अर्थ है—</h3>
+<label class="option"><input type="radio" name="q16" value="A"> A. पेड़ लगाना</label>
+<label class="option"><input type="radio" name="q16" value="B"> B. एक-दूसरे की चाल को समझना</label>
+<label class="option"><input type="radio" name="q16" value="C"> C. जंगल में जाना</label>
+<label class="option"><input type="radio" name="q16" value="D"> D. पेड़ काटना</label>
+</div>
+
+<div class="question">
+<h3>17. “नीम हकीम खतरा जान” किस बात की चेतावनी है?</h3>
+<label class="option"><input type="radio" name="q17" value="A"> A. अधिक पढ़ाई करना</label>
+<label class="option"><input type="radio" name="q17" value="B"> B. स्वास्थ्य अच्छा रखना</label>
+<label class="option"><input type="radio" name="q17" value="C"> C. अधूरा ज्ञान नुकसानदायक होता है</label>
+<label class="option"><input type="radio" name="q17" value="D"> D. दूसरों की मदद करना</label>
+</div>
+
+<div class="question">
+<h3>18. “नेकी कर दरिया में डाल” का अर्थ है—</h3>
+<label class="option"><input type="radio" name="q18" value="A"> A. नदी में जाना</label>
+<label class="option"><input type="radio" name="q18" value="B"> B. भलाई करके उसका अहसान नहीं जताना</label>
+<label class="option"><input type="radio" name="q18" value="C"> C. धन कमाना</label>
+<label class="option"><input type="radio" name="q18" value="D"> D. यात्रा करना</label>
+</div>
+
+<div class="question">
+<h3>19. “नाम बड़े और दर्शन छोटे” का अर्थ है—</h3>
+<label class="option"><input type="radio" name="q19" value="A"> A. नाम छोटा होना</label>
+<label class="option"><input type="radio" name="q19" value="B"> B. प्रसिद्धि के अनुसार गुण न होना</label>
+<label class="option"><input type="radio" name="q19" value="C"> C. बहुत प्रसिद्ध होना</label>
+<label class="option"><input type="radio" name="q19" value="D"> D. छोटा घर होना</label>
+</div>
+
+<div class="question">
+<h3>20. “सीधी उंगली से घी नहीं निकलता” का भाव है—</h3>
+<label class="option"><input type="radio" name="q20" value="A"> A. घी खाना</label>
+<label class="option"><input type="radio" name="q20" value="B"> B. केवल सीधेपन से काम नहीं चलता</label>
+<label class="option"><input type="radio" name="q20" value="C"> C. उंगली सीधी करना</label>
+<label class="option"><input type="radio" name="q20" value="D"> D. भोजन बनाना</label>
+</div>
+
+<div class="question">
+<h3>21. “उल्टा चोर कोतवाल को डाँटे” का अर्थ है—</h3>
+<label class="option"><input type="radio" name="q21" value="A"> A. पुलिस से डरना</label>
+<label class="option"><input type="radio" name="q21" value="B"> B. दोषी व्यक्ति ही उल्टा दूसरे को डाँटने लगे</label>
+<label class="option"><input type="radio" name="q21" value="C"> C. न्याय करना</label>
+<label class="option"><input type="radio" name="q21" value="D"> D. चोरी रोकना</label>
+</div>
+
+<div class="question">
+<h3>22. “आग लगाकर पानी को दौड़ना” का अर्थ है—</h3>
+<label class="option"><input type="radio" name="q22" value="A"> A. आग बुझाना</label>
+<label class="option"><input type="radio" name="q22" value="B"> B. झगड़ा करवाकर स्वयं सुलह कराने लगना</label>
+<label class="option"><input type="radio" name="q22" value="C"> C. पानी लाना</label>
+<label class="option"><input type="radio" name="q22" value="D"> D. घर बनाना</label>
+</div>
+
+<div class="question">
+<h3>23. “मन चंगा तो कठौती में गंगा” का अर्थ है—</h3>
+<label class="option"><input type="radio" name="q23" value="A"> A. गंगा जाना जरूरी है</label>
+<label class="option"><input type="radio" name="q23" value="B"> B. मन शुद्ध हो तो घर भी तीर्थ के समान है</label>
+<label class="option"><input type="radio" name="q23" value="C"> C. कठौती में पानी रखना</label>
+<label class="option"><input type="radio" name="q23" value="D"> D. नदी में स्नान करना</label>
+</div>
+
+<div class="question">
+<h3>24. “बीति ताहि बिसारि दे, आगे की सुध लेय” का अर्थ है—</h3>
+<label class="option"><input type="radio" name="q24" value="A"> A. पुरानी बातें याद रखना</label>
+<label class="option"><input type="radio" name="q24" value="B"> B. बीती बातों को भूलकर भविष्य की चिंता करना</label>
+<label class="option"><input type="radio" name="q24" value="C"> C. काम छोड़ देना</label>
+<label class="option"><input type="radio" name="q24" value="D"> D. यात्रा करना</label>
+</div>
+
+<div class="question">
+<h3>25. “हमारी बिल्ली हमीं से म्याऊँ” कब कहा जाता है?</h3>
+<label class="option"><input type="radio" name="q25" value="A"> A. बिल्ली को खाना खिलाने पर</label>
+<label class="option"><input type="radio" name="q25" value="B"> B. जिसकी सहायता की जाए, वही उल्टा धमकाने लगे</label>
+<label class="option"><input type="radio" name="q25" value="C"> C. पशु पालने पर</label>
+<label class="option"><input type="radio" name="q25" value="D"> D. किसी की मदद न करने पर</label>
+</div>
+
+<div class="submit-box">
+<button type="button" class="submit" onclick="submitQuiz()">✅ Submit Quiz</button>
+<button type="button" class="reset" onclick="resetQuiz()">🔄 Reset</button>
+</div>
+
+</form>
+
+<div id="result">
+  <div class="result-title">🎉 Quiz Result</div>
+  <div class="score" id="score"></div>
+
+  <div class="stats">
+    <div class="stat">
+      <b id="total">25</b>
+      Total
+    </div>
+
+    <div class="stat">
+      <b id="attempted">0</b>
+      Attempted
+    </div>
+
+    <div class="stat">
+      <b id="correct">0</b>
+      Correct
+    </div>
+
+    <div class="stat">
+      <b id="wrong">0</b>
+      Wrong
+    </div>
+  </div>
+</div>
+
+</div>
+
+<footer>
+  © कक्षा 10 हिन्दी — व्यावहारिक व्याकरण | लोकोक्तियाँ Online Quiz
+</footer>
+
+<script>
+const answers = {
+  q1:"A",
+  q2:"B",
+  q3:"B",
+  q4:"C",
+  q5:"A",
+  q6:"B",
+  q7:"A",
+  q8:"B",
+  q9:"C",
+  q10:"B",
+  q11:"B",
+  q12:"A",
+  q13:"B",
+  q14:"B",
+  q15:"B",
+  q16:"B",
+  q17:"C",
+  q18:"B",
+  q19:"B",
+  q20:"B",
+  q21:"B",
+  q22:"B",
+  q23:"B",
+  q24:"B",
+  q25:"B"
+};
+
+function submitQuiz(){
+
+  let attempted = 0;
+  let correct = 0;
+  const total = Object.keys(answers).length;
+
+  for(const q in answers){
+
+    const selected = document.querySelector(
+      'input[name="' + q + '"]:checked'
+    );
+
+    if(selected){
+      attempted++;
+
+      if(selected.value === answers[q]){
+        correct++;
+      }
+    }
+  }
+
+  const wrong = attempted - correct;
+  const percentage = Math.round((correct / total) * 100);
+
+  document.getElementById("total").textContent = total;
+  document.getElementById("attempted").textContent = attempted;
+  document.getElementById("correct").textContent = correct;
+  document.getElementById("wrong").textContent = wrong;
+  document.getElementById("score").textContent =
+    "Score: " + correct + " / " + total + " (" + percentage + "%)";
+
+  document.getElementById("result").style.display = "block";
+
+  window.scrollTo({
+    top:document.getElementById("result").offsetTop - 20,
+    behavior:"smooth"
+  });
+}
+
+function resetQuiz(){
+
+  document.getElementById("quizForm").reset();
+
+  document.getElementById("result").style.display = "none";
+
+  window.scrollTo({
+    top:0,
+    behavior:"smooth"
+  });
+}
+</script>
+
+</body>
+</html>
