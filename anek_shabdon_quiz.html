@@ -1,0 +1,154 @@
+<script>
+
+var questions = [
+
+{
+q:"विद्या ग्रहण करने वाला कौन कहलाता है?",
+a:["दर्शक","विद्यार्थी","वक्ता","श्रोता"],
+c:1
+},
+
+{
+q:"आँखों के सामने न होने वाला क्या कहलाता है?",
+a:["प्रत्यक्ष","परोक्ष","दूरदर्शी","आलोचक"],
+c:1
+},
+
+{
+q:"आलोचना करने वाला कौन कहलाता है?",
+a:["वक्ता","आलोचक","विशेषज्ञ","दर्शक"],
+c:1
+},
+
+{
+q:"आगे या भविष्य की सोचने वाला कौन कहलाता है?",
+a:["अवसरवादी","दूरदर्शी","जिज्ञासु","स्वार्थी"],
+c:1
+},
+
+{
+q:"ईश्वर में विश्वास न रखने वाला कौन कहलाता है?",
+a:["आस्तिक","कृतज्ञ","नास्तिक","विशेषज्ञ"],
+c:2
+},
+
+{
+q:"उपकार को मानने वाला क्या कहलाता है?",
+a:["कृतघ्न","कृतज्ञ","स्वार्थी","दुराचारी"],
+c:1
+},
+
+{
+q:"कम खाने वाला क्या कहलाता है?",
+a:["अल्पाहारी","विशेषज्ञ","जिज्ञासु","दीर्घायु"],
+c:0
+},
+
+{
+q:"किसी विषय का विशेष ज्ञान रखने वाला क्या कहलाता है?",
+a:["आलोचक","विशेषज्ञ","दर्शक","वक्ता"],
+c:1
+},
+
+{
+q:"जिसका आदि न हो उसे क्या कहते हैं?",
+a:["अनादि","अपार","निराकार","अमूल्य"],
+c:0
+},
+
+{
+q:"जिसका आचरण बुरा हो उसे क्या कहते हैं?",
+a:["सदाचारी","दुराचारी","स्वयंसेवी","कृतज्ञ"],
+c:1
+},
+
+{
+q:"जिसका कोई अर्थ न हो उसे क्या कहते हैं?",
+a:["सार्थक","निरर्थक","अमूल्य","अपार"],
+c:1
+},
+
+{
+q:"जिसका आकार न हो उसे क्या कहते हैं?",
+a:["निराकार","निःशुल्क","अक्षम्य","सार्थक"],
+c:0
+},
+
+{
+q:"जिसकी परीक्षा ली जा रही हो उसे क्या कहते हैं?",
+a:["परीक्षार्थी","विशेषज्ञ","बहुचर्चित","लोकप्रिय"],
+c:0
+},
+
+{
+q:"जिसे क्षमा न किया जा सके उसे क्या कहते हैं?",
+a:["अमूल्य","अक्षम्य","अपार","अनादि"],
+c:1
+},
+
+{
+q:"जिसने अपनी इन्द्रियों पर विजय पा ली हो उसे क्या कहते हैं?",
+a:["जितेन्द्रिय","दीर्घायु","स्वयंसेवी","दूरदर्शी"],
+c:0
+}
+
+];
+
+var quiz = document.getElementById("quiz");
+var score = 0;
+var answered = 0;
+
+questions.forEach(function(item,index){
+
+  var box = document.createElement("div");
+  box.className = "quiz-question";
+
+  var q = document.createElement("b");
+  q.innerHTML = (index+1) + ". " + item.q;
+  box.appendChild(q);
+
+  item.a.forEach(function(option,optIndex){
+
+    var btn = document.createElement("button");
+    btn.className = "option";
+    btn.type = "button";
+    btn.innerHTML = option;
+
+    btn.onclick = function(){
+
+      if(box.getAttribute("data-done")) return;
+
+      box.setAttribute("data-done","1");
+      answered++;
+
+      var feedback = document.createElement("div");
+      feedback.className = "feedback";
+
+      if(optIndex === item.c){
+        score++;
+        feedback.innerHTML = "✅ सही उत्तर";
+        feedback.style.color = "#15803d";
+      }else{
+        feedback.innerHTML = "❌ गलत उत्तर";
+        feedback.style.color = "#dc2626";
+      }
+
+      box.appendChild(feedback);
+
+      var buttons = box.querySelectorAll(".option");
+
+      for(var i=0;i<buttons.length;i++){
+        buttons[i].disabled = true;
+      }
+
+      document.getElementById("score").innerHTML =
+        "सही उत्तर: " + score + " / 15";
+    };
+
+    box.appendChild(btn);
+  });
+
+  quiz.appendChild(box);
+});
+
+                 </script>
