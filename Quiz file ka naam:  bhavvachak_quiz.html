@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>भाववाचक संज्ञा - ऑनलाइन टेस्ट</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:#f8fafc;color:#1e293b;line-height:1.6}header{background:linear-gradient(135deg,#6d28d9,#8b5cf6);color:#fff;padding:25px 15px;text-align:center;box-shadow:0 4px 12px rgba(109,40,217,.2)}header h1{margin:0;font-size:26px}.container{max-width:900px;margin:auto;padding:20px}.back-btn{display:inline-flex;align-items:center;gap:6px;background:#1e293b;color:#fff;padding:10px 18px;border-radius:8px;text-decoration:none;font-size:14px;font-weight:600;margin-bottom:20px;box-shadow:0 2px 6px rgba(0,0,0,.1)}.card{background:#fff;padding:20px;margin-bottom:16px;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.05);border:1px solid #f1f5f9}.badge{display:inline-block;padding:4px 10px;border-radius:6px;font-size:12px;font-weight:bold;margin-bottom:8px;background:#ede9fe;color:#6d28d9}.quiz-q-box{margin-bottom:15px;padding-bottom:10px;border-bottom:1px dashed #e2e8f0}.quiz-q-title{font-weight:bold;font-size:14px;margin-bottom:6px}.quiz-options label{display:block;background:#f8fafc;padding:7px 10px;border-radius:6px;border:1px solid #e2e8f0;margin-bottom:5px;cursor:pointer;font-size:13px}.quiz-options label:hover{background:#f1f5f9}.submit-btn{background:#7c3aed;color:#fff;border:0;padding:12px 20px;border-radius:8px;cursor:pointer;font-size:15px;font-weight:bold;width:100%;margin-top:15px}.submit-btn:hover{background:#6d28d9}#bhav-quiz-result{margin-top:15px;font-weight:bold;font-size:16px;text-align:center}@media(max-width:650px){.container{padding:12px}.card{padding:14px}header h1{font-size:21px}}
+</style>
+</head>
+<body>
+<header><h1>कक्षा 10 हिन्दी : भाववाचक संज्ञा</h1><p>पंजाब बोर्ड – ऑनलाइन टेस्ट</p></header>
+<div class="container">
+<a class="back-btn" href="bhavvachak_sangya.html">← वापस भाववाचक संज्ञा</a>
+<div class="card"><span class="badge">ऑनलाइन टेस्ट (15 प्रश्न)</span><h3>भाववाचक संज्ञा लाइव क्विज़</h3><p style="font-size:13px;color:#64748b">सही विकल्प चुनकर अपना स्कोर जाँचें:</p><div id="bhav-quiz-container"></div><button class="submit-btn" onclick="evaluateBhavQuiz()">क्विज़ सबमिट करें</button><div id="bhav-quiz-result"></div></div>
+</div>
+<script>
+const bhavQuizData=[
+{q:"1. 'नेता' से कौन-सी भाववाचक संज्ञा बनेगी?",options:["नेतापन","नेतृत्व","नेताई","नेतात"],correct:1},
+{q:"2. 'अपना' से बनने वाली भाववाचक संज्ञा क्या है?",options:["अपनापन","अपनीता","अपनेपन","अपनताई"],correct:0},
+{q:"3. 'खामोश' में कौन-सा प्रत्यय लगने से 'खामोशी' बनेगा?",options:["-ता","-पन","-ई","-आई"],correct:2},
+{q:"4. 'लिखना' से भाववाचक संज्ञा क्या बनेगी?",options:["लिखाई","लिखत","लिखता","लिखावट"],correct:0},
+{q:"5. 'शीघ्र' में 'ता' लगाने से क्या बनेगा?",options:["शीघ्रपन","शीघ्रता","शीघ्रई","शीघ्रताएँ"],correct:1},
+{q:"6. 'बूढ़ा' में 'आपा' लगाने पर क्या बनेगा?",options:["बुढ़ापन","बुढ़ापा","बूढ़ई","बुढ़ता"],correct:1},
+{q:"7. 'पंडित' से भाववाचक संज्ञा क्या बनेगी?",options:["पंडिताई","पंडितता","पांडित्य","पंडितपन"],correct:2},
+{q:"8. 'मित्र' से कौन-सी भाववाचक संज्ञा बनती है?",options:["मित्री","मित्रता","मित्रपन","मैत्र"],correct:1},
+{q:"9. 'सुन्दर' में 'ता' जोड़ने से क्या बनेगा?",options:["सुंदरी","सुन्दरता","सुंदरताई","सुन्दरपन"],correct:1},
+{q:"10. 'चतुर' से बनने वाली भाववाचक संज्ञा कौन-सी है?",options:["चतुराई","चतुरता","चातुर्य","उपर्युक्त सभी"],correct:3},
+{q:"11. 'मीठा' से भाववाचक संज्ञा क्या बनेगी?",options:["मीठापन","मिठास","मीठाई","मिष्टता"],correct:1},
+{q:"12. 'काला' में 'इमा' लगाने से क्या बनेगा?",options:["कालिमा","कालाई","कालापन","कालीता"],correct:0},
+{q:"13. 'स्वस्थ' से भाववाचक संज्ञा का रूप क्या होगा?",options:["स्वस्थता","स्वास्थ","स्वास्थ्य","स्वस्थपन"],correct:2},
+{q:"14. 'अहं' से कौन-सी भाववाचक संज्ञा बनती है?",options:["अहंकार","अहंता","अहत्व","अहंपन"],correct:0},
+{q:"15. 'लड़का' से भाववाचक संज्ञा क्या बनेगी?",options:["लड़कापन","लड़कपन","लड़काई","लड़क्यता"],correct:1}
+];
+function loadBhavQuiz(){const c=document.getElementById('bhav-quiz-container');c.innerHTML=bhavQuizData.map((x,i)=>`<div class="quiz-q-box"><div class="quiz-q-title">${x.q}</div><div class="quiz-options">${x.options.map((o,j)=>`<label><input type="radio" name="bhav_q${i}" value="${j}"> ${String.fromCharCode(0x0915+j)}) ${o}</label>`).join('')}</div></div>`).join('')}
+function evaluateBhavQuiz(){let s=0,a=0;bhavQuizData.forEach((x,i)=>{const q=document.querySelector(`input[name="bhav_q${i}"]:checked`);if(q){a++;if(+q.value===x.correct)s++}});document.getElementById('bhav-quiz-result').innerHTML=`आपका स्कोर: <b>${s}/${bhavQuizData.length}</b><br>प्रयास किए गए: ${a}/${bhavQuizData.length}`};
+window.addEventListener('DOMContentLoaded',loadBhavQuiz);
+</script>
+</body>
+</html>
