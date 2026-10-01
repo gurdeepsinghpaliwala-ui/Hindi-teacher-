@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>संधि-विच्छेद - Online Quiz</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:"Segoe UI",Tahoma,sans-serif;background:#f8fafc;color:#1e293b;line-height:1.6}
+header{background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;text-align:center;padding:24px 15px}
+header h1{margin:0;font-size:25px}
+header p{margin:5px 0 0;font-size:14px}
+.container{max-width:850px;margin:auto;padding:18px}
+.top-btn{display:inline-block;background:#1e293b;color:#fff;text-decoration:none;padding:9px 16px;border-radius:9px;font-weight:700;font-size:13px;margin-bottom:15px}
+.quiz-card{background:#fff;border:1px solid #e2e8f0;border-radius:15px;padding:18px;margin-bottom:13px;box-shadow:0 3px 10px rgba(0,0,0,.05)}
+.question{font-size:16px;font-weight:800;margin-bottom:12px}
+.option{display:block;background:#f8fafc;border:1px solid #cbd5e1;border-radius:9px;padding:10px 12px;margin:7px 0;cursor:pointer}
+.option:hover{background:#eff6ff;border-color:#60a5fa}
+.option input{margin-right:8px}
+.submit{width:100%;border:0;border-radius:12px;padding:13px;background:linear-gradient(135deg,#2563eb,#7c3aed);color:#fff;font-size:16px;font-weight:800;cursor:pointer}
+#result{display:none;margin:18px 0;padding:17px;border-radius:13px;background:#ecfdf5;border:1px solid #86efac;text-align:center;font-size:18px}
+@media(max-width:600px){.container{padding:12px}.quiz-card{padding:14px}.question{font-size:15px}}
+</style>
+</head>
+<body>
+<header>
+<h1>📘 संधि और संधि-विच्छेद</h1>
+<p>कक्षा 10 हिन्दी • Online Quiz</p>
+</header>
+<div class="container">
+<a class="top-btn" href="sandhi_vichhed.html">← वापस Sandhi सामग्री</a>
+<div id="quiz"></div>
+<button class="submit" onclick="evaluateQuiz()">📝 Quiz जमा करें</button>
+<div id="result"></div>
+</div>
+<script>
+const quizData=[
+{q:"1. 'सदा + एव' की सही संधि क्या होगी?",o:["सदाएव","सदैव","सदोव","सादैव"],a:1},
+{q:"2. 'सूर्योदय' शब्द का सही संधि-विच्छेद चुनिए:",o:["सूर्य + दय","सूर्यो + दय","सूर्य + उदय","सूरी + उदय"],a:2},
+{q:"3. 'प्रति + एक' के मेल से कौन-सा शब्द बनेगा?",o:["प्रत्येक","प्रतिक","प्रत्यक","प्रतिएक"],a:0},
+{q:"4. 'पवन' शब्द का सही संधि-विच्छेद क्या होगा?",o:["पव + न","पो + अन","पौ + अन","पा + वन"],a:1},
+{q:"5. 'पुस्तकालय' में कौन-सी संधि है?",o:["गुण संधि","यण संधि","दीर्घ संधि","अयादि संधि"],a:2},
+{q:"6. 'महेश' शब्द का सही संधि-विच्छेद क्या होगा?",o:["मह + ईश","महा + ईश","महि + ईश","मा + हेश"],a:1},
+{q:"7. 'सु + आगत' के मेल से कौन-सा शब्द बनेगा?",o:["सुआगत","स्वागत","स्वगत","सवागत"],a:1},
+{q:"8. 'नयन' शब्द का सही संधि-विच्छेद क्या होगा?",o:["नय + न","नै + अन","ने + अन","नो + अन"],a:2},
+{q:"9. 'इति + आदि' की सही संधि क्या होगी?",o:["इतिआदि","इत्यादि","इतादि","इत्यदि"],a:1},
+{q:"10. 'हिमालय' शब्द का सही संधि-विच्छेद क्या है?",o:["हिम + आलय","हिमो + लय","हिमा + लय","हिम + लय"],a:0},
+{q:"11. 'परोपकार' शब्द का सही संधि-विच्छेद क्या है?",o:["परो + उपकार","पर + उपकार","पर + अपकार","पारा + उपकार"],a:1},
+{q:"12. 'रवीन्द्र' शब्द का सही संधि-विच्छेद क्या है?",o:["रवि + इन्द्र","रव + इन्द्र","रवी + इन्द्र","रवि + इंद्र"],a:0},
+{q:"13. 'सूक्ति' शब्द का सही संधि-विच्छेद क्या है?",o:["सु + उक्ति","सू + उक्ति","सु + की","सू + क्ति"],a:0},
+{q:"14. 'सुरेन्द्र' का सही संधि-विच्छेद क्या होगा?",o:["सुर + इन्द्र","सु + इन्द्र","सुरे + इन्द्र","सुरा + इन्द्र"],a:0},
+{q:"15. 'यथेष्ट' शब्द का संधि-विच्छेद क्या है?",o:["यथा + इष्ट","यथ + इष्ट","यथो + इष्ट","यथा + ईष्ट"],a:0}
+];
+const quiz=document.getElementById("quiz");
+quizData.forEach((item,i)=>{
+ const card=document.createElement("div");card.className="quiz-card";
+ card.innerHTML='<div class="question">'+item.q+'</div>'+item.o.map((x,j)=>'<label class="option"><input type="radio" name="q'+i+'" value="'+j+'">'+String.fromCharCode(0x0915+j)+') '+x+'</label>').join("");
+ quiz.appendChild(card);
+});
+function evaluateQuiz(){
+ let score=0,attempted=0;
+ quizData.forEach((item,i)=>{const selected=document.querySelector('input[name="q'+i+'"]:checked');if(selected){attempted++;if(Number(selected.value)===item.a)score++;}});
+ const result=document.getElementById("result");result.style.display="block";
+ result.innerHTML='आपका स्कोर: <b>'+score+'/'+quizData.length+'</b><br>प्रयास किए गए: '+attempted+'/'+quizData.length;
+ result.scrollIntoView({behavior:"smooth",block:"center"});
+}
+</script>
+</body>
+</html>
