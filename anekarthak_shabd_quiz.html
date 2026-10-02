@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>अनेकार्थक शब्द - Online Quiz</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:"Noto Sans Devanagari","Segoe UI",Arial,sans-serif;
+    background:#f5f7fb;
+    color:#1e293b;
+}
+
+.container{
+    max-width:850px;
+    margin:auto;
+    padding:14px;
+}
+
+.header{
+    background:linear-gradient(135deg,#7c3aed,#4f46e5);
+    color:white;
+    text-align:center;
+    padding:20px 12px;
+    border-radius:15px;
+    margin-bottom:15px;
+}
+
+.header h1{
+    margin:0;
+    font-size:26px;
+}
+
+.header p{
+    margin:6px 0 0;
+}
+
+.quiz-card{
+    background:white;
+    border-radius:14px;
+    padding:17px;
+    margin-bottom:14px;
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
+}
+
+.question{
+    font-size:18px;
+    font-weight:bold;
+    margin-bottom:12px;
+    color:#312e81;
+}
+
+.options{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:9px;
+}
+
+.option{
+    border:2px solid #e2e8f0;
+    background:#f8fafc;
+    padding:11px;
+    border-radius:9px;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.option:hover{
+    border-color:#7c3aed;
+    background:#f5f3ff;
+}
+
+.option input{
+    margin-right:7px;
+}
+
+.correct{
+    background:#dcfce7 !important;
+    border-color:#16a34a !important;
+}
+
+.wrong{
+    background:#fee2e2 !important;
+    border-color:#dc2626 !important;
+}
+
+.feedback{
+    display:none;
+    margin-top:10px;
+    padding:9px;
+    border-radius:8px;
+    font-weight:bold;
+}
+
+.submit-btn{
+    width:100%;
+    border:0;
+    background:#7c3aed;
+    color:white;
+    padding:13px;
+    border-radius:10px;
+    font-size:17px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.submit-btn:hover{
+    background:#6d28d9;
+}
+
+.result{
+    display:none;
+    text-align:center;
+    background:white;
+    padding:22px;
+    border-radius:14px;
+    box-shadow:0 3px 10px rgba(0,0,0,.08);
+}
+
+.result h2{
+    color:#15803d;
+}
+
+.restart{
+    border:0;
+    background:#2563eb;
+    color:white;
+    padding:11px 20px;
+    border-radius:9px;
+    font-size:16px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.back{
+    display:block;
+    text-align:center;
+    margin-top:12px;
+    color:#475569;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+@media(max-width:600px){
+    .options{
+        grid-template-columns:1fr;
+    }
+
+    .header h1{
+        font-size:22px;
+    }
+
+    .question{
+        font-size:17px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+    <h1>📝 अनेकार्थक शब्द — Online Quiz</h1>
+    <p>पाठ – 9 | कक्षा 10 हिन्दी</p>
+</div>
+
+<form id="quizForm">
+
+<!-- Q1 -->
+<div class="quiz-card">
+<div class="question">❓ Question 1. “कारखाने की कल बंद हो गई।” यहाँ ‘कल’ का अर्थ क्या है?</div>
+<div class="options">
+<label class="option"><input type="radio" name="q1" value="A"> A. बीता हुआ दिन</label>
+<label class="option"><input type="radio" name="q1" value="B"> B. मशीन</label>
+<label class="option"><input type="radio" name="q1" value="C"> C. आगामी दिन</label>
+<label class="option"><input type="radio" name="q1" value="D"> D. चैन</label>
+</div>
+</div>
+
+<!-- Q2 -->
+<div class="quiz-card">
+<div class="question">❓ Question 2. “उसके उत्तर से शिक्षक संतुष्ट हो गए।” यहाँ ‘उत्तर’ का अर्थ है—</div>
+<div class="options">
+<label class="option"><input type="radio" name="q2" value="A"> A. दिशा</label>
+<label class="option"><input type="radio" name="q2" value="B"> B. जवाब</label>
+<label class="option"><input type="radio" name="q2" value="C"> C. प्रतिकार</label>
+<label class="option"><input type="radio" name="q2" value="D"> D. समय</label>
+</div>
+</div>
+
+<!-- Q3 -->
+<div class="quiz-card">
+<div class="question">❓ Question 3. “यह खेत हमारे कुल की संपत्ति है।” ‘कुल’ यहाँ किस अर्थ में है?</div>
+<div class="options">
+<label class="option"><input type="radio" name="q3" value="A"> A. सभी</label>
+<label class="option"><input type="radio" name="q3" value="B"> B. सारा</label>
+<label class="option"><input type="radio" name="q3" value="C"> C. वंश</label>
+<label class="option"><input type="radio" name="q3" value="D"> D. संख्या</label>
+</div>
+</div>
+
+<!-- Q4 -->
+<div class="quiz-card">
+<div class="question">❓ Question 4. “सैनिकों ने शत्रु को चारों ओर से घेर लिया।” ‘चक्र’ का कौन-सा अर्थ सैनिक व्यवस्था से संबंधित है?</div>
+<div class="options">
+<label class="option"><input type="radio" name="q4" value="A"> A. पहिया</label>
+<label class="option"><input type="radio" name="q4" value="B"> B. सैनिक व्यूह</label>
+<label class="option"><input type="radio" name="q4" value="C"> C. चक्की</label>
+<label class="option"><input type="radio" name="q4" value="D"> D. भँवर</label>
+</div>
+</div>
+
+<!-- Q5 -->
+<div class="quiz-card">
+<div class="question">❓ Question 5. “सफलता का फल मेहनत से मिलता है।” यहाँ ‘फल’ का अर्थ है—</div>
+<div class="options">
+<label class="option"><input type="radio" name="q5" value="A"> A. पेड़ का फल</label>
+<label class="option"><input type="radio" name="q5" value="B"> B. परिणाम</label>
+<label class="option"><input type="radio" name="q5" value="C"> C. बीज</label>
+<label class="option"><input type="radio" name="q5" value="D"> D. भोजन</label>
+</div>
+</div>
+
+<!-- Q6 -->
+<div class="quiz-card">
+<div class="question">❓ Question 6. “सूर्य की किरणें कमरे में आ रही हैं।” ‘कर’ का अर्थ यहाँ क्या हो सकता है?</div>
+<div class="options">
+<label class="option"><input type="radio" name="q6" value="A"> A. हाथ</label>
+<label class="option"><input type="radio" name="q6" value="B"> B. टैक्स</label>
+<label class="option"><input type="radio" name="q6" value="C"> C. किरण</label>
+<label class="option"><input type="radio" name="q6" value="D"> D. सूँड़</label>
+</div>
+</div>
+
+<!-- Q7 -->
+<div class="quiz-card">
+<div class="question">❓ Question 7. “उसकी नाक बच गई।” इस वाक्य में ‘नाक’ किस अर्थ में प्रयुक्त हुआ है?</div>
+<div class="options">
+<label class="option"><input type="radio" name="q7" value="A"> A. इंद्रिय</label>
+<label class="option"><input type="radio" name="q7" value="B"> B. प्रतिष्ठा</label>
+<label class="option"><input type="radio" name="q7" value="C"> C. घड़ियाल</label>
+<label class="option"><input type="radio" name="q7" value="D"> D. साँस</label>
+</div>
+</div>
+
+<!-- Q8 -->
+<div class="quiz-card">
+<div class="question">❓ Question 8. “उसने तीर से लक्ष्य भेद दिया।” यहाँ ‘तीर’ का अर्थ है—</div>
+<div class="options">
+<label class="option"><input type="radio" name="q8" value="A"> A. किनारा</label>
+<label class="option"><input type="radio" name="q8" value="B"> B. बाण</label>
+<label class="option"><input type="radio" name="q8" value="C"> C. नदी</label>
+<label class="option"><input type="radio" name="q8" value="D"> D. पहाड़</label>
+</div>
+</div>
+
+<!-- Q9 -->
+<div class="quiz-card">
+<div class="question">❓ Question 9. “माँ ने व्रत रखा।” ‘व्रत’ का उपयुक्त अर्थ कौन-सा है?</div>
+<div class="options">
+<label class="option"><input type="radio" name="q9" value="A"> A. उपवास</label>
+<label class="option"><input type="radio" name="q9" value="B"> B. धन</label>
+<label class="option"><input type="radio" name="q9" value="C"> C. यात्रा</label>
+<label class="option"><input type="radio" name="q9" value="D"> D. भोजन</label>
+</div>
+</div>
+
+<!-- Q10 -->
+<div class="quiz-card">
+<div class="question">❓ Question 10. “उसका गुरु बहुत भारी ज्ञान रखता था।” यहाँ ‘गुरु’ का अर्थ किससे संबंधित है?</div>
+<div class="options">
+<label class="option"><input type="radio" name="q10" value="A"> A. बड़ा/भारी</label>
+<label class="option"><input type="radio" name="q10" value="B"> B. केवल शिक्षक</label>
+<label class="option"><input type="radio" name="q10" value="C"> C. विद्यार्थी</label>
+<label class="option"><input type="radio" name="q10" value="D"> D. मित्र</label>
+</div>
+</div>
+
+<!-- Q11 -->
+<div class="quiz-card">
+<div class="question">❓ Question 11. “उसने आम लोगों की समस्याएँ सुनीं।” यहाँ ‘आम’ का अर्थ है—</div>
+<div class="options">
+<label class="option"><input type="radio" name="q11" value="A"> A. फल</label>
+<label class="option"><input type="radio" name="q11" value="B"> B. सर्वसाधारण</label>
+<label class="option"><input type="radio" name="q11" value="C"> C. विशेष</label>
+<label class="option"><input type="radio" name="q11" value="D"> D. पेड़</label>
+</div>
+</div>
+
+<!-- Q12 -->
+<div class="quiz-card">
+<div class="question">❓ Question 12. “उसने सभा में अपना मत व्यक्त किया।” ‘मत’ का अर्थ है—</div>
+<div class="options">
+<label class="option"><input type="radio" name="q12" value="A"> A. नहीं</label>
+<label class="option"><input type="radio" name="q12" value="B"> B. विचार</label>
+<label class="option"><input type="radio" name="q12" value="C"> C. सम्मानित</label>
+<label class="option"><input type="radio" name="q12" value="D"> D. मंशा</label>
+</div>
+</div>
+
+<!-- Q13 -->
+<div class="quiz-card">
+<div class="question">❓ Question 13. “मुझे गुरु की बात माननी चाहिए।” यहाँ ‘गुरु’ किस अर्थ में है?</div>
+<div class="options">
+<label class="option"><input type="radio" name="q13" value="A"> A. भारी</label>
+<label class="option"><input type="radio" name="q13" value="B"> B. आचार्य</label>
+<label class="option"><input type="radio" name="q13" value="C"> C. बड़ा आकार</label>
+<label class="option"><input type="radio" name="q13" value="D"> D. बृहस्पति ग्रह</label>
+</div>
+</div>
+
+<!-- Q14 -->
+<div class="quiz-card">
+<div class="question">❓ Question 14. “उसका भाग्य बहुत अच्छा है।” यहाँ ‘भाग’ से संबंधित कौन-सा अर्थ दिया गया है?</div>
+<div class="options">
+<label class="option"><input type="radio" name="q14" value="A"> A. हिस्सा</label>
+<label class="option"><input type="radio" name="q14" value="B"> B. दौड़</label>
+<label class="option"><input type="radio" name="q14" value="C"> C. भाग्य</label>
+<label class="option"><input type="radio" name="q14" value="D"> D. संपत्ति</label>
+</div>
+</div>
+
+<!-- Q15 -->
+<div class="quiz-card">
+<div class="question">❓ Question 15. “मंगल ग्रह सूर्य की परिक्रमा करता है।” यहाँ ‘मंगल’ का अर्थ है—</div>
+<div class="options">
+<label class="option"><input type="radio" name="q15" value="A"> A. शुभ</label>
+<label class="option"><input type="radio" name="q15" value="B"> B. मंगलवार</label>
+<label class="option"><input type="radio" name="q15" value="C"> C. ग्रह</label>
+<label class="option"><input type="radio" name="q15" value="D"> D. उत्सव</label>
+</div>
+</div>
+
+<!-- Q16 -->
+<div class="quiz-card">
+<div class="question">❓ Question 16. “हवा में तरह-तरह की बातें फैल रही हैं।” यहाँ ‘हवा’ का अर्थ क्या है?</div>
+<div class="options">
+<label class="option"><input type="radio" name="q16" value="A"> A. वायु</label>
+<label class="option"><input type="radio" name="q16" value="B"> B. साँस</label>
+<label class="option"><input type="radio" name="q16" value="C"> C. अफवाह</label>
+<label class="option"><input type="radio" name="q16" value="D"> D. मौसम</label>
+</div>
+</div>
+
+<!-- Q17 -->
+<div class="quiz-card">
+<div class="question">❓ Question 17. “नदी के तीर पर बच्चे खेल रहे हैं।” यहाँ ‘तीर’ का अर्थ है—</div>
+<div class="options">
+<label class="option"><input type="radio" name="q17" value="A"> A. बाण</label>
+<label class="option"><input type="radio" name="q17" value="B"> B. किनारा</label>
+<label class="option"><input type="radio" name="q17" value="C"> C. नदी</label>
+<label class="option"><input type="radio" name="q17" value="D"> D. नाव</label>
+</div>
+</div>
+
+<!-- Q18 -->
+<div class="quiz-card">
+<div class="question">❓ Question 18. “हल मिलते ही समस्या समाप्त हो गई।” ‘हल’ का अर्थ है—</div>
+<div class="options">
+<label class="option"><input type="radio" name="q18" value="A"> A. खेत का यंत्र</label>
+<label class="option"><input type="radio" name="q18" value="B"> B. समाधान</label>
+<label class="option"><input type="radio" name="q18" value="C"> C. खेती</label>
+<label class="option"><input type="radio" name="q18" value="D"> D. बैल</label>
+</div>
+</div>
+
+<!-- Q19 -->
+<div class="quiz-card">
+<div class="question">❓ Question 19. “उसने गरीबों के लिए चंदा दिया।” ‘चंदा’ का अर्थ है—</div>
+<div class="options">
+<label class="option"><input type="radio" name="q19" value="A"> A. चाँद</label>
+<label class="option"><input type="radio" name="q19" value="B"> B. आर्थिक सहायता</label>
+<label class="option"><input type="radio" name="q19" value="C"> C. रात</label>
+<label class="option"><input type="radio" name="q19" value="D"> D. प्रकाश</label>
+</div>
+</div>
+
+<!-- Q20 -->
+<div class="quiz-card">
+<div class="question">❓ Question 20. “उसने घोड़ा चलाया और खेल में बढ़त बनाई।” यदि प्रसंग शतरंज का है, तो ‘घोड़ा’ क्या है?</div>
+<div class="options">
+<label class="option"><input type="radio" name="q20" value="A"> A. पशु</label>
+<label class="option"><input type="radio" name="q20" value="B"> B. बंदूक का खटका</label>
+<label class="option"><input type="radio" name="q20" value="C"> C. शतरंज का मोहरा</label>
+<label class="option"><input type="radio" name="q20" value="D"> D. पक्षी</label>
+</div>
+</div>
+
+<button type="button" class="submit-btn" onclick="checkQuiz()">
+    ✅ Submit Quiz
+</button>
+
+</form>
+
+<div id="result" class="result">
+    <h2>🎉 Quiz पूरा हुआ!</h2>
+    <p id="score"></p>
+    <button class="restart" onclick="location.reload()">🔄 Restart Quiz</button>
+</div>
+
+<a href="anekarthak_shabd.html" class="back">⬅️ वापस सामग्री पर जाएँ</a>
+
+</div>
+
+
+<script>
+
+const answers = {
+    q1:"B",
+    q2:"B",
+    q3:"C",
+    q4:"B",
+    q5:"B",
+    q6:"C",
+    q7:"B",
+    q8:"B",
+    q9:"A",
+    q10:"A",
+    q11:"B",
+    q12:"B",
+    q13:"B",
+    q14:"C",
+    q15:"C",
+    q16:"C",
+    q17:"B",
+    q18:"B",
+    q19:"B",
+    q20:"C"
+};
+
+function checkQuiz(){
+
+    let score = 0;
+    let total = Object.keys(answers).length;
+
+    for(let q in answers){
+
+        let selected = document.querySelector(
+            'input[name="'+q+'"]:checked'
+        );
+
+        let options = document.querySelectorAll(
+            'input[name="'+q+'"]'
+        );
+
+        options.forEach(input=>{
+            input.disabled = true;
+
+            let parent = input.parentElement;
+
+            if(input.value === answers[q]){
+                parent.classList.add("correct");
+            }
+
+            if(selected &&
+               input.value === selected.value &&
+               input.value !== answers[q]){
+                parent.classList.add("wrong");
+            }
+        });
+
+        if(selected && selected.value === answers[q]){
+            score++;
+        }
+    }
+
+    document.getElementById("result").style.display="block";
+
+    document.getElementById("score").innerHTML =
+        "<strong>आपका Score: "+score+" / "+total+"</strong><br><br>" +
+        (score === total
+        ? "🏆 शानदार! सभी उत्तर सही हैं।"
+        : score >= 15
+        ? "👏 बहुत अच्छा प्रदर्शन!"
+        : score >= 10
+        ? "👍 अच्छा प्रयास! एक बार फिर अभ्यास करें।"
+        : "📚 सामग्री को दोबारा पढ़कर फिर प्रयास करें।");
+
+    document.querySelector(".submit-btn").style.display="none";
+
+    window.scrollTo({
+        top:document.body.scrollHeight,
+        behavior:"smooth"
+    });
+}
+
+</script>
+
+</body>
+                                                                                </html>
