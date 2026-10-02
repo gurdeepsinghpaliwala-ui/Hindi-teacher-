@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>कक्षा 10 हिन्दी | विज्ञापन लेखन</title>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+body{
+    margin:0;
+    font-family:"Noto Sans Devanagari","Segoe UI",Arial,sans-serif;
+    background:linear-gradient(135deg,#eef2ff,#fdf2f8,#ecfeff);
+    color:#1e293b;
+}
+
+/* Main Container */
+.container{
+    width:94%;
+    max-width:950px;
+    margin:auto;
+    padding:20px 0 40px;
+}
+
+/* Header */
+.header{
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(135deg,#4f46e5,#7c3aed,#db2777);
+    color:white;
+    padding:32px 20px;
+    border-radius:24px;
+    text-align:center;
+    box-shadow:0 12px 30px rgba(79,70,229,.25);
+    margin-bottom:22px;
+}
+
+.header::before{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    background:rgba(255,255,255,.10);
+    top:-80px;
+    left:-50px;
+}
+
+.header::after{
+    content:"";
+    position:absolute;
+    width:220px;
+    height:220px;
+    border-radius:50%;
+    background:rgba(255,255,255,.08);
+    bottom:-120px;
+    right:-60px;
+}
+
+.header h1{
+    position:relative;
+    z-index:2;
+    margin:0;
+    font-size:30px;
+}
+
+.header h2{
+    position:relative;
+    z-index:2;
+    margin:8px 0;
+    font-size:22px;
+}
+
+.header p{
+    position:relative;
+    z-index:2;
+    margin:5px 0 0;
+    font-size:15px;
+}
+
+/* Important Badge */
+.badge{
+    display:inline-block;
+    background:#fff;
+    color:#6d28d9;
+    padding:6px 15px;
+    border-radius:30px;
+    font-size:13px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+/* Tips */
+.tip{
+    background:rgba(255,255,255,.92);
+    border-radius:18px;
+    padding:20px;
+    margin-bottom:22px;
+    box-shadow:0 7px 22px rgba(15,23,42,.08);
+    border:1px solid #e2e8f0;
+}
+
+.tip-title{
+    color:#7c3aed;
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+.tip ul{
+    margin:8px 0 0;
+    padding-left:22px;
+}
+
+.tip li{
+    margin:5px 0;
+}
+
+/* Section */
+.section-title{
+    text-align:center;
+    margin:25px 0 18px;
+    color:#4f46e5;
+    font-size:23px;
+}
+
+.section-title span{
+    background:#ede9fe;
+    padding:8px 18px;
+    border-radius:30px;
+}
+
+/* Question Card */
+.card{
+    background:rgba(255,255,255,.96);
+    margin:20px 0;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(15,23,42,.09);
+    border:1px solid #e5e7eb;
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 14px 32px rgba(79,70,229,.16);
+}
+
+/* Question */
+.question{
+    background:linear-gradient(135deg,#4f46e5,#7c3aed);
+    color:white;
+    padding:16px 18px;
+    font-size:18px;
+    font-weight:bold;
+}
+
+/* Answer */
+.answer{
+    padding:18px;
+    background:#fff;
+}
+
+.answer-title{
+    display:inline-block;
+    background:#dcfce7;
+    color:#15803d;
+    padding:4px 12px;
+    border-radius:20px;
+    font-weight:bold;
+    margin-bottom:12px;
+}
+
+.ad-box{
+    background:linear-gradient(135deg,#faf5ff,#fdf2f8);
+    border:2px dashed #c4b5fd;
+    border-radius:16px;
+    padding:18px;
+    white-space:pre-line;
+    font-size:16px;
+}
+
+.ad-title{
+    text-align:center;
+    color:#be185d;
+    font-size:20px;
+    font-weight:bold;
+    margin-bottom:10px;
+}
+
+/* Priority */
+.priority{
+    display:inline-block;
+    margin-top:12px;
+    background:#fee2e2;
+    color:#b91c1c;
+    padding:4px 10px;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+/* Footer */
+footer{
+    text-align:center;
+    margin-top:35px;
+    padding:20px;
+    color:#64748b;
+    font-size:14px;
+}
+
+/* Mobile */
+@media(max-width:600px){
+
+    .container{
+        width:94%;
+        padding-top:12px;
+    }
+
+    .header{
+        padding:25px 15px;
+        border-radius:20px;
+    }
+
+    .header h1{
+        font-size:25px;
+    }
+
+    .header h2{
+        font-size:19px;
+    }
+
+    .question{
+        font-size:16px;
+        padding:14px;
+    }
+
+    .answer{
+        padding:14px;
+    }
+
+    .ad-box{
+        font-size:15px;
+        padding:14px;
+    }
+
+    .ad-title{
+        font-size:18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+<div class="header">
+
+    <div class="badge">⭐ MOST IMPORTANT</div>
+
+    <h1>📢 कक्षा 10 हिन्दी</h1>
+
+    <h2>पाठ 16 (i) – विज्ञापन लेखन</h2>
+
+    <p>परीक्षा के लिए महत्वपूर्ण विज्ञापन • सरल भाषा • हल सहित</p>
+
+</div>
+
+
+<!-- EASY METHOD -->
+<div class="tip">
+
+    <div class="tip-title">✍️ विज्ञापन लिखने का आसान तरीका</div>
+
+    <ul>
+        <li>सबसे ऊपर आकर्षक <b>शीर्षक</b> लिखें।</li>
+        <li>मुख्य जानकारी कम और स्पष्ट शब्दों में दें।</li>
+        <li>आवश्यक विशेषताएँ या शर्तें लिखें।</li>
+        <li>अंत में नाम, पता और संपर्क नंबर दें।</li>
+        <li>विज्ञापन छोटा, साफ और आकर्षक होना चाहिए।</li>
+    </ul>
+
+</div>
+
+
+<h2 class="section-title">
+    <span>🔥 Most Important Questions</span>
+</h2>
+
+
+<!-- 1 -->
+<div class="card">
+
+<div class="question">
+❓ 1. आपके पुत्र रोहित कुमार के गुम होने पर ‘गुमशुदा की तलाश’ का विज्ञापन लिखिए।
+</div>
+
+<div class="answer">
+
+<div class="answer-title">✅ उत्तर</div>
+
+<div class="ad-box">
+
+<div class="ad-title">गुमशुदा की तलाश</div>
+
+मेरा पुत्र रोहित कुमार, उम्र 10 वर्ष, कद 4 फुट और रंग साँवला है। वह 23 अप्रैल, 2015 से पुणे से लापता है। उसके बारे में जानकारी देने वाले को उचित पुरस्कार दिया जाएगा।
+
+सुदेश कुमार  
+मकान नंबर 46, सेक्टर-4, नोएडा
+
+</div>
+
+<span class="priority">⭐ बहुत महत्वपूर्ण</span>
+
+</div>
+</div>
+
+
+<!-- 2 -->
+<div class="card">
+
+<div class="question">
+❓ 2. आपने अपना नाम बदल लिया है। नाम परिवर्तन का विज्ञापन लिखिए।
+</div>
+
+<div class="answer">
+
+<div class="answer-title">✅ उत्तर</div>
+
+<div class="ad-box">
+
+<div class="ad-title">नाम परिवर्तन</div>
+
+मैं नीरज कुमार, मकान नंबर 1450, सेक्टर-19, नंगल निवासी, ने अपना नाम बदलकर नीरज कुमार वर्मा रख लिया है। भविष्य में मुझे इसी नाम से पुकारा और लिखा जाए।
+
+</div>
+
+<span class="priority">⭐ बहुत महत्वपूर्ण</span>
+
+</div>
+</div>
+
+
+<!-- 3 -->
+<div class="card">
+
+<div class="question">
+❓ 3. आप अपनी 2009 मॉडल की मारुति कार बेचना चाहते हैं। वर्गीकृत विज्ञापन लिखिए।
+</div>
+
+<div class="answer">
+
+<div class="answer-title">✅ उत्तर</div>
+
+<div class="ad-box">
+
+<div class="ad-title">कार बिकाऊ है</div>
+
+मारुति कार, मॉडल 2009, अच्छी चलती हालत में बिकाऊ है। कीमत ₹60,000 है। इच्छुक व्यक्ति संपर्क करें।
+
+विमल प्रसाद  
+मकान नंबर 227, सेक्टर-22, जगाधरी  
+मोबाइल नंबर 1987642345
+
+</div>
+
+<span class="priority">⭐ बहुत महत्वपूर्ण</span>
+
+</div>
+</div>
+
+
+<!-- 4 -->
+<div class="card">
+
+<div class="question">
+❓ 4. सेक्टर-14, यमुनानगर में दस मरले की कोठी बेचने का विज्ञापन लिखिए।
+</div>
+
+<div class="answer">
+
+<div class="answer-title">✅ उत्तर</div>
+
+<div class="ad-box">
+
+<div class="ad-title">कोठी बिकाऊ है</div>
+
+सेक्टर-14, यमुनानगर में दस मरले की कोठी बिकाऊ है। चार कमरे, दो बाथरूम, एक रसोई और आधुनिक सुविधाएँ उपलब्ध हैं।
+
+हरिराम  
+मोबाइल नंबर 1456894566
+
+</div>
+
+<span class="priority">⭐ बहुत महत्वपूर्ण</span>
+
+</div>
+</div>
+
+
+<!-- 5 -->
+<div class="card">
+
+<div class="question">
+❓ 5. कपड़े की दुकान के लिए सेल्ज़मैन की आवश्यकता का विज्ञापन लिखिए।
+</div>
+
+<div class="answer">
+
+<div class="answer-title">✅ उत्तर</div>
+
+<div class="ad-box">
+
+<div class="ad-title">सेल्ज़मैन की आवश्यकता है</div>
+
+कपड़े की दुकान पर एक कुशल सेल्ज़मैन की आवश्यकता है। वेतन योग्यतानुसार दिया जाएगा। इच्छुक व्यक्ति शीघ्र संपर्क करें।
+
+मंगल राय  
+मंगल क्लाथ हाउस, मेन बाजार, अम्बाला  
+मोबाइल नं. 1746578673
+
+</div>
+
+<span class="priority">⭐ बहुत महत्वपूर्ण</span>
+
+</div>
+</div>
+
+
+<!-- 6 -->
+<div class="card">
+
+<div class="question">
+❓ 6. घर के कामकाज के लिए नौकरानी चाहिए। इसका विज्ञापन लिखिए।
+</div>
+
+<div class="answer">
+
+<div class="answer-title">✅ उत्तर</div>
+
+<div class="ad-box">
+
+<div class="ad-title">नौकरानी की आवश्यकता है</div>
+
+घर के कामकाज के लिए एक अनुभवी नौकरानी की आवश्यकता है। अच्छा वेतन, रहने के लिए कमरा और भोजन दिया जाएगा।
+
+सोनिया रानी  
+मोबाइल नंबर 9988990380
+
+</div>
+
+<span class="priority">⭐ महत्वपूर्ण</span>
+
+</div>
+</div>
+
+
+<!-- 7 -->
+<div class="card">
+
+<div class="question">
+❓ 7. गरीब विद्यार्थियों के लिए विज्ञान और गणित की निःशुल्क कोचिंग का विज्ञापन लिखिए।
+</div>
+
+<div class="answer">
+
+<div class="answer-title">✅ उत्तर</div>
+
+<div class="ad-box">
+
+<div class="ad-title">प्रज्ञा कोचिंग सेंटर</div>
+
+दसवीं और बारहवीं के गरीब विद्यार्थियों के लिए विज्ञान और गणित की निःशुल्क कोचिंग शुरू की जा रही है। अनुभवी अध्यापक पढ़ाएँगे। इच्छुक विद्यार्थी शीघ्र संपर्क करें।
+
+प्रज्ञा  
+डायरेक्टर, प्रज्ञा कोचिंग सेंटर, शामपुरा  
+मोबाइल नं. 1891000000
+
+</div>
+
+<span class="priority">⭐ महत्वपूर्ण</span>
+
+</div>
+</div>
+
+
+<!-- 8 -->
+<div class="card">
+
+<div class="question">
+❓ 8. 25 वर्षीय लड़की के लिए योग्य वर चाहिए। वैवाहिक विज्ञापन लिखिए।
+</div>
+
+<div class="answer">
+
+<div class="answer-title">✅ उत्तर</div>
+
+<div class="ad-box">
+
+<div class="ad-title">योग्य वर चाहिए</div>
+
+25 वर्ष की, 5 फुट 4 इंच कद की, एम.ए. पास लड़की के लिए योग्य वर चाहिए।
+
+संपर्क करें:  
+अशोक शर्मा  
+मकान नंबर 87, सेक्टर-17, चंडीगढ़।
+
+</div>
+
+<span class="priority">⭐ महत्वपूर्ण</span>
+
+</div>
+</div>
+
+
+<!-- 9 -->
+<div class="card">
+
+<div class="question">
+❓ 9. 28 वर्षीय राजकीय अध्यापक के लिए योग्य वधू चाहिए। विज्ञापन लिखिए।
+</div>
+
+<div class="answer">
+
+<div class="answer-title">✅ उत्तर</div>
+
+<div class="ad-box">
+
+<div class="ad-title">योग्य वधू चाहिए</div>
+
+28 वर्ष आयु, 5 फुट 9 इंच कद के राजकीय अध्यापक के लिए योग्य वधू चाहिए। पटियाला निवासी।
+
+संपर्क करें:  
+नंद किशोर  
+मकान नंबर 69, पटियाला।
+
+</div>
+
+<span class="priority">⭐ महत्वपूर्ण</span>
+
+</div>
+</div>
+
+
+<!-- 10 -->
+<div class="card">
+
+<div class="question">
+❓ 10. रेडीमेड कमीज़ों पर 60% भारी छूट का विज्ञापन लिखिए।
+</div>
+
+<div class="answer">
+
+<div class="answer-title">✅ उत्तर</div>
+
+<div class="ad-box">
+
+<div class="ad-title">रेडीमेड कमीज़ों पर 60% भारी छूट</div>
+
+रेडीमेड कमीज़ों पर 60% की भारी छूट। जल्दी आएँ और इस अवसर का लाभ उठाएँ। सीमित समय के लिए विशेष छूट।
+
+अवधेश कुमार  
+गुप्ता वस्त्र भंडार, मेन बाजार, मेरठ  
+मोबाइल नंबर 1464566234
+
+</div>
+
+<span class="priority">⭐ महत्वपूर्ण</span>
+
+</div>
+</div>
+
+
+<footer>
+    📚 कक्षा 10 हिन्दी • व्यावहारिक व्याकरण<br>
+    📢 विज्ञापन लेखन • Most Important Questions
+</footer>
+
+</div>
+
+</body>
+  </html>
