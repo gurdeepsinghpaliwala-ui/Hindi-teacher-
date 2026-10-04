@@ -3,72 +3,71 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>पाठ 8 — मनीष और सीमा | ऑनलाइन क्विज</title>
+<title>पाठ 8: मनीष और सीमा — ऑनलाइन क्विज</title>
 <style>
-:root{--ink:#172033;--muted:#64748b;--line:#e2e8f0;--purple:#7c3aed;--blue:#2563eb;--green:#15803d;--red:#b91c1c}
 *{box-sizing:border-box}
-body{margin:0;font-family:Arial,"Noto Sans Devanagari",sans-serif;background:linear-gradient(135deg,#eef2ff,#fdf2f8 55%,#ecfeff);color:var(--ink);line-height:1.55}
-header{padding:28px 16px 24px;text-align:center;color:white;background:linear-gradient(120deg,#6d28d9,#2563eb,#0d9488)}
-header h1{margin:0 0 6px;font-size:clamp(24px,5vw,34px)}
-header p{margin:0;opacity:.95}
-.wrap{max-width:850px;margin:20px auto;padding:0 12px 30px}
-.topline{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:10px;color:#334155;font-weight:bold}
-.track{height:10px;background:#dbeafe;border-radius:20px;overflow:hidden;margin-bottom:18px}
-#progress{height:100%;width:0;background:linear-gradient(90deg,#7c3aed,#0d9488);transition:width .25s}
-.question{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;margin:13px 0;box-shadow:0 5px 18px #3341550b}
-.qtitle{font-weight:700;margin:0 0 12px}
+body{margin:0;font-family:Arial,"Noto Sans Devanagari",sans-serif;background:#f1f5f9;color:#1e293b;line-height:1.6}
+header{background:linear-gradient(120deg,#0f766e,#0d9488);color:#fff;text-align:center;padding:24px 14px}
+header h1{margin:0;font-size:clamp(23px,5vw,32px)}header p{margin:6px 0 0}
+main{max-width:820px;margin:20px auto;padding:0 12px 30px}
+.status{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;font-weight:bold;margin:12px 0}
+.track{height:9px;border-radius:20px;background:#cbd5e1;overflow:hidden;margin-bottom:16px}
+#bar{height:100%;width:0;background:#0d9488;transition:width .2s}
+.card{background:white;border:1px solid #e2e8f0;border-radius:14px;padding:18px;margin-bottom:14px;box-shadow:0 4px 14px #0f172a0a}
+.q{font-weight:bold;font-size:18px;margin:0 0 13px}
 .options{display:grid;gap:9px}
-.option{display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;padding:11px 13px;border:1px solid #cbd5e1;border-radius:11px;background:#f8fafc;color:#172033;font-size:16px;cursor:pointer}
-.option:hover:not(:disabled){border-color:#818cf8;background:#eef2ff}
-.option:disabled{cursor:default;opacity:1}
-.option.correct{border-color:#16a34a;background:#dcfce7;color:#14532d}
-.option.wrong{border-color:#ef4444;background:#fee2e2;color:#991b1b}
-.feedback{font-weight:bold;margin-top:10px;min-height:24px}
-.correct-text{color:var(--green)}.wrong-text{color:var(--red)}
-.actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:22px 0}
-.btn{border:0;border-radius:12px;padding:12px 18px;color:white;background:var(--purple);font-weight:bold;font-size:16px;text-decoration:none;cursor:pointer;display:inline-block}
-.btn.secondary{background:#0f766e}.btn.light{background:#334155}
-#result{display:none;background:white;border-radius:18px;border:2px solid #c4b5fd;padding:22px;text-align:center;box-shadow:0 8px 25px #33415512}
-#result h2{margin-top:0;color:#6d28d9}
-.small{font-size:14px;color:var(--muted)}
+.option{width:100%;text-align:left;border:1px solid #cbd5e1;background:#f8fafc;border-radius:10px;padding:11px 12px;font-size:16px;color:#1e293b;cursor:pointer}
+.option:hover:not(:disabled){background:#ecfeff;border-color:#0d9488}
+.option:disabled{opacity:1;cursor:default}
+.option.good{background:#dcfce7;border-color:#16a34a;color:#166534}
+.option.bad{background:#fee2e2;border-color:#dc2626;color:#991b1b}
+#feedback{font-weight:bold;margin-top:10px;min-height:24px}
+.actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:18px 0}
+.btn{border:0;border-radius:10px;background:#0f766e;color:#fff;text-decoration:none;padding:11px 17px;font-weight:bold;font-size:16px;cursor:pointer;display:inline-block}
+.btn:disabled{background:#94a3b8;cursor:not-allowed}
+.btn.dark{background:#334155}
+#result{display:none;text-align:center;background:#fff;border:2px solid #99f6e4;border-radius:14px;padding:22px}
+#result h2{color:#0f766e;margin-top:0}
+.note{font-size:14px;color:#64748b;text-align:center}
 </style>
 </head>
 <body>
 <header>
-  <h1>📘 पाठ 8: मनीष और सीमा</h1>
-  <p>कक्षा 8 हिन्दी • 25 महत्वपूर्ण वस्तुनिष्ठ प्रश्न</p>
+<h1>📘 पाठ 8: मनीष और सीमा</h1>
+<p>कक्षा 8 हिन्दी | महत्वपूर्ण वस्तुनिष्ठ प्रश्न</p>
 </header>
-<main class="wrap">
-  <div class="topline"><span id="counter">प्रश्न 1 / 25</span><span>स्कोर: <span id="score">0</span></span></div>
-  <div class="track"><div id="progress"></div></div>
-  <div id="quiz"></div>
-  <div class="actions">
-    <button class="btn" id="next" disabled>अगला प्रश्न ➜</button>
-    <a class="btn light" href="class8.html">↩ कक्षा 8 पर वापस जाएँ</a>
-  </div>
-  <section id="result">
-    <h2>🎉 क्विज़ पूरा हुआ!</h2>
-    <p id="finalScore"></p>
-    <p id="message"></p>
-    <button class="btn secondary" onclick="restartQuiz()">🔄 दोबारा टेस्ट दें</button>
-    <a class="btn light" href="class8.html">कक्षा 8 पर वापस जाएँ</a>
-  </section>
-  <p class="small">हर प्रश्न का उत्तर चुनें। उत्तर चुनते ही सही/गलत का संकेत दिखाई देगा।</p>
+<main>
+<div class="status"><span id="count">प्रश्न 1 / 25</span><span>स्कोर: <span id="score">0</span></span></div>
+<div class="track"><div id="bar"></div></div>
+<div id="quiz"></div>
+<div class="actions" id="actions">
+<button class="btn" id="next" disabled>अगला प्रश्न ➜</button>
+<a class="btn dark" href="class8.html">↩ कक्षा 8 पर वापस जाएँ</a>
+</div>
+<section id="result">
+<h2>🎉 क्विज़ पूरा हुआ!</h2>
+<p id="final"></p><p id="message"></p>
+<div class="actions">
+<button class="btn" onclick="restart()">🔄 दोबारा टेस्ट दें</button>
+<a class="btn dark" href="class8.html">↩ कक्षा 8 पर वापस जाएँ</a>
+</div>
+</section>
+<p class="note">उत्तर चुनते ही सही उत्तर और प्रतिक्रिया दिखाई देगी।</p>
 </main>
 <script>
-const questions = [
+const questions=[
 {q:"लड़के का नाम क्या था?",o:["मनीष","रमेश","सुरेश","मोहन"],a:0},
 {q:"मनीष की बहन का नाम क्या था?",o:["राधा","सीमा","रीमा","गीता"],a:1},
 {q:"मनीष क्या बेचकर जीवन बसर कर रहा था?",o:["अख़बार","खिलौने","गुब्बारे","फल"],a:2},
-{q:"मनीष के पिता की क्या स्थिति थी?",o:["वे बाहर गए थे","उनकी मृत्यु हो चुकी थी","वे दुकान चलाते थे","वे शिक्षक थे"],a:1},
-{q:"मनीष गुब्बारे क्यों बेचता था?",o:["खेलने के लिए","परिवार का पालन-पोषण करने के लिए","घूमने के लिए","स्कूल की फीस बाँटने के लिए"],a:1},
-{q:"‘पढ़ोगे?’ पूछने पर मनीष ने क्या किया?",o:["हाँ में सिर हिलाया","न में सिर हिलाया","चुपचाप चला गया","हँसने लगा"],a:1},
-{q:"बच्चों को किस संस्था के अन्तर्गत पढ़ाने ले जाया गया?",o:["बाल विकास केन्द्र","प्रेरणा सहायता सोसाइटी","नगर समिति","विद्यालय सहायता दल"],a:1},
+{q:"मनीष के पिता की क्या स्थिति थी?",o:["वे बाहर गए थे","उनकी मृत्यु हो चुकी थी","वे शिक्षक थे","वे दुकान चलाते थे"],a:1},
+{q:"मनीष गुब्बारे क्यों बेचता था?",o:["घूमने के लिए","परिवार का पालन-पोषण करने के लिए","खेलने के लिए","दोस्तों के लिए"],a:1},
+{q:"‘पढ़ोगे?’ पूछने पर मनीष ने क्या किया?",o:["हाँ में सिर हिलाया","न में सिर हिलाया","भाग गया","हँसने लगा"],a:1},
+{q:"बच्चों को किस संस्था के अन्तर्गत पढ़ाने ले जाया गया?",o:["प्रेरणा सहायता सोसाइटी","नगर समिति","बाल क्लब","युवा मंडल"],a:0},
 {q:"मनीष क्या बनना चाहता था?",o:["डॉक्टर","अध्यापक","पुलिस इंस्पेक्टर","वकील"],a:2},
 {q:"सीमा क्या बनना चाहती थी?",o:["अध्यापिका","डॉक्टर","पुलिस अधिकारी","लेखिका"],a:0},
 {q:"‘संकेत’ शब्द का अर्थ क्या है?",o:["इशारा","आदेश","रास्ता","उत्तर"],a:0},
-{q:"‘पारखी’ का सही अर्थ क्या है?",o:["जल्दी चलने वाला","परखने की शक्ति रखने वाला","बात करने वाला","चित्र बनाने वाला"],a:1},
-{q:"‘अनसुनी’ का अर्थ क्या है?",o:["ध्यान से सुनना","ध्यान न देना","दोबारा कहना","धीरे बोलना"],a:1},
+{q:"‘पारखी’ का अर्थ क्या है?",o:["जल्दी चलने वाला","परखने की शक्ति रखने वाला","बात करने वाला","चित्र बनाने वाला"],a:1},
+{q:"‘अनसुनी’ का अर्थ क्या है?",o:["ध्यान से सुनना","ध्यान न देना","दोहराना","धीरे बोलना"],a:1},
 {q:"‘चेष्टा’ का अर्थ क्या है?",o:["कोशिश","आराम","सफलता","गलती"],a:0},
 {q:"‘अन्तर्गत’ का अर्थ क्या है?",o:["बाहर निकला हुआ","दूर स्थित","भीतर समाया हुआ","ऊपर रखा हुआ"],a:2},
 {q:"‘अपनापन’ का अर्थ क्या है?",o:["दूरी","आत्मीयता","नाराज़गी","डर"],a:1},
@@ -84,31 +83,33 @@ const questions = [
 {q:"‘उससे रहा नहीं गया।’ में कौन-सा वाच्य है?",o:["कर्तृवाच्य","कर्मवाच्य","भाववाच्य","इनमें से कोई नहीं"],a:2}
 ];
 let current=0,score=0,answered=false;
-const quiz=document.getElementById('quiz'),nextBtn=document.getElementById('next');
+const quiz=document.getElementById("quiz"),next=document.getElementById("next");
 function render(){
- answered=false; nextBtn.disabled=true;
- document.getElementById('counter').textContent=`प्रश्न ${current+1} / ${questions.length}`;
- document.getElementById('score').textContent=score;
- document.getElementById('progress').style.width=`${current/questions.length*100}%`;
+ answered=false;next.disabled=true;
+ document.getElementById("count").textContent=`प्रश्न ${current+1} / ${questions.length}`;
+ document.getElementById("score").textContent=score;
+ document.getElementById("bar").style.width=`${current/questions.length*100}%`;
  const item=questions[current];
- quiz.innerHTML=`<section class="question"><p class="qtitle">${current+1}. ${item.q}</p><div class="options">${item.o.map((op,i)=>`<button class="option" data-index="${i}"><b>${String.fromCharCode(65+i)}.</b> ${op}</button>`).join('')}</div><div class="feedback" id="feedback" aria-live="polite"></div></section>`;
- quiz.querySelectorAll('.option').forEach(btn=>btn.addEventListener('click',()=>choose(Number(btn.dataset.index))));
- nextBtn.textContent=current===questions.length-1?'परिणाम देखें 🏁':'अगला प्रश्न ➜';
+ quiz.innerHTML=`<section class="card"><p class="q">${current+1}. ${item.q}</p><div class="options">${item.o.map((x,i)=>`<button class="option" data-i="${i}">${String.fromCharCode(65+i)}. ${x}</button>`).join("")}</div><div id="feedback" aria-live="polite"></div></section>`;
+ quiz.querySelectorAll(".option").forEach(b=>b.addEventListener("click",()=>answer(Number(b.dataset.i))));
+ next.textContent=current===questions.length-1?"परिणाम देखें 🏁":"अगला प्रश्न ➜";
 }
-function choose(index){
- if(answered)return; answered=true;
- const item=questions[current],buttons=quiz.querySelectorAll('.option'),fb=document.getElementById('feedback');
- buttons.forEach((b,i)=>{b.disabled=true;if(i===item.a)b.classList.add('correct');if(i===index&&i!==item.a)b.classList.add('wrong')});
- if(index===item.a){score++;fb.textContent='✅ बिल्कुल सही उत्तर!';fb.className='feedback correct-text'}
- else{fb.textContent='❌ सही उत्तर: '+item.o[item.a];fb.className='feedback wrong-text'}
- document.getElementById('score').textContent=score;nextBtn.disabled=false;
+function answer(i){
+ if(answered)return;answered=true;
+ const item=questions[current],buttons=quiz.querySelectorAll(".option"),fb=document.getElementById("feedback");
+ buttons.forEach((b,j)=>{b.disabled=true;if(j===item.a)b.classList.add("good");if(j===i&&i!==item.a)b.classList.add("bad")});
+ if(i===item.a){score++;fb.textContent="✅ बिल्कुल सही उत्तर!";fb.style.color="#15803d"}
+ else{fb.textContent="❌ सही उत्तर: "+item.o[item.a];fb.style.color="#b91c1c"}
+ document.getElementById("score").textContent=score;next.disabled=false;
 }
-nextBtn.addEventListener('click',()=>{
+next.addEventListener("click",()=>{
  if(!answered)return;
- if(current<questions.length-1){current++;render()}
- else{quiz.style.display='none';nextBtn.style.display='none';document.querySelector('.actions a').style.display='none';document.getElementById('result').style.display='block';document.getElementById('progress').style.width='100%';document.getElementById('finalScore').textContent=`आपका स्कोर: ${score} / ${questions.length}`;document.getElementById('message').textContent=score>=22?'शानदार! आपकी तैयारी बहुत अच्छी है।':score>=16?'बहुत अच्छा! थोड़ा और अभ्यास करें।':'अच्छा प्रयास! दोबारा टेस्ट देकर अभ्यास करें।';document.getElementById('counter').textContent='क्विज़ पूरा हुआ';}
+ if(current<questions.length-1){current++;render();return}
+ quiz.style.display="none";document.getElementById("actions").style.display="none";document.getElementById("result").style.display="block";document.getElementById("bar").style.width="100%";document.getElementById("count").textContent="क्विज़ पूरा हुआ";
+ document.getElementById("final").textContent=`आपका स्कोर: ${score} / ${questions.length}`;
+ document.getElementById("message").textContent=score>=22?"शानदार! आपकी तैयारी बहुत अच्छी है।":score>=16?"बहुत अच्छा! थोड़ा और अभ्यास करें।":"अच्छा प्रयास! दोबारा टेस्ट देकर अभ्यास करें।";
 });
-function restartQuiz(){current=0;score=0;quiz.style.display='block';nextBtn.style.display='inline-block';document.querySelector('.actions a').style.display='inline-block';document.getElementById('result').style.display='none';render()}
+function restart(){current=0;score=0;quiz.style.display="block";document.getElementById("actions").style.display="flex";document.getElementById("result").style.display="none";render()}
 render();
 </script>
 </body>
