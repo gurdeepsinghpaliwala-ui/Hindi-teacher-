@@ -1,0 +1,368 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>पाठ 6 - नील गगन का नीलू | कक्षा 8 हिंदी क्विज</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:"Noto Sans Devanagari","Mangal",Arial,sans-serif;
+  background:#f1f5ff;
+  color:#172554;
+}
+.hero{
+  text-align:center;
+  padding:28px 15px;
+  color:white;
+  background:linear-gradient(135deg,#075985,#2563eb,#38bdf8);
+}
+.hero .badge{
+  display:inline-block;
+  padding:6px 16px;
+  background:#ffffff25;
+  border:1px solid #ffffff70;
+  border-radius:25px;
+  font-weight:bold;
+}
+.hero h1{margin:14px 0 8px;font-size:clamp(24px,5vw,36px)}
+.hero p{margin:6px auto;max-width:700px;line-height:1.8}
+.container{max-width:1000px;margin:20px auto;padding:0 12px}
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:8px;
+  margin-bottom:15px;
+}
+.stat{
+  background:white;
+  border-radius:12px;
+  padding:12px 5px;
+  text-align:center;
+  border:1px solid #dbeafe;
+  font-size:14px;
+  font-weight:bold;
+}
+.progress-bg{
+  height:10px;background:#dbeafe;border-radius:20px;
+  overflow:hidden;margin:12px 0 20px;
+}
+#progress{
+  height:100%;width:0%;
+  background:linear-gradient(90deg,#10b981,#38bdf8);
+  transition:width .3s;
+}
+.question{
+  background:white;
+  padding:20px;
+  border-radius:16px;
+  margin-bottom:15px;
+  box-shadow:0 4px 14px #1e3a8a0c;
+  border:1px solid #dbeafe;
+}
+.qhead{
+  font-size:17px;font-weight:bold;line-height:1.8;
+  margin-bottom:14px;
+}
+.qnum{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:32px;height:32px;border-radius:50%;
+  background:#2563eb;color:white;margin-right:7px;
+}
+.option{
+  display:block;width:100%;text-align:left;
+  background:#f8fafc;border:1px solid #cbdffb;
+  border-radius:10px;padding:12px;margin:8px 0;
+  font-size:16px;color:#172554;cursor:pointer;
+  font-family:inherit;line-height:1.6;
+}
+.option:hover{background:#eff6ff;border-color:#60a5fa}
+.option.correct{background:#dcfce7;border-color:#16a34a;color:#166534}
+.option.wrong{background:#fee2e2;border-color:#dc2626;color:#991b1b}
+.option:disabled{cursor:default}
+.feedback{font-weight:bold;margin-top:12px;line-height:1.8}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin:20px 0}
+.btn{
+  display:inline-block;border:0;border-radius:10px;
+  padding:12px 18px;font-size:16px;font-weight:bold;
+  text-decoration:none;cursor:pointer;font-family:inherit;
+}
+.primary{background:#2563eb;color:white}
+.green{background:#059669;color:white}
+.gray{background:#e2e8f0;color:#1e293b}
+#result{
+  display:none;background:white;padding:25px;
+  border-radius:16px;text-align:center;
+  border:2px solid #86efac;margin:20px 0;
+}
+#result h2{color:#047857}
+footer{text-align:center;padding:22px;color:#475569}
+@media(max-width:560px){
+ .stats{grid-template-columns:repeat(2,1fr)}
+ .question{padding:15px}
+ .option{font-size:15px}
+}
+</style>
+</head>
+
+<body>
+<header class="hero">
+  <span class="badge">📚 कक्षा 8 हिंदी</span>
+  <h1>पाठ 6 – नील गगन का नीलू</h1>
+  <p>✈️ ऑनलाइन अभ्यास एवं बहुविकल्पीय प्रश्नोत्तरी</p>
+  <p>पाठ के प्रश्न-उत्तर • शब्दार्थ • विलोम • व्याकरण</p>
+</header>
+
+<main class="container">
+  <div class="stats">
+    <div class="stat">📝 कुल प्रश्न<br>25</div>
+    <div class="stat">✅ सही<br><span id="correctCount">0</span></div>
+    <div class="stat">❌ गलत<br><span id="wrongCount">0</span></div>
+    <div class="stat">📍 प्रश्न<br><span id="answeredCount">0</span>/25</div>
+  </div>
+
+  <div class="progress-bg"><div id="progress"></div></div>
+
+  <div id="quiz"></div>
+
+  <div id="result">
+    <h2>🎉 आपका टेस्ट पूरा हुआ!</h2>
+    <p id="scoreText"></p>
+    <p id="resultMessage"></p>
+    <button class="btn green" onclick="restartQuiz()">🔄 फिर से प्रयास करें</button>
+    <a class="btn primary" href="class8.html">🏠 मुख्य पृष्ठ</a>
+  </div>
+
+  <div class="actions">
+    <button class="btn gray" onclick="restartQuiz()">🔄 टेस्ट रीसेट करें</button>
+    <a class="btn primary" href="class8.html">⬅️ कक्षा 8 के पाठ</a>
+  </div>
+</main>
+
+<footer>कक्षा 8 हिंदी अध्ययन सामग्री | पाठ 6 – नील गगन का नीलू</footer>
+
+<script>
+const questions = [
+{
+q:"नीलू का पूरा नाम क्या था?",
+o:["नीलकांत शर्मा","अनिल शर्मा","सुनील शर्मा","अमित शर्मा"],
+a:1,e:"नीलू का पूरा नाम अनिल शर्मा था।"
+},
+{
+q:"अनिल शर्मा के पिता का नाम क्या था?",
+o:["हरि प्रकाश शर्मा","राम प्रकाश शर्मा","मोहन शर्मा","विजय शर्मा"],
+a:0,e:"उनके पिता का नाम हरि प्रकाश शर्मा था।"
+},
+{
+q:"अनिल शर्मा के पिता वायु सेना में किस पद पर थे?",
+o:["पायलट","सार्जेंट","कमांडर","डॉक्टर"],
+a:1,e:"उनके पिता वायु सेना में सार्जेंट थे।"
+},
+{
+q:"अनिल शर्मा की रुचि बचपन से किसमें थी?",
+o:["चित्रकारी","संगीत","फ्लाइंग","खेती"],
+a:2,e:"पिता के वायु सेना में होने के कारण उनकी रुचि फ्लाइंग में थी।"
+},
+{
+q:"विमान देखकर अनिल शर्मा मन ही मन क्या सोचता था?",
+o:["वह जहाज बनाएगा","वह विमान उड़ाकर देश का झंडा फहराएगा","वह सैनिक नहीं बनेगा","वह विदेश जाएगा"],
+a:1,e:"वह एक दिन विमान उड़ाकर देश का झंडा आसमान में फहराना चाहता था।"
+},
+{
+q:"अनिल शर्मा ने पायलट का प्रशिक्षण कहाँ से लिया?",
+o:["दिल्ली","बिदर","मुंबई","भोपाल"],
+a:1,e:"अनिल शर्मा ने बिदर से पायलट का प्रशिक्षण लिया।"
+},
+{
+q:"अनिल शर्मा को किस प्रकार के कार्य पसंद थे?",
+o:["आसान कार्य","केवल कार्यालय के कार्य","चुनौतीपूर्ण कार्य","केवल खेल"],
+a:2,e:"उन्हें चुनौतीपूर्ण कार्यों में रुचि थी।"
+},
+{
+q:"12 नवंबर 2000 को भारतीय तटरक्षक बल ने पश्चिमी सीमा पर क्या देखा?",
+o:["यात्री विमान","पाकिस्तानी मछुआरों की किश्तियाँ","युद्धपोत","व्यापारी जहाज"],
+a:1,e:"तटरक्षक बल ने पाकिस्तानी मछुआरों की किश्तियाँ भारतीय सीमा में प्रवेश करते देखीं।"
+},
+{
+q:"पाकिस्तानी मछुआरों ने किसे निशाना बनाया?",
+o:["एक नाव को","अनिल शर्मा के हेलीकॉप्टर को","एक बंदरगाह को","एक पुल को"],
+a:1,e:"पाकिस्तानी मछुआरों ने अनिल शर्मा के हेलीकॉप्टर को मिसाइल से निशाना बनाया।"
+},
+{
+q:"पाठ में मुंबई में घुसपैठ की घटना की तारीख क्या दी गई है?",
+o:["15 अगस्त 2000","12 नवंबर 2000","26 नवंबर 2009","26 जनवरी 2010"],
+a:2,e:"दिए गए पाठ-अभ्यास के अनुसार तारीख 26 नवंबर 2009 है।"
+},
+{
+q:"'लालायित' शब्द का अर्थ क्या है?",
+o:["उदास","इच्छुक","क्रोधित","भयभीत"],
+a:1,e:"लालायित का अर्थ है इच्छुक।"
+},
+{
+q:"'मूल्यवान' का सही अर्थ चुनें।",
+o:["बेकार","सस्ता","कीमती","साधारण"],
+a:2,e:"मूल्यवान का अर्थ कीमती होता है।"
+},
+{
+q:"'मेधावी' का अर्थ क्या है?",
+o:["तीव्र बुद्धि वाला","कमज़ोर","आलसी","डरपोक"],
+a:0,e:"मेधावी व्यक्ति तीव्र बुद्धि वाला होता है।"
+},
+{
+q:"'ध्येय' शब्द का अर्थ क्या है?",
+o:["सीमा","लक्ष्य","सलाह","बचपन"],
+a:1,e:"ध्येय का अर्थ लक्ष्य है।"
+},
+{
+q:"'परामर्श' का अर्थ क्या है?",
+o:["पुरस्कार","प्रशिक्षण","सलाह","अनुमान"],
+a:2,e:"परामर्श का अर्थ सलाह है।"
+},
+{
+q:"'सक्षम' शब्द का अर्थ क्या है?",
+o:["असमर्थ","समर्थ","अल्प","अकेला"],
+a:1,e:"सक्षम का अर्थ समर्थ होता है।"
+},
+{
+q:"'दुर्भाग्यवश' का अर्थ क्या है?",
+o:["सौभाग्य से","बदकिस्मती से","जानबूझकर","अचानक खुशी से"],
+a:1,e:"दुर्भाग्यवश का अर्थ बदकिस्मती से है।"
+},
+{
+q:"'देश की रक्षा के लिए कुर्बान होना' के लिए कौन-सा शब्द सही है?",
+o:["शहादत","दर्शक","मूल्यांकन","परामर्श"],
+a:0,e:"देश की रक्षा के लिए प्राण देना कुर्बानी या शहादत कहलाता है।"
+},
+{
+q:"'कभी न थकने वाला' के लिए एक शब्द क्या है?",
+o:["निडर","अथक","असमय","मेधावी"],
+a:1,e:"कभी न थकने वाला — अथक।"
+},
+{
+q:"'जिसे किसी का डर न हो' उसे क्या कहते हैं?",
+o:["निडर","लालायित","अल्प","आशंकित"],
+a:0,e:"जिसे डर न हो, वह निडर कहलाता है।"
+},
+{
+q:"'अपने आप पर भरोसा होना' क्या कहलाता है?",
+o:["दखल-अंदाज़ी","आत्मविश्वास","बालहठ","सीमा-भेदन"],
+a:1,e:"अपने ऊपर विश्वास को आत्मविश्वास कहते हैं।"
+},
+{
+q:"'वायुयान चलाने वाला' के लिए एक शब्द क्या है?",
+o:["नाविक","चालक","वायुयान चालक","परीक्षक"],
+a:2,e:"वायुयान चलाने वाला वायुयान चालक कहलाता है।"
+},
+{
+q:"'बचपन की ज़िद्द' के लिए कौन-सा शब्द है?",
+o:["बालहठ","ध्येय","अल्प","परामर्श"],
+a:0,e:"बचपन की ज़िद को बालहठ कहते हैं।"
+},
+{
+q:"'असाधारण' शब्द में उपसर्ग कौन-सा है?",
+o:["अन","अ","सु","प्र"],
+a:1,e:"अ + साधारण = असाधारण। यहाँ 'अ' उपसर्ग है।"
+},
+{
+q:"'वे निपुण परीक्षक के रूप में प्रसिद्ध हो गये।' वाक्य में सर्वनाम कौन-सा है?",
+o:["निपुण","परीक्षक","वे","प्रसिद्ध"],
+a:2,e:"'वे' सर्वनाम है। 'निपुण' विशेषण है।"
+}
+];
+
+let answers = {};
+let locked = {};
+
+function renderQuiz(){
+ const root=document.getElementById("quiz");
+ root.innerHTML="";
+ questions.forEach((q,i)=>{
+  const card=document.createElement("section");
+  card.className="question";
+  const head=document.createElement("div");
+  head.className="qhead";
+  head.innerHTML='<span class="qnum">'+(i+1)+'</span>'+q.q;
+  card.appendChild(head);
+
+  q.o.forEach((option,j)=>{
+   const btn=document.createElement("button");
+   btn.className="option";
+   btn.textContent=String.fromCharCode(65+j)+". "+option;
+   btn.type="button";
+   btn.onclick=()=>chooseAnswer(i,j,card);
+   if(locked[i]){
+    btn.disabled=true;
+    if(j===q.a)btn.classList.add("correct");
+    else if(j===answers[i])btn.classList.add("wrong");
+   }
+   card.appendChild(btn);
+  });
+
+  const feedback=document.createElement("div");
+  feedback.className="feedback";
+  feedback.id="feedback-"+i;
+  if(locked[i]){
+   feedback.textContent=(answers[i]===q.a?"✅ सही जवाब! ":"❌ गलत जवाब। ")+q.e;
+   feedback.style.color=answers[i]===q.a?"#15803d":"#b91c1c";
+  }
+  card.appendChild(feedback);
+  root.appendChild(card);
+ });
+ updateStats();
+}
+
+function chooseAnswer(i,j,card){
+ if(locked[i])return;
+ answers[i]=j;
+ locked[i]=true;
+ renderQuiz();
+ const el=document.getElementById("feedback-"+i);
+ if(el)el.scrollIntoView({behavior:"smooth",block:"nearest"});
+ if(Object.keys(locked).length===questions.length){
+  document.getElementById("result").style.display="block";
+  document.getElementById("result").scrollIntoView({behavior:"smooth"});
+  showResult();
+ }
+}
+
+function updateStats(){
+ let correct=0,wrong=0;
+ Object.keys(locked).forEach(k=>{
+  if(answers[k]===questions[k].a)correct++;
+  else wrong++;
+ });
+ const done=Object.keys(locked).length;
+ document.getElementById("correctCount").textContent=correct;
+ document.getElementById("wrongCount").textContent=wrong;
+ document.getElementById("answeredCount").textContent=done;
+ document.getElementById("progress").style.width=(done/questions.length*100)+"%";
+}
+
+function showResult(){
+ let correct=0;
+ Object.keys(locked).forEach(k=>{
+  if(answers[k]===questions[k].a)correct++;
+ });
+ const percent=Math.round(correct/questions.length*100);
+ document.getElementById("scoreText").textContent=
+  "आपके अंक: "+correct+" / "+questions.length+" ("+percent+"%)";
+ document.getElementById("resultMessage").textContent=
+  percent>=80?"बहुत बढ़िया! आपकी तैयारी अच्छी है।":
+  percent>=50?"अच्छा प्रयास! एक बार फिर अभ्यास करें।":
+  "चिंता न करें। पाठ दोहराएँ और फिर प्रयास करें।";
+}
+
+function restartQuiz(){
+ answers={};locked={};
+ document.getElementById("result").style.display="none";
+ renderQuiz();
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+renderQuiz();
+</script>
+</body>
+  </html>
+  
