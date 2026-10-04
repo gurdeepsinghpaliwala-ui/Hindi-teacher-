@@ -1,0 +1,204 @@
+
+<!-- पाठ 1: Objective Type Quiz -->
+<div class="card" id="himmat-quiz" style="border-left:5px solid #7c3aed;">
+  <h2 style="color:#7c3aed;">📝 पाठ 1: ऑनलाइन वस्तुनिष्ठ प्रश्न</h2>
+  <p>हिम्मत करने वालों की हार नहीं होती — कक्षा 8 हिन्दी</p>
+
+  <div id="quiz-questions"></div>
+
+  <button onclick="checkHimmatQuiz()"
+    style="background:#7c3aed;color:white;padding:12px 20px;
+    border:0;border-radius:8px;cursor:pointer;margin-top:15px;">
+    ✅ उत्तर जाँचें
+  </button>
+
+  <button onclick="resetHimmatQuiz()"
+    style="background:#0d9488;color:white;padding:12px 20px;
+    border:0;border-radius:8px;cursor:pointer;margin:10px 5px;">
+    🔄 दोबारा करें
+  </button>
+
+  <div id="himmat-result" style="margin-top:15px;font-weight:bold;"></div>
+</div>
+
+<script>
+(function () {
+  const questions = [
+    {
+      q: "1. कविता के अनुसार किन लोगों की हार नहीं होती?",
+      options: ["डरने वालों की", "आलसी लोगों की",
+                "हिम्मत करने वालों की", "आराम करने वालों की"],
+      answer: 2
+    },
+    {
+      q: "2. नन्ही चींटी कहाँ चढ़ती है?",
+      options: ["पेड़ पर", "दीवार पर", "पहाड़ पर", "छत पर"],
+      answer: 1
+    },
+    {
+      q: "3. गोताखोर सिंधु में डुबकियाँ क्यों लगाता है?",
+      options: ["नहाने के लिए", "खेलने के लिए",
+                "मोती निकालने के लिए", "मछली पकड़ने के लिए"],
+      answer: 2
+    },
+    {
+      q: "4. ‘सिंधु’ का अर्थ क्या है?",
+      options: ["नदी", "सागर", "पहाड़", "तालाब"],
+      answer: 1
+    },
+    {
+      q: "5. ‘नैया’ का पर्यायवाची शब्द क्या है?",
+      options: ["नौका", "लहर", "नाड़ी", "मोती"],
+      answer: 0
+    },
+    {
+      q: "6. ‘हिम्मत’ का समानार्थी शब्द क्या है?",
+      options: ["डर", "आलस्य", "साहस", "हार"],
+      answer: 2
+    },
+    {
+      q: "7. ‘सहज ही’ का अर्थ क्या है?",
+      options: ["कठिनाई से", "आसानी से",
+                "डरकर", "जल्दी में"],
+      answer: 1
+    },
+    {
+      q: "8. असफलता को किस रूप में स्वीकार करना चाहिए?",
+      options: ["मुसीबत", "चुनौती", "आराम", "हार"],
+      answer: 1
+    },
+    {
+      q: "9. ‘चैन’ शब्द का अर्थ क्या है?",
+      options: ["संघर्ष", "मेहनत", "आराम", "उत्साह"],
+      answer: 2
+    },
+    {
+      q: "10. ‘हार’ का विलोम शब्द क्या है?",
+      options: ["डर", "जीत", "आलस्य", "असफलता"],
+      answer: 1
+    },
+    {
+      q: "11. ‘विश्वास’ का विलोम शब्द क्या है?",
+      options: ["साहस", "उत्साह", "अविश्वास", "प्रयास"],
+      answer: 2
+    },
+    {
+      q: "12. ‘मेहनत’ का विलोम शब्द क्या है?",
+      options: ["परिश्रम", "संघर्ष", "आलस्य", "साहस"],
+      answer: 2
+    },
+    {
+      q: "13. ‘लहर’ का पर्यायवाची शब्द क्या है?",
+      options: ["तरंग", "नाड़ी", "हस्त", "नैया"],
+      answer: 0
+    },
+    {
+      q: "14. दीवार पर चढ़ते समय कौन बार-बार फिसलती है?",
+      options: ["चींटी", "तितली", "चिड़िया", "मधुमक्खी"],
+      answer: 0
+    },
+    {
+      q: "15. सफलता पाने के लिए क्या करना चाहिए?",
+      options: ["प्रयास छोड़ देना", "डर जाना",
+                "लगातार मेहनत करना", "आराम करते रहना"],
+      answer: 2
+    }
+  ];
+
+  const container = document.getElementById("quiz-questions");
+
+  questions.forEach((item, i) => {
+    const box = document.createElement("div");
+    box.style.cssText =
+      "padding:14px;margin:12px 0;border:1px solid #ddd;" +
+      "border-radius:10px;background:var(--card-bg,#fff);";
+
+    const title = document.createElement("p");
+    title.textContent = item.q;
+    title.style.fontWeight = "bold";
+    box.appendChild(title);
+
+    item.options.forEach((option, j) => {
+      const label = document.createElement("label");
+      label.style.cssText =
+        "display:block;padding:9px;margin:6px 0;" +
+        "border:1px solid #ddd;border-radius:7px;cursor:pointer;";
+
+      const radio = document.createElement("input");
+      radio.type = "radio";
+      radio.name = "himmat_q_" + i;
+      radio.value = j;
+      radio.style.marginRight = "9px";
+
+      label.appendChild(radio);
+      label.appendChild(
+        document.createTextNode(
+          String.fromCharCode(65 + j) + ". " + option
+        )
+      );
+      box.appendChild(label);
+    });
+
+    const feedback = document.createElement("div");
+    feedback.id = "himmat_feedback_" + i;
+    feedback.style.fontWeight = "bold";
+    box.appendChild(feedback);
+
+    container.appendChild(box);
+  });
+
+  window.checkHimmatQuiz = function () {
+    let score = 0;
+    let attempted = 0;
+
+    questions.forEach((item, i) => {
+      const selected = document.querySelector(
+        'input[name="himmat_q_' + i + '"]:checked'
+      );
+      const feedback = document.getElementById(
+        "himmat_feedback_" + i
+      );
+
+      if (selected) {
+        attempted++;
+        if (Number(selected.value) === item.answer) {
+          score++;
+          feedback.textContent = "✅ सही उत्तर!";
+          feedback.style.color = "#15803d";
+        } else {
+          feedback.textContent =
+            "❌ गलत। सही उत्तर: " +
+            item.options[item.answer];
+          feedback.style.color = "#dc2626";
+        }
+      } else {
+        feedback.textContent =
+          "⚠️ उत्तर नहीं चुना। सही उत्तर: " +
+          item.options[item.answer];
+        feedback.style.color = "#b45309";
+      }
+    });
+
+    document.getElementById("himmat-result").textContent =
+      "🎯 आपका स्कोर: " + score + "/" + questions.length +
+      " | प्रयास किए: " + attempted + "/" + questions.length;
+
+    document.getElementById("himmat-result")
+      .scrollIntoView({ behavior: "smooth", block: "center" });
+  };
+
+  window.resetHimmatQuiz = function () {
+    container.querySelectorAll('input[type="radio"]')
+      .forEach(input => input.checked = false);
+
+    questions.forEach((item, i) => {
+      document.getElementById("himmat_feedback_" + i)
+        .textContent = "";
+    });
+
+    document.getElementById("himmat-result").textContent = "";
+    document.getElementById("himmat-quiz")
+      .scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+})();
+</script>
