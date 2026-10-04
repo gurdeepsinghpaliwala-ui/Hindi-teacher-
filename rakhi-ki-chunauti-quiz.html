@@ -1,0 +1,289 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>राखी की चुनौती - कक्षा 8 Quiz</title>
+<style>
+*{box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#f1f5ff;margin:0;color:#1e293b}
+header{background:linear-gradient(135deg,#be123c,#7c3aed);color:white;text-align:center;padding:22px 12px}
+header h1{font-size:24px;margin:0 0 8px}
+header p{margin:0}
+.container{max-width:760px;margin:20px auto;padding:12px}
+.panel{background:white;border-radius:16px;padding:18px;margin-bottom:16px;box-shadow:0 4px 15px #00000012}
+.progress-bg{height:10px;background:#e2e8f0;border-radius:20px;overflow:hidden;margin:12px 0}
+#progress{height:100%;width:0;background:#10b981;transition:.3s}
+.question{font-size:18px;font-weight:bold;line-height:1.7;margin-bottom:14px}
+.option{display:block;width:100%;text-align:left;background:#f8fafc;border:2px solid #e2e8f0;border-radius:10px;padding:12px;margin:9px 0;font-size:16px;cursor:pointer;color:#1e293b}
+.option:hover{border-color:#818cf8}
+.option:disabled{cursor:default}
+.correct{background:#dcfce7!important;border-color:#16a34a!important}
+.wrong{background:#fee2e2!important;border-color:#ef4444!important}
+#feedback{font-weight:bold;margin-top:12px;line-height:1.7}
+.controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.btn{border:0;border-radius:9px;padding:12px 17px;font-size:15px;font-weight:bold;cursor:pointer;text-decoration:none;display:inline-block}
+.primary{background:#7c3aed;color:white}
+.secondary{background:#e2e8f0;color:#1e293b}
+#result{text-align:center;display:none}
+#result h2{color:#7c3aed}
+.big{font-size:30px;font-weight:bold;color:#059669}
+.small{color:#64748b;font-size:14px}
+</style>
+</head>
+<body>
+
+<header>
+<h1>🎀 पाठ 4: राखी की चुनौती</h1>
+<p>कक्षा 8 हिन्दी | महत्वपूर्ण Objective Quiz</p>
+</header>
+
+<div class="container">
+<div class="panel" id="quizPanel">
+<div><b id="counter">प्रश्न 1</b>
+<span style="float:right" id="score">स्कोर: 0</span></div>
+
+<div class="progress-bg"><div id="progress"></div></div>
+<div class="question" id="question"></div>
+<div id="options"></div>
+<div id="feedback" aria-live="polite"></div>
+
+<div class="controls">
+<button class="btn primary" id="next" onclick="nextQuestion()" disabled>
+अगला प्रश्न ➜
+</button>
+</div>
+<p class="small">सही विकल्प चुनें और तुरंत अपना परिणाम देखें।</p>
+</div>
+
+<div class="panel" id="result">
+<h2>🎉 क्विज़ पूरा हुआ!</h2>
+<p>आपका स्कोर</p>
+<div class="big" id="finalScore"></div>
+<p id="message"></p>
+<button class="btn primary" onclick="restart()">🔄 दोबारा टेस्ट दें</button>
+<a class="btn secondary" href="class8.html">⬅️ वापस जाएँ</a>
+</div>
+
+<div style="text-align:center">
+<a class="btn secondary" href="class8.html">⬅️ कक्षा 8 हिन्दी होम</a>
+</div>
+</div>
+
+<script>
+const questions = [
+{
+q:"1. राखी का त्योहार किस दिन मनाया जाता है?",
+o:["कार्तिक पूर्णिमा","श्रावण की पूर्णिमा","दीपावली","बसंत पंचमी"],
+a:1
+},
+{
+q:"2. कविता में बहन का भाई कहाँ गया है?",
+o:["विद्यालय","विदेश","भारत माता को स्वतंत्र करवाने के लिए जेलखाने","खेलने"],
+a:2
+},
+{
+q:"3. बहन किन बहनों को बधाई देती है?",
+o:["जिनके भाई घर लौट आए हैं","जिन बहनों को भाई मिले हैं","सभी शिक्षिकाओं को","किसी को नहीं"],
+a:1
+},
+{
+q:"4. 'मुझे गर्व है किंतु राखी है सुनी' का भाव क्या है?",
+o:["बहन त्योहार भूल गई है","बहन नाराज़ है","बहन को राखी पसंद नहीं","भाई पास नहीं है, पर देश के लिए उसके त्याग पर गर्व है"],
+a:3
+},
+{
+q:"5. कविता 'राखी की चुनौती' कब लिखी गई थी?",
+o:["स्वतंत्रता से पहले","स्वतंत्रता के बाद","आजादी के पचास वर्ष बाद","इनमें से कोई नहीं"],
+a:0
+},
+{
+q:"6. 'ज़ालिम' शब्द का अर्थ क्या है?",
+o:["दयालु","ज़ुल्म करने वाला","सहायक","मित्र"],
+a:1
+},
+{
+q:"7. 'धूनी' का अर्थ क्या है?",
+o:["पानी का स्रोत","फूलों का समूह","ठंड से बचने के लिए जलायी जाने वाली आग","एक त्योहार"],
+a:2
+},
+{
+q:"8. 'भादो' किस महीने को कहते हैं?",
+o:["सावन से पहले का महीना","चैत्र का महीना","कार्तिक का महीना","सावन के बाद आने वाला देसी महीना"],
+a:3
+},
+{
+q:"9. 'चुनौती' शब्द का सही अर्थ क्या है?",
+o:["ललकार या आह्वान","उपहार","प्रार्थना","विश्राम"],
+a:0
+},
+{
+q:"10. 'विषमता' का अर्थ क्या है?",
+o:["समानता","असमता","खुशी","स्वतंत्रता"],
+a:1
+},
+{
+q:"11. 'तड़ित' का पर्यायवाची शब्द कौन-सा है?",
+o:["धरती","मेघ","बिजली","पुष्प"],
+a:2
+},
+{
+q:"12. 'गगन' का पर्यायवाची शब्द क्या है?",
+o:["आकाश","कलाई","धूनी","चुनौती"],
+a:0
+},
+{
+q:"13. 'खुशी' का पर्यायवाची शब्द चुनें।",
+o:["विषमता","ज़ालिम","बंधन","हर्ष"],
+a:3
+},
+{
+q:"14. 'घन' का पर्यायवाची शब्द क्या है?",
+o:["भाई","मेघ","पुष्प","धरती"],
+a:1
+},
+{
+q:"15. 'पुष्प' का पर्यायवाची शब्द क्या है?",
+o:["बादल","आकाश","सुमन","अमावस"],
+a:2
+},
+{
+q:"16. 'भाई' का पर्यायवाची शब्द कौन-सा है?",
+o:["भ्राता","चपला","अंबर","मुक्ति"],
+a:0
+},
+{
+q:"17. 'पराधीनता' का विलोम शब्द क्या है?",
+o:["बंधन","अमंगल","कठोर","स्वाधीनता"],
+a:3
+},
+{
+q:"18. 'कठोर' का विलोम शब्द क्या है?",
+o:["ज़ालिम","कोमल","विषमता","अमावस"],
+a:1
+},
+{
+q:"19. 'अमावस' का विलोम शब्द क्या है?",
+o:["मंगल","बंधन","पूर्णिमा","आसमान"],
+a:2
+},
+{
+q:"20. सही वर्तनी चुनें।",
+o:["स्वाधिनता","स्वाधीनता","स्वाधीन्ता","स्वाधीनताा"],
+a:1
+},
+{
+q:"21. 'विशमता' का शुद्ध रूप क्या है?",
+o:["विषमता","विशमता","विषमत्ता","विषम्ता"],
+a:0
+},
+{
+q:"22. 'पुश्प' का शुद्ध रूप क्या है?",
+o:["पुशप","पुष्पा","पुस्प","पुष्प"],
+a:3
+},
+{
+q:"23. 'चुनोती' का शुद्ध रूप क्या है?",
+o:["चुनोती","चुनौती","चूनौती","चुनौति"],
+a:1
+},
+{
+q:"24. 'अमंगल' का विलोम शब्द क्या है?",
+o:["अमावस","पराधीनता","मंगल","कठोर"],
+a:2
+}
+];
+
+let current = 0;
+let score = 0;
+let answered = false;
+
+function showQuestion(){
+  answered = false;
+  const q = questions[current];
+
+  document.getElementById("counter").textContent =
+    "प्रश्न " + (current + 1) + " / " + questions.length;
+  document.getElementById("score").textContent = "स्कोर: " + score;
+  document.getElementById("progress").style.width =
+    (current / questions.length * 100) + "%";
+  document.getElementById("question").textContent = q.q;
+  document.getElementById("feedback").textContent = "";
+  document.getElementById("next").disabled = true;
+  document.getElementById("next").textContent =
+    current === questions.length - 1 ? "परिणाम देखें 🏆" : "अगला प्रश्न ➜";
+
+  const area = document.getElementById("options");
+  area.innerHTML = "";
+
+  q.o.forEach((option,index)=>{
+    const btn = document.createElement("button");
+    btn.className = "option";
+    btn.textContent = String.fromCharCode(65+index) + ". " + option;
+    btn.onclick = ()=>checkAnswer(index,btn);
+    area.appendChild(btn);
+  });
+}
+
+function checkAnswer(index,selected){
+  if(answered) return;
+  answered = true;
+  const q = questions[current];
+  const buttons = document.querySelectorAll(".option");
+
+  buttons.forEach((btn,i)=>{
+    btn.disabled = true;
+    if(i === q.a) btn.classList.add("correct");
+  });
+
+  if(index === q.a){
+    score++;
+    document.getElementById("feedback").textContent =
+      "✅ बिल्कुल सही जवाब!";
+    document.getElementById("feedback").style.color = "#15803d";
+  }else{
+    selected.classList.add("wrong");
+    document.getElementById("feedback").textContent =
+      "❌ गलत जवाब। सही उत्तर: " + q.o[q.a];
+    document.getElementById("feedback").style.color = "#dc2626";
+  }
+
+  document.getElementById("score").textContent = "स्कोर: " + score;
+  document.getElementById("progress").style.width =
+    ((current+1)/questions.length*100) + "%";
+  document.getElementById("next").disabled = false;
+}
+
+function nextQuestion(){
+  if(!answered) return;
+  current++;
+
+  if(current < questions.length){
+    showQuestion();
+  }else{
+    document.getElementById("quizPanel").style.display = "none";
+    document.getElementById("result").style.display = "block";
+    document.getElementById("finalScore").textContent =
+      score + " / " + questions.length;
+
+    const percent = score / questions.length * 100;
+    document.getElementById("message").textContent =
+      percent >= 80 ? "बहुत शानदार! आपकी तैयारी अच्छी है। 🎉" :
+      percent >= 50 ? "अच्छा प्रयास! फिर से अभ्यास करें। 👍" :
+      "पाठ को दोबारा पढ़ें और फिर क्विज़ दें। 💪";
+  }
+}
+
+function restart(){
+  current = 0;
+  score = 0;
+  document.getElementById("result").style.display = "none";
+  document.getElementById("quizPanel").style.display = "block";
+  showQuestion();
+}
+
+showQuestion();
+</script>
+</body>
+</html>
