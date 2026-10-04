@@ -1,0 +1,252 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>पाठ 2 - पिंजरे का शेर Quiz</title>
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;font-family:Arial,sans-serif;
+  background:linear-gradient(135deg,#eff6ff,#fdf2f8);
+  color:#1e293b;
+}
+header{
+  background:linear-gradient(135deg,#4338ca,#9333ea,#db2777);
+  color:white;text-align:center;padding:25px 14px;
+}
+header h1{font-size:25px;margin:5px 0 10px}
+header p{margin:5px}
+.container{max-width:760px;margin:auto;padding:16px}
+.info{
+  background:white;border-radius:15px;padding:16px;
+  text-align:center;box-shadow:0 4px 14px #00000012;
+  margin-bottom:16px;
+}
+.progress{
+  height:9px;background:#e2e8f0;border-radius:10px;
+  overflow:hidden;margin-top:12px;
+}
+#progressBar{
+  height:100%;width:0%;
+  background:linear-gradient(90deg,#6366f1,#ec4899);
+  transition:width .3s;
+}
+.question{
+  background:white;border-radius:15px;padding:18px;
+  margin-bottom:15px;border:1px solid #e2e8f0;
+  box-shadow:0 3px 12px #00000009;
+}
+.question h3{font-size:17px;line-height:1.6;margin:0 0 12px}
+.option{
+  display:block;padding:11px;margin:8px 0;
+  border:1px solid #cbd5e1;border-radius:10px;
+  cursor:pointer;background:#fff;line-height:1.5;
+}
+.option:has(input:checked){
+  border-color:#6366f1;background:#eef2ff;
+}
+.option input{margin-right:8px}
+.correct{background:#dcfce7!important;border-color:#16a34a!important}
+.wrong{background:#fee2e2!important;border-color:#dc2626!important}
+.feedback{font-weight:bold;margin-top:10px}
+button,.back{
+  display:inline-block;border:0;border-radius:10px;
+  padding:13px 18px;font-size:15px;font-weight:bold;
+  text-decoration:none;cursor:pointer;margin:5px;
+}
+.primary{background:linear-gradient(90deg,#4f46e5,#9333ea);color:white}
+.secondary{background:#0f766e;color:white}
+#result{
+  display:none;background:white;border-radius:16px;
+  padding:22px;text-align:center;margin:18px 0;
+  box-shadow:0 4px 16px #00000012;
+}
+#score{font-size:30px;color:#6d28d9;font-weight:bold}
+.actions{text-align:center}
+footer{text-align:center;padding:20px;color:#64748b;font-size:13px}
+</style>
+</head>
+<body>
+<header>
+  <div style="font-size:38px">🦁</div>
+  <h1>पाठ 2: पिंजरे का शेर</h1>
+  <p>📚 कक्षा 8 हिन्दी | Online Objective Quiz</p>
+  <p>✨ अभ्यास करें और अपना स्कोर देखें ✨</p>
+</header>
+
+<div class="container">
+  <div class="info">
+    <strong>📝 कुल प्रश्न: 20</strong>
+    <p>सही विकल्प चुनें और अंत में उत्तर जाँचें।</p>
+    <div id="progressText">0 / 20 प्रश्न हल किए</div>
+    <div class="progress"><div id="progressBar"></div></div>
+  </div>
+
+  <div id="quiz"></div>
+
+  <div class="actions">
+    <button class="primary" onclick="checkQuiz()">✅ उत्तर जाँचें</button>
+    <button class="secondary" onclick="resetQuiz()">🔄 दोबारा करें</button>
+  </div>
+
+  <div id="result">
+    <div style="font-size:35px">🏆</div>
+    <h2>आपका परिणाम</h2>
+    <div id="score"></div>
+    <p id="message"></p>
+    <button class="primary" onclick="resetQuiz()">फिर से अभ्यास करें</button>
+  </div>
+
+  <div class="actions">
+    <a class="back" href="class8.html"
+       style="background:#334155;color:white">⬅️ कक्षा 8 पर वापस जाएँ</a>
+  </div>
+</div>
+<footer>Hindi Study Material Hub | कक्षा 8 हिन्दी</footer>
+
+<script>
+const questions = [
+ {q:"1. महापदम नंद के दरबार में किस देश के दूत आए थे?",
+  o:["चीन","रोम","जापान","मिस्र"],a:1},
+ {q:"2. रोम के राजदूत सम्राट के लिए क्या लाए थे?",
+  o:["सोने का मुकुट","घोड़ा","पिंजरे में एक शेर","बहुमूल्य पुस्तक"],a:2},
+ {q:"3. सम्राट महापदम नंद के मंत्री का नाम क्या था?",
+  o:["चाणक्य","शकटार","अशोक","बिंदुसार"],a:1},
+ {q:"4. शेर किस धातु का बना हुआ था?",
+  o:["सोना","लोहा","ताँबा","सीसा"],a:3},
+ {q:"5. पिंजरा किस धातु का बना था?",
+  o:["लोहा","चाँदी","सोना","सीसा"],a:0},
+ {q:"6. शेर को पिंजरे से निकालने वाला किशोर आगे चलकर किस नाम से प्रसिद्ध हुआ?",
+  o:["सम्राट अशोक","चंद्रगुप्त मौर्य","बिंदुसार","शकटार"],a:1},
+ {q:"7. ‘दूत’ का अर्थ क्या है?",
+  o:["सैनिक","संदेश पहुँचाने वाला","व्यापारी","मंत्री"],a:1},
+ {q:"8. ‘निरीक्षण’ का अर्थ क्या है?",
+  o:["आराम करना","जाँच-पड़ताल करना","संदेश भेजना","युद्ध करना"],a:1},
+ {q:"9. ‘फुसफुसाहट’ का अर्थ क्या है?",
+  o:["जोर से बोलना","गाना","बहुत धीमी आवाज में बोलना","चिल्लाना"],a:2},
+ {q:"10. ‘सम्राट’ का स्त्रीलिंग क्या है?",
+  o:["सम्राटी","सम्राज्ञी","राजकुमार","महाराज"],a:1},
+ {q:"11. ‘शेर’ का स्त्रीलिंग क्या है?",
+  o:["शेरनी","शेरा","शेरिका","शेरिन"],a:0},
+ {q:"12. ‘महाराज’ का स्त्रीलिंग क्या है?",
+  o:["महाराजी","महाराजनी","महारानी","राजकुमारी"],a:2},
+ {q:"13. ‘किशोर’ का स्त्रीलिंग क्या है?",
+  o:["किशोरी","किशोरनी","किशोरिका","किशोरियाँ"],a:0},
+ {q:"14. ‘पिंजरा’ का बहुवचन क्या है?",
+  o:["पिंजरियाँ","पिंजरे","पिंजरों","पिंजराें"],a:1},
+ {q:"15. ‘मूर्ति’ का बहुवचन क्या है?",
+  o:["मूर्ते","मूर्तियाँ","मूर्तियों","मूर्तिया"],a:1},
+ {q:"16. ‘यह’ का बहुवचन क्या है?",
+  o:["वह","ये","इस","उस"],a:1},
+ {q:"17. ‘पुराना’ का विलोम क्या है?",
+  o:["प्राचीन","नया","पुरातन","बड़ा"],a:1},
+ {q:"18. ‘असफल’ का विलोम क्या है?",
+  o:["अयोग्य","कमजोर","सफल","असमर्थ"],a:2},
+ {q:"19. सही वर्तनी चुनें।",
+  o:["शकतीशाली","शक्तिशाली","शक्तीशाली","सक्तिशाली"],a:1},
+ {q:"20. सही वर्तनी चुनें।",
+  o:["बहुमूलय","बहुमुल्य","बहुमूल्य","बहुमुलय"],a:2}
+];
+
+const quiz = document.getElementById("quiz");
+let submitted = false;
+
+function renderQuiz(){
+  quiz.innerHTML = "";
+  questions.forEach((item,i)=>{
+    const card=document.createElement("div");
+    card.className="question";
+    const title=document.createElement("h3");
+    title.textContent=item.q;
+    card.appendChild(title);
+
+    item.o.forEach((option,j)=>{
+      const label=document.createElement("label");
+      label.className="option";
+      const input=document.createElement("input");
+      input.type="radio";
+      input.name="q"+i;
+      input.value=j;
+      input.addEventListener("change",updateProgress);
+      label.appendChild(input);
+      label.appendChild(document.createTextNode(
+        String.fromCharCode(65+j)+". "+option
+      ));
+      card.appendChild(label);
+    });
+
+    const feedback=document.createElement("div");
+    feedback.className="feedback";
+    feedback.id="feedback"+i;
+    card.appendChild(feedback);
+    quiz.appendChild(card);
+  });
+  updateProgress();
+}
+
+function updateProgress(){
+  const count=questions.filter((q,i)=>
+    document.querySelector('input[name="q'+i+'"]:checked')
+  ).length;
+  document.getElementById("progressText").textContent=
+    count+" / "+questions.length+" प्रश्न हल किए";
+  document.getElementById("progressBar").style.width=
+    (count/questions.length*100)+"%";
+}
+
+function checkQuiz(){
+  let score=0;
+  questions.forEach((item,i)=>{
+    const selected=document.querySelector(
+      'input[name="q'+i+'"]:checked'
+    );
+    const card=quiz.children[i];
+    const feedback=document.getElementById("feedback"+i);
+
+    card.querySelectorAll(".option").forEach((label,j)=>{
+      label.classList.remove("correct","wrong");
+      if(j===item.a) label.classList.add("correct");
+      if(selected && Number(selected.value)===j && j!==item.a)
+        label.classList.add("wrong");
+    });
+
+    if(selected && Number(selected.value)===item.a) score++;
+
+    feedback.textContent=selected
+      ? (Number(selected.value)===item.a
+          ? "✅ सही उत्तर!"
+          : "❌ सही उत्तर: "+item.o[item.a])
+      : "⚠️ उत्तर नहीं चुना। सही उत्तर: "+item.o[item.a];
+  });
+
+  submitted=true;
+  document.querySelectorAll('#quiz input').forEach(input=>{
+    input.disabled=true;
+  });
+
+  document.getElementById("result").style.display="block";
+  document.getElementById("score").textContent=
+    score+" / "+questions.length;
+  document.getElementById("message").textContent=
+    score>=16?"🌟 बहुत बढ़िया! आपकी तैयारी अच्छी है।":
+    score>=10?"👏 अच्छा प्रयास! एक बार फिर अभ्यास करें।":
+    "💪 निराश न हों। उत्तर पढ़ें और दोबारा अभ्यास करें।";
+
+  document.getElementById("result").scrollIntoView({
+    behavior:"smooth",block:"center"
+  });
+}
+
+function resetQuiz(){
+  submitted=false;
+  document.getElementById("result").style.display="none";
+  renderQuiz();
+  window.scrollTo({top:0,behavior:"smooth"});
+}
+
+renderQuiz();
+</script>
+</body>
+</html>
