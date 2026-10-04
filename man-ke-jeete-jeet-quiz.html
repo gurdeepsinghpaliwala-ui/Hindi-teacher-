@@ -1,0 +1,381 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>पाठ 9 - मन के जीते जीत | कक्षा 8</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Arial, "Noto Sans Devanagari", sans-serif;
+  background: linear-gradient(135deg, #e0f2fe, #f3e8ff);
+  color: #1e293b;
+}
+.container {
+  max-width: 760px;
+  margin: auto;
+  padding: 18px;
+}
+.header {
+  background: linear-gradient(135deg, #4338ca, #7c3aed);
+  color: white;
+  text-align: center;
+  padding: 25px 15px;
+  border-radius: 18px;
+  box-shadow: 0 6px 18px #0002;
+}
+.header h1 {
+  margin: 8px 0;
+  font-size: 27px;
+}
+.header p {
+  margin: 5px 0;
+}
+.card {
+  background: white;
+  margin-top: 18px;
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 4px 14px #0001;
+}
+.progress-bg {
+  height: 10px;
+  background: #e2e8f0;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 12px 0;
+}
+#progress {
+  height: 100%;
+  width: 0%;
+  background: #7c3aed;
+  transition: width .3s;
+}
+#question {
+  font-size: 20px;
+  line-height: 1.7;
+  font-weight: bold;
+}
+.option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 13px;
+  margin: 10px 0;
+  border: 2px solid #cbd5e1;
+  border-radius: 10px;
+  background: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  color: #1e293b;
+}
+.option:hover {
+  background: #f5f3ff;
+  border-color: #7c3aed;
+}
+.option.correct {
+  background: #dcfce7;
+  border-color: #16a34a;
+}
+.option.wrong {
+  background: #fee2e2;
+  border-color: #dc2626;
+}
+.option:disabled {
+  cursor: default;
+  color: #1e293b;
+}
+#feedback {
+  font-weight: bold;
+  margin-top: 14px;
+  line-height: 1.6;
+}
+.btn {
+  display: inline-block;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 18px;
+  background: #6d28d9;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 6px 4px 0 0;
+}
+.btn:hover {
+  opacity: .9;
+}
+#result {
+  display: none;
+  text-align: center;
+}
+.small {
+  color: #64748b;
+  font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <div class="header">
+    <div>📚 कक्षा आठवीं हिन्दी</div>
+    <h1>पाठ 9: मन के जीते जीत</h1>
+    <p>🎯 ऑनलाइन वस्तुनिष्ठ प्रश्नोत्तरी</p>
+  </div>
+
+  <div class="card">
+    <b id="counter">प्रश्न 1</b>
+    <div class="progress-bg">
+      <div id="progress"></div>
+    </div>
+    <p id="question"></p>
+    <div id="options"></div>
+    <div id="feedback"></div>
+    <button class="btn" id="nextBtn" onclick="nextQuestion()" style="display:none">
+      अगला प्रश्न ➜
+    </button>
+    <p class="small">सही विकल्प चुनें। प्रत्येक प्रश्न के बाद उत्तर का परिणाम दिखाई देगा।</p>
+  </div>
+
+  <div class="card" id="result">
+    <h2>🎉 टेस्ट पूरा हुआ!</h2>
+    <h1 id="score"></h1>
+    <p id="message"></p>
+    <button class="btn" onclick="restartQuiz()">🔄 दोबारा टेस्ट दें</button>
+    <a class="btn" href="class8.html">🏠 वापस पाठ्यक्रम पर जाएँ</a>
+  </div>
+
+  <div style="text-align:center; margin:18px 0;">
+    <a class="btn" href="class8.html">⬅ कक्षा 8 हिन्दी पेज पर वापस जाएँ</a>
+  </div>
+
+</div>
+
+<script>
+const questions = [
+  {
+    q: "‘मन के जीते जीत’ शीर्षक का मुख्य संदेश क्या है?",
+    options: ["धन ही सब कुछ है", "मन का विश्वास सफलता दिलाता है", "दूसरों से डरना चाहिए", "प्रयत्न नहीं करना चाहिए"],
+    answer: 1
+  },
+  {
+    q: "कठिनाइयों पर विजय पाने के लिए किसकी आवश्यकता होती है?",
+    options: ["आलस्य की", "निराशा की", "आत्मविश्वास और दृढ़ निश्चय की", "बहाने बनाने की"],
+    answer: 2
+  },
+  {
+    q: "‘विकलांग’ शब्द का अर्थ क्या है?",
+    options: ["बहुत बलवान", "अंग से हीन", "बहुत बुद्धिमान", "धनी व्यक्ति"],
+    answer: 1
+  },
+  {
+    q: "‘अनथक’ का सही अर्थ क्या है?",
+    options: ["जो जल्दी थक जाए", "जो न थकने वाला हो", "जो सोता रहे", "जो डरता हो"],
+    answer: 1
+  },
+  {
+    q: "‘दूषित’ शब्द का अर्थ है—",
+    options: ["स्वच्छ", "सुंदर", "गंदा या मैला", "सुगंधित"],
+    answer: 2
+  },
+  {
+    q: "‘कर्णप्रिय’ का अर्थ क्या है?",
+    options: ["आँखों को अच्छा लगने वाला", "कानों को प्रिय लगने वाला", "मन को दुख देने वाला", "बहुत कठिन"],
+    answer: 1
+  },
+  {
+    q: "‘विभूतियाँ’ शब्द किसके लिए प्रयुक्त हो सकता है?",
+    options: ["महान और विशिष्ट व्यक्तित्वों के लिए", "केवल बच्चों के लिए", "केवल वस्तुओं के लिए", "केवल पशुओं के लिए"],
+    answer: 0
+  },
+  {
+    q: "‘अस्थि’ का अर्थ क्या है?",
+    options: ["मांस", "हड्डी", "त्वचा", "रक्त"],
+    answer: 1
+  },
+  {
+    q: "‘अन्यत्र’ का अर्थ है—",
+    options: ["यहीं", "कहीं नहीं", "दूसरी जगह", "सामने"],
+    answer: 2
+  },
+  {
+    q: "‘व्यक्तित्व’ का अर्थ क्या है?",
+    options: ["व्यक्ति की विशेषताएँ", "व्यक्ति का घर", "व्यक्ति का कपड़ा", "व्यक्ति की आयु"],
+    answer: 0
+  },
+  {
+    q: "‘एकाग्रता’ का अर्थ क्या है?",
+    options: ["मन का भटकना", "ध्यान का एक जगह केंद्रित होना", "तेजी से चलना", "बहुत बोलना"],
+    answer: 1
+  },
+  {
+    q: "‘बुलंदी’ का अर्थ है—",
+    options: ["गिरावट", "ऊँचाई या उत्कर्ष", "कमज़ोरी", "अंधकार"],
+    answer: 1
+  },
+  {
+    q: "‘जज़्बा’ शब्द का अर्थ क्या है?",
+    options: ["जोश या भाव", "आलस्य", "डर", "घृणा"],
+    answer: 0
+  },
+  {
+    q: "‘चुनौती’ का समानार्थी शब्द कौन-सा है?",
+    options: ["ललकार", "आराम", "हार", "नींद"],
+    answer: 0
+  },
+  {
+    q: "‘अनूठा’ का समानार्थी शब्द है—",
+    options: ["साधारण", "अनोखा", "कमज़ोर", "गंदा"],
+    answer: 1
+  },
+  {
+    q: "‘दृढ़ता’ का समानार्थी शब्द कौन-सा है?",
+    options: ["कमज़ोरी", "मजबूती", "निराशा", "लापरवाही"],
+    answer: 1
+  },
+  {
+    q: "‘उपहास’ का समानार्थी शब्द है—",
+    options: ["सम्मान", "मखौल", "प्रयास", "सेवा"],
+    answer: 1
+  },
+  {
+    q: "‘प्रयत्न’ का समानार्थी शब्द कौन-सा है?",
+    options: ["कोशिश", "पराजय", "आराम", "अंधकार"],
+    answer: 0
+  },
+  {
+    q: "‘लज्जित’ का समानार्थी शब्द है—",
+    options: ["प्रसन्न", "शर्मिंदा", "निडर", "उत्साहित"],
+    answer: 1
+  },
+  {
+    q: "‘पुरस्कार’ का समानार्थी शब्द कौन-सा है?",
+    options: ["दंड", "इनाम", "अपमान", "हानि"],
+    answer: 1
+  },
+  {
+    q: "जिसे आँखों से दिखाई न देता हो, उसे क्या कहते हैं?",
+    options: ["बधिर", "नेत्रहीन", "वक्ता", "संगीतकार"],
+    answer: 1
+  },
+  {
+    q: "संगीत देने वाले व्यक्ति को क्या कहते हैं?",
+    options: ["चित्रकार", "संगीतकार", "अध्यापक", "लेखक"],
+    answer: 1
+  },
+  {
+    q: "अपने ऊपर विश्वास होने को क्या कहते हैं?",
+    options: ["आत्मविश्वास", "निराशा", "उपहास", "अंधकार"],
+    answer: 0
+  },
+  {
+    q: "जिसका कोई मोल न हो, उसके लिए सही शब्द है—",
+    options: ["दूषित", "अनमोल", "अनथक", "अन्यत्र"],
+    answer: 1
+  },
+  {
+    q: "‘अंधकार’ का समानार्थी शब्द कौन-सा है?",
+    options: ["प्रकाश", "उजाला", "तम", "किरण"],
+    answer: 2
+  }
+];
+
+let current = 0;
+let score = 0;
+let answered = false;
+
+function loadQuestion() {
+  answered = false;
+  const item = questions[current];
+
+  document.getElementById("counter").textContent =
+    `प्रश्न ${current + 1} / ${questions.length}`;
+  document.getElementById("progress").style.width =
+    `${(current / questions.length) * 100}%`;
+  document.getElementById("question").textContent =
+    `${current + 1}. ${item.q}`;
+  document.getElementById("feedback").textContent = "";
+  document.getElementById("nextBtn").style.display = "none";
+
+  const optionsBox = document.getElementById("options");
+  optionsBox.innerHTML = "";
+
+  item.options.forEach((option, index) => {
+    const button = document.createElement("button");
+    button.className = "option";
+    button.textContent = `${String.fromCharCode(65 + index)}. ${option}`;
+    button.onclick = () => chooseAnswer(index, button);
+    optionsBox.appendChild(button);
+  });
+}
+
+function chooseAnswer(index, button) {
+  if (answered) return;
+  answered = true;
+
+  const item = questions[current];
+  const buttons = document.querySelectorAll(".option");
+
+  buttons.forEach((b, i) => {
+    b.disabled = true;
+    if (i === item.answer) b.classList.add("correct");
+  });
+
+  if (index === item.answer) {
+    score++;
+    document.getElementById("feedback").textContent = "✅ बिल्कुल सही उत्तर!";
+    document.getElementById("feedback").style.color = "#15803d";
+  } else {
+    button.classList.add("wrong");
+    document.getElementById("feedback").textContent =
+      `❌ गलत उत्तर। सही उत्तर: ${item.options[item.answer]}`;
+    document.getElementById("feedback").style.color = "#b91c1c";
+  }
+
+  document.getElementById("progress").style.width =
+    `${((current + 1) / questions.length) * 100}%`;
+  document.getElementById("nextBtn").style.display = "inline-block";
+  document.getElementById("nextBtn").textContent =
+    current === questions.length - 1 ? "परिणाम देखें 🏆" : "अगला प्रश्न ➜";
+}
+
+function nextQuestion() {
+  if (!answered) return;
+
+  current++;
+
+  if (current < questions.length) {
+    loadQuestion();
+  } else {
+    document.getElementById("question").parentElement.style.display = "none";
+    document.getElementById("result").style.display = "block";
+    document.getElementById("score").textContent =
+      `${score} / ${questions.length}`;
+    const percent = Math.round(score / questions.length * 100);
+    document.getElementById("message").textContent =
+      percent >= 80 ? "🌟 बहुत बढ़िया! आपकी तैयारी अच्छी है।" :
+      percent >= 50 ? "👍 अच्छा प्रयास! एक बार फिर अभ्यास करें।" :
+      "📘 पाठ को दोबारा पढ़ें और फिर टेस्ट दें।";
+  }
+}
+
+function restartQuiz() {
+  current = 0;
+  score = 0;
+  answered = false;
+  document.getElementById("result").style.display = "none";
+  document.getElementById("question").parentElement.style.display = "block";
+  loadQuestion();
+}
+
+loadQuestion();
+</script>
+</body>
+</html>
