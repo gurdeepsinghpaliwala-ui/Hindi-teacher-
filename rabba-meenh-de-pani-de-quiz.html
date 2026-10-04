@@ -1,0 +1,164 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>पाठ 10: रब्बा मींह दे पानी दे</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#eff6ff;color:#1e293b}
+.container{max-width:750px;margin:auto;padding:16px}
+.header{background:linear-gradient(135deg,#0369a1,#0891b2);color:white;padding:24px 15px;text-align:center;border-radius:16px}
+.header h1{font-size:25px}
+.card{background:white;padding:20px;margin-top:16px;border-radius:14px;box-shadow:0 4px 14px #0001}
+.option{display:block;width:100%;text-align:left;padding:13px;margin:9px 0;border:2px solid #cbd5e1;border-radius:9px;background:white;font-size:16px;cursor:pointer}
+.option.correct{background:#dcfce7;border-color:#16a34a}
+.option.wrong{background:#fee2e2;border-color:#dc2626}
+.option:disabled{color:#1e293b}
+.progress-bg{height:9px;background:#e2e8f0;border-radius:10px;margin:12px 0}
+#progress{height:100%;width:0;background:#0891b2;border-radius:10px}
+#question{font-size:19px;font-weight:bold;line-height:1.7}
+#feedback{font-weight:bold;margin-top:12px;line-height:1.6}
+.btn{display:inline-block;border:0;border-radius:9px;padding:12px 17px;background:#0891b2;color:white;text-decoration:none;font-size:16px;cursor:pointer;margin-top:10px}
+#result{display:none;text-align:center}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h2>📚 कक्षा आठवीं हिन्दी</h2>
+  <h1>पाठ 10: रब्बा मींह दे पानी दे</h1>
+  <p>ऑनलाइन MCQ टेस्ट</p>
+</div>
+
+<div class="card" id="quiz">
+  <b id="counter"></b>
+  <div class="progress-bg"><div id="progress"></div></div>
+  <p id="question"></p>
+  <div id="options"></div>
+  <div id="feedback"></div>
+  <button class="btn" id="nextBtn" onclick="nextQuestion()" hidden>अगला प्रश्न ➜</button>
+</div>
+
+<div class="card" id="result">
+  <h2>🎉 टेस्ट पूरा हुआ!</h2>
+  <h1 id="score"></h1>
+  <p id="message"></p>
+  <button class="btn" onclick="restartQuiz()">🔄 दोबारा टेस्ट दें</button>
+  <br>
+  <a class="btn" href="class8.html">🏠 वापस जाएँ</a>
+</div>
+
+<div style="text-align:center">
+  <a class="btn" href="class8.html">⬅ कक्षा 8 हिन्दी पेज</a>
+</div>
+</div>
+
+<script>
+const questions = [
+{q:"‘रब्बा’ शब्द का अर्थ क्या है?",options:["प्रभु","पानी","धरती","मवेशी"],answer:0},
+{q:"‘मींह’ का अर्थ क्या है?",options:["धूप","वर्षा","हवा","गर्मी"],answer:1},
+{q:"‘दूना’ का अर्थ है—",options:["आधा","तीन गुना","दुगुना","कम"],answer:2},
+{q:"‘मवेशी’ का अर्थ क्या है?",options:["पक्षी","पशु","फसल","पेड़"],answer:1},
+{q:"‘पर दुःख’ का अर्थ है—",options:["अपना सुख","दूसरों का दुःख","अपना दुःख","खुशी"],answer:1},
+{q:"‘सीख’ का अर्थ क्या है?",options:["शिक्षा","वर्षा","धरती","पशु"],answer:0},
+{q:"कविता में ईश्वर से क्या प्रार्थना की गई है?",options:["धूप देने की","बारिश की","हवा रोकने की","ठंड बढ़ाने की"],answer:1},
+{q:"‘खेतों में सोना’ का अर्थ क्या है?",options:["खेत में सोना छिपाना","सोने जैसी कीमती फसल","खेत खाली होना","खेत में सोना"],answer:1},
+{q:"पानी के बिना मवेशियों पर क्या प्रभाव पड़ता है?",options:["वे स्वस्थ होते हैं","वे मर सकते हैं","वे उड़ने लगते हैं","कोई प्रभाव नहीं"],answer:1},
+{q:"पानी के बिना फसलों पर क्या प्रभाव पड़ता है?",options:["फसलें सूख जाती हैं","फसलें दुगुनी होती हैं","फसलें सोना बनती हैं","कोई प्रभाव नहीं"],answer:0},
+{q:"पानी के प्रति नागरिकों का कर्तव्य क्या है?",options:["पानी व्यर्थ बहाना","पानी प्रदूषित करना","पानी बचाना और स्वच्छ रखना","पानी की अनदेखी करना"],answer:2},
+{q:"पानी का अपना रंग कैसा होता है?",options:["लाल","नीला","हरा","उसका अपना कोई रंग नहीं"],answer:3},
+{q:"पानी जिस रंग में मिल जाता है, वह—",options:["हमेशा सफेद रहता है","वैसा ही दिखाई देता है","काला हो जाता है","रंग नहीं बदलता"],answer:1},
+{q:"‘पानी’ का पर्यायवाची कौन-सा है?",options:["नीर","अग्नि","आकाश","पवन"],answer:0},
+{q:"‘मींह’ का पर्यायवाची शब्द है—",options:["धरती","बरसात","दुःख","आँख"],answer:1},
+{q:"‘जन’ का पर्यायवाची कौन-सा है?",options:["लोग","पानी","वर्षा","भूमि"],answer:0},
+{q:"‘दुःख’ का पर्यायवाची कौन-सा है?",options:["आनंद","पीड़ा","ज्ञान","प्रकाश"],answer:1},
+{q:"‘आँख’ का पर्यायवाची है—",options:["नयन","नीर","आब","धरा"],answer:0},
+{q:"‘धरती’ का पर्यायवाची कौन-सा है?",options:["बरसात","भूमि","दर्द","शिक्षा"],answer:1},
+{q:"‘आब’ किसका पर्यायवाची है?",options:["आँख","पानी","दुःख","जन"],answer:1},
+{q:"फसल और बीज के लिए क्या आवश्यक है?",options:["पानी","धूल","पत्थर","अंधकार"],answer:0},
+{q:"‘मनुज’ का अर्थ क्या है?",options:["मनुष्य","पशु","पानी","फसल"],answer:0},
+{q:"‘धरा’ किसका पर्यायवाची है?",options:["वर्षा","धरती","शिक्षा","दर्द"],answer:1},
+{q:"‘ज्ञान’ किस शब्द का समानार्थी हो सकता है?",options:["सीख","मवेशी","वर्षा","पानी"],answer:0},
+{q:"पानी को व्यर्थ बहाने से हमें क्या करना चाहिए?",options:["और बर्बाद करना","पानी बचाना","पानी गंदा करना","कोई ध्यान न देना"],answer:1}
+];
+
+let current=0,score=0,answered=false;
+
+function loadQuestion(){
+  answered=false;
+  const item=questions[current];
+  document.getElementById("counter").textContent=`प्रश्न ${current+1} / ${questions.length}`;
+  document.getElementById("progress").style.width=`${current/questions.length*100}%`;
+  document.getElementById("question").textContent=`${current+1}. ${item.q}`;
+  document.getElementById("feedback").textContent="";
+  document.getElementById("nextBtn").hidden=true;
+
+  const box=document.getElementById("options");
+  box.innerHTML="";
+  item.options.forEach((opt,i)=>{
+    const b=document.createElement("button");
+    b.className="option";
+    b.textContent=String.fromCharCode(65+i)+". "+opt;
+    b.onclick=()=>chooseAnswer(i,b);
+    box.appendChild(b);
+  });
+}
+
+function chooseAnswer(index,button){
+  if(answered)return;
+  answered=true;
+  const item=questions[current];
+  document.querySelectorAll(".option").forEach((b,i)=>{
+    b.disabled=true;
+    if(i===item.answer)b.classList.add("correct");
+  });
+
+  const feedback=document.getElementById("feedback");
+  if(index===item.answer){
+    score++;
+    feedback.textContent="✅ बिल्कुल सही उत्तर!";
+    feedback.style.color="#15803d";
+  }else{
+    button.classList.add("wrong");
+    feedback.textContent="❌ सही उत्तर: "+item.options[item.answer];
+    feedback.style.color="#b91c1c";
+  }
+
+  document.getElementById("progress").style.width=`${(current+1)/questions.length*100}%`;
+  const next=document.getElementById("nextBtn");
+  next.hidden=false;
+  next.textContent=current===questions.length-1?"परिणाम देखें 🏆":"अगला प्रश्न ➜";
+}
+
+function nextQuestion(){
+  if(!answered)return;
+  current++;
+  if(current<questions.length){
+    loadQuestion();
+  }else{
+    document.getElementById("quiz").style.display="none";
+    document.getElementById("result").style.display="block";
+    document.getElementById("score").textContent=score+" / "+questions.length;
+    const p=Math.round(score/questions.length*100);
+    document.getElementById("message").textContent=
+      p>=80?"🌟 बहुत बढ़िया! आपकी तैयारी अच्छी है।":
+      p>=50?"👍 अच्छा प्रयास! दोबारा अभ्यास करें।":
+      "📘 पाठ दोबारा पढ़ें और फिर टेस्ट दें।";
+  }
+}
+
+function restartQuiz(){
+  current=0;
+  score=0;
+  document.getElementById("result").style.display="none";
+  document.getElementById("quiz").style.display="block";
+  loadQuestion();
+}
+
+loadQuestion();
+</script>
+</body>
+</html>
