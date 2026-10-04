@@ -1,157 +1,114 @@
-
 <!DOCTYPE html>
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>हिंदी ऑनलाइन क्विज - मनीष और सीमा</title>
+<title>पाठ 8 — मनीष और सीमा | ऑनलाइन क्विज</title>
 <style>
+:root{--ink:#172033;--muted:#64748b;--line:#e2e8f0;--purple:#7c3aed;--blue:#2563eb;--green:#15803d;--red:#b91c1c}
 *{box-sizing:border-box}
-body{margin:0;font-family:"Noto Sans Devanagari",Mangal,Arial,sans-serif;background:#f0fdfa;color:#134e4a}
-.hero{background:linear-gradient(135deg,#065f46,#0d9488,#5eead4);color:white;text-align:center;padding:28px 15px}
-.hero h1{font-size:clamp(25px,5vw,35px);margin:12px 0}
-.hero p{line-height:1.8}
-.container{max-width:850px;margin:20px auto;padding:0 12px}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.stat{background:white;padding:13px 5px;text-align:center;border-radius:12px;font-weight:bold;border:1px solid #99f6e4}
-.bar{height:10px;background:#ccfbf1;border-radius:20px;margin:16px 0;overflow:hidden}
-#progress{height:100%;width:0;background:#0d9488;transition:.3s}
-.question{background:white;border:1px solid #ccfbf1;border-radius:15px;padding:18px;margin:15px 0;box-shadow:0 4px 12px #064e3b0d}
-.qtitle{font-size:17px;font-weight:bold;line-height:1.8;margin-bottom:12px}
-.option{display:block;width:100%;text-align:left;padding:12px;margin:8px 0;border:1px solid #99f6e4;border-radius:9px;background:#f0fdfa;color:#134e4a;font-size:16px;font-family:inherit;cursor:pointer}
-.option.correct{background:#dcfce7;border-color:#16a34a;color:#166534}
-.option.wrong{background:#fee2e2;border-color:#dc2626;color:#991b1b}
-.option:disabled{cursor:default}
-.feedback{font-weight:bold;line-height:1.8;margin-top:10px}
-.btn{display:inline-block;padding:12px 16px;border:0;border-radius:9px;text-decoration:none;font-size:15px;font-weight:bold;cursor:pointer;margin:4px;font-family:inherit}
-.green{background:#059669;color:white}
-.blue{background:#2563eb;color:white}
-.gray{background:#e2e8f0;color:#134e4a}
-#result{display:none;background:white;border:2px solid #5eead4;border-radius:15px;padding:22px;text-align:center;margin:20px 0}
-footer{text-align:center;padding:20px;color:#64748b}
-@media(max-width:480px){.question{padding:14px}.option{font-size:15px}}
+body{margin:0;font-family:Arial,"Noto Sans Devanagari",sans-serif;background:linear-gradient(135deg,#eef2ff,#fdf2f8 55%,#ecfeff);color:var(--ink);line-height:1.55}
+header{padding:28px 16px 24px;text-align:center;color:white;background:linear-gradient(120deg,#6d28d9,#2563eb,#0d9488)}
+header h1{margin:0 0 6px;font-size:clamp(24px,5vw,34px)}
+header p{margin:0;opacity:.95}
+.wrap{max-width:850px;margin:20px auto;padding:0 12px 30px}
+.topline{display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap;margin-bottom:10px;color:#334155;font-weight:bold}
+.track{height:10px;background:#dbeafe;border-radius:20px;overflow:hidden;margin-bottom:18px}
+#progress{height:100%;width:0;background:linear-gradient(90deg,#7c3aed,#0d9488);transition:width .25s}
+.question{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;margin:13px 0;box-shadow:0 5px 18px #3341550b}
+.qtitle{font-weight:700;margin:0 0 12px}
+.options{display:grid;gap:9px}
+.option{display:flex;gap:10px;align-items:flex-start;text-align:left;width:100%;padding:11px 13px;border:1px solid #cbd5e1;border-radius:11px;background:#f8fafc;color:#172033;font-size:16px;cursor:pointer}
+.option:hover:not(:disabled){border-color:#818cf8;background:#eef2ff}
+.option:disabled{cursor:default;opacity:1}
+.option.correct{border-color:#16a34a;background:#dcfce7;color:#14532d}
+.option.wrong{border-color:#ef4444;background:#fee2e2;color:#991b1b}
+.feedback{font-weight:bold;margin-top:10px;min-height:24px}
+.correct-text{color:var(--green)}.wrong-text{color:var(--red)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin:22px 0}
+.btn{border:0;border-radius:12px;padding:12px 18px;color:white;background:var(--purple);font-weight:bold;font-size:16px;text-decoration:none;cursor:pointer;display:inline-block}
+.btn.secondary{background:#0f766e}.btn.light{background:#334155}
+#result{display:none;background:white;border-radius:18px;border:2px solid #c4b5fd;padding:22px;text-align:center;box-shadow:0 8px 25px #33415512}
+#result h2{margin-top:0;color:#6d28d9}
+.small{font-size:14px;color:var(--muted)}
 </style>
 </head>
 <body>
-<header class="hero">
-<div>📚 कक्षा 8 हिंदी</div>
-<h1>🌟 मनीष और सीमा — ऑनलाइन टेस्ट</h1>
-<p>शब्दार्थ • प्रश्न-उत्तर • विलोम • व्याकरण</p>
+<header>
+  <h1>📘 पाठ 8: मनीष और सीमा</h1>
+  <p>कक्षा 8 हिन्दी • 25 महत्वपूर्ण वस्तुनिष्ठ प्रश्न</p>
 </header>
-
-<main class="container">
-<div class="stats">
-<div class="stat">📝 कुल प्रश्न<br>25</div>
-<div class="stat">✅ सही उत्तर<br><span id="correct">0</span></div>
-<div class="stat">📍 हल किए<br><span id="done">0</span>/25</div>
-</div>
-<div class="bar"><div id="progress"></div></div>
-<div id="quiz"></div>
-
-<div id="result">
-<h2>🎉 टेस्ट पूरा हुआ!</h2>
-<h3 id="score"></h3>
-<p id="message"></p>
-<button class="btn green" onclick="restart()">🔄 दोबारा टेस्ट दें</button>
-<a class="btn blue" href="class8.html">🏠 मुख्य पृष्ठ</a>
-</div>
-
-<p>
-<button class="btn gray" onclick="restart()">रीसेट करें</button>
-<a class="btn blue" href="class8.html">⬅️ कक्षा 8 पर वापस जाएँ</a>
-</p>
+<main class="wrap">
+  <div class="topline"><span id="counter">प्रश्न 1 / 25</span><span>स्कोर: <span id="score">0</span></span></div>
+  <div class="track"><div id="progress"></div></div>
+  <div id="quiz"></div>
+  <div class="actions">
+    <button class="btn" id="next" disabled>अगला प्रश्न ➜</button>
+    <a class="btn light" href="class8.html">↩ कक्षा 8 पर वापस जाएँ</a>
+  </div>
+  <section id="result">
+    <h2>🎉 क्विज़ पूरा हुआ!</h2>
+    <p id="finalScore"></p>
+    <p id="message"></p>
+    <button class="btn secondary" onclick="restartQuiz()">🔄 दोबारा टेस्ट दें</button>
+    <a class="btn light" href="class8.html">कक्षा 8 पर वापस जाएँ</a>
+  </section>
+  <p class="small">हर प्रश्न का उत्तर चुनें। उत्तर चुनते ही सही/गलत का संकेत दिखाई देगा।</p>
 </main>
-<footer>कक्षा 8 हिंदी अध्ययन सामग्री</footer>
-
 <script>
-const questions=[
-{q:"लड़के का नाम क्या था?",o:["मनीष","रमेश","सुरेश","मोहन"],a:0,e:"लड़के का नाम मनीष था।"},
-{q:"मनीष की बहन का नाम क्या था?",o:["राधा","सीमा","रीमा","पूजा"],a:1,e:"मनीष की बहन का नाम सीमा था।"},
-{q:"मनीष क्या बेचकर जीवन बसर करता था?",o:["किताबें","खिलौने","गुब्बारे","फल"],a:2,e:"मनीष गुब्बारे बेचता था।"},
-{q:"मनीष के पिता के बारे में क्या बताया गया है?",o:["वे विदेश में थे","उनकी मृत्यु हो चुकी थी","वे अध्यापक थे","वे दुकानदार थे"],a:1,e:"मनीष के पिता की मृत्यु हो चुकी थी।"},
-{q:"मनीष गुब्बारे क्यों बेचता था?",o:["खेलने के लिए","परिवार का पालन-पोषण करने के लिए","यात्रा करने के लिए","शौक के लिए"],a:1,e:"वह परिवार का पालन-पोषण करने के लिए गुब्बारे बेचता था।"},
-{q:"‘पढ़ोगे?’ पूछने पर मनीष ने क्या किया?",o:["हाँ में सिर हिलाया","न में सिर हिलाया","चला गया","रोने लगा"],a:1,e:"उसने न में सिर हिलाया।"},
-{q:"बच्चों को किस संस्था के अंतर्गत पढ़ाया गया?",o:["बाल विकास केंद्र","प्रेरणा सहायता सोसाइटी","विद्यालय समिति","सेवा मंडल"],a:1,e:"बच्चों को प्रेरणा सहायता सोसाइटी के अंतर्गत पढ़ाया गया।"},
-{q:"मनीष क्या बनना चाहता था?",o:["डॉक्टर","अध्यापक","पुलिस इंस्पेक्टर","पायलट"],a:2,e:"मनीष पुलिस इंस्पेक्टर बनना चाहता था।"},
-{q:"सीमा क्या बनना चाहती थी?",o:["अध्यापिका","डॉक्टर","पुलिस अधिकारी","वकील"],a:0,e:"सीमा अध्यापिका बनना चाहती थी।"},
-{q:"‘संकेत’ का अर्थ क्या है?",o:["इशारा","विचार","प्रश्न","उत्तर"],a:0,e:"संकेत का अर्थ इशारा है।"},
-{q:"‘पारखी’ किसे कहते हैं?",o:["गाने वाले को","परखने की शक्ति रखने वाले को","पढ़ाने वाले को","खेलने वाले को"],a:1,e:"पारखी वह है जिसमें परखने की शक्ति हो।"},
-{q:"‘चेष्टा’ का अर्थ क्या है?",o:["आराम","कोशिश","हार","विजय"],a:1,e:"चेष्टा का अर्थ कोशिश है।"},
-{q:"‘अपनापन’ का समानार्थी शब्द क्या है?",o:["परायापन","आत्मीयता","नाराज़गी","इन्कार"],a:1,e:"अपनापन का अर्थ आत्मीयता है।"},
-{q:"‘दयनीय अवस्था’ का अर्थ क्या है?",o:["खुशी की हालत","दीन-हीन हालत","सफलता","स्वस्थ अवस्था"],a:1,e:"दयनीय अवस्था का अर्थ दीन-हीन हालत है।"},
-{q:"‘नाराज़गी’ का विलोम क्या है?",o:["प्रसन्नता","अविश्वास","परायापन","असफलता"],a:0,e:"नाराज़गी का विलोम प्रसन्नता है।"},
-{q:"‘इन्कार’ का विलोम क्या है?",o:["असहमति","इकरार","अविश्वास","निराकार"],a:1,e:"इन्कार का विलोम इकरार है।"},
-{q:"‘साकार’ का विलोम क्या है?",o:["सफल","निराकार","विश्वास","अनसुनी"],a:1,e:"साकार का विलोम निराकार है।"},
-{q:"‘विश्वास’ का विलोम क्या है?",o:["सहमति","प्रसन्नता","अविश्वास","इकरार"],a:2,e:"विश्वास का विलोम अविश्वास है।"},
-{q:"‘सफल’ का विलोम क्या है?",o:["खुशकिस्मत","असफल","साकार","सहमति"],a:1,e:"सफल का विलोम असफल है।"},
-{q:"‘मैं जल्दी-जल्दी काम निपटाकर पहुँची।’ क्रिया-विशेषण कौन-सा है?",o:["काम","पहुँची","जल्दी-जल्दी","मैं"],a:2,e:"जल्दी-जल्दी क्रिया-विशेषण है।"},
-{q:"‘वह मेरी तरफ एकटक देखने लगा।’ क्रिया-विशेषण चुनें।",o:["वह","तरफ","एकटक","देखने"],a:2,e:"एकटक क्रिया-विशेषण है।"},
-{q:"‘मैं कल आऊँगी।’ क्रिया-विशेषण कौन-सा है?",o:["मैं","कल","आऊँगी","कोई नहीं"],a:1,e:"कल समय बताने वाला क्रिया-विशेषण है।"},
-{q:"‘अरे! तुम पढ़ोगे नहीं?’ में विस्मयादिबोधक शब्द कौन-सा है?",o:["तुम","पढ़ोगे","नहीं","अरे"],a:3,e:"अरे विस्मयादिबोधक शब्द है।"},
-{q:"‘आत्म + विश्वास’ से कौन-सा शब्द बनेगा?",o:["आत्मविश्वास","आत्मविशवास","आत्मा विश्वास","विश्वासात्म"],a:0,e:"आत्म + विश्वास = आत्मविश्वास।"},
-{q:"‘उससे रहा नहीं गया।’ यह किस वाच्य का उदाहरण है?",o:["कर्तृवाच्य","कर्मवाच्य","भाववाच्य","इनमें से कोई नहीं"],a:2,e:"उससे रहा नहीं गया — भाववाच्य है।"}
+const questions = [
+{q:"लड़के का नाम क्या था?",o:["मनीष","रमेश","सुरेश","मोहन"],a:0},
+{q:"मनीष की बहन का नाम क्या था?",o:["राधा","सीमा","रीमा","गीता"],a:1},
+{q:"मनीष क्या बेचकर जीवन बसर कर रहा था?",o:["अख़बार","खिलौने","गुब्बारे","फल"],a:2},
+{q:"मनीष के पिता की क्या स्थिति थी?",o:["वे बाहर गए थे","उनकी मृत्यु हो चुकी थी","वे दुकान चलाते थे","वे शिक्षक थे"],a:1},
+{q:"मनीष गुब्बारे क्यों बेचता था?",o:["खेलने के लिए","परिवार का पालन-पोषण करने के लिए","घूमने के लिए","स्कूल की फीस बाँटने के लिए"],a:1},
+{q:"‘पढ़ोगे?’ पूछने पर मनीष ने क्या किया?",o:["हाँ में सिर हिलाया","न में सिर हिलाया","चुपचाप चला गया","हँसने लगा"],a:1},
+{q:"बच्चों को किस संस्था के अन्तर्गत पढ़ाने ले जाया गया?",o:["बाल विकास केन्द्र","प्रेरणा सहायता सोसाइटी","नगर समिति","विद्यालय सहायता दल"],a:1},
+{q:"मनीष क्या बनना चाहता था?",o:["डॉक्टर","अध्यापक","पुलिस इंस्पेक्टर","वकील"],a:2},
+{q:"सीमा क्या बनना चाहती थी?",o:["अध्यापिका","डॉक्टर","पुलिस अधिकारी","लेखिका"],a:0},
+{q:"‘संकेत’ शब्द का अर्थ क्या है?",o:["इशारा","आदेश","रास्ता","उत्तर"],a:0},
+{q:"‘पारखी’ का सही अर्थ क्या है?",o:["जल्दी चलने वाला","परखने की शक्ति रखने वाला","बात करने वाला","चित्र बनाने वाला"],a:1},
+{q:"‘अनसुनी’ का अर्थ क्या है?",o:["ध्यान से सुनना","ध्यान न देना","दोबारा कहना","धीरे बोलना"],a:1},
+{q:"‘चेष्टा’ का अर्थ क्या है?",o:["कोशिश","आराम","सफलता","गलती"],a:0},
+{q:"‘अन्तर्गत’ का अर्थ क्या है?",o:["बाहर निकला हुआ","दूर स्थित","भीतर समाया हुआ","ऊपर रखा हुआ"],a:2},
+{q:"‘अपनापन’ का अर्थ क्या है?",o:["दूरी","आत्मीयता","नाराज़गी","डर"],a:1},
+{q:"‘दयनीय अवस्था’ का अर्थ क्या है?",o:["खुशहाल हालत","दीन-हीन हालत","सामान्य हालत","स्वस्थ हालत"],a:1},
+{q:"‘नाराज़गी’ का विलोम शब्द क्या है?",o:["क्रोध","प्रसन्नता","दुःख","चिंता"],a:1},
+{q:"‘इन्कार’ का विलोम शब्द क्या है?",o:["अस्वीकार","इकरार","विरोध","मनाही"],a:1},
+{q:"‘साकार’ का विलोम शब्द क्या है?",o:["आकार","प्रकार","निराकार","संसार"],a:2},
+{q:"‘बदकिस्मत’ का विलोम शब्द क्या है?",o:["दुखी","खुशकिस्मत","बेचारा","कमज़ोर"],a:1},
+{q:"‘मैं जल्दी-जल्दी काम निपटाकर पहुँची।’ क्रिया-विशेषण कौन-सा है?",o:["काम","पहुँची","जल्दी-जल्दी","मैं"],a:2},
+{q:"‘वह मेरी तरफ एकटक देखने लगा।’ क्रिया-विशेषण कौन-सा है?",o:["वह","तरफ","देखने","एकटक"],a:3},
+{q:"‘मैं कल आऊँगी।’ क्रिया-विशेषण कौन-सा है?",o:["मैं","कल","आऊँगी","कोई नहीं"],a:1},
+{q:"‘अरे! तुम पढ़ोगे नहीं?’ में विस्मयादिबोधक शब्द कौन-सा है?",o:["तुम","पढ़ोगे","नहीं","अरे"],a:3},
+{q:"‘उससे रहा नहीं गया।’ में कौन-सा वाच्य है?",o:["कर्तृवाच्य","कर्मवाच्य","भाववाच्य","इनमें से कोई नहीं"],a:2}
 ];
-
-let answers={},locked={};
-
+let current=0,score=0,answered=false;
+const quiz=document.getElementById('quiz'),nextBtn=document.getElementById('next');
 function render(){
-const root=document.getElementById("quiz");
-root.innerHTML="";
-questions.forEach((q,i)=>{
-const card=document.createElement("section");
-card.className="question";
-const title=document.createElement("div");
-title.className="qtitle";
-title.textContent=(i+1)+". "+q.q;
-card.appendChild(title);
-q.o.forEach((op,j)=>{
-const b=document.createElement("button");
-b.className="option";
-b.textContent=String.fromCharCode(65+j)+". "+op;
-b.disabled=!!locked[i];
-if(locked[i]&&j===q.a)b.classList.add("correct");
-if(locked[i]&&j===answers[i]&&j!==q.a)b.classList.add("wrong");
-b.onclick=()=>choose(i,j);
-card.appendChild(b);
+ answered=false; nextBtn.disabled=true;
+ document.getElementById('counter').textContent=`प्रश्न ${current+1} / ${questions.length}`;
+ document.getElementById('score').textContent=score;
+ document.getElementById('progress').style.width=`${current/questions.length*100}%`;
+ const item=questions[current];
+ quiz.innerHTML=`<section class="question"><p class="qtitle">${current+1}. ${item.q}</p><div class="options">${item.o.map((op,i)=>`<button class="option" data-index="${i}"><b>${String.fromCharCode(65+i)}.</b> ${op}</button>`).join('')}</div><div class="feedback" id="feedback" aria-live="polite"></div></section>`;
+ quiz.querySelectorAll('.option').forEach(btn=>btn.addEventListener('click',()=>choose(Number(btn.dataset.index))));
+ nextBtn.textContent=current===questions.length-1?'परिणाम देखें 🏁':'अगला प्रश्न ➜';
+}
+function choose(index){
+ if(answered)return; answered=true;
+ const item=questions[current],buttons=quiz.querySelectorAll('.option'),fb=document.getElementById('feedback');
+ buttons.forEach((b,i)=>{b.disabled=true;if(i===item.a)b.classList.add('correct');if(i===index&&i!==item.a)b.classList.add('wrong')});
+ if(index===item.a){score++;fb.textContent='✅ बिल्कुल सही उत्तर!';fb.className='feedback correct-text'}
+ else{fb.textContent='❌ सही उत्तर: '+item.o[item.a];fb.className='feedback wrong-text'}
+ document.getElementById('score').textContent=score;nextBtn.disabled=false;
+}
+nextBtn.addEventListener('click',()=>{
+ if(!answered)return;
+ if(current<questions.length-1){current++;render()}
+ else{quiz.style.display='none';nextBtn.style.display='none';document.querySelector('.actions a').style.display='none';document.getElementById('result').style.display='block';document.getElementById('progress').style.width='100%';document.getElementById('finalScore').textContent=`आपका स्कोर: ${score} / ${questions.length}`;document.getElementById('message').textContent=score>=22?'शानदार! आपकी तैयारी बहुत अच्छी है।':score>=16?'बहुत अच्छा! थोड़ा और अभ्यास करें।':'अच्छा प्रयास! दोबारा टेस्ट देकर अभ्यास करें।';document.getElementById('counter').textContent='क्विज़ पूरा हुआ';}
 });
-const f=document.createElement("div");
-f.className="feedback";
-if(locked[i]){
-f.textContent=(answers[i]===q.a?"✅ सही उत्तर! ":"❌ गलत उत्तर। ")+q.e;
-f.style.color=answers[i]===q.a?"#15803d":"#b91c1c";
-}
-card.appendChild(f);
-root.appendChild(card);
-});
-update();
-}
-
-function choose(i,j){
-if(locked[i])return;
-answers[i]=j;locked[i]=true;render();
-if(Object.keys(locked).length===questions.length){
-let score=questions.filter((q,i)=>answers[i]===q.a).length;
-document.getElementById("result").style.display="block";
-document.getElementById("score").textContent="आपके अंक: "+score+" / "+questions.length;
-document.getElementById("message").textContent=
-score>=20?"बहुत बढ़िया! आपकी तैयारी अच्छी है।":
-score>=13?"अच्छा प्रयास! फिर से अभ्यास करें।":
-"पाठ दोहराएँ और दोबारा टेस्ट दें।";
-document.getElementById("result").scrollIntoView({behavior:"smooth"});
-}
-}
-function update(){
-let score=questions.filter((q,i)=>locked[i]&&answers[i]===q.a).length;
-let done=Object.keys(locked).length;
-document.getElementById("correct").textContent=score;
-document.getElementById("done").textContent=done;
-document.getElementById("progress").style.width=(done/questions.length*100)+"%";
-}
-function restart(){
-answers={};locked={};
-document.getElementById("result").style.display="none";
-render();window.scrollTo({top:0,behavior:"smooth"});
-}
+function restartQuiz(){current=0;score=0;quiz.style.display='block';nextBtn.style.display='inline-block';document.querySelector('.actions a').style.display='inline-block';document.getElementById('result').style.display='none';render()}
 render();
 </script>
 </body>
