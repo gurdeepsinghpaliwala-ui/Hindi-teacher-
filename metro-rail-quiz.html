@@ -1,0 +1,275 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>मैट्रो रेल का सुहाना सफर - Online Quiz</title>
+<style>
+*{box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#f1f5ff;margin:0;color:#1e293b}
+header{background:linear-gradient(135deg,#4338ca,#7c3aed);color:white;text-align:center;padding:22px 12px}
+header h1{font-size:24px;margin:0 0 8px}
+header p{margin:0}
+.container{max-width:760px;margin:20px auto;padding:12px}
+.panel{background:white;border-radius:16px;padding:18px;margin-bottom:16px;box-shadow:0 4px 15px #00000012}
+.progress-bg{height:10px;background:#e2e8f0;border-radius:20px;overflow:hidden;margin:12px 0}
+#progress{height:100%;width:0;background:#10b981;transition:.3s}
+.question{font-size:18px;font-weight:bold;line-height:1.6;margin-bottom:14px}
+.option{display:block;width:100%;text-align:left;background:#f8fafc;border:2px solid #e2e8f0;border-radius:10px;padding:12px;margin:9px 0;font-size:16px;cursor:pointer;color:#1e293b}
+.option:hover{border-color:#818cf8}
+.option:disabled{cursor:default}
+.correct{background:#dcfce7!important;border-color:#16a34a!important}
+.wrong{background:#fee2e2!important;border-color:#ef4444!important}
+#feedback{font-weight:bold;margin-top:12px;line-height:1.6}
+.controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.btn{border:0;border-radius:9px;padding:12px 17px;font-size:15px;font-weight:bold;cursor:pointer;text-decoration:none;display:inline-block}
+.primary{background:#4f46e5;color:white}
+.secondary{background:#e2e8f0;color:#1e293b}
+#result{text-align:center;display:none}
+#result h2{color:#4f46e5}
+.big{font-size:30px;font-weight:bold;color:#059669}
+.small{color:#64748b;font-size:14px}
+</style>
+</head>
+<body>
+<header>
+<h1>🚇 पाठ 3: मैट्रो रेल का सुहाना सफर</h1>
+<p>कक्षा 8 हिन्दी | महत्वपूर्ण Objective Quiz</p>
+</header>
+
+<div class="container">
+<div class="panel" id="quizPanel">
+<div><b id="counter">प्रश्न 1</b> <span style="float:right" id="score">स्कोर: 0</span></div>
+<div class="progress-bg"><div id="progress"></div></div>
+<div class="question" id="question"></div>
+<div id="options"></div>
+<div id="feedback" aria-live="polite"></div>
+<div class="controls">
+<button class="btn primary" id="next" onclick="nextQuestion()" disabled>अगला प्रश्न ➜</button>
+</div>
+<p class="small">हर प्रश्न के लिए एक सही विकल्प चुनें।</p>
+</div>
+
+<div class="panel" id="result">
+<h2>🎉 क्विज़ पूरा हुआ!</h2>
+<p>आपका स्कोर</p>
+<div class="big" id="finalScore"></div>
+<p id="message"></p>
+<button class="btn primary" onclick="restart()">🔄 दोबारा टेस्ट दें</button>
+<a class="btn secondary" href="class8.html">⬅️ वापस जाएँ</a>
+</div>
+
+<div style="text-align:center">
+<a class="btn secondary" href="class8.html">⬅️ कक्षा 8 हिन्दी होम</a>
+</div>
+</div>
+
+<script>
+const questions = [
+{
+q:"1. गुरुजी ने बच्चों को प्रथम आने पर क्या उपहार देने का वचन दिया था?",
+o:["नई साइकिल","मैट्रो रेल का सुहावना सफर","खेल का सामान","किताबें"],
+a:1
+},
+{
+q:"2. बच्चों के ट्रैक सूट पर क्या लिखा था, जिससे उनके पंजाब से आने का पता चला?",
+o:["भारत","दिल्ली","पंजाब","विद्यालय"],
+a:2
+},
+{
+q:"3. मैट्रो रेल की पटरी कहाँ-कहाँ बिछाई जा सकती है?",
+o:["केवल जमीन पर","केवल पुल पर","केवल भूमिगत","जमीन पर, पुल पर और सुरंग में"],
+a:3
+},
+{
+q:"4. लिफ्ट का प्रयोग मुख्य रूप से किन लोगों के लिए उपयोगी है?",
+o:["केवल बच्चों के लिए","वृद्धों, बीमारों और अपाहिज लोगों के लिए","केवल खिलाड़ियों के लिए","केवल सुरक्षाकर्मियों के लिए"],
+a:1
+},
+{
+q:"5. स्टेशन पहुँचकर बच्चे क्या देखकर हैरान हुए?",
+o:["स्टेशन की साफ-सफाई और सजावट","बारिश","खेल का मैदान","बाजार"],
+a:0
+},
+{
+q:"6. विस्फोटक सामग्री पास आने पर सुरक्षा जाँच का यंत्र क्या करता है?",
+o:["दरवाजा बंद करता है","टोकन देता है","विशेष ध्वनि निकालता है","किराया काटता है"],
+a:2
+},
+{
+q:"7. स्वचालित प्रवेश द्वार खोलने के लिए किसका प्रयोग किया जाता है?",
+o:["स्मार्टफोन","टोकन","कागज","पहचान पत्र ही"],
+a:1
+},
+{
+q:"8. स्मार्ट कार्ड का मुख्य उपयोग क्या है?",
+o:["फोटो खींचना","स्टेशन सजाना","किताबें खरीदना","यात्रा के अनुसार अपने आप किराया कटना"],
+a:3
+},
+{
+q:"9. पर्यटन-कार्ड से कितने दिन तक असीमित यात्रा की जा सकती है?",
+o:["एक से तीन दिन","सात से दस दिन","केवल एक घंटा","पंद्रह दिन"],
+a:0
+},
+{
+q:"10. गाड़ी की प्रतीक्षा करते समय किस रंग की पट्टी से आगे नहीं जाना चाहिए?",
+o:["हरी","नीली","पीली","सफेद"],
+a:2
+},
+{
+q:"11. मैट्रो गाड़ी की खिड़कियाँ क्यों नहीं खुलतीं?",
+o:["वे टूटी होती हैं","गाड़ी पूरी तरह वातानुकूलित होती है","गाड़ी में खिड़कियाँ नहीं होतीं","वे हमेशा बंद रहती हैं"],
+a:1
+},
+{
+q:"12. इलेक्ट्रॉनिक सूचना पट्ट पर कौन-सी सूचना दी जाती है?",
+o:["खेलों के परिणाम","मौसम का हाल ही","दुकानों के नाम","आने वाले स्टेशनों की सूचना"],
+a:3
+},
+{
+q:"13. 'उपहार' का समानार्थी शब्द क्या है?",
+o:["भेंट","अपराध","प्रतीक्षा","अनुशासन"],
+a:0
+},
+{
+q:"14. 'भूमिगत प्लेटफार्म' का सही अर्थ क्या है?",
+o:["पुल पर बना प्लेटफार्म","सड़क पर बना प्लेटफार्म","भूमि के अंदर बना प्लेटफार्म","खुला मैदान"],
+a:2
+},
+{
+q:"15. 'स्टेशन' का बहुवचन रूप क्या है?",
+o:["स्टेशने","स्टेशनों","स्टेशनें ही","स्टेशन का"],
+a:1
+},
+{
+q:"16. 'खिड़की' का बहुवचन क्या है?",
+o:["खिड़कीयाँ","खिड़कियों ही","खिड़कीएँ","खिड़कियाँ"],
+a:3
+},
+{
+q:"17. वाक्य 'हम लाल किला देखने जायेंगे' में सर्वनाम कौन-सा है?",
+o:["लाल","किला","हम","देखने"],
+a:2
+},
+{
+q:"18. 'असीमित' का विपरीत शब्द क्या है?",
+o:["सीमित","असुविधा","असीम","सुविधा"],
+a:0
+},
+{
+q:"19. 'हम मैट्रो रेल के द्वारा जायेंगे' में 'के द्वारा' कौन-सा कारक बताता है?",
+o:["कर्ता कारक","करण कारक","अधिकरण कारक","सम्प्रदान कारक"],
+a:1
+},
+{
+q:"20. 'प्रतिभा खिड़की वाली सीट पर बैठ गई' में 'पर' कौन-सा कारक है?",
+o:["कर्ता","करण","सम्प्रदान","अधिकरण"],
+a:3
+},
+{
+q:"21. 'लिफ्ट' का अर्थ क्या है?",
+o:["यात्रा का टिकट","सूचना देने वाला पट्ट","ऊपर ले जाने वाला यंत्र","सुरक्षा जाँच यंत्र"],
+a:2
+},
+{
+q:"22. 'वातानुकूलित' का सही अर्थ क्या है?",
+o:["हवा के तापमान के अनुकूल बनाया गया","भूमि के अंदर बना","अपने आप खुलने वाला","विस्फोट करने वाला"],
+a:0
+},
+{
+q:"23. 'अपाहिज' का समानार्थी शब्द क्या है?",
+o:["यात्री","अपंग","वृद्ध","खिलाड़ी"],
+a:1
+},
+{
+q:"24. 'गुरुजी ने बच्चों को समझाया' में 'ने' किस कारक का चिह्न है?",
+o:["अधिकरण","करण","सम्प्रदान","कर्ता"],
+a:3
+}
+];
+
+let current = 0;
+let score = 0;
+let answered = false;
+
+function showQuestion(){
+  answered = false;
+  const q = questions[current];
+  document.getElementById("counter").textContent =
+    "प्रश्न " + (current + 1) + " / " + questions.length;
+  document.getElementById("score").textContent = "स्कोर: " + score;
+  document.getElementById("progress").style.width =
+    (current / questions.length * 100) + "%";
+  document.getElementById("question").textContent = q.q;
+  document.getElementById("feedback").textContent = "";
+  document.getElementById("next").disabled = true;
+  document.getElementById("next").textContent =
+    current === questions.length - 1 ? "परिणाम देखें 🏆" : "अगला प्रश्न ➜";
+
+  const area = document.getElementById("options");
+  area.innerHTML = "";
+  q.o.forEach((option, index) => {
+    const btn = document.createElement("button");
+    btn.className = "option";
+    btn.textContent = String.fromCharCode(65 + index) + ". " + option;
+    btn.onclick = () => checkAnswer(index, btn);
+    area.appendChild(btn);
+  });
+}
+
+function checkAnswer(index, selected){
+  if(answered) return;
+  answered = true;
+  const q = questions[current];
+  const buttons = document.querySelectorAll(".option");
+  buttons.forEach((btn, i) => {
+    btn.disabled = true;
+    if(i === q.a) btn.classList.add("correct");
+  });
+
+  if(index === q.a){
+    score++;
+    document.getElementById("feedback").textContent = "✅ बिल्कुल सही जवाब!";
+    document.getElementById("feedback").style.color = "#15803d";
+  } else {
+    selected.classList.add("wrong");
+    document.getElementById("feedback").textContent =
+      "❌ गलत जवाब। सही उत्तर: " + q.o[q.a];
+    document.getElementById("feedback").style.color = "#dc2626";
+  }
+  document.getElementById("score").textContent = "स्कोर: " + score;
+  document.getElementById("progress").style.width =
+    ((current + 1) / questions.length * 100) + "%";
+  document.getElementById("next").disabled = false;
+}
+
+function nextQuestion(){
+  if(!answered) return;
+  current++;
+  if(current < questions.length){
+    showQuestion();
+  } else {
+    document.getElementById("quizPanel").style.display = "none";
+    document.getElementById("result").style.display = "block";
+    document.getElementById("finalScore").textContent =
+      score + " / " + questions.length;
+    const percent = score / questions.length * 100;
+    document.getElementById("message").textContent =
+      percent >= 80 ? "बहुत शानदार! आपकी तैयारी अच्छी है। 🎉" :
+      percent >= 50 ? "अच्छा प्रयास! एक बार फिर अभ्यास करें। 👍" :
+      "पाठ को दोबारा पढ़ें और फिर क्विज़ दें। 💪";
+  }
+}
+
+function restart(){
+  current = 0;
+  score = 0;
+  document.getElementById("result").style.display = "none";
+  document.getElementById("quizPanel").style.display = "block";
+  showQuestion();
+}
+showQuestion();
+</script>
+</body>
+</html>
