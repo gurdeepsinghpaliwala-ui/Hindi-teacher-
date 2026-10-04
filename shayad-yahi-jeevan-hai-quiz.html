@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>शायद यही जीवन है - कक्षा 8 Quiz</title>
+<style>
+*{box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:#f1f5ff;margin:0;color:#1e293b}
+header{background:linear-gradient(135deg,#047857,#0e7490);color:white;text-align:center;padding:23px 12px}
+header h1{font-size:24px;margin:0 0 8px}
+header p{margin:0}
+.container{max-width:760px;margin:20px auto;padding:12px}
+.panel{background:white;border-radius:16px;padding:18px;margin-bottom:16px;box-shadow:0 4px 15px #00000012}
+.progress-bg{height:10px;background:#e2e8f0;border-radius:20px;overflow:hidden;margin:12px 0}
+#progress{height:100%;width:0;background:#10b981;transition:.3s}
+.question{font-size:18px;font-weight:bold;line-height:1.7;margin-bottom:14px}
+.option{display:block;width:100%;text-align:left;background:#f8fafc;border:2px solid #e2e8f0;border-radius:10px;padding:12px;margin:9px 0;font-size:16px;cursor:pointer;color:#1e293b}
+.option:hover{border-color:#0d9488}
+.option:disabled{cursor:default}
+.correct{background:#dcfce7!important;border-color:#16a34a!important}
+.wrong{background:#fee2e2!important;border-color:#ef4444!important}
+#feedback{font-weight:bold;margin-top:12px;line-height:1.7}
+.controls{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.btn{border:0;border-radius:9px;padding:12px 17px;font-size:15px;font-weight:bold;cursor:pointer;text-decoration:none;display:inline-block}
+.primary{background:#0f766e;color:white}
+.secondary{background:#e2e8f0;color:#1e293b}
+#result{text-align:center;display:none}
+#result h2{color:#0f766e}
+.big{font-size:30px;font-weight:bold;color:#059669}
+.small{color:#64748b;font-size:14px}
+</style>
+</head>
+<body>
+
+<header>
+<h1>🌿 पाठ 5: शायद यही जीवन है</h1>
+<p>कक्षा 8 हिन्दी | महत्वपूर्ण Objective Quiz</p>
+</header>
+
+<div class="container">
+<div class="panel" id="quizPanel">
+<div><b id="counter">प्रश्न 1</b>
+<span style="float:right" id="score">स्कोर: 0</span></div>
+<div class="progress-bg"><div id="progress"></div></div>
+<div class="question" id="question"></div>
+<div id="options"></div>
+<div id="feedback" aria-live="polite"></div>
+<div class="controls">
+<button class="btn primary" id="next" onclick="nextQuestion()" disabled>अगला प्रश्न ➜</button>
+</div>
+<p class="small">हर प्रश्न में एक सही उत्तर चुनें।</p>
+</div>
+
+<div class="panel" id="result">
+<h2>🎉 क्विज़ पूरा हुआ!</h2>
+<p>आपका स्कोर</p>
+<div class="big" id="finalScore"></div>
+<p id="message"></p>
+<button class="btn primary" onclick="restart()">🔄 दोबारा टेस्ट दें</button>
+<a class="btn secondary" href="class8.html">⬅️ वापस जाएँ</a>
+</div>
+
+<div style="text-align:center">
+<a class="btn secondary" href="class8.html">⬅️ कक्षा 8 हिन्दी होम</a>
+</div>
+</div>
+
+<script>
+const questions = [
+{
+q:"1. लेखिका ने आँगन में क्या देखा?",
+o:["एक तितली","बैंगन के पौधे के बीच घोंसला और चार लाल अंडे","एक बिल्ली","फूलों का गुलदस्ता"],
+a:1
+},
+{
+q:"2. चिड़िया के कितने बच्चे थे?",
+o:["दो","तीन","चार","पाँच"],
+a:2
+},
+{
+q:"3. बच्चे भोजन की माँग कैसे करते थे?",
+o:["खुली चोंच बार-बार ऊपर उठाकर","पंख फैलाकर","घोंसले से बाहर जाकर","आवाज़ किए बिना"],
+a:0
+},
+{
+q:"4. घोंसला मिट्टी में क्यों गिर गया?",
+o:["बिल्ली ने गिरा दिया","तेज़ हवा के कारण","बच्चों ने गिरा दिया","एक पत्ता टूट गया था"],
+a:3
+},
+{
+q:"5. लेखिका ने घोंसले को ऊपर की टहनी पर क्यों बाँधा?",
+o:["घोंसला सजाने के लिए","बिल्ली के हमले से बचाने के लिए","अंडे गिनने के लिए","पेड़ काटने के लिए"],
+a:1
+},
+{
+q:"6. बच्चे अपनी माँ से संपर्क कैसे करते थे?",
+o:["पंख हिलाकर","घोंसले से दूर जाकर","मुँह बाहर निकालकर चीं-चीं करके","पेड़ पर चढ़कर"],
+a:2
+},
+{
+q:"7. चौथा बच्चा उड़ क्यों नहीं पाया?",
+o:["वह छोटा था","उसका घोंसला बड़ा था","वह सो रहा था","उसकी माँ दूर थी"],
+a:0
+},
+{
+q:"8. चौथे बच्चे के उड़ जाने पर लेखिका उदास क्यों हुई?",
+o:["घोंसला टूट गया था","पेड़ सूख गया था","चिड़िया वापस नहीं आई","उन्हें अपनी बेटी के एक दिन घर से दूर जाने का एहसास हुआ"],
+a:3
+},
+{
+q:"9. 'जीवन परिवर्तनशील है' का क्या अर्थ है?",
+o:["जीवन हमेशा एक जैसा रहता है","जीवन में बदलाव होता रहता है","जीवन रुक जाता है","जीवन में कोई अनुभव नहीं होता"],
+a:1
+},
+{
+q:"10. 'नीड़' शब्द का अर्थ क्या है?",
+o:["आँगन","चोंच","घोंसला","पौधा"],
+a:2
+},
+{
+q:"11. 'निहारना' का अर्थ क्या है?",
+o:["प्यार से देखना","दौड़ना","बोलना","सोना"],
+a:0
+},
+{
+q:"12. 'निश्चिंत' का सही अर्थ क्या है?",
+o:["आशंकित","अचेत","परेशान","बिना किसी चिंता के"],
+a:3
+},
+{
+q:"13. 'अवलम्ब' शब्द का अर्थ क्या है?",
+o:["भोजन","सहारा","घोंसला","चिंता"],
+a:1
+},
+{
+q:"14. 'समयाभाव' का अर्थ क्या है?",
+o:["समय पर पहुँचना","समय का बदलाव","समय की कमी","समय बिताना"],
+a:2
+},
+{
+q:"15. 'आशंका' से बना सही विशेषण कौन-सा है?",
+o:["आशंकित","आशंकितता","आशंकिती","आशंका वाला ही"],
+a:0
+},
+{
+q:"16. 'सुरक्षा' से बना सही विशेषण क्या है?",
+o:["सुरक्षण","सुरक्षितता","सुरक्षी","सुरक्षित"],
+a:3
+},
+{
+q:"17. 'परिचित' का विलोम शब्द क्या है?",
+o:["ज्ञात","अपरिचित","परिचय","स्थापित"],
+a:1
+},
+{
+q:"18. 'आगमन' का विलोम शब्द क्या है?",
+o:["निर्माण","उदय","निर्गमन","उपलब्ध"],
+a:2
+},
+{
+q:"19. 'सूर्य का उदय होना' के लिए एक शब्द क्या है?",
+o:["सूर्योदय","सूर्यास्त","समयाभाव","निर्गमन"],
+a:0
+},
+{
+q:"20. 'जिसकी जानकारी हो चुकी हो' के लिए एक शब्द क्या है?",
+o:["अज्ञात","अपरिचित","आशंकित","परिचित"],
+a:3
+},
+{
+q:"21. 'बिना पलक झपकाए' के लिए एक शब्द क्या है?",
+o:["निश्चिंत","अपलक","अचेत","अंतरंग"],
+a:1
+},
+{
+q:"22. 'कार्य + आलय' से कौन-सा शब्द बनता है?",
+o:["कार्यशील","कार्यकर्ता","कार्यालय","कार्यक्रम"],
+a:2
+},
+{
+q:"23. 'विद्या + आलय' से कौन-सा शब्द बनता है?",
+o:["विद्यालय","विद्यार्थी","विद्युत","विद्वान"],
+a:0
+},
+{
+q:"24. 'अचेत' का विलोम शब्द क्या है?",
+o:["अपरिचित","असमंजस","अवलम्ब","सचेत"],
+a:3
+}
+];
+
+let current=0;
+let score=0;
+let answered=false;
+
+function showQuestion(){
+  answered=false;
+  const q=questions[current];
+  document.getElementById("counter").textContent=
+    "प्रश्न "+(current+1)+" / "+questions.length;
+  document.getElementById("score").textContent="स्कोर: "+score;
+  document.getElementById("progress").style.width=
+    (current/questions.length*100)+"%";
+  document.getElementById("question").textContent=q.q;
+  document.getElementById("feedback").textContent="";
+  document.getElementById("next").disabled=true;
+  document.getElementById("next").textContent=
+    current===questions.length-1?"परिणाम देखें 🏆":"अगला प्रश्न ➜";
+
+  const area=document.getElementById("options");
+  area.innerHTML="";
+  q.o.forEach((option,index)=>{
+    const btn=document.createElement("button");
+    btn.className="option";
+    btn.textContent=String.fromCharCode(65+index)+". "+option;
+    btn.onclick=()=>checkAnswer(index,btn);
+    area.appendChild(btn);
+  });
+}
+
+function checkAnswer(index,selected){
+  if(answered)return;
+  answered=true;
+  const q=questions[current];
+  const buttons=document.querySelectorAll(".option");
+  buttons.forEach((btn,i)=>{
+    btn.disabled=true;
+    if(i===q.a)btn.classList.add("correct");
+  });
+
+  if(index===q.a){
+    score++;
+    document.getElementById("feedback").textContent="✅ बिल्कुल सही जवाब!";
+    document.getElementById("feedback").style.color="#15803d";
+  }else{
+    selected.classList.add("wrong");
+    document.getElementById("feedback").textContent=
+      "❌ गलत जवाब। सही उत्तर: "+q.o[q.a];
+    document.getElementById("feedback").style.color="#dc2626";
+  }
+
+  document.getElementById("score").textContent="स्कोर: "+score;
+  document.getElementById("progress").style.width=
+    ((current+1)/questions.length*100)+"%";
+  document.getElementById("next").disabled=false;
+}
+
+function nextQuestion(){
+  if(!answered)return;
+  current++;
+  if(current<questions.length){
+    showQuestion();
+  }else{
+    document.getElementById("quizPanel").style.display="none";
+    document.getElementById("result").style.display="block";
+    document.getElementById("finalScore").textContent=
+      score+" / "+questions.length;
+    const percent=score/questions.length*100;
+    document.getElementById("message").textContent=
+      percent>=80?"बहुत शानदार! आपकी तैयारी अच्छी है। 🎉":
+      percent>=50?"अच्छा प्रयास! फिर से अभ्यास करें। 👍":
+      "पाठ को दोबारा पढ़ें और फिर क्विज़ दें। 💪";
+  }
+}
+
+function restart(){
+  current=0;
+  score=0;
+  document.getElementById("result").style.display="none";
+  document.getElementById("quizPanel").style.display="block";
+  showQuestion();
+}
+
+showQuestion();
+</script>
+</body>
+</html>
