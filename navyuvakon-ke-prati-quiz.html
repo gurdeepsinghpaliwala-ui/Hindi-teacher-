@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>नवयुवकों के प्रति | कक्षा 8 हिंदी क्विज</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:"Noto Sans Devanagari",Mangal,Arial,sans-serif;background:#f5f3ff;color:#312e81}
+.hero{background:linear-gradient(135deg,#4c1d95,#7c3aed,#c084fc);color:white;text-align:center;padding:28px 14px}
+.hero h1{margin:12px 0;font-size:clamp(25px,5vw,36px)}
+.hero p{line-height:1.8;margin:6px 0}
+.container{max-width:850px;margin:20px auto;padding:0 12px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:15px}
+.stat{background:white;padding:13px 5px;border-radius:12px;text-align:center;font-weight:bold;border:1px solid #ddd6fe}
+.progress-bg{height:10px;background:#ddd6fe;border-radius:20px;overflow:hidden;margin:15px 0}
+#progress{height:100%;width:0;background:#8b5cf6;transition:.3s}
+.question{background:white;padding:18px;border-radius:15px;margin:15px 0;border:1px solid #ddd6fe;box-shadow:0 4px 12px #4c1d950b}
+.qtitle{font-size:17px;font-weight:bold;line-height:1.8;margin-bottom:12px}
+.option{display:block;width:100%;text-align:left;padding:12px;margin:8px 0;border:1px solid #ddd6fe;border-radius:9px;background:#faf5ff;color:#312e81;font-size:16px;font-family:inherit;cursor:pointer}
+.option.correct{background:#dcfce7;border-color:#16a34a;color:#166534}
+.option.wrong{background:#fee2e2;border-color:#dc2626;color:#991b1b}
+.option:disabled{cursor:default}
+.feedback{margin-top:10px;font-weight:bold;line-height:1.8}
+.btn{border:0;border-radius:9px;padding:12px 17px;font-size:16px;font-weight:bold;cursor:pointer;text-decoration:none;display:inline-block;font-family:inherit;margin:4px}
+.purple{background:#7c3aed;color:white}
+.green{background:#059669;color:white}
+.gray{background:#e5e7eb;color:#312e81}
+#result{display:none;background:white;border:2px solid #a78bfa;border-radius:15px;text-align:center;padding:22px;margin:20px 0}
+footer{text-align:center;padding:20px;color:#6b7280}
+@media(max-width:480px){.question{padding:14px}.option{font-size:15px}.stats{font-size:13px}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div>📚 कक्षा 8 हिंदी</div>
+  <h1>कविता — नवयुवकों के प्रति</h1>
+  <p>✍️ कवि: मैथिलीशरण गुप्त</p>
+  <p>शब्दार्थ • प्रश्न-उत्तर • पर्यायवाची • विपरीत शब्द</p>
+</header>
+
+<main class="container">
+  <div class="stats">
+    <div class="stat">📝 कुल प्रश्न<br>25</div>
+    <div class="stat">✅ सही<br><span id="correct">0</span></div>
+    <div class="stat">📍 हल किए<br><span id="done">0</span>/25</div>
+  </div>
+  <div class="progress-bg"><div id="progress"></div></div>
+  <div id="quiz"></div>
+
+  <div id="result">
+    <h2>🎉 क्विज पूरा हुआ!</h2>
+    <h3 id="score"></h3>
+    <p id="message"></p>
+    <button class="btn green" onclick="restart()">🔄 फिर से प्रयास करें</button>
+    <a class="btn purple" href="class8.html">🏠 मुख्य पृष्ठ</a>
+  </div>
+
+  <p>
+    <button class="btn gray" onclick="restart()">रीसेट करें</button>
+    <a class="btn purple" href="class8.html">⬅️ कक्षा 8 पर वापस जाएँ</a>
+  </p>
+</main>
+
+<footer>कक्षा 8 हिंदी अध्ययन सामग्री</footer>
+
+<script>
+const questions = [
+{q:"‘नवयुवकों के प्रति’ कविता के कवि कौन हैं?",o:["रामधारी सिंह दिनकर","मैथिलीशरण गुप्त","कबीरदास","सूरदास"],a:1,e:"इस कविता के कवि मैथिलीशरण गुप्त हैं।"},
+{q:"यह कविता किन्हें संबोधित की गई है?",o:["बच्चों को","किसानों को","नवयुवकों को","बुजुर्गों को"],a:2,e:"यह कविता नवयुवकों को संबोधित है।"},
+{q:"‘भक्तवर’ का अर्थ क्या है?",o:["भक्तों में श्रेष्ठ","धनवान व्यक्ति","देश का सेवक","विद्वान शिक्षक"],a:0,e:"भक्तवर का अर्थ भक्तों में श्रेष्ठ है।"},
+{q:"‘देशोद्धार’ का अर्थ क्या है?",o:["देश छोड़ना","देश का उद्धार करना","देश बाँटना","देश घूमना"],a:1,e:"देशोद्धार का अर्थ देश का उद्धार करना है।"},
+{q:"‘योग’ शब्द का दिया गया अर्थ क्या है?",o:["वियोग","सहयोग","विरोध","संयोग-विच्छेद"],a:1,e:"इस पाठ में योग का अर्थ सहयोग दिया गया है।"},
+{q:"‘कौमार’ किस अवस्था से संबंधित है?",o:["बुढ़ापे की अवस्था","बाल्यावस्था या यौवन से जुड़ी अवस्था","बीमारी की अवस्था","निद्रा की अवस्था"],a:1,e:"कौमार का संबंध कुमार अवस्था से है।"},
+{q:"‘निम्नोक्ति’ का अर्थ क्या है?",o:["ऊपर लिखी कविता","नीचे लिखी उक्ति या कथन","प्रश्न का उत्तर","कठिन शब्द"],a:1,e:"निम्नोक्ति का अर्थ नीचे लिखी उक्ति या कथन है।"},
+{q:"‘धर्माचरण’ का अर्थ क्या है?",o:["धर्म के अनुसार व्यवहार करना","धर्म का विरोध करना","धन कमाना","यात्रा करना"],a:0,e:"धर्माचरण का अर्थ धर्म के अनुसार आचरण करना है।"},
+{q:"‘धरो’ का अर्थ क्या है?",o:["छोड़ो","धारण करो","देखो","बोलो"],a:1,e:"धरो का अर्थ धारण करो है।"},
+{q:"‘मनुज’ का पर्यायवाची कौन-सा है?",o:["पर्वत","मानव","आकाश","नदी"],a:1,e:"मनुज का पर्यायवाची मानव है।"},
+{q:"‘ज्योति’ का पर्यायवाची चुनें।",o:["अंधकार","आलोक","रात्रि","छाया"],a:1,e:"ज्योति का पर्यायवाची आलोक, उजाला या प्रकाश है।"},
+{q:"‘संसार’ का पर्यायवाची कौन-सा है?",o:["जग","वन","घर","नगर"],a:0,e:"संसार का पर्यायवाची जग या विश्व है।"},
+{q:"‘पथ’ का पर्यायवाची क्या है?",o:["फल","राह","पत्ता","जल"],a:1,e:"पथ का पर्यायवाची रास्ता, राह या मार्ग है।"},
+{q:"‘जो कुछ पढ़ो तुम कार्य में भी साथ ही परिणत करो’ का भाव क्या है?",o:["केवल पढ़ते रहो","ज्ञान को व्यवहार में लाओ","काम मत करो","पढ़ाई छोड़ दो"],a:1,e:"कवि कहते हैं कि पढ़े हुए ज्ञान को जीवन में उपयोग करना चाहिए।"},
+{q:"नवयुवकों के सम्मुख कौन-से दो पथ हैं?",o:["धन और गरीबी","सुख और दुख","असंयम और संयम","घर और बाहर"],a:2,e:"नवयुवकों के सामने असंयम और संयम के दो पथ हैं।"},
+{q:"कवि नवयुवकों को किस पथ का चुनाव करने की सलाह देते हैं?",o:["असंयम","आलस्य","संयम","क्रोध"],a:2,e:"कवि संयम के पथ को चुनने की सलाह देते हैं।"},
+{q:"‘असंयम’ का विलोम भाव किस शब्द में है?",o:["अधर्म","संयम","अशुभ","अविश्वास"],a:1,e:"असंयम का विलोम संयम है।"},
+{q:"‘अ + शुभ’ से कौन-सा शब्द बनता है?",o:["अशुभ","अनुशुभ","अशुब","निशुभ"],a:0,e:"अ + शुभ = अशुभ।"},
+{q:"‘अ + धर्म’ से कौन-सा शब्द बनता है?",o:["अधर्म","अधार्म","अनधर्म","अधर्मा"],a:0,e:"अ + धर्म = अधर्म।"},
+{q:"‘अ + विश्वास’ से कौन-सा शब्द बनता है?",o:["विश्वास","अविश्वास","अविश्वासी","विश्वासहीनता"],a:1,e:"अ + विश्वास = अविश्वास।"},
+{q:"‘मनुज’ का एक अन्य पर्यायवाची कौन-सा है?",o:["मनुष्य","तारा","समुद्र","वृक्ष"],a:0,e:"मनुज के पर्यायवाची मानव, मनुष्य और मानुष हैं।"},
+{q:"‘संसार’ का एक अन्य पर्यायवाची कौन-सा है?",o:["दुनिया","पर्वत","सड़क","बादल"],a:0,e:"संसार का पर्यायवाची दुनिया है।"},
+{q:"‘ज्योति’ का एक अन्य पर्यायवाची कौन-सा है?",o:["तम","प्रकाश","अंधेरा","निशा"],a:1,e:"ज्योति का पर्यायवाची प्रकाश है।"},
+{q:"‘पथ’ का एक अन्य पर्यायवाची कौन-सा है?",o:["राह","आकाश","समय","मन"],a:0,e:"पथ का पर्यायवाची राह या मार्ग है।"},
+{q:"कविता का मुख्य संदेश क्या है?",o:["ज्ञान का उपयोग न करना","संयम और कर्म को अपनाना","केवल आराम करना","दूसरों की नकल करना"],a:1,e:"कविता नवयुवकों को संयम, कर्म और ज्ञान के उपयोग की प्रेरणा देती है।"}
+];
+
+let answers={},locked={};
+
+function render(){
+ const root=document.getElementById("quiz");
+ root.innerHTML="";
+ questions.forEach((q,i)=>{
+  const card=document.createElement("div");
+  card.className="question";
+  const title=document.createElement("div");
+  title.className="qtitle";
+  title.textContent=(i+1)+". "+q.q;
+  card.appendChild(title);
+
+  q.o.forEach((op,j)=>{
+   const b=document.createElement("button");
+   b.className="option";
+   b.textContent=String.fromCharCode(65+j)+". "+op;
+   b.disabled=!!locked[i];
+   if(locked[i] && j===q.a)b.classList.add("correct");
+   if(locked[i] && j===answers[i] && j!==q.a)b.classList.add("wrong");
+   b.onclick=()=>choose(i,j);
+   card.appendChild(b);
+  });
+
+  const f=document.createElement("div");
+  f.className="feedback";
+  if(locked[i]){
+   f.textContent=(answers[i]===q.a?"✅ सही उत्तर! ":"❌ गलत उत्तर। ")+q.e;
+   f.style.color=answers[i]===q.a?"#15803d":"#b91c1c";
+  }
+  card.appendChild(f);
+  root.appendChild(card);
+ });
+ update();
+}
+
+function choose(i,j){
+ if(locked[i])return;
+ answers[i]=j;locked[i]=true;
+ render();
+ if(Object.keys(locked).length===questions.length){
+  document.getElementById("result").style.display="block";
+  let score=questions.filter((q,i)=>answers[i]===q.a).length;
+  document.getElementById("score").textContent="आपके अंक: "+score+" / "+questions.length;
+  document.getElementById("message").textContent=
+   score>=20?"शानदार! आपकी तैयारी बहुत अच्छी है।":
+   score>=13?"अच्छा प्रयास! एक बार फिर अभ्यास करें।":
+   "पाठ दोहराएँ और फिर से प्रयास करें।";
+  document.getElementById("result").scrollIntoView({behavior:"smooth"});
+ }
+}
+
+function update(){
+ let score=questions.filter((q,i)=>locked[i]&&answers[i]===q.a).length;
+ let done=Object.keys(locked).length;
+ document.getElementById("correct").textContent=score;
+ document.getElementById("done").textContent=done;
+ document.getElementById("progress").style.width=(done/questions.length*100)+"%";
+}
+
+function restart(){
+ answers={};locked={};
+ document.getElementById("result").style.display="none";
+ render();
+ window.scrollTo({top:0,behavior:"smooth"});
+}
+render();
+</script>
+</body>
+</html>
