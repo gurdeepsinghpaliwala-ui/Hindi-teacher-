@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>पाठ 2: सबसे बड़ा धन | कक्षा 6 हिन्दी</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+  background:#f1f5f9;
+  color:#1e293b;
+}
+header{
+  background:linear-gradient(135deg,#7c3aed,#2563eb);
+  color:white;
+  text-align:center;
+  padding:25px 15px;
+}
+header h1{margin:0 0 8px;font-size:27px}
+header p{margin:0;font-size:15px}
+
+main{
+  max-width:700px;
+  margin:20px auto;
+  padding:0 15px;
+}
+
+.status{
+  display:flex;
+  justify-content:space-between;
+  background:white;
+  padding:14px;
+  border-radius:12px;
+  margin-bottom:10px;
+  font-weight:bold;
+}
+
+.track{
+  height:9px;
+  background:#ddd;
+  border-radius:10px;
+  overflow:hidden;
+  margin-bottom:18px;
+}
+#bar{
+  height:100%;
+  width:0%;
+  background:#7c3aed;
+  transition:.3s;
+}
+
+.card{
+  background:white;
+  padding:22px;
+  border-radius:16px;
+  box-shadow:0 5px 18px #0001;
+}
+
+.question{
+  font-size:20px;
+  font-weight:bold;
+  line-height:1.5;
+  margin-bottom:18px;
+}
+
+.option{
+  display:block;
+  width:100%;
+  text-align:left;
+  padding:13px;
+  margin:10px 0;
+  border:2px solid #e2e8f0;
+  background:#fff;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:16px;
+}
+.option:hover{
+  border-color:#7c3aed;
+  background:#f5f3ff;
+}
+.option.correct{
+  background:#dcfce7;
+  border-color:#16a34a;
+}
+.option.wrong{
+  background:#fee2e2;
+  border-color:#dc2626;
+}
+
+#feedback{
+  margin-top:15px;
+  padding:12px;
+  border-radius:10px;
+  display:none;
+  font-weight:bold;
+}
+
+.actions{
+  text-align:center;
+  margin-top:18px;
+}
+
+button.next,.restart{
+  border:0;
+  background:#7c3aed;
+  color:white;
+  padding:12px 22px;
+  border-radius:9px;
+  font-size:16px;
+  cursor:pointer;
+}
+
+.restart{background:#2563eb}
+
+.back{
+  display:inline-block;
+  margin-top:12px;
+  background:#222;
+  color:white;
+  padding:11px 18px;
+  border-radius:8px;
+  text-decoration:none;
+}
+
+#result{
+  display:none;
+  text-align:center;
+  background:white;
+  padding:25px;
+  border-radius:16px;
+  box-shadow:0 5px 18px #0001;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>📘 पाठ 2: सबसे बड़ा धन</h1>
+  <p>कक्षा 6 हिन्दी | Important MCQ Quiz</p>
+</header>
+
+<main>
+
+<div class="status">
+  <span id="count">प्रश्न 1 / 15</span>
+  <span>स्कोर: <span id="score">0</span></span>
+</div>
+
+<div class="track">
+  <div id="bar"></div>
+</div>
+
+<div class="card" id="quizBox">
+  <div class="question" id="question"></div>
+  <div id="options"></div>
+  <div id="feedback"></div>
+
+  <div class="actions">
+    <button class="next" id="next" disabled>
+      अगला प्रश्न ➜
+    </button>
+  </div>
+</div>
+
+<div id="result">
+  <h2>🎉 Quiz पूरा हुआ!</h2>
+  <h3 id="final"></h3>
+  <p id="message"></p>
+
+  <button class="restart" onclick="restart()">
+    🔄 दोबारा टेस्ट दें
+  </button>
+
+  <br>
+
+  <a class="back" href="class6.html">
+    ↩ कक्षा 6 पर वापस जाएँ
+  </a>
+</div>
+
+</main>
+
+<script>
+
+const questions = [
+
+{
+q:"कपिल मुनि के आश्रम का नाम क्या था?",
+o:["हरिद्वार आश्रम","मुक्तसर आश्रम","राम आश्रम","ऋषि आश्रम"],
+a:1
+},
+
+{
+q:"राहुल कैसा आदमी था?",
+o:["अमीर","व्यापारी","गरीब","किसान"],
+a:2
+},
+
+{
+q:"राहुल को किस चीज की इच्छा थी?",
+o:["घर बनाने की","बहुत धन पाने की","यात्रा करने की","खेती करने की"],
+a:1
+},
+
+{
+q:"मुनि ने राहुल से सबसे पहले क्या माँगा?",
+o:["दोनों हाथ","दोनों पैर","दोनों आँखें","मुख"],
+a:2
+},
+
+{
+q:"आँखें देने से राहुल ने क्यों मना किया?",
+o:["वह खाना नहीं खा सकता था","वह देख नहीं सकता था","वह चल नहीं सकता था","वह बोल नहीं सकता था"],
+a:1
+},
+
+{
+q:"मुनि ने राहुल से दोनों हाथ क्यों माँगे?",
+o:["उनकी कीमत जानने के लिए","उसे काम से रोकने के लिए","उसकी परीक्षा लेने के लिए","उसे डराने के लिए"],
+a:2
+},
+
+{
+q:"राहुल दोनों पैर देने से क्यों घबरा गया?",
+o:["वह चल नहीं सकता था","वह बोल नहीं सकता था","वह देख नहीं सकता था","वह खाना नहीं खा सकता था"],
+a:0
+},
+
+{
+q:"दस लाख रुपए के बदले मुनि ने राहुल से क्या माँगा?",
+o:["मकान","खेत","मुख","हाथ"],
+a:2
+},
+
+{
+q:"राहुल ने अपना मुख देने से क्यों मना किया?",
+o:["वह बोल नहीं सकता था","वह खा-पी नहीं सकता था","वह चल नहीं सकता था","वह काम नहीं कर सकता था"],
+a:1
+},
+
+{
+q:"मुनि के अनुसार सबसे बड़ा धन क्या है?",
+o:["सोना","पैसा","मकान","स्वस्थ शरीर"],
+a:3
+},
+
+{
+q:"मुनि की सीख के बाद राहुल ने क्या करना शुरू किया?",
+o:["आराम करना","परिश्रम करना","यात्रा करना","व्यापार छोड़ना"],
+a:1
+},
+
+{
+q:"‘गरीब’ का विलोम शब्द क्या है?",
+o:["दूर","अमीर","मूर्ख","दु:खी"],
+a:1
+},
+
+{
+q:"‘जीवन’ का विलोम शब्द क्या है?",
+o:["सुख","मृत्यु","स्वास्थ्य","पास"],
+a:1
+},
+
+{
+q:"‘बुद्धिमान’ का विलोम शब्द क्या है?",
+o:["अमीर","स्वस्थ","मूर्ख","सुखी"],
+a:2
+},
+
+{
+q:"‘राहुल ने परिश्रम करना शुरू कर दिया।’ में संज्ञा शब्द कौन-सा है?",
+o:["शुरू","करना","राहुल","दिया"],
+a:2
+}
+
+];
+
+let current=0;
+let score=0;
+
+const question=document.getElementById("question");
+const options=document.getElementById("options");
+const feedback=document.getElementById("feedback");
+const next=document.getElementById("next");
+const count=document.getElementById("count");
+const scoreBox=document.getElementById("score");
+const bar=document.getElementById("bar");
+
+function loadQuestion(){
+
+  const q=questions[current];
+
+  question.textContent=q.q;
+  options.innerHTML="";
+  feedback.style.display="none";
+  next.disabled=true;
+
+  count.textContent=`प्रश्न ${current+1} / ${questions.length}`;
+  bar.style.width=((current)/questions.length*100)+"%";
+
+  q.o.forEach((text,index)=>{
+
+    const btn=document.createElement("button");
+    btn.className="option";
+    btn.textContent=
+      String.fromCharCode(65+index)+") "+text;
+
+    btn.onclick=()=>checkAnswer(btn,index);
+
+    options.appendChild(btn);
+  });
+}
+
+function checkAnswer(btn,index){
+
+  const q=questions[current];
+
+  document.querySelectorAll(".option").forEach(b=>{
+    b.disabled=true;
+  });
+
+  if(index===q.a){
+
+    btn.classList.add("correct");
+    feedback.textContent="✅ सही उत्तर!";
+    feedback.style.background="#dcfce7";
+    feedback.style.color="#166534";
+    score++;
+
+  }else{
+
+    btn.classList.add("wrong");
+    document.querySelectorAll(".option")[q.a]
+      .classList.add("correct");
+
+    feedback.textContent=
+      "❌ गलत! सही उत्तर: "+
+      q.o[q.a];
+
+    feedback.style.background="#fee2e2";
+    feedback.style.color="#991b1b";
+  }
+
+  feedback.style.display="block";
+  scoreBox.textContent=score;
+  next.disabled=false;
+}
+
+next.onclick=()=>{
+
+  current++;
+
+  if(current<questions.length){
+    loadQuestion();
+  }else{
+    showResult();
+  }
+};
+
+function showResult(){
+
+  document.getElementById("quizBox").style.display="none";
+  document.getElementById("result").style.display="block";
+
+  bar.style.width="100%";
+
+  document.getElementById("final").textContent=
+    `आपका स्कोर: ${score} / ${questions.length}`;
+
+  let msg="";
+
+  if(score>=13)
+    msg="🌟 बहुत बढ़िया! आपकी तैयारी शानदार है।";
+  else if(score>=9)
+    msg="👍 अच्छा प्रयास! थोड़ी और तैयारी करें।";
+  else
+    msg="📚 पाठ को एक बार फिर पढ़कर Quiz दें।";
+
+  document.getElementById("message").textContent=msg;
+}
+
+function restart(){
+
+  current=0;
+  score=0;
+
+  scoreBox.textContent="0";
+
+  document.getElementById("quizBox").style.display="block";
+  document.getElementById("result").style.display="none";
+
+  loadQuestion();
+}
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
