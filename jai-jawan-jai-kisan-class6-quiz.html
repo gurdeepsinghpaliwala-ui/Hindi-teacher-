@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>पाठ 3 जय जवान! जय किसान! - Online Quiz</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+  background:#f1f5f9;
+  color:#1e293b;
+}
+.header{
+  background:linear-gradient(135deg,#16a34a,#2563eb);
+  color:white;
+  padding:25px 15px;
+  text-align:center;
+}
+.header h1{margin:0;font-size:25px}
+.header p{margin:8px 0 0}
+.container{max-width:700px;margin:20px auto;padding:0 12px}
+.status{
+  display:flex;
+  justify-content:space-between;
+  background:white;
+  padding:12px;
+  border-radius:12px;
+  margin-bottom:12px;
+  font-weight:bold;
+}
+.progress{
+  height:9px;
+  background:#e2e8f0;
+  border-radius:10px;
+  overflow:hidden;
+  margin-bottom:15px;
+}
+.progress-bar{
+  height:100%;
+  width:0%;
+  background:#16a34a;
+  transition:.3s;
+}
+.question-box{
+  background:white;
+  padding:20px;
+  border-radius:16px;
+  box-shadow:0 4px 15px #0001;
+}
+.question{
+  font-size:19px;
+  font-weight:bold;
+  line-height:1.6;
+}
+.option{
+  display:block;
+  width:100%;
+  text-align:left;
+  padding:13px;
+  margin:10px 0;
+  border:2px solid #e2e8f0;
+  background:#f8fafc;
+  border-radius:10px;
+  cursor:pointer;
+  font-size:16px;
+}
+.option:hover{background:#eff6ff}
+.correct{background:#dcfce7!important;border-color:#16a34a!important}
+.wrong{background:#fee2e2!important;border-color:#dc2626!important}
+.feedback{
+  margin-top:12px;
+  padding:12px;
+  border-radius:10px;
+  display:none;
+  font-weight:bold;
+}
+.next,.retry,.back{
+  display:block;
+  width:100%;
+  border:0;
+  padding:13px;
+  border-radius:10px;
+  margin-top:15px;
+  text-align:center;
+  text-decoration:none;
+  font-size:16px;
+  font-weight:bold;
+  cursor:pointer;
+}
+.next{background:#2563eb;color:white}
+.retry{background:#16a34a;color:white}
+.back{background:#64748b;color:white}
+#result{text-align:center;display:none}
+.score{
+  font-size:30px;
+  font-weight:bold;
+  color:#16a34a;
+  margin:15px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="header">
+  <h1>📚 पाठ 3: जय जवान! जय किसान!</h1>
+  <p>कक्षा 6 हिन्दी — Online MCQ Quiz</p>
+</div>
+
+<div class="container">
+
+  <div class="status">
+    <span id="qNo">प्रश्न 1 / 20</span>
+    <span id="score">स्कोर: 0</span>
+  </div>
+
+  <div class="progress">
+    <div class="progress-bar" id="progressBar"></div>
+  </div>
+
+  <div class="question-box" id="quizBox">
+    <div class="question" id="question"></div>
+    <div id="options"></div>
+    <div class="feedback" id="feedback"></div>
+    <button class="next" id="nextBtn" onclick="nextQuestion()" style="display:none;">
+      अगला प्रश्न ➡️
+    </button>
+  </div>
+
+  <div class="question-box" id="result">
+    <h2>🎉 Quiz पूरा हुआ!</h2>
+    <div class="score" id="finalScore"></div>
+    <p id="message"></p>
+
+    <button class="retry" onclick="restartQuiz()">
+      🔄 Quiz दोबारा दें
+    </button>
+
+    <a class="back" href="class6.html">
+      ⬅️ कक्षा 6 पर वापस जाएँ
+    </a>
+  </div>
+
+</div>
+
+<script>
+
+const questions = [
+
+{
+q:"‘जय जवान! जय किसान!’ का नारा किसने दिया?",
+o:["लाल बहादुर शास्त्री जी","जवाहरलाल नेहरू जी","महात्मा गांधी जी","सरदार पटेल जी"],
+a:0
+},
+
+{
+q:"लाल बहादुर शास्त्री जी का जन्म कब हुआ था?",
+o:["2 अक्टूबर 1904","2 अक्टूबर 1910","11 जनवरी 1966","15 अगस्त 1904"],
+a:0
+},
+
+{
+q:"शास्त्री जी का जन्म कहाँ हुआ था?",
+o:["मुगलसराय","दिल्ली","लखनऊ","इलाहाबाद"],
+a:0
+},
+
+{
+q:"जेल से आने के बाद शास्त्री जी ने कौन-सी पढ़ाई पूरी की?",
+o:["शास्त्री की पढ़ाई","डॉक्टरी की पढ़ाई","इंजीनियरिंग की पढ़ाई","कानून की पढ़ाई"],
+a:0
+},
+
+{
+q:"पुत्री के बीमार होने पर शास्त्री जी को कितने दिनों के लिए रिहा किया गया?",
+o:["10 दिन","15 दिन","20 दिन","30 दिन"],
+a:1
+},
+
+{
+q:"शास्त्री जी का देहांत कब हुआ?",
+o:["11 जनवरी 1966","2 अक्टूबर 1966","15 अगस्त 1965","26 जनवरी 1966"],
+a:0
+},
+
+{
+q:"शास्त्री जी अपने सिद्धांतों से समझौता करने को क्या समझते थे?",
+o:["आत्महत्या","सफलता","कर्तव्य","सम्मान"],
+a:0
+},
+
+{
+q:"शास्त्री जी अपने मित्रों से उधार क्यों नहीं माँगना चाहते थे?",
+o:["उधार को गौरव के विरुद्ध समझते थे","उन्हें मित्र पसंद नहीं थे","वे बहुत अमीर थे","वे यात्रा पर थे"],
+a:0
+},
+
+{
+q:"शास्त्री जी लिखित शर्त पर जेल से क्यों नहीं छूटे?",
+o:["वे अपने सिद्धांतों पर अटल थे","उन्हें जेल पसंद थी","वे पढ़ाई करना चाहते थे","उन्हें घर नहीं जाना था"],
+a:0
+},
+
+{
+q:"शास्त्री जी पुत्र को छोड़कर जेल वापस क्यों चले गए?",
+o:["वे अपने सिद्धांतों और मातृभूमि के प्रति अटल थे","वे यात्रा करना चाहते थे","उन्हें नौकरी करनी थी","वे मित्रों से मिलने गए"],
+a:0
+},
+
+{
+q:"शास्त्री जी के कौन-से गुण उन्हें उच्च पद तक ले गए?",
+o:["साहस, निडरता और सिद्धांतवादिता","आलस्य और डर","क्रोध और घमंड","लापरवाही और जिद"],
+a:0
+},
+
+{
+q:"शास्त्री जी के जीवन से हमें क्या प्रेरणा मिलती है?",
+o:["सिद्धांतों पर अडिग रहना","हर बात में समझौता करना","देशहित को भूलना","दूसरों पर निर्भर रहना"],
+a:0
+},
+
+{
+q:"लाल बहादुर शास्त्री जी भारत के कौन-से प्रधानमंत्री थे?",
+o:["दूसरे","पहले","तीसरे","चौथे"],
+a:0
+},
+
+{
+q:"नाविक गंगा पार ले जाने का कितना किराया लेता था?",
+o:["एक पैसा","दो पैसे","एक रुपया","पाँच पैसे"],
+a:0
+},
+
+{
+q:"शास्त्री जी के पुत्र को कौन-सी बीमारी हुई थी?",
+o:["टाइफाइड","मलेरिया","डेंगू","पीलिया"],
+a:0
+},
+
+{
+q:"‘साधारण’ का विपरीत शब्द क्या है?",
+o:["विशेष","सामान्य","सरल","छोटा"],
+a:0
+},
+
+{
+q:"‘बीमार’ का विपरीत शब्द क्या है?",
+o:["तंदरुस्त","कमज़ोर","दुखी","थका"],
+a:0
+},
+
+{
+q:"‘सम्मान’ का विपरीत शब्द क्या है?",
+o:["अपमान","गौरव","इज्जत","आदर"],
+a:0
+},
+
+{
+q:"‘परिश्रम’ का विपरीत शब्द क्या है?",
+o:["आलस्य","मेहनत","उद्योग","प्रयत्न"],
+a:0
+},
+
+{
+q:"‘प्रधान + मंत्री’ से कौन-सा शब्द बनता है?",
+o:["प्रधानमंत्री","प्रधानमंत्रीय","प्रधानाचार्य","प्रधानता"],
+a:0
+}
+
+];
+
+let current=0;
+let score=0;
+let answered=false;
+
+function loadQuestion(){
+
+  answered=false;
+
+  const q=questions[current];
+
+  document.getElementById("qNo").innerText=
+    "प्रश्न "+(current+1)+" / "+questions.length;
+
+  document.getElementById("score").innerText=
+    "स्कोर: "+score;
+
+  document.getElementById("progressBar").style.width=
+    ((current)/questions.length*100)+"%";
+
+  document.getElementById("question").innerText=q.q;
+
+  const options=document.getElementById("options");
+  options.innerHTML="";
+
+  q.o.forEach((text,index)=>{
+
+    const btn=document.createElement("button");
+    btn.className="option";
+    btn.innerText=
+      String.fromCharCode(65+index)+". "+text;
+
+    btn.onclick=()=>checkAnswer(index,btn);
+
+    options.appendChild(btn);
+
+  });
+
+  document.getElementById("feedback").style.display="none";
+  document.getElementById("nextBtn").style.display="none";
+}
+
+function checkAnswer(index,btn){
+
+  if(answered)return;
+
+  answered=true;
+
+  const q=questions[current];
+  const all=document.querySelectorAll(".option");
+
+  all.forEach((b,i)=>{
+    if(i===q.a)b.classList.add("correct");
+  });
+
+  const feedback=document.getElementById("feedback");
+
+  if(index===q.a){
+
+    score++;
+    btn.classList.add("correct");
+    feedback.innerText="✅ सही उत्तर! बहुत बढ़िया।";
+    feedback.style.background="#dcfce7";
+    feedback.style.color="#166534";
+
+  }else{
+
+    btn.classList.add("wrong");
+    feedback.innerText=
+      "❌ गलत उत्तर। सही उत्तर: "+
+      q.o[q.a];
+
+    feedback.style.background="#fee2e2";
+    feedback.style.color="#991b1b";
+  }
+
+  document.getElementById("score").innerText=
+    "स्कोर: "+score;
+
+  feedback.style.display="block";
+
+  document.getElementById("nextBtn").style.display="block";
+}
+
+function nextQuestion(){
+
+  current++;
+
+  if(current>=questions.length){
+
+    document.getElementById("quizBox").style.display="none";
+    document.getElementById("result").style.display="block";
+
+    document.getElementById("finalScore").innerText=
+      score+" / "+questions.length;
+
+    let percent=(score/questions.length)*100;
+
+    if(percent>=80)
+      document.getElementById("message").innerText=
+      "🏆 शानदार! आपकी तैयारी बहुत अच्छी है।";
+    else if(percent>=50)
+      document.getElementById("message").innerText=
+      "👍 अच्छा प्रयास! थोड़ा और अभ्यास करें।";
+    else
+      document.getElementById("message").innerText=
+      "📖 पाठ को दोबारा पढ़कर फिर Quiz दें।";
+
+  }else{
+
+    loadQuestion();
+
+  }
+}
+
+function restartQuiz(){
+
+  current=0;
+  score=0;
+
+  document.getElementById("result").style.display="none";
+  document.getElementById("quizBox").style.display="block";
+
+  loadQuestion();
+}
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
