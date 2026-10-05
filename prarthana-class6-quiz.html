@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>पाठ 1 प्रार्थना | कक्षा 6 हिन्दी Quiz</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+  background:linear-gradient(135deg,#eff6ff,#f5f3ff);
+  color:#1e293b;
+}
+
+.container{
+  max-width:760px;
+  margin:auto;
+  padding:16px;
+}
+
+.header{
+  background:linear-gradient(135deg,#4f46e5,#7c3aed);
+  color:white;
+  text-align:center;
+  padding:25px 15px;
+  border-radius:18px;
+  box-shadow:0 5px 15px #0002;
+}
+
+.header h1{
+  margin:10px 0;
+  font-size:27px;
+}
+
+.header p{
+  margin:5px 0;
+}
+
+.card{
+  background:white;
+  margin-top:18px;
+  padding:20px;
+  border-radius:15px;
+  box-shadow:0 4px 14px #0001;
+}
+
+.progress-bg{
+  height:10px;
+  background:#e2e8f0;
+  border-radius:10px;
+  overflow:hidden;
+  margin:12px 0 20px;
+}
+
+#progress{
+  height:100%;
+  width:0%;
+  background:#7c3aed;
+  transition:.3s;
+}
+
+#question{
+  font-size:19px;
+  font-weight:bold;
+  line-height:1.7;
+}
+
+.option{
+  display:block;
+  width:100%;
+  text-align:left;
+  padding:13px;
+  margin:10px 0;
+  border:2px solid #cbd5e1;
+  border-radius:10px;
+  background:white;
+  font-size:16px;
+  cursor:pointer;
+}
+
+.option:hover{
+  border-color:#7c3aed;
+  background:#f5f3ff;
+}
+
+.option.correct{
+  background:#dcfce7;
+  border-color:#16a34a;
+}
+
+.option.wrong{
+  background:#fee2e2;
+  border-color:#dc2626;
+}
+
+.option:disabled{
+  cursor:default;
+  color:#1e293b;
+}
+
+#feedback{
+  font-weight:bold;
+  margin-top:14px;
+  line-height:1.6;
+}
+
+.btn{
+  display:inline-block;
+  border:0;
+  border-radius:10px;
+  padding:12px 18px;
+  background:#7c3aed;
+  color:white;
+  text-decoration:none;
+  font-size:16px;
+  cursor:pointer;
+  margin-top:10px;
+}
+
+#result{
+  display:none;
+  text-align:center;
+}
+
+.small{
+  color:#64748b;
+  font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+  <div>📚 कक्षा छठी हिन्दी</div>
+  <h1>पाठ 1: प्रार्थना</h1>
+  <p>🎯 ऑनलाइन वस्तुनिष्ठ प्रश्नोत्तरी</p>
+</div>
+
+<div class="card" id="quiz">
+
+  <b id="counter"></b>
+
+  <div class="progress-bg">
+    <div id="progress"></div>
+  </div>
+
+  <p id="question"></p>
+
+  <div id="options"></div>
+
+  <div id="feedback"></div>
+
+  <button class="btn" id="nextBtn"
+          onclick="nextQuestion()"
+          style="display:none;">
+    अगला प्रश्न ➜
+  </button>
+
+  <p class="small">
+    सही विकल्प चुनें। उत्तर चुनने के बाद सही उत्तर दिखाई देगा।
+  </p>
+
+</div>
+
+
+<div class="card" id="result">
+
+  <h2>🎉 टेस्ट पूरा हुआ!</h2>
+
+  <h1 id="score"></h1>
+
+  <p id="message"></p>
+
+  <button class="btn" onclick="restartQuiz()">
+    🔄 दोबारा टेस्ट दें
+  </button>
+
+  <br>
+
+  <a class="btn" href="class6.html">
+    🏠 कक्षा 6 हिन्दी पर वापस जाएँ
+  </a>
+
+</div>
+
+
+<div style="text-align:center;margin:18px 0;">
+
+<a class="btn" href="class6.html">
+⬅ कक्षा 6 हिन्दी पेज
+</a>
+
+</div>
+
+</div>
+
+
+<script>
+
+const questions = [
+
+{
+q:"बच्चों ने भगवान से कौन-कौन से संबंध जोड़े हैं?",
+options:[
+"माता-पिता, भाई-बंधु और सखा",
+"केवल मित्र",
+"केवल गुरु",
+"केवल माता-पिता"
+],
+answer:0
+},
+
+{
+q:"बच्चे किनकी आहें मिटाना चाहते हैं?",
+options:[
+"धनी लोगों की",
+"दीन-दुखियों की",
+"व्यापारियों की",
+"राजाओं की"
+],
+answer:1
+},
+
+{
+q:"बच्चे अपने भीतर कौन-से अच्छे गुण विकसित करना चाहते हैं?",
+options:[
+"आलस्य और घमंड",
+"सबका भला करना और बड़ों का आदर करना",
+"दूसरों से लड़ना",
+"केवल खेलना"
+],
+answer:1
+},
+
+{
+q:"बच्चे पढ़-लिखकर किसकी शान बढ़ाना चाहते हैं?",
+options:[
+"अपने घर की",
+"अपने विद्यालय की",
+"भारत देश की",
+"केवल अपनी"
+],
+answer:2
+},
+
+{
+q:"बच्चे देश के लिए कैसी कामना करते हैं?",
+options:[
+"देश पीछे जाए",
+"हर घर में खुशहाली और चारों ओर हरियाली हो",
+"देश में लड़ाई हो",
+"लोग देश छोड़ दें"
+],
+answer:1
+},
+
+{
+q:"बच्चे दीन-दुखियों की सहायता कैसे कर सकते हैं?",
+options:[
+"उनके दुख-दर्द दूर करके",
+"उनका मजाक उड़ाकर",
+"उन्हें परेशान करके",
+"उनसे दूर रहकर"
+],
+answer:0
+},
+
+{
+q:"‘देश प्रेम पर बलि-बलि जाएँ’ का क्या आशय है?",
+options:[
+"देश से दूर जाना",
+"देश से प्रेम करना और देशहित के लिए बलिदान देना",
+"देश की आलोचना करना",
+"केवल खेलना"
+],
+answer:1
+},
+
+{
+q:"‘होकर बड़े हम कीर्ति पाएँ’ का आशय क्या है?",
+options:[
+"अच्छे कामों से मान-सम्मान पाना",
+"दूसरों को हराना",
+"धन कमाना ही सफलता है",
+"विद्यालय छोड़ देना"
+],
+answer:0
+},
+
+{
+q:"‘रब्ब’ या ‘भगवान’ के लिए कौन-सा शब्द समानार्थी है?",
+options:[
+"परमेश्वर",
+"दुश्मन",
+"मित्र",
+"विद्यार्थी"
+],
+answer:0
+},
+
+{
+q:"‘माता’ का समानार्थी शब्द कौन-सा है?",
+options:[
+"जनक",
+"माँ",
+"बंधु",
+"सखा"
+],
+answer:1
+},
+
+{
+q:"‘पिता’ का समानार्थी शब्द कौन-सा है?",
+options:[
+"जनक",
+"माता",
+"सखी",
+"शिक्षक"
+],
+answer:0
+},
+
+{
+q:"‘सखा’ का समानार्थी शब्द है—",
+options:[
+"मित्र",
+"पिता",
+"दुःख",
+"गुरु"
+],
+answer:0
+},
+
+{
+q:"‘दुःख’ का समानार्थी शब्द कौन-सा है?",
+options:[
+"खुशी",
+"परेशानी",
+"शान",
+"कीर्ति"
+],
+answer:1
+},
+
+{
+q:"‘गुरु’ का समानार्थी शब्द कौन-सा है?",
+options:[
+"शिक्षक",
+"भाई",
+"मित्र",
+"पिता"
+],
+answer:0
+},
+
+{
+q:"‘ईश्वर’ का समानार्थी शब्द कौन-सा है?",
+options:[
+"परमेश्वर",
+"दुश्मन",
+"नादान",
+"प्राणी"
+],
+answer:0
+},
+
+{
+q:"‘बच्चे’ का एकवचन क्या है?",
+options:[
+"बच्चा",
+"बच्चों",
+"बच्चियाँ",
+"बालकें"
+],
+answer:0
+},
+
+{
+q:"‘कदम’ का बहुवचन क्या है?",
+options:[
+"कदमा",
+"कदमों",
+"कदमें",
+"कदमियाँ"
+],
+answer:1
+},
+
+{
+q:"‘घर’ का बहुवचन क्या है?",
+options:[
+"घरों",
+"घरे",
+"घरी",
+"घरें"
+],
+answer:0
+},
+
+{
+q:"‘भाई’ का बहुवचन क्या है?",
+options:[
+"भाईयों",
+"भाइयों",
+"भाइयाँ",
+"भाई"
+],
+answer:1
+},
+
+{
+q:"‘प्राण’ का बहुवचन क्या है?",
+options:[
+"प्राणों",
+"प्राणें",
+"प्राणी",
+"प्राणा"
+],
+answer:0
+},
+
+{
+q:"‘भगवान’ का समान तुक वाला शब्द कौन-सा है?",
+options:[
+"नादान",
+"आहें",
+"बुराई",
+"पाएँ"
+],
+answer:0
+},
+
+{
+q:"‘चाहें’ का समान तुक वाला शब्द कौन-सा है?",
+options:[
+"आहें",
+"नादान",
+"हरियाली",
+"लड़ाई"
+],
+answer:0
+},
+
+{
+q:"‘हरियाली’ का समान तुक वाला शब्द कौन-सा है?",
+options:[
+"खुशहाली",
+"भगवान",
+"माने",
+"जाएँ"
+],
+answer:0
+},
+
+{
+q:"‘लड़ाई’ का समान तुक वाला शब्द कौन-सा है?",
+options:[
+"बुराई",
+"नादान",
+"आहें",
+"जानें"
+],
+answer:0
+},
+
+{
+q:"‘जायें’ का समान तुक वाला शब्द कौन-सा है?",
+options:[
+"पायें",
+"बुराई",
+"नादान",
+"माने"
+],
+answer:0
+},
+
+{
+q:"‘भलाई’ में मूल शब्द क्या है?",
+options:[
+"भला",
+"भाई",
+"लाई",
+"भल"
+],
+answer:0
+},
+
+{
+q:"‘दुःखी’ का मूल शब्द क्या है?",
+options:[
+"दुःख",
+"खी",
+"दुखी",
+"दुः"
+],
+answer:0
+},
+
+{
+q:"‘हरियाली’ का मूल शब्द क्या है?",
+options:[
+"हरा",
+"हरि",
+"याली",
+"हर"
+],
+answer:0
+},
+
+{
+q:"‘लड़ाई’ का मूल शब्द क्या है?",
+options:[
+"लड़ना",
+"लड़ाई",
+"आई",
+"लड़"
+],
+answer:0
+},
+
+{
+q:"‘खुशहाली’ का मूल शब्द क्या है?",
+options:[
+"खुश",
+"हाली",
+"खुशी",
+"हाल"
+],
+answer:0
+},
+
+{
+q:"‘बुराई’ का मूल शब्द क्या है?",
+options:[
+"बुरा",
+"बुर",
+"आई",
+"बुराई"
+],
+answer:0
+},
+
+{
+q:"‘प्रेम’ शब्द का वाक्य कौन-सा है?",
+options:[
+"दुश्मन को भी प्रेम से जीतो।",
+"प्रेम को फेंक दो।",
+"प्रेम कभी अच्छा नहीं।",
+"प्रेम से दूर रहो।"
+],
+answer:0
+},
+
+{
+q:"‘आहें’ शब्द का सही वाक्य कौन-सा है?",
+options:[
+"किसी को सता कर उसकी आहें न लें।",
+"आहें मिठाई है।",
+"आहें खेल रही हैं।",
+"आहें विद्यालय है।"
+],
+answer:0
+},
+
+{
+q:"‘शान’ शब्द का सही वाक्य कौन-सा है?",
+options:[
+"राष्ट्रीय झंडा भारत की शान है।",
+"शान पानी पीता है।",
+"शान एक किताब है।",
+"शान दौड़ता है।"
+],
+answer:0
+},
+
+{
+q:"‘खुशहाली’ का सही वाक्य कौन-सा है?",
+options:[
+"हमारे भारत देश में चारों ओर खुशहाली है।",
+"खुशहाली एक पक्षी है।",
+"खुशहाली पानी पीती है।",
+"खुशहाली विद्यालय जाती है।"
+],
+answer:0
+},
+
+{
+q:"‘श्व’ संयुक्त व्यंजन किससे बनता है?",
+options:[
+"श् + व",
+"च् + च",
+"म् + ह",
+"न् + ध"
+],
+answer:0
+},
+
+{
+q:"‘च्च’ संयुक्त व्यंजन किससे बनता है?",
+options:[
+"श् + व",
+"च् + च",
+"म् + ह",
+"न् + ध"
+],
+answer:1
+},
+
+{
+q:"‘म्ह’ संयुक्त व्यंजन किससे बनता है?",
+options:[
+"श् + व",
+"च् + च",
+"म् + ह",
+"न् + ध"
+],
+answer:2
+},
+
+{
+q:"‘न्ध’ संयुक्त व्यंजन किससे बनता है?",
+options:[
+"श् + व",
+"च् + च",
+"म् + ह",
+"न् + ध"
+],
+answer:3
+},
+
+{
+q:"‘परमेश्वर’ शब्द में कौन-सा संयुक्त व्यंजन है?",
+options:[
+"श्व",
+"च्च",
+"म्ह",
+"न्ध"
+],
+answer:0
+},
+
+{
+q:"‘कच्चे’ शब्द में कौन-सा संयुक्त व्यंजन है?",
+options:[
+"श्व",
+"च्च",
+"म्ह",
+"न्ध"
+],
+answer:1
+},
+
+{
+q:"‘कुम्हार’ शब्द में कौन-सा संयुक्त व्यंजन है?",
+options:[
+"श्व",
+"च्च",
+"म्ह",
+"न्ध"
+],
+answer:2
+},
+
+{
+q:"‘कन्धा’ शब्द में कौन-सा संयुक्त व्यंजन है?",
+options:[
+"श्व",
+"च्च",
+"म्ह",
+"न्ध"
+],
+answer:3
+}
+
+];
+
+let current=0;
+let score=0;
+let answered=false;
+
+function loadQuestion(){
+
+answered=false;
+
+const item=questions[current];
+
+document.getElementById("counter").textContent=
+`प्रश्न ${current+1} / ${questions.length}`;
+
+document.getElementById("progress").style.width=
+`${(current/questions.length)*100}%`;
+
+document.getElementById("question").textContent=
+`${current+1}. ${item.q}`;
+
+document.getElementById("feedback").textContent="";
+
+document.getElementById("nextBtn").style.display="none";
+
+const box=document.getElementById("options");
+
+box.innerHTML="";
+
+item.options.forEach((option,index)=>{
+
+const button=document.createElement("button");
+
+button.className="option";
+
+button.textContent=
+`${String.fromCharCode(65+index)}. ${option}`;
+
+button.onclick=()=>chooseAnswer(index,button);
+
+box.appendChild(button);
+
+});
+
+}
+
+
+function chooseAnswer(index,button){
+
+if(answered)return;
+
+answered=true;
+
+const item=questions[current];
+
+const buttons=document.querySelectorAll(".option");
+
+buttons.forEach((b,i)=>{
+
+b.disabled=true;
+
+if(i===item.answer){
+b.classList.add("correct");
+}
+
+});
+
+const feedback=document.getElementById("feedback");
+
+if(index===item.answer){
+
+score++;
+
+feedback.textContent="✅ बिल्कुल सही उत्तर!";
+
+feedback.style.color="#15803d";
+
+}else{
+
+button.classList.add("wrong");
+
+feedback.textContent=
+`❌ गलत उत्तर। सही उत्तर: ${item.options[item.answer]}`;
+
+feedback.style.color="#dc2626";
+
+}
+
+document.getElementById("progress").style.width=
+`${((current+1)/questions.length)*100}%`;
+
+const next=document.getElementById("nextBtn");
+
+next.style.display="inline-block";
+
+next.textContent=
+current===questions.length-1
+?"परिणाम देखें 🏆"
+:"अगला प्रश्न ➜";
+
+}
+
+
+function nextQuestion(){
+
+if(!answered)return;
+
+current++;
+
+if(current<questions.length){
+
+loadQuestion();
+
+}else{
+
+document.getElementById("quiz").style.display="none";
+
+document.getElementById("result").style.display="block";
+
+document.getElementById("score").textContent=
+`${score} / ${questions.length}`;
+
+const percent=
+Math.round((score/questions.length)*100);
+
+document.getElementById("message").textContent=
+
+percent>=80
+?"🌟 बहुत बढ़िया! आपकी तैयारी बहुत अच्छी है।"
+:
+percent>=50
+?"👍 अच्छा प्रयास! थोड़ा और अभ्यास करें।"
+:
+"📚 पाठ को दोबारा पढ़ें और फिर टेस्ट दें।";
+
+}
+
+}
+
+
+function restartQuiz(){
+
+current=0;
+
+score=0;
+
+answered=false;
+
+document.getElementById("result").style.display="none";
+
+document.getElementById("quiz").style.display="block";
+
+loadQuestion();
+
+}
+
+loadQuestion();
+
+</script>
+
+</body>
+    </html>
