@@ -1,106 +1,470 @@
-<!-- पाठ 11 — ईदगाह Quiz -->
-<div class="quiz-box">
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <h2>पाठ 11 — ईदगाह Objective Quiz</h2>
-
-  <div class="question">
-    <p><b>1. ‘ईदगाह’ कहानी के लेखक कौन हैं?</b></p>
-
-    <label><input type="radio" name="q1"> A. प्रेमचंद</label>
-    <label><input type="radio" name="q1"> B. हरिवंश राय बच्चन</label>
-    <label><input type="radio" name="q1"> C. रामधारी सिंह दिनकर</label>
-    <label><input type="radio" name="q1"> D. महादेवी वर्मा</label>
-
-    <button onclick="showAnswer('a1')">उत्तर देखें</button>
-    <p id="a1" class="answer">उत्तर: A. प्रेमचंद</p>
-  </div>
-
-  <div class="question">
-    <p><b>2. हामिद की दादी का नाम क्या था?</b></p>
-
-    <label><input type="radio" name="q2"> A. अमीना</label>
-    <label><input type="radio" name="q2"> B. रुक्मिणी</label>
-    <label><input type="radio" name="q2"> C. फातिमा</label>
-    <label><input type="radio" name="q2"> D. जमीला</label>
-
-    <button onclick="showAnswer('a2')">उत्तर देखें</button>
-    <p id="a2" class="answer">उत्तर: A. अमीना</p>
-  </div>
-
-  <div class="question">
-    <p><b>3. हामिद के पास कितने पैसे थे?</b></p>
-
-    <label><input type="radio" name="q3"> A. दो पैसे</label>
-    <label><input type="radio" name="q3"> B. तीन पैसे</label>
-    <label><input type="radio" name="q3"> C. चार पैसे</label>
-    <label><input type="radio" name="q3"> D. पाँच पैसे</label>
-
-    <button onclick="showAnswer('a3')">उत्तर देखें</button>
-    <p id="a3" class="answer">उत्तर: B. तीन पैसे</p>
-  </div>
-
-  <div class="question">
-    <p><b>4. हामिद ने मेले से क्या खरीदा?</b></p>
-
-    <label><input type="radio" name="q4"> A. मिठाई</label>
-    <label><input type="radio" name="q4"> B. खिलौना</label>
-    <label><input type="radio" name="q4"> C. चिमटा</label>
-    <label><input type="radio" name="q4"> D. कपड़े</label>
-
-    <button onclick="showAnswer('a4')">उत्तर देखें</button>
-    <p id="a4" class="answer">उत्तर: C. चिमटा</p>
-  </div>
-
-  <div class="question">
-    <p><b>5. हामिद ने चिमटा किसके लिए खरीदा?</b></p>
-
-    <label><input type="radio" name="q5"> A. अपने दोस्त के लिए</label>
-    <label><input type="radio" name="q5"> B. अपने लिए</label>
-    <label><input type="radio" name="q5"> C. अपनी दादी अमीना के लिए</label>
-    <label><input type="radio" name="q5"> D. अपने चाचा के लिए</label>
-
-    <button onclick="showAnswer('a5')">उत्तर देखें</button>
-    <p id="a5" class="answer">उत्तर: C. अपनी दादी अमीना के लिए</p>
-  </div>
-
-</div>
+<title>पाठ 11 — ईदगाह Objective Quiz</title>
 
 <style>
-.quiz-box {
-  padding: 15px;
+*{
+  box-sizing:border-box;
 }
 
-.quiz-box h2 {
-  text-align: center;
+body{
+  margin:0;
+  padding:15px;
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+  background:linear-gradient(135deg,#fff7ed,#eff6ff);
+  color:#1f2937;
 }
 
-.question {
-  border: 1px solid #ddd;
-  padding: 12px;
-  margin-bottom: 12px;
-  border-radius: 8px;
+.quiz-header{
+  text-align:center;
+  padding:20px 12px;
+  margin-bottom:15px;
+  border-radius:18px;
+  background:linear-gradient(135deg,#f59e0b,#f97316);
+  color:white;
+  box-shadow:0 6px 18px rgba(0,0,0,.15);
 }
 
-.question label {
-  display: block;
-  margin: 5px 0;
+.quiz-header .icon{
+  font-size:42px;
 }
 
-.question button {
-  margin-top: 8px;
-  padding: 6px 12px;
-  cursor: pointer;
+.quiz-header h1{
+  margin:5px 0;
+  font-size:24px;
 }
 
-.answer {
-  display: none;
-  font-weight: bold;
-  margin-top: 8px;
+.quiz-header p{
+  margin:5px 0 0;
+  font-size:15px;
+}
+
+.question{
+  background:white;
+  margin:10px 0;
+  padding:13px;
+  border-radius:14px;
+  border-left:5px solid #f59e0b;
+  box-shadow:0 3px 10px rgba(0,0,0,.08);
+}
+
+.question h3{
+  margin:0 0 9px;
+  font-size:16px;
+  line-height:1.45;
+}
+
+.options{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:5px 8px;
+}
+
+.option{
+  padding:7px 8px;
+  background:#f8fafc;
+  border:1px solid #e2e8f0;
+  border-radius:8px;
+  font-size:14px;
+}
+
+.answer{
+  margin-top:8px;
+  padding:7px 9px;
+  background:#ecfdf5;
+  border-radius:8px;
+  color:#166534;
+  font-size:14px;
+  font-weight:bold;
+}
+
+@media(max-width:500px){
+  .quiz-header h1{
+    font-size:21px;
+  }
+
+  .question h3{
+    font-size:15px;
+  }
+
+  .option{
+    font-size:13px;
+  }
 }
 </style>
+</head>
 
-<script>
-function showAnswer(id) {
-  document.getElementById(id).style.display = "block";
-}
-</script>
+<body>
+
+<div class="quiz-header">
+  <div class="icon">❓</div>
+  <h1>पाठ 11 — ईदगाह</h1>
+  <p>Objective Type Questions Quiz</p>
+</div>
+
+<!-- प्रश्न 1 -->
+<div class="question">
+<h3>1. ‘ईदगाह’ कहानी के लेखक कौन हैं?</h3>
+<div class="options">
+<div class="option">A. महादेवी वर्मा</div>
+<div class="option">B. मुंशी प्रेमचंद</div>
+<div class="option">C. दिनकर</div>
+<div class="option">D. बच्चन</div>
+</div>
+<div class="answer">Ans: B. मुंशी प्रेमचंद</div>
+</div>
+
+<!-- प्रश्न 2 -->
+<div class="question">
+<h3>2. कहानी का मुख्य पात्र कौन है?</h3>
+<div class="options">
+<div class="option">A. मोहसिन</div>
+<div class="option">B. महमूद</div>
+<div class="option">C. हामिद</div>
+<div class="option">D. नूरे</div>
+</div>
+<div class="answer">Ans: C. हामिद</div>
+</div>
+
+<!-- प्रश्न 3 -->
+<div class="question">
+<h3>3. हामिद की दादी का नाम क्या था?</h3>
+<div class="options">
+<div class="option">A. सलमा</div>
+<div class="option">B. अमीना</div>
+<div class="option">C. फातिमा</div>
+<div class="option">D. रजिया</div>
+</div>
+<div class="answer">Ans: B. अमीना</div>
+</div>
+
+<!-- प्रश्न 4 -->
+<div class="question">
+<h3>4. हामिद के पास कितने पैसे थे?</h3>
+<div class="options">
+<div class="option">A. दो</div>
+<div class="option">B. तीन</div>
+<div class="option">C. चार</div>
+<div class="option">D. पाँच</div>
+</div>
+<div class="answer">Ans: B. तीन</div>
+</div>
+
+<!-- प्रश्न 5 -->
+<div class="question">
+<h3>5. हामिद ने मेले से क्या खरीदा?</h3>
+<div class="options">
+<div class="option">A. मिठाई</div>
+<div class="option">B. खिलौना</div>
+<div class="option">C. चिमटा</div>
+<div class="option">D. गेंद</div>
+</div>
+<div class="answer">Ans: C. चिमटा</div>
+</div>
+
+<!-- प्रश्न 6 -->
+<div class="question">
+<h3>6. हामिद ने चिमटा किसके लिए खरीदा?</h3>
+<div class="options">
+<div class="option">A. अपने लिए</div>
+<div class="option">B. दोस्त के लिए</div>
+<div class="option">C. दादी के लिए</div>
+<div class="option">D. मोहसिन के लिए</div>
+</div>
+<div class="answer">Ans: C. दादी के लिए</div>
+</div>
+
+<!-- प्रश्न 7 -->
+<div class="question">
+<h3>7. अमीना की उँगलियाँ किससे जल जाती थीं?</h3>
+<div class="options">
+<div class="option">A. आग से</div>
+<div class="option">B. चूल्हे से</div>
+<div class="option">C. तवे से</div>
+<div class="option">D. पानी से</div>
+</div>
+<div class="answer">Ans: C. तवे से</div>
+</div>
+
+<!-- प्रश्न 8 -->
+<div class="question">
+<h3>8. हामिद चिमटे को क्या कहता था?</h3>
+<div class="options">
+<div class="option">A. राजा</div>
+<div class="option">B. रुस्तमे-हिंद</div>
+<div class="option">C. सिपाही</div>
+<div class="option">D. पहलवान</div>
+</div>
+<div class="answer">Ans: B. रुस्तमे-हिंद</div>
+</div>
+
+<!-- प्रश्न 9 -->
+<div class="question">
+<h3>9. ‘विपन्नता’ का अर्थ क्या है?</h3>
+<div class="options">
+<div class="option">A. अमीरी</div>
+<div class="option">B. गरीबी</div>
+<div class="option">C. खुशी</div>
+<div class="option">D. बहादुरी</div>
+</div>
+<div class="answer">Ans: B. गरीबी</div>
+</div>
+
+<!-- प्रश्न 10 -->
+<div class="question">
+<h3>10. ‘हिंडोला’ का अर्थ क्या है?</h3>
+<div class="options">
+<div class="option">A. झूला</div>
+<div class="option">B. चिमटा</div>
+<div class="option">C. खिलौना</div>
+<div class="option">D. दरी</div>
+</div>
+<div class="answer">Ans: A. झूला</div>
+</div>
+
+<!-- प्रश्न 11 -->
+<div class="question">
+<h3>11. ‘बिसात’ का अर्थ क्या है?</h3>
+<div class="options">
+<div class="option">A. कपड़ा</div>
+<div class="option">B. पूँजी</div>
+<div class="option">C. झूला</div>
+<div class="option">D. रास्ता</div>
+</div>
+<div class="answer">Ans: B. पूँजी</div>
+</div>
+
+<!-- प्रश्न 12 -->
+<div class="question">
+<h3>12. ‘भिश्ती’ कौन होता है?</h3>
+<div class="options">
+<div class="option">A. दुकानदार</div>
+<div class="option">B. पानी ढोने वाला</div>
+<div class="option">C. किसान</div>
+<div class="option">D. सैनिक</div>
+</div>
+<div class="answer">Ans: B. पानी ढोने वाला</div>
+</div>
+
+<!-- प्रश्न 13 -->
+<div class="question">
+<h3>13. नमाज़ खत्म होने पर लोग क्या करते हैं?</h3>
+<div class="options">
+<div class="option">A. सोते हैं</div>
+<div class="option">B. खेलते हैं</div>
+<div class="option">C. गले मिलते हैं</div>
+<div class="option">D. घर जाते हैं</div>
+</div>
+<div class="answer">Ans: C. गले मिलते हैं</div>
+</div>
+
+<!-- प्रश्न 14 -->
+<div class="question">
+<h3>14. हामिद हिंडोले पर क्यों नहीं चढ़ता?</h3>
+<div class="options">
+<div class="option">A. डरता था</div>
+<div class="option">B. पैसे बचाना चाहता था</div>
+<div class="option">C. थका था</div>
+<div class="option">D. उसे पसंद नहीं था</div>
+</div>
+<div class="answer">Ans: B. पैसे बचाना चाहता था</div>
+</div>
+
+<!-- प्रश्न 15 -->
+<div class="question">
+<h3>15. हामिद की प्रमुख विशेषता क्या थी?</h3>
+<div class="options">
+<div class="option">A. लालच</div>
+<div class="option">B. घमंड</div>
+<div class="option">C. त्याग और प्रेम</div>
+<div class="option">D. आलस्य</div>
+</div>
+<div class="answer">Ans: C. त्याग और प्रेम</div>
+</div>
+
+<!-- प्रश्न 16 -->
+<div class="question">
+<h3>16. ‘विवेक’ का विलोम क्या है?</h3>
+<div class="options">
+<div class="option">A. ज्ञान</div>
+<div class="option">B. बुद्धि</div>
+<div class="option">C. अविवेक</div>
+<div class="option">D. समझ</div>
+</div>
+<div class="answer">Ans: C. अविवेक</div>
+</div>
+
+<!-- प्रश्न 17 -->
+<div class="question">
+<h3>17. ‘आगे’ का विलोम क्या है?</h3>
+<div class="options">
+<div class="option">A. ऊपर</div>
+<div class="option">B. पीछे</div>
+<div class="option">C. नीचे</div>
+<div class="option">D. पास</div>
+</div>
+<div class="answer">Ans: B. पीछे</div>
+</div>
+
+<!-- प्रश्न 18 -->
+<div class="question">
+<h3>18. ‘गदगद होना’ का अर्थ है—</h3>
+<div class="options">
+<div class="option">A. दुखी होना</div>
+<div class="option">B. क्रोधित होना</div>
+<div class="option">C. बहुत खुश होना</div>
+<div class="option">D. डर जाना</div>
+</div>
+<div class="answer">Ans: C. बहुत खुश होना</div>
+</div>
+
+<!-- प्रश्न 19 -->
+<div class="question">
+<h3>19. ‘धावा बोलना’ का अर्थ है—</h3>
+<div class="options">
+<div class="option">A. सहायता करना</div>
+<div class="option">B. हमला करना</div>
+<div class="option">C. भाग जाना</div>
+<div class="option">D. बातचीत करना</div>
+</div>
+<div class="answer">Ans: B. हमला करना</div>
+</div>
+
+<!-- प्रश्न 20 -->
+<div class="question">
+<h3>20. ‘राई का पर्वत बनाना’ का अर्थ है—</h3>
+<div class="options">
+<div class="option">A. बड़ा काम करना</div>
+<div class="option">B. छोटी बात को बढ़ाना</div>
+<div class="option">C. मेहनत करना</div>
+<div class="option">D. पहाड़ पर जाना</div>
+</div>
+<div class="answer">Ans: B. छोटी बात को बढ़ाना</div>
+</div>
+
+<!-- प्रश्न 21 -->
+<div class="question">
+<h3>21. ‘आज ईद आ गई।’ में ‘आज’ है—</h3>
+<div class="options">
+<div class="option">A. स्थानवाचक</div>
+<div class="option">B. रीतिवाचक</div>
+<div class="option">C. कालवाचक</div>
+<div class="option">D. परिमाणवाचक</div>
+</div>
+<div class="answer">Ans: C. कालवाचक</div>
+</div>
+
+<!-- प्रश्न 22 -->
+<div class="question">
+<h3>22. ‘इधर दुकानों की कतार लगी है।’ में ‘इधर’ है—</h3>
+<div class="options">
+<div class="option">A. कालवाचक</div>
+<div class="option">B. स्थानवाचक</div>
+<div class="option">C. रीतिवाचक</div>
+<div class="option">D. परिमाणवाचक</div>
+</div>
+<div class="answer">Ans: B. स्थानवाचक</div>
+</div>
+
+<!-- प्रश्न 23 -->
+<div class="question">
+<h3>23. ‘बंदूक’ का बहुवचन क्या है?</h3>
+<div class="options">
+<div class="option">A. बंदूक</div>
+<div class="option">B. बंदूके</div>
+<div class="option">C. बंदूकें</div>
+<div class="option">D. बंदुकों</div>
+</div>
+<div class="answer">Ans: C. बंदूकें</div>
+</div>
+
+<!-- प्रश्न 24 -->
+<div class="question">
+<h3>24. ‘टोली’ का बहुवचन क्या है?</h3>
+<div class="options">
+<div class="option">A. टोली</div>
+<div class="option">B. टोलियाँ</div>
+<div class="option">C. टोलियों</div>
+<div class="option">D. टोलीयाँ</div>
+</div>
+<div class="answer">Ans: B. टोलियाँ</div>
+</div>
+
+<!-- प्रश्न 25 -->
+<div class="question">
+<h3>25. ‘ऊँट’ का स्त्रीलिंग क्या है?</h3>
+<div class="options">
+<div class="option">A. ऊँटी</div>
+<div class="option">B. ऊँटनी</div>
+<div class="option">C. ऊँटना</div>
+<div class="option">D. ऊँटिन</div>
+</div>
+<div class="answer">Ans: B. ऊँटनी</div>
+</div>
+
+<!-- प्रश्न 26 -->
+<div class="question">
+<h3>26. ‘दादा’ का स्त्रीलिंग क्या है?</h3>
+<div class="options">
+<div class="option">A. दादी</div>
+<div class="option">B. दादन</div>
+<div class="option">C. दादिन</div>
+<div class="option">D. दादू</div>
+</div>
+<div class="answer">Ans: A. दादी</div>
+</div>
+
+<!-- प्रश्न 27 -->
+<div class="question">
+<h3>27. ‘कानुन’ का शुद्ध रूप क्या है?</h3>
+<div class="options">
+<div class="option">A. कानुन</div>
+<div class="option">B. कानून</div>
+<div class="option">C. कानूण</div>
+<div class="option">D. कानोन</div>
+</div>
+<div class="answer">Ans: B. कानून</div>
+</div>
+
+<!-- प्रश्न 28 -->
+<div class="question">
+<h3>28. ‘अनगिणत’ का शुद्ध रूप क्या है?</h3>
+<div class="options">
+<div class="option">A. अनगणित</div>
+<div class="option">B. अनगिनत</div>
+<div class="option">C. अनगिनित</div>
+<div class="option">D. अनगिणत</div>
+</div>
+<div class="answer">Ans: B. अनगिनत</div>
+</div>
+
+<!-- प्रश्न 29 -->
+<div class="question">
+<h3>29. ‘के बाद’ क्या है?</h3>
+<div class="options">
+<div class="option">A. संबंधबोधक</div>
+<div class="option">B. क्रिया</div>
+<div class="option">C. संज्ञा</div>
+<div class="option">D. सर्वनाम</div>
+</div>
+<div class="answer">Ans: A. संबंधबोधक</div>
+</div>
+
+<!-- प्रश्न 30 -->
+<div class="question">
+<h3>30. ‘वह रोने लगी।’ में क्रिया कैसी है?</h3>
+<div class="options">
+<div class="option">A. सकर्मक</div>
+<div class="option">B. अकर्मक</div>
+<div class="option">C. सहायक</div>
+<div class="option">D. प्रेरणार्थक</div>
+</div>
+<div class="answer">Ans: B. अकर्मक</div>
+</div>
+
+</body>
+</html>
