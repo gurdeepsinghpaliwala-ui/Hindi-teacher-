@@ -1,0 +1,106 @@
+<!-- पाठ 11 — ईदगाह Quiz -->
+<div class="quiz-box">
+
+  <h2>पाठ 11 — ईदगाह Objective Quiz</h2>
+
+  <div class="question">
+    <p><b>1. ‘ईदगाह’ कहानी के लेखक कौन हैं?</b></p>
+
+    <label><input type="radio" name="q1"> A. प्रेमचंद</label>
+    <label><input type="radio" name="q1"> B. हरिवंश राय बच्चन</label>
+    <label><input type="radio" name="q1"> C. रामधारी सिंह दिनकर</label>
+    <label><input type="radio" name="q1"> D. महादेवी वर्मा</label>
+
+    <button onclick="showAnswer('a1')">उत्तर देखें</button>
+    <p id="a1" class="answer">उत्तर: A. प्रेमचंद</p>
+  </div>
+
+  <div class="question">
+    <p><b>2. हामिद की दादी का नाम क्या था?</b></p>
+
+    <label><input type="radio" name="q2"> A. अमीना</label>
+    <label><input type="radio" name="q2"> B. रुक्मिणी</label>
+    <label><input type="radio" name="q2"> C. फातिमा</label>
+    <label><input type="radio" name="q2"> D. जमीला</label>
+
+    <button onclick="showAnswer('a2')">उत्तर देखें</button>
+    <p id="a2" class="answer">उत्तर: A. अमीना</p>
+  </div>
+
+  <div class="question">
+    <p><b>3. हामिद के पास कितने पैसे थे?</b></p>
+
+    <label><input type="radio" name="q3"> A. दो पैसे</label>
+    <label><input type="radio" name="q3"> B. तीन पैसे</label>
+    <label><input type="radio" name="q3"> C. चार पैसे</label>
+    <label><input type="radio" name="q3"> D. पाँच पैसे</label>
+
+    <button onclick="showAnswer('a3')">उत्तर देखें</button>
+    <p id="a3" class="answer">उत्तर: B. तीन पैसे</p>
+  </div>
+
+  <div class="question">
+    <p><b>4. हामिद ने मेले से क्या खरीदा?</b></p>
+
+    <label><input type="radio" name="q4"> A. मिठाई</label>
+    <label><input type="radio" name="q4"> B. खिलौना</label>
+    <label><input type="radio" name="q4"> C. चिमटा</label>
+    <label><input type="radio" name="q4"> D. कपड़े</label>
+
+    <button onclick="showAnswer('a4')">उत्तर देखें</button>
+    <p id="a4" class="answer">उत्तर: C. चिमटा</p>
+  </div>
+
+  <div class="question">
+    <p><b>5. हामिद ने चिमटा किसके लिए खरीदा?</b></p>
+
+    <label><input type="radio" name="q5"> A. अपने दोस्त के लिए</label>
+    <label><input type="radio" name="q5"> B. अपने लिए</label>
+    <label><input type="radio" name="q5"> C. अपनी दादी अमीना के लिए</label>
+    <label><input type="radio" name="q5"> D. अपने चाचा के लिए</label>
+
+    <button onclick="showAnswer('a5')">उत्तर देखें</button>
+    <p id="a5" class="answer">उत्तर: C. अपनी दादी अमीना के लिए</p>
+  </div>
+
+</div>
+
+<style>
+.quiz-box {
+  padding: 15px;
+}
+
+.quiz-box h2 {
+  text-align: center;
+}
+
+.question {
+  border: 1px solid #ddd;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+}
+
+.question label {
+  display: block;
+  margin: 5px 0;
+}
+
+.question button {
+  margin-top: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+}
+
+.answer {
+  display: none;
+  font-weight: bold;
+  margin-top: 8px;
+}
+</style>
+
+<script>
+function showAnswer(id) {
+  document.getElementById(id).style.display = "block";
+}
+</script>
