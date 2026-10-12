@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>जब मेरी माँ बीमार पड़ गईं | कक्षा 9 हिंदी</title>
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 20px 12px;
+  font-family: Arial, "Noto Sans Devanagari", sans-serif;
+  background: linear-gradient(135deg, #eef2ff, #fdf2f8, #ecfeff);
+  color: #263044;
+  line-height: 1.9;
+}
+
+.container {
+  max-width: 850px;
+  margin: auto;
+}
+
+.header {
+  background: linear-gradient(135deg, #4338ca, #7c3aed, #db2777);
+  color: white;
+  padding: 30px 18px;
+  text-align: center;
+  border-radius: 20px;
+  box-shadow: 0 8px 25px #4338ca35;
+  margin-bottom: 22px;
+}
+
+.header .tag {
+  display: inline-block;
+  background: #ffffff25;
+  border: 1px solid #ffffff60;
+  padding: 5px 15px;
+  border-radius: 30px;
+  font-size: 14px;
+}
+
+.header h1 {
+  font-size: 28px;
+  line-height: 1.5;
+  margin: 14px 0 5px;
+}
+
+.header p {
+  margin: 0;
+  color: #f3e8ff;
+}
+
+.card {
+  background: #ffffff;
+  padding: 24px;
+  border-radius: 18px;
+  box-shadow: 0 5px 20px #29365a12;
+  border: 1px solid #e5e7eb;
+  margin-bottom: 20px;
+}
+
+.card h2 {
+  color: #5b21b6;
+  font-size: 21px;
+  margin-top: 0;
+  border-bottom: 2px solid #ede9fe;
+  padding-bottom: 12px;
+}
+
+.content p {
+  font-size: 18px;
+  margin: 0 0 17px;
+  text-align: justify;
+}
+
+.content p:last-child {
+  margin-bottom: 0;
+}
+
+.highlight {
+  background: #f5f3ff;
+  border-left: 4px solid #7c3aed;
+  padding: 14px;
+  border-radius: 8px;
+  color: #4c1d95;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.button {
+  display: block;
+  width: 100%;
+  padding: 13px;
+  border: none;
+  border-radius: 10px;
+  background: linear-gradient(90deg, #4f46e5, #9333ea);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin-top: 18px;
+}
+
+.button:hover {
+  opacity: 0.9;
+}
+
+.footer {
+  text-align: center;
+  color: #6b7280;
+  font-size: 14px;
+  padding: 10px;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 12px 9px;
+  }
+
+  .header {
+    padding: 24px 14px;
+  }
+
+  .header h1 {
+    font-size: 23px;
+  }
+
+  .card {
+    padding: 17px;
+  }
+
+  .content p {
+    font-size: 17px;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+  <header class="header">
+    <span class="tag">📚 हिंदी अध्ययन</span>
+    <h1>जब मेरी माँ बीमार पड़ गईं</h1>
+    <p>अनुच्छेद लेखन • कक्षा 9वीं</p>
+  </header>
+
+  <section class="card">
+    <h2>✍️ सरल और आसान अनुच्छेद</h2>
+
+    <div class="content" id="paragraph">
+
+      <p>
+        जब मैं सुबह उठता था, तो माँ को रसोई में काम करते हुए
+        देखता था। एक दिन सुबह पिताजी ने मुझे बताया कि माँ को
+        बुखार है। माँ ने मुझे स्कूल जाने के लिए कहा। बीमार होने
+        पर भी माँ ने मेरे लिए टिफिन तैयार कर दिया था।
+      </p>
+
+      <p>
+        स्कूल जाते समय मैं पानी की बोतल और रूमाल घर पर ही
+        भूल गया। माँ हमेशा मुझे इन चीज़ों की याद दिलाती थीं।
+        स्कूल से घर आने पर पिताजी ने बाज़ार से खाना लाकर दिया।
+        वह खाना मुझे अच्छा नहीं लगा। मुझे माँ के हाथ का बना
+        खाना याद आने लगा।
+      </p>
+
+      <p>
+        शाम को पिताजी ने मुझे दूध दिया, लेकिन वे उसमें चीनी
+        डालना भूल गए। घर के सारे काम ठीक से नहीं हो रहे थे।
+        मुझे अपना होमवर्क भी खुद करना पड़ा। रात को मैंने माँ
+        के बताए अनुसार खिचड़ी बनाई।
+      </p>
+
+      <p>
+        दवा से माँ का बुखार कम होने लगा। मैंने भगवान से माँ के
+        जल्दी ठीक होने की प्रार्थना की। मैंने वादा किया कि मैं
+        घर के काम सीखकर माँ की मदद करूँगा। अगले दिन सुबह माँ
+        पहले की तरह रसोई में काम कर रही थीं। घर फिर से अच्छे
+        खाने की खुशबू से महक उठा। भगवान करे कि मेरी माँ हमेशा
+        स्वस्थ रहें।
+      </p>
+
+    </div>
+
+    <div class="highlight">
+      🌸 शिक्षा: हमें अपनी माँ का सम्मान करना चाहिए और घर के
+      कामों में उनकी मदद करनी चाहिए।
+    </div>
+
+    <button class="button" onclick="copyParagraph()">
+      📋 अनुच्छेद कॉपी करें
+    </button>
+  </section>
+
+  <footer class="footer">
+    © हिंदी अध्ययन | कक्षा 9 हिंदी नोट्स
+  </footer>
+
+</div>
+
+<script>
+function copyParagraph() {
+  const text = document.getElementById("paragraph").innerText;
+
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(() => {
+      alert("अनुच्छेद कॉपी हो गया!");
+    }).catch(() => {
+      alert("कॉपी नहीं हुआ। टेक्स्ट को चुनकर कॉपी करें।");
+    });
+  } else {
+    const area = document.createElement("textarea");
+    area.value = text;
+    document.body.appendChild(area);
+    area.select();
+
+    try {
+      document.execCommand("copy");
+      alert("अनुच्छेद कॉपी हो गया!");
+    } catch (e) {
+      alert("टेक्स्ट को चुनकर कॉपी करें।");
+    }
+
+    area.remove();
+  }
+}
+</script>
+
+</body>
+</html>
