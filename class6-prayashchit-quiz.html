@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>पाठ 8: प्रायश्चित | कक्षा 6 हिंदी Quiz</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,"Noto Sans Devanagari",sans-serif;background:linear-gradient(135deg,#f5f3ff,#fff1f2);color:#29243a;padding:18px}
+.wrap{max-width:760px;margin:20px auto}.top{text-align:center;padding:24px 18px;background:linear-gradient(120deg,#6d28d9,#9333ea,#db2777);color:white;border-radius:20px;box-shadow:0 8px 22px #6d28d933}
+.top .pill{display:inline-block;background:#ffffff25;border:1px solid #ffffff55;border-radius:30px;padding:7px 13px;font-size:13px;font-weight:bold}
+h1{font-size:28px;margin:13px 0 6px}.top p{margin:0;line-height:1.6}
+.card{margin-top:18px;background:white;border:1px solid #eee7ff;border-radius:18px;padding:22px;box-shadow:0 7px 22px #4c1d9510}
+.meta{display:flex;justify-content:space-between;gap:10px;color:#6d28d9;font-size:14px;font-weight:bold;margin-bottom:13px}
+.track{height:8px;background:#eee7ff;border-radius:10px;overflow:hidden;margin-bottom:22px}.fill{height:100%;width:0;background:linear-gradient(90deg,#7c3aed,#db2777);transition:width .2s}
+#question{font-size:21px;line-height:1.6;margin:0 0 18px}.options{display:grid;gap:11px}
+.opt{width:100%;text-align:left;border:2px solid #e9e2f8;background:#fff;border-radius:12px;padding:13px 14px;font-size:16px;color:#302747;cursor:pointer;line-height:1.5}
+.opt:hover:not(:disabled){border-color:#9333ea;background:#faf5ff}.opt.correct{border-color:#16a34a;background:#f0fdf4;color:#166534}.opt.wrong{border-color:#dc2626;background:#fef2f2;color:#991b1b}
+#feedback{display:none;margin-top:16px;padding:13px;border-radius:12px;line-height:1.6}#feedback.good{display:block;background:#f0fdf4;color:#166534}#feedback.bad{display:block;background:#fef2f2;color:#991b1b}
+.explain{display:block;margin-top:5px;color:inherit}
+.actions{display:flex;gap:10px;margin-top:20px;flex-wrap:wrap}.btn{border:0;border-radius:12px;padding:13px 18px;font-size:15px;font-weight:bold;cursor:pointer}.primary{background:linear-gradient(100deg,#6d28d9,#9333ea,#db2777);color:white;flex:1}.secondary{background:#f3e8ff;color:#6d28d9}.btn:disabled{opacity:.4;cursor:not-allowed}
+#result{display:none}.score{font-size:42px;font-weight:800;color:#7c3aed;text-align:center;margin:14px}.review-item{border-bottom:1px solid #eee7ff;padding:13px 0;line-height:1.6}.review-item:last-child{border:0}.small{font-size:13px;color:#756a88;text-align:center;margin:16px 0 0}
+@media(max-width:480px){body{padding:10px}.top{padding:20px 13px}h1{font-size:24px}.card{padding:17px}#question{font-size:19px}.opt{font-size:15px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <span class="pill">📚 HINDI QUIZ • CLASS 6</span>
+    <h1>पाठ 8: प्रायश्चित</h1>
+    <p>महत्वपूर्ण प्रश्न, शब्दार्थ, मुहावरे और समानार्थी शब्दों का अभ्यास करें।</p>
+  </header>
+  <section class="card" id="quiz">
+    <div class="meta"><span id="counter">प्रश्न 1 / 25</span><span id="scoreLive">स्कोर: 0</span></div>
+    <div class="track"><div class="fill" id="progress"></div></div>
+    <h2 id="question"></h2>
+    <div class="options" id="options"></div>
+    <div id="feedback"></div>
+    <div class="actions">
+      <button class="btn secondary" id="prev" disabled>← पिछला प्रश्न</button>
+      <button class="btn primary" id="next" disabled>अगला प्रश्न →</button>
+    </div>
+    <p class="small">हर प्रश्न ध्यान से पढ़ें और सही विकल्प चुनें।</p>
+  </section>
+  <section class="card" id="result">
+    <h2 style="text-align:center;margin-top:0">🎉 Quiz पूरा हुआ!</h2>
+    <div class="score" id="finalScore"></div>
+    <p id="resultText" style="text-align:center;line-height:1.7"></p>
+    <div class="actions"><button class="btn primary" id="reviewBtn">उत्तर देखें</button><button class="btn secondary" id="restart">फिर से Quiz दें ↻</button></div>
+    <div id="review" style="display:none;margin-top:18px"></div>
+  </section>
+</div>
+<script>
+const questions = [
+{q:"बच्चों ने किस त्योहार के अवसर पर लकड़ियाँ जलायीं?",o:["दीवाली","होली","दशहरा","रक्षाबंधन"],a:1,e:"बच्चों ने होली के अवसर पर लकड़ियाँ जलायीं।"},
+{q:"बच्चों ने होली कहाँ मनायी?",o:["विद्यालय में","नदी के किनारे","गाँव के शिवालय के करीब खुले मैदान में","गोपू की झोंपड़ी में"],a:2,e:"होली गाँव के शिवालय के करीब खुले मैदान में मनायी गयी।"},
+{q:"गोपू कैसे गुज़ारा करता था?",o:["खेती करके","उपले बेचकर","दुकान चलाकर","मज़दूरी करके"],a:1,e:"गोपू उपले बेचकर अपना गुज़ारा करता था।"},
+{q:"शरारती लड़कों ने किसके घर से उपले चुराए?",o:["मुखिया के","बुधवा के","गोपू के","विद्यालय के"],a:2,e:"शरारती लड़कों ने गोपू के घर से उपले चुराए।"},
+{q:"मुखिया ने बच्चों को क्या सज़ा दी?",o:["गाँव से बाहर जाने की","जुर्माना देने की","मिलकर उपले बनाकर शाम तक गोपू को लौटाने की","सारा दिन घर में रहने की"],a:2,e:"मुखिया ने बच्चों को मेहनत से उपले बनाकर गोपू को लौटाने की सज़ा दी।"},
+{q:"मुखिया की सज़ा से गोपू का चेहरा क्यों खिल उठा?",o:["उसे पैसे मिल गए","उसे अपने उपले वापस मिले और न्याय देखकर खुशी हुई","उसे नया घर मिला","उसे छुट्टी मिल गई"],a:1,e:"उपले वापस मिलने और मुखिया का सुंदर न्याय देखकर गोपू खुश हुआ।"},
+{q:"‘प्रायश्चित’ शब्द का अर्थ क्या है?",o:["खुशी मनाना","बुरे काम का पछतावा","दूसरों की सहायता","उत्सव मनाना"],a:1,e:"प्रायश्चित का अर्थ बुरे काम पर पछतावा करना है।"},
+{q:"‘शिव जी का मंदिर’ के लिए हिंदी शब्द कौन-सा है?",o:["शिवालय","विद्यालय","देवघर","आँगन"],a:0,e:"शिव जी के मंदिर को शिवालय कहते हैं।"},
+{q:"‘अभिभावक’ का अर्थ क्या है?",o:["पड़ोसी","पालना करने वाला व्यक्ति","मित्र","शिक्षक"],a:1,e:"अभिभावक वह व्यक्ति है जो बच्चे का पालन-पोषण करता है।"},
+{q:"‘पूर्व’ का समान अर्थ वाला शब्द कौन-सा है?",o:["बाद में","पहले","अचानक","दोबारा"],a:1,e:"पूर्व का अर्थ पहले होता है।"},
+{q:"‘सहसा’ का समान अर्थ वाला शब्द कौन-सा है?",o:["धीरे-धीरे","अचानक","हमेशा","पहले"],a:1,e:"सहसा का अर्थ अचानक होता है।"},
+{q:"‘गुलाल’ के लिए दिया गया हिंदी शब्द कौन-सा है?",o:["अबीर","अग्नि","जुर्माना","ज्ञान"],a:0,e:"गुलाल के लिए यहाँ अबीर शब्द दिया गया है।"},
+{q:"‘पुनः’ का अर्थ क्या है?",o:["कभी नहीं","दूर","दुबारा","पहले"],a:2,e:"पुनः का अर्थ दुबारा होता है।"},
+{q:"‘इकट्ठा’ का समान अर्थ वाला शब्द कौन-सा है?",o:["अलग","एकत्र","सहसा","निर्धन"],a:1,e:"इकट्ठा का समान अर्थ एकत्र है।"},
+{q:"‘माता-पिता’ के लिए पंजाबी शब्द ‘ਮਾਂ ਪਿਉ’ दिया गया है। इसका अर्थ क्या है?",o:["मित्र","माता-पिता","बच्चे","अभिभावक का घर"],a:1,e:"ਮਾਂ ਪਿਉ का हिंदी अर्थ माता-पिता है।"},
+{q:"‘मैदान साफ नज़र आना’ मुहावरे का अर्थ क्या है?",o:["मैदान में खेलना","कोई चीज़ बाकी न बचना","मैदान साफ करना","बहुत खुश होना"],a:1,e:"इस मुहावरे का अर्थ है कोई चीज़ बाकी न बचना।"},
+{q:"‘नयनों से गंगा-यमुना बहाना’ का अर्थ क्या है?",o:["बहुत हँसना","बहुत रोना","तेज़ दौड़ना","नदी देखना"],a:1,e:"इस मुहावरे का अर्थ बहुत रोना है।"},
+{q:"‘दिमाग दौड़ाना’ मुहावरे का अर्थ क्या है?",o:["तेज़ भागना","गहराई से सोचना","गुस्सा करना","खेलना"],a:1,e:"दिमाग दौड़ाना यानी किसी बात पर गहराई से सोचना।"},
+{q:"‘जुट जाना’ का अर्थ क्या है?",o:["काम छोड़ देना","पूरी मेहनत करना","सो जाना","बहाना बनाना"],a:1,e:"जुट जाना का अर्थ पूरी मेहनत से काम में लग जाना है।"},
+{q:"‘पसीना बहाना’ मुहावरे का अर्थ क्या है?",o:["कड़ी मेहनत करना","बीमार होना","रोना","नहाना"],a:0,e:"पसीना बहाना यानी कड़ी मेहनत करना।"},
+{q:"‘चेहरा खिल उठना’ का अर्थ क्या है?",o:["बहुत खुश होना","बहुत थकना","डर जाना","बीमार पड़ना"],a:0,e:"चेहरा खिल उठना का अर्थ बहुत खुश होना है।"},
+{q:"‘कुटिया’ के समान अर्थ वाला शब्द कौन-सा है?",o:["विद्यालय","झोंपड़ी","मैदान","मंदिर"],a:1,e:"कुटिया के स्थान पर झोंपड़ी शब्द इस्तेमाल किया जा सकता है।"},
+{q:"‘भीतर’ के स्थान पर कौन-सा शब्द इस्तेमाल किया जा सकता है?",o:["बाहर","अंदर","ऊपर","पीछे"],a:1,e:"भीतर का समान अर्थ अंदर है।"},
+{q:"‘न्याय’ के स्थान पर कौन-सा समानार्थी शब्द दिया गया है?",o:["इंसाफ","फिक्र","मेहनत","अग्नि"],a:0,e:"न्याय का समानार्थी शब्द इंसाफ है।"},
+{q:"‘चिंता’ के स्थान पर कौन-सा शब्द दिया गया है?",o:["राज़ी","फिक्र","झोंपड़ी","निर्धन"],a:1,e:"चिंता के स्थान पर फिक्र शब्द दिया गया है।"}
+];
+let current=0, answers=Array(questions.length).fill(null), checked=Array(questions.length).fill(false);
+const $=id=>document.getElementById(id);
+function render(){
+ const item=questions[current]; $('counter').textContent=`प्रश्न ${current+1} / ${questions.length}`;
+ $('scoreLive').textContent=`स्कोर: ${answers.filter((a,i)=>a===questions[i].a).length}`;
+ $('progress').style.width=`${(current+1)/questions.length*100}%`;
+ $('question').textContent=`${current+1}. ${item.q}`;
+ $('options').innerHTML='';
+ item.o.forEach((option,i)=>{
+  const b=document.createElement('button');b.className='opt';b.textContent=String.fromCharCode(65+i)+'. '+option;
+  if(checked[current]){b.disabled=true;if(i===item.a)b.classList.add('correct');if(i===answers[current]&&i!==item.a)b.classList.add('wrong');}
+  b.onclick=()=>choose(i);$('options').appendChild(b);
+ });
+ const fb=$('feedback');fb.className='';fb.style.display='none';fb.textContent='';
+ if(checked[current]){fb.className=answers[current]===item.a?'good':'bad';fb.style.display='block';fb.innerHTML=(answers[current]===item.a?'✅ सही जवाब! ':'❌ सही जवाब: '+item.o[item.a]+'। ')+`<span class="explain">${item.e}</span>`;}
+ $('prev').disabled=current===0;
+ $('next').disabled=!checked[current];
+ $('next').textContent=current===questions.length-1?'परिणाम देखें →':'अगला प्रश्न →';
+}
+function choose(i){if(checked[current])return;answers[current]=i;checked[current]=true;render();}
+$('prev').onclick=()=>{if(current>0){current--;render();}};
+$('next').onclick=()=>{if(current<questions.length-1){current++;render();}else showResult();};
+function showResult(){
+ $('quiz').style.display='none';$('result').style.display='block';
+ const score=answers.filter((a,i)=>a===questions[i].a).length;
+ $('finalScore').textContent=`${score} / ${questions.length}`;
+ $('resultText').textContent=score>=20?'बहुत बढ़िया! पाठ की तैयारी अच्छी है।':score>=14?'अच्छा प्रयास! गलत उत्तरों की समीक्षा करें।':'कोई बात नहीं—उत्तर देखें और फिर से अभ्यास करें।';
+}
+$('reviewBtn').onclick=()=>{const r=$('review');if(r.style.display==='block'){r.style.display='none';$('reviewBtn').textContent='उत्तर देखें';return;}r.style.display='block';$('reviewBtn').textContent='उत्तर छिपाएँ';r.innerHTML=questions.map((q,i)=>`<div class="review-item"><b>${i+1}. ${q.q}</b><br><span style="color:${answers[i]===q.a?'#15803d':'#b91c1c'}">आपका उत्तर: ${answers[i]===null?'उत्तर नहीं दिया':q.o[answers[i]]}</span><br><b>सही उत्तर:</b> ${q.o[q.a]}<br><small>${q.e}</small></div>`).join('');};
+$('restart').onclick=()=>{current=0;answers=Array(questions.length).fill(null);checked=Array(questions.length).fill(false);$('result').style.display='none';$('quiz').style.display='block';render();};
+render();
+</script>
+</body>
+</html>
