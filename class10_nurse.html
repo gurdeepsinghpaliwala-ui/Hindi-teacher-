@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>पाठ 9 – दो कलाकार | कक्षा 9 हिंदी अध्ययन</title>
+<style>
+:root{--primary:#4f46e5;--dark:#27235f;--bg:#f5f7fb;--ink:#202235;--muted:#62677a;--white:#fff;--green:#16834a;--red:#c43838}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,"Noto Sans Devanagari",sans-serif;background:var(--bg);color:var(--ink);line-height:1.75}
+header{background:linear-gradient(135deg,#4f46e5,#756cf4);color:#fff;text-align:center;padding:26px 16px}
+header h1{margin:0;font-size:clamp(24px,5vw,34px)}
+header p{margin:7px 0 0}
+.container{max-width:950px;margin:22px auto;padding:0 14px 35px}
+.intro,.panel,.quiz-card{background:#fff;border-radius:16px;padding:18px;margin-bottom:16px;box-shadow:0 4px 16px #1d24500c;border:1px solid #e8eaf5}
+.intro h2{margin-top:0;color:var(--dark)}
+.tabs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin:16px 0}
+.tab-btn{border:0;border-radius:10px;padding:11px 8px;background:#e9eafe;color:#37318d;font-weight:700;cursor:pointer;font-size:15px}
+.tab-btn.active{background:var(--primary);color:#fff}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+h2.section-title{font-size:22px;color:var(--dark);margin:0 0 14px}
+.qa{padding:13px 0;border-bottom:1px solid #eceef5}
+.qa:last-child{border-bottom:0}
+.q{font-weight:700;color:#28245f;margin-bottom:5px}
+.a{margin:0}
+.tag{display:inline-block;background:#eeedff;color:#4037a7;border-radius:7px;padding:2px 8px;font-size:12px;margin-bottom:8px}
+.word-list{padding-left:22px}
+.quiz-card h3{margin:0 0 8px;font-size:17px}
+.options{display:grid;gap:7px;margin:10px 0}
+.option{display:flex;gap:8px;align-items:flex-start;padding:8px 10px;background:#f7f8ff;border:1px solid #e3e5f5;border-radius:9px;cursor:pointer}
+.option input{margin-top:7px;accent-color:var(--primary)}
+.feedback{font-weight:700;margin-top:7px}
+.feedback.correct{color:var(--green)}.feedback.wrong{color:var(--red)}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin:16px 0}
+.action-btn{border:0;border-radius:10px;padding:11px 16px;background:var(--primary);color:white;font-weight:700;cursor:pointer}
+.action-btn.secondary{background:#e9eafe;color:#37318d}
+#score{font-weight:700;color:var(--dark);margin:12px 0}
+footer{text-align:center;color:var(--muted);font-size:13px;padding:18px}
+@media(max-width:600px){.tabs{grid-template-columns:repeat(2,minmax(0,1fr))}.intro,.panel{padding:14px}.tab-btn{font-size:14px}}
+</style>
+</head>
+<body>
+<header>
+  <h1>पाठ 9 – दो कलाकार</h1>
+  <p>लेखिका: मन्नू भंडारी | कक्षा 9 हिंदी</p>
+</header>
+<main class="container">
+  <section class="intro">
+    <h2>पाठ अभ्यास</h2>
+    <p>नीचे दिए गए टैब पर क्लिक करके छोटे, बड़े और लंबे प्रश्न-उत्तर तथा भाषा-बोध पढ़ें। अंत में वस्तुनिष्ठ प्रश्नों का क्विज़ हल करें।</p>
+  </section>
+
+  <nav class="tabs" aria-label="प्रश्नों के टैब">
+    <button class="tab-btn active" data-tab="short">छोटे प्रश्न</button>
+    <button class="tab-btn" data-tab="medium">बड़े प्रश्न</button>
+    <button class="tab-btn" data-tab="long">लंबे प्रश्न</button>
+    <button class="tab-btn" data-tab="language">भाषा-बोध</button>
+  </nav>
+
+  <section id="short" class="panel tab-panel active">
+    <h2 class="section-title">छोटे प्रश्न-उत्तर (1–2 पंक्तियाँ)</h2>
+    <div class="qa"><div class="q">प्रश्न 1. छात्रावास में रहने वाली दो सहेलियों के क्या नाम थे?</div><p class="a">उत्तर: छात्रावास में रहने वाली दो सहेलियों के नाम अरुणा और चित्रा थे।</p></div>
+    <div class="qa"><div class="q">प्रश्न 2. चित्रा कहानी के आरंभ में अरुणा को क्यों जगाती है?</div><p class="a">उत्तर: चित्रा अपने द्वारा बनाया हुआ चित्र अरुणा को दिखाने के लिए उसे जगाती है।</p></div>
+    <div class="qa"><div class="q">प्रश्न 3. अरुणा चित्रा के चित्रों के बारे में क्या कहती है?</div><p class="a">उत्तर: अरुणा कहती है कि कागज़ पर बेजान चित्र बनाने के बजाय किसी की ज़िंदगी क्यों नहीं बना देती।</p></div>
+    <div class="qa"><div class="q">प्रश्न 4. अरुणा देर रात छात्रावास लौटती है तो शीला उसके बारे में क्या कहती है?</div><p class="a">उत्तर: शीला कहती है कि अरुणा बहुत गुणी है और दूसरों के बारे में सोचने वाली समाजसेविका है।</p></div>
+    <div class="qa"><div class="q">प्रश्न 5. चित्रा के पिताजी ने पत्र में क्या लिखा था?</div><p class="a">उत्तर: उन्होंने लिखा था कि पढ़ाई समाप्त होते ही चित्रा विदेश जा सकती है।</p></div>
+    <div class="qa"><div class="q">प्रश्न 6. अरुणा बाढ़ पीड़ितों की सहायता करके कितने दिनों बाद लौटी?</div><p class="a">उत्तर: अरुणा स्वयंसेवकों के दल के साथ पंद्रह दिनों बाद लौटी।</p></div>
+    <div class="qa"><div class="q">प्रश्न 7. विदेश में चित्रा के किस चित्र ने धूम मचाई थी?</div><p class="a">उत्तर: भिखारिन और उसके दो अनाथ बच्चों का चित्र विदेश में बहुत प्रसिद्ध हुआ था।</p></div>
+  </section>
+
+  <section id="medium" class="panel tab-panel">
+    <h2 class="section-title">बड़े प्रश्न-उत्तर (3–4 पंक्तियाँ)</h2>
+    <div class="qa"><div class="q">प्रश्न 1. अरुणा के समाज-सेवा के कार्यों के बारे में लिखिए।</div><p class="a">उत्तर: अरुणा सच्ची समाजसेविका थी। वह चपरासियों और दाइयों के बच्चों को मुफ्त पढ़ाती थी। वह बाढ़ पीड़ितों की सहायता के लिए गई और बीमार बच्चे की सेवा भी करती थी। भिखारिन की मृत्यु के बाद उसने उसके दोनों बच्चों को अपनाकर उनका पालन-पोषण किया।</p></div>
+    <div class="qa"><div class="q">प्रश्न 2. मरी हुई भिखारिन और उसके बच्चों को देखकर चित्रा ने क्या किया?</div><p class="a">उत्तर: चित्रा ने देखा कि भिखारिन मर चुकी थी और उसके दोनों बच्चे उससे लिपटकर रो रहे थे। यह दृश्य देखकर उसका संवेदनशील मन विचलित हो उठा। वह वहीं रुक गई और उस दृश्य का चित्र बना लिया।</p></div>
+    <div class="qa"><div class="q">प्रश्न 3. चित्रा की छात्रावास से विदाई के समय अरुणा क्यों नहीं पहुँच सकी?</div><p class="a">उत्तर: भिखारिन और उसके बच्चों की दशा सुनकर अरुणा तुरंत उनके पास चली गई। वह बच्चों को सँभालने और उनकी देखभाल करने में व्यस्त हो गई। इसी कारण वह चित्रा की विदाई के समय नहीं पहुँच सकी।</p></div>
+    <div class="qa"><div class="q">प्रश्न 4. प्रदर्शनी में अरुणा के साथ कौन-से बच्चे थे?</div><p class="a">उत्तर: प्रदर्शनी में अरुणा के साथ भिखारिन के वही दोनों बच्चे थे। चित्रा ने उनकी माँ और उनके दुख का चित्र बनाकर प्रसिद्धि पाई थी। अरुणा ने उन्हीं बच्चों को अपनाकर माँ की तरह पाला-पोसा था।</p></div>
+  </section>
+
+  <section id="long" class="panel tab-panel">
+    <h2 class="section-title">लंबे प्रश्न-उत्तर (6–7 पंक्तियाँ)</h2>
+    <div class="qa"><div class="q">प्रश्न 1. ‘दो कलाकार’ कहानी का उद्देश्य स्पष्ट कीजिए।</div><p class="a">उत्तर: ‘दो कलाकार’ मन्नू भंडारी द्वारा लिखी गई उद्देश्यपूर्ण कहानी है। इसमें अरुणा और चित्रा दो सहेलियाँ हैं। चित्रा एक कुशल चित्रकार है और अपने चित्रों से प्रसिद्धि प्राप्त करती है। भिखारिन और उसके रोते हुए बच्चों का चित्र बनाकर वह नाम कमाती है। दूसरी ओर, अरुणा उन्हीं अनाथ बच्चों को अपनाकर उनका पालन-पोषण करती है। कहानी बताती है कि कला के साथ मानवीय संवेदनाएँ और सेवा-भाव भी महत्त्वपूर्ण हैं। सच्ची महानता दूसरों के दुख को समझकर उनकी सहायता करने में है।</p></div>
+    <div class="qa"><div class="q">प्रश्न 2. ‘दो कलाकार’ के आधार पर अरुणा का चरित्र-चित्रण कीजिए।</div><p class="a">उत्तर: अरुणा कहानी की प्रमुख पात्र है और सच्ची समाजसेविका है। वह गरीब बच्चों को निःशुल्क पढ़ाती है। दूसरों के दुख देखकर उसका मन द्रवित हो उठता है। वह जरूरतमंदों की सहायता करती है और बीमार बच्चे की सेवा करती है। भिखारिन की मृत्यु के बाद वह उसके दोनों बच्चों को अपनाकर उनका पालन-पोषण करती है। वह अपनी सहेली चित्रा की विदाई में भी नहीं पहुँच पाती क्योंकि बच्चों की देखभाल में लगी रहती है। उसके सेवा-भाव और ममता के कारण वह महान कलाकार कहलाती है।</p></div>
+    <div class="qa"><div class="q">प्रश्न 3. ‘चित्रा एक मँझी हुई चित्रकार है’—इस कथन से आप कहाँ तक सहमत हैं?</div><p class="a">उत्तर: हम इस कथन से सहमत हैं कि चित्रा एक मँझी हुई चित्रकार है। उसे चित्रकला का बहुत शौक है और वह अपना अधिकतर समय चित्र बनाने में लगाती है। वह अपने चित्रों में भावों को प्रभावशाली ढंग से प्रस्तुत करती है। भिखारिन और उसके रोते हुए बच्चों का चित्र बनाकर उसे देश-विदेश में प्रसिद्धि मिलती है। उसका चित्र लोगों के मन पर गहरा प्रभाव डालता है। इससे उसकी चित्रकला की कुशलता सिद्ध होती है। फिर भी कहानी मानवीय सेवा को कला से भी अधिक महत्त्व देती है।</p></div>
+    <div class="qa"><div class="q">प्रश्न 4. ‘दो कलाकार’ कहानी के शीर्षक की सार्थकता स्पष्ट कीजिए।</div><p class="a">उत्तर: ‘दो कलाकार’ शीर्षक पूरी तरह सार्थक है क्योंकि कहानी में अरुणा और चित्रा दोनों को कलाकार के रूप में प्रस्तुत किया गया है। चित्रा अपनी चित्रकला से लोगों का ध्यान आकर्षित करती है। भिखारिन और उसके बच्चों का चित्र बनाकर वह प्रसिद्धि प्राप्त करती है। अरुणा दूसरी ओर अपने सेवा-भाव और ममता से उन बच्चों का जीवन सँवारती है। वह उन्हें अपनाकर माँ की तरह पालती है। चित्रा कला के माध्यम से दुख को दिखाती है, जबकि अरुणा दुख दूर करने का प्रयास करती है। इसलिए शीर्षक कहानी के मुख्य विचार को स्पष्ट करता है।</p></div>
+  </section>
+
+  <section id="language" class="panel tab-panel">
+    <h2 class="section-title">भाषा-बोध</h2>
+    <h3>1. मुहावरे और वाक्य-प्रयोग</h3>
+    <div class="qa"><div class="q">राह देखना — बेसब्री से इंतज़ार करना</div><p class="a">वाक्य: चित्रा विदेश जाते समय अपनी सहेली अरुणा की राह देख रही थी।</p></div>
+    <div class="qa"><div class="q">रोब खाना — किसी का प्रभाव या धाक मानना</div><p class="a">वाक्य: हमारे स्कूल के मुख्याध्यापक का सभी रोब खाते हैं।</p></div>
+    <div class="qa"><div class="q">आँखें छलछला आना — आँखों में आँसू भर आना</div><p class="a">वाक्य: मित्र की दुखभरी कहानी सुनकर मेरी आँखें छलछला आईं।</p></div>
+    <div class="qa"><div class="q">पीठ थपथपाना — शाबाशी देना</div><p class="a">वाक्य: परीक्षा में प्रथम आने पर अध्यापक ने विद्यार्थी की पीठ थपथपाई।</p></div>
+    <div class="qa"><div class="q">धूम मचना — बहुत प्रसिद्धि होना</div><p class="a">वाक्य: चित्रा के चित्र की देश-विदेश में धूम मच गई।</p></div>
+    <h3>2. विपरीत शब्द</h3>
+    <ul class="word-list">
+      <li>बेवकूफी — समझदारी</li><li>गुण — अवगुण</li><li>निरक्षरता — साक्षरता</li><li>आदर्श — यथार्थ</li>
+      <li>ज़िंदगी — मौत</li><li>बंधन — मुक्ति</li><li>शोहरत — बदनामी</li><li>बीमार — स्वस्थ</li>
+      <li>धनी — निर्धन</li><li>विदेश — स्वदेश</li>
+    </ul>
+    <h3>3. पंजाबी से हिंदी अनुवाद</h3>
+    <div class="qa"><div class="q">पंजाबी: “ਮੇਰੇ ਬੱਚੇ ਹਨ, ਹੋਰ ਕਿਸ ਦੇ? ਇਹ ਤੁਹਾਡੀ ਚਿੱਤਰਾ ਮਾਸੀ ਹੈ। ਨਮਸਤੇ ਕਰੋ ਆਪਣੀ ਮਾਸੀ ਨੂੰ।”</div><p class="a">हिंदी: “मेरे बच्चे हैं, और किसके? यह तुम्हारी चित्रा मौसी है। अपनी मौसी को नमस्ते करो।” अरुणा ने आदेश दिया।</p></div>
+    <div class="qa"><div class="q">पंजाबी: “ਸੱਚ? ਹੈਰਾਨੀ ਨਾਲ ਬੱਚੀ ਬੋਲ ਪਈ। ਫਿਰ ਤਾਂ ਮਾਸੀ ਤੁਸੀਂ ਚਿੱਤਰਕਲਾ ਵਿੱਚ ਜ਼ਰੂਰ ਪਹਿਲਾ ਨੰਬਰ ਲਿਆਉਂਦੇ ਹੋਵੋਗੇ। ਮੈਂ ਵੀ ਪਹਿਲਾ ਨੰਬਰ ਲਿਆਉਂਦੀ ਹਾਂ।”</div><p class="a">हिंदी: “सच?” बच्ची ने हैरानी से कहा। “फिर तो मौसी, आप चित्रकला में ज़रूर प्रथम स्थान प्राप्त करती होंगी। मैं भी प्रथम स्थान प्राप्त करती हूँ।”</p></div>
+    <div class="qa"><div class="q">पंजाबी: “ਚਿੱਤਰਾਂ ਨੂੰ ਨਹੀਂ, ਚਿੱਤਰਾ ਨੂੰ ਵੇਖਣ ਆਈ ਸੀ। ਤੂੰ ਤਾਂ ਇਕਦਮ ਭੁੱਲ ਹੀ ਗਈ।”</div><p class="a">हिंदी: “चित्रों को नहीं, चित्रा को देखने आई थी। तुम तो एकदम भूल ही गई।”</p></div>
+  </section>
+
+  <section class="panel">
+    <h2 class="section-title">वस्तुनिष्ठ प्रश्न (Objective Quiz)</h2>
+    <p>सही विकल्प चुनें। अंत में “स्कोर देखें” दबाएँ।</p>
+    <div id="quiz"></div>
+    <div class="actions">
+      <button class="action-btn" id="checkBtn">स्कोर देखें</button>
+      <button class="action-btn secondary" id="resetBtn">फिर से हल करें</button>
+    </div>
+    <div id="score" aria-live="polite"></div>
+  </section>
+</main>
+<footer>कक्षा 9 हिंदी अध्ययन | पाठ 9 – दो कलाकार</footer>
+<script>
+const tabButtons=document.querySelectorAll('.tab-btn');
+tabButtons.forEach(btn=>btn.addEventListener('click',()=>{
+  tabButtons.forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(btn.dataset.tab).classList.add('active');
+}));
+const questions=[
+ {q:"‘दो कलाकार’ कहानी की लेखिका कौन हैं?",o:["महादेवी वर्मा","मन्नू भंडारी","सुभद्रा कुमारी चौहान","कृष्णा सोबती"],a:1},
+ {q:"छात्रावास में रहने वाली दो सहेलियाँ कौन थीं?",o:["अरुणा और चित्रा","शीला और फुलिया","चित्रा और शीला","अरुणा और फुलिया"],a:0},
+ {q:"चित्रा किस कला में कुशल थी?",o:["नृत्य","गायन","चित्रकला","अभिनय"],a:2},
+ {q:"अरुणा किस काम के लिए जानी जाती थी?",o:["व्यापार","समाज-सेवा","खेल","यात्रा"],a:1},
+ {q:"अरुणा बाढ़ पीड़ितों की सहायता के लिए कितने दिनों बाद लौटी?",o:["पाँच दिन","दस दिन","पंद्रह दिन","एक महीना"],a:2},
+ {q:"चित्रा का कौन-सा चित्र प्रसिद्ध हुआ?",o:["फूलों का चित्र","पहाड़ों का चित्र","भिखारिन और उसके बच्चों का चित्र","विद्यालय का चित्र"],a:2},
+ {q:"अरुणा ने भिखारिन के बच्चों के साथ क्या किया?",o:["उन्हें छोड़ दिया","उन्हें अपनाकर पाला","उन्हें विदेश भेजा","उनका चित्र बनाया"],a:1},
+ {q:"कहानी का मुख्य संदेश क्या है?",o:["केवल प्रसिद्धि महत्त्वपूर्ण है","कला का कोई महत्त्व नहीं","मानवीय संवेदना और सेवा बहुत महत्त्वपूर्ण हैं","विदेश जाना सबसे बड़ी उपलब्धि है"],a:2},
+ {q:"‘राह देखना’ मुहावरे का अर्थ क्या है?",o:["रास्ता बनाना","इंतज़ार करना","दौड़ना","रास्ता भूलना"],a:1},
+ {q:"‘धनी’ का विपरीत शब्द क्या है?",o:["धनवान","निर्धन","संपन्न","समृद्ध"],a:1}
+];
+const quiz=document.getElementById('quiz');
+function renderQuiz(){
+ quiz.innerHTML='';
+ questions.forEach((item,i)=>{
+  const card=document.createElement('div');card.className='quiz-card';card.dataset.index=i;
+  const h=document.createElement('h3');h.textContent=(i+1)+'. '+item.q;card.appendChild(h);
+  const opts=document.createElement('div');opts.className='options';
+  item.o.forEach((option,j)=>{
+   const label=document.createElement('label');label.className='option';
+   const input=document.createElement('input');input.type='radio';input.name='q'+i;input.value=j;
+   const span=document.createElement('span');span.textContent=option;
+   label.append(input,span);opts.appendChild(label);
+  });
+  card.appendChild(opts);const fb=document.createElement('div');fb.className='feedback';fb.id='fb'+i;card.appendChild(fb);quiz.appendChild(card);
+ });
+ document.getElementById('score').textContent='';
+}
+document.getElementById('checkBtn').addEventListener('click',()=>{
+ let score=0,answered=0;
+ questions.forEach((item,i)=>{
+  const chosen=document.querySelector('input[name="q'+i+'"]:checked');
+  const fb=document.getElementById('fb'+i);fb.className='feedback';
+  if(chosen){answered++;if(Number(chosen.value)===item.a){score++;fb.textContent='सही उत्तर!';fb.classList.add('correct')}else{fb.textContent='गलत। सही उत्तर: '+item.o[item.a];fb.classList.add('wrong')}}
+  else{fb.textContent='उत्तर नहीं चुना। सही उत्तर: '+item.o[item.a];fb.classList.add('wrong')}
+ });
+ document.getElementById('score').textContent='आपका स्कोर: '+score+' / '+questions.length+' | उत्तर दिए: '+answered+' / '+questions.length;
+});
+document.getElementById('resetBtn').addEventListener('click',renderQuiz);
+renderQuiz();
+</script>
+</body>
+</html>
