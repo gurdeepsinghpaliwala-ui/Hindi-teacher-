@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>पाठ 10 - चिड़िया का गीत | कक्षा 6 हिंदी Quiz</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;padding:16px;background:linear-gradient(135deg,#f5f3ff,#fff7ed);font-family:Arial,"Noto Sans Devanagari",sans-serif;color:#241b35}
+.container{max-width:760px;margin:20px auto;background:#fff;padding:24px;border-radius:22px;box-shadow:0 12px 35px #5b21b015}
+.badge{display:inline-block;background:linear-gradient(120deg,#7c3aed,#db2777);color:#fff;border-radius:22px;padding:8px 14px;font-size:13px;font-weight:bold}
+h1{color:#6d28d9;margin:16px 0 8px;font-size:clamp(24px,5vw,34px)}
+.sub{color:#665b75;line-height:1.65}
+.progress-row{display:flex;justify-content:space-between;gap:10px;font-size:14px;color:#625570;margin:20px 0 8px}
+.progress{height:9px;background:#ede9fe;border-radius:99px;overflow:hidden}
+.bar{height:100%;background:linear-gradient(90deg,#7c3aed,#db2777);width:0;transition:width .2s}
+.question{font-size:21px;font-weight:700;line-height:1.55;margin:24px 0 18px}
+.option{display:block;width:100%;text-align:left;border:2px solid #e9e3f5;background:#fff;padding:14px 15px;border-radius:13px;margin:10px 0;font-size:16px;color:#302641;cursor:pointer}
+.option:hover:not(:disabled){border-color:#a78bfa;background:#faf5ff}
+.option:disabled{cursor:default}
+.correct{border-color:#16a34a!important;background:#f0fdf4!important}
+.wrong{border-color:#dc2626!important;background:#fef2f2!important}
+.feedback{display:none;padding:14px;border-radius:12px;line-height:1.6;margin-top:14px}
+.feedback.show{display:block}
+.good{background:#f0fdf4;color:#166534}
+.bad{background:#fef2f2;color:#991b1b}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+button.nav{border:0;border-radius:12px;padding:13px 18px;font-weight:bold;font-size:15px;cursor:pointer}
+.primary{background:linear-gradient(100deg,#6d28d9,#9333ea,#db2777);color:white;flex:1}
+.secondary{background:#f3f0fa;color:#4b3b61}
+button:disabled{opacity:.45;cursor:not-allowed}
+#result{display:none}
+.score{font-size:38px;font-weight:800;color:#6d28d9;margin:12px 0}
+.review-item{padding:14px;border:1px solid #eee6f8;border-radius:12px;margin:10px 0;line-height:1.6}
+@media(max-width:480px){.container{padding:18px}
+.question{font-size:19px}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="badge">🐦 HINDI QUIZ • CLASS 6</div>
+<h1>पाठ 10: चिड़िया का गीत</h1>
+<p class="sub">महत्वपूर्ण प्रश्न-उत्तर, पर्यायवाची, विलोम शब्द और सर्वनाम के रूपों पर आधारित ऑनलाइन टेस्ट। एक-एक प्रश्न हल करें और अपना स्कोर जाँचें।</p>
+<div id="quiz">
+<div class="progress-row">
+<span id="count">
+</span>
+<span id="scoreNow">स्कोर: 0</span>
+</div>
+<div class="progress">
+<div class="bar" id="bar">
+</div>
+</div>
+<div class="question" id="question">
+</div>
+<div id="options">
+</div>
+<div id="feedback" class="feedback">
+</div>
+<div class="actions">
+<button class="nav secondary" id="prev" onclick="previous()" disabled>← पिछला प्रश्न</button>
+<button class="nav primary" id="next" onclick="next()" disabled>अगला प्रश्न →</button>
+</div>
+</div>
+<div id="result">
+<h2>🎉 Quiz पूरा हुआ!</h2>
+<p>आपका परिणाम</p>
+<div class="score" id="finalScore">
+</div>
+<p id="message">
+</p>
+<div class="actions">
+<button class="nav primary" onclick="restart()">🔄 दोबारा Quiz दें</button>
+</div>
+<h3>उत्तर की समीक्षा</h3>
+<div id="review">
+</div>
+</div>
+</div>
+<script>
+
+const questions=[{"q": "चिड़िया के घर का आकार सबसे पहले कैसा था?", "options": ["घोंसले जैसा", "अंडे जैसा", "पेड़ जैसा", "आसमान जैसा"], "answer": 1, "explanation": "कविता के अनुसार चिड़िया के घर का आकार सबसे पहले अंडे जैसा था।"}, {"q": "चिड़िया का घोंसला किस चीज़ से बना था?", "options": ["गीली मिट्टी से", "हरी पत्तियों से", "सूखे तिनकों से", "पत्थरों से"], "answer": 2, "explanation": "चिड़िया का घोंसला सूखे तिनकों से बना था।"}, {"q": "पेड़ की शाखाएँ कैसी थीं?", "options": ["सूखी और कठोर", "हरी-भरी और कोमल", "छोटी और टूटी", "बिना पत्तों की"], "answer": 1, "explanation": "पेड़ की शाखाएँ हरी-भरी और कोमल थीं।"}, {"q": "खुले आसमान में उड़कर चिड़िया को क्या समझ आया?", "options": ["संसार बहुत छोटा है", "संसार बहुत बड़ा है", "घोंसला बेकार है", "पेड़ उड़ सकता है"], "answer": 1, "explanation": "चिड़िया को समझ आया कि संसार बहुत बड़ा है।"}, {"q": "कविता में घोंसला किससे तैयार हुआ?", "options": ["सूखे तिनकों से", "रेशम से", "कागज़ से", "धागों से"], "answer": 0, "explanation": "पंक्ति है—‘सूखे तिनकों से तैयार।’"}, {"q": "‘घर’ का पर्यायवाची कौन-सा है?", "options": ["नभ", "गृह", "डाली", "मृदु"], "answer": 1, "explanation": "घर के पर्यायवाची गृह और आलय हैं।"}, {"q": "‘संसार’ का पर्यायवाची कौन-सा है?", "options": ["जगत", "नीड़", "टहनी", "गगन"], "answer": 0, "explanation": "संसार के पर्यायवाची जग और जगत हैं।"}, {"q": "‘घोंसला’ का पर्यायवाची कौन-सा है?", "options": ["गगन", "कोमल", "नीड़", "आलय"], "answer": 2, "explanation": "घोंसले का पर्यायवाची नीड़ और घरौंदा है।"}, {"q": "‘सुकुमार’ का समानार्थी शब्द क्या है?", "options": ["कठोर", "मृदु", "दूर", "सूखा"], "answer": 1, "explanation": "सुकुमार के पर्यायवाची कोमल और मृदु हैं।"}, {"q": "‘आसमान’ का पर्यायवाची कौन-सा है?", "options": ["डाली", "गृह", "गगन", "तिनका"], "answer": 2, "explanation": "आसमान के पर्यायवाची नभ और गगन हैं।"}, {"q": "‘शाखा’ का पर्यायवाची कौन-सा है?", "options": ["टहनी", "संसार", "अंडा", "पंख"], "answer": 0, "explanation": "शाखा के पर्यायवाची टहनी और डाली हैं।"}, {"q": "‘सूखे’ का विलोम शब्द क्या है?", "options": ["छोटा", "गीले", "पास", "बाद में"], "answer": 1, "explanation": "सूखे का विलोम गीले है।"}, {"q": "‘सुकुमार’ का विलोम शब्द क्या है?", "options": ["कठोर", "सूखी", "दूर", "बड़ा"], "answer": 0, "explanation": "सुकुमार का विलोम कठोर है।"}, {"q": "‘पहले’ का विलोम शब्द क्या है?", "options": ["पास", "बाद में", "छोटा", "गीले"], "answer": 1, "explanation": "पहले का विलोम बाद में है।"}, {"q": "‘दूर’ का विलोम शब्द क्या है?", "options": ["पास", "बड़ा", "गीले", "कठोर"], "answer": 0, "explanation": "दूर का विलोम पास है।"}, {"q": "‘बड़ा’ का विलोम शब्द क्या है?", "options": ["सूखा", "छोटा", "पहले", "हरी-भरी"], "answer": 1, "explanation": "बड़ा का विलोम छोटा है।"}, {"q": "‘सु + पुत्र’ से कौन-सा शब्द बनता है?", "options": ["सुपुत्र", "पुत्रसु", "सुपत्र", "सुपुत्रा"], "answer": 0, "explanation": "सु + पुत्र = सुपुत्र।"}, {"q": "‘सु + गंध’ से कौन-सा शब्द बनता है?", "options": ["गंधसु", "सुगंध", "सुगंधा", "सुगंधि"], "answer": 1, "explanation": "सु + गंध = सुगंध।"}, {"q": "‘सु + कर्म’ से कौन-सा शब्द बनता है?", "options": ["सुकर्म", "कर्मसु", "सुकाम", "सुकर्मा"], "answer": 0, "explanation": "सु + कर्म = सुकर्म।"}, {"q": "‘मैं’ का रूप कौन-सा है?", "options": ["हमारा", "मेरा", "तेरा", "तुम्हारा"], "answer": 1, "explanation": "मैं के रूप मेरा, मेरी और मेरे हैं।"}, {"q": "‘हम’ का रूप कौन-सा है?", "options": ["तेरी", "मेरा", "हमारा", "तुम्हारे"], "answer": 2, "explanation": "हम के रूप हमारा, हमारी और हमारे हैं।"}, {"q": "‘तू’ का रूप कौन-सा है?", "options": ["हमारी", "तेरा", "मेरा", "तुम्हारा"], "answer": 1, "explanation": "तू के रूप तेरा, तेरी और तेरे हैं।"}, {"q": "कविता में चिड़िया दूर तक कहाँ उड़ती है?", "options": ["पानी में", "आसमान में", "घोंसले के भीतर", "ज़मीन के नीचे"], "answer": 1, "explanation": "चिड़िया पंख पसारकर आसमान में दूर तक उड़ती है।"}, {"q": "‘पंख पसारना’ का अर्थ क्या है?", "options": ["पंख फैलाना", "घोंसला बनाना", "अंडे देना", "शाखा तोड़ना"], "answer": 0, "explanation": "पंख पसारना यानी पंख फैलाना।"}, {"q": "‘यदि मेरे पंख होते’ विषय में व्यक्ति क्या करना चाहता है?", "options": ["घर में सोना", "खुले आसमान में उड़ना", "पेड़ काटना", "वाहन खरीदना"], "answer": 1, "explanation": "वह पक्षियों की तरह खुले आसमान में दूर-दूर तक उड़ना चाहता है।"}];let current=0,answers=Array(questions.length).fill(null);
+
+function render(){let item=questions[current],selected=answers[current];document.getElementById('count').textContent=`प्रश्न ${current+1} / ${questions.length}`;document.getElementById('scoreNow').textContent='स्कोर: '+answers.filter((a,i)=>a===questions[i].answer).length;document.getElementById('bar').style.width=((current+1)/questions.length*100)+'%';document.getElementById('question').textContent=(current+1)+'. '+item.q;let box=document.getElementById('options');box.innerHTML='';item.options.forEach((opt,i)=>{let b=document.createElement('button');b.className='option';b.textContent=String.fromCharCode(65+i)+'. '+opt;if(selected!==null){b.disabled=true;if(i===item.answer)b.classList.add('correct');if(i===selected&&selected!==item.answer)b.classList.add('wrong')}
+b.onclick=()=>choose(i);box.appendChild(b)});let fb=document.getElementById('feedback');if(selected!==null){fb.className='feedback show '+(selected===item.answer?'good':'bad');fb.textContent=(selected===item.answer?'✅ सही जवाब! ':'❌ गलत जवाब। ')+item.explanation}
+else{fb.className='feedback';fb.textContent=''}
+document.getElementById('prev').disabled=current===0;document.getElementById('next').disabled=selected===null;document.getElementById('next').textContent=current===questions.length-1?'परिणाम देखें →':'अगला प्रश्न →'}
+
+function choose(i){if(answers[current]!==null)return;answers[current]=i;render()}
+
+function next(){if(answers[current]===null)return;if(current<questions.length-1){current++;render()}
+else showResult()}
+
+function previous(){if(current>0){current--;render()}}
+
+function showResult(){document.getElementById('quiz').style.display='none';document.getElementById('result').style.display='block';let score=answers.filter((a,i)=>a===questions[i].answer).length;document.getElementById('finalScore').textContent=score+' / '+questions.length;document.getElementById('message').textContent=score>=20?'बहुत बढ़िया! आपकी तैयारी शानदार है।':score>=14?'अच्छा प्रयास! थोड़ी और अभ्यास करें।':'अभ्यास जारी रखें—आप और बेहतर कर सकते हैं।';document.getElementById('review').innerHTML=questions.map((q,i)=>`<div class="review-item">
+<b>${i+1}
+. ${q.q}</b>
+<br>आपका उत्तर: ${answers[i]===null?'नहीं दिया':q.options[answers[i]]}<br>सही उत्तर: <b>${q.options[q.answer]}</b>
+</div>`).join('')}
+
+function restart(){current=0;answers=Array(questions.length).fill(null);document.getElementById('quiz').style.display='block';document.getElementById('result').style.display='none';render()}
+render();
+
+</script></script>
+</body>
+</html>
