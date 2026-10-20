@@ -3,155 +3,143 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>पाठ 4 इन्द्रधनुष ऑनलाइन क्विज़ | कक्षा 6 हिंदी</title>
+<title>पाठ 4 इन्द्रधनुष Quiz | कक्षा 6 हिंदी</title>
 <style>
 *{box-sizing:border-box}
-body{font-family:Arial,"Noto Sans Devanagari",sans-serif;margin:0;padding:16px 12px;background:#f5f7fb;color:#222;line-height:1.7}
-.container{max-width:900px;margin:auto}
-.header{background:linear-gradient(135deg,#4f46e5,#9333ea);color:#fff;text-align:center;padding:24px 16px;border-radius:16px;margin-bottom:18px}
-.header h1{margin:0;font-size:27px}.header p{margin:6px 0 0}
-.info,.question,.result{background:#fff;border-radius:12px;padding:16px;margin:14px 0;box-shadow:0 3px 12px #1111;border:1px solid #e5e7eb}
-.info{border-top:4px solid #9333ea}
-.question h3{font-size:17px;margin:0 0 12px;color:#312e81}
-.options{display:grid;gap:8px}
-.option{display:flex;gap:9px;align-items:flex-start;border:1px solid #e5e7eb;border-radius:9px;padding:9px 11px;cursor:pointer;background:#fff}
-.option:hover{background:#f5f3ff;border-color:#a78bfa}
-.option input{margin-top:7px;accent-color:#6d28d9}
-.controls{display:flex;flex-wrap:wrap;gap:10px;margin:20px 0}
-.btn{border:0;border-radius:8px;padding:12px 18px;color:white;font-size:16px;font-weight:bold;cursor:pointer;background:#4f46e5}
-.btn.secondary{background:#64748b}.btn:focus{outline:3px solid #c4b5fd}
-.result{display:none;border-top:4px solid #16a34a}
-.result h2{margin-top:0;color:#166534}
-.correct{color:#15803d;font-weight:bold}.wrong{color:#b91c1c;font-weight:bold}
-.answer-note{font-size:14px;color:#475569;margin-top:7px}
-.footer{text-align:center;color:#64748b;font-size:13px;margin-top:20px}
-@media(max-width:480px){.header h1{font-size:22px}.question,.info,.result{padding:13px}.btn{width:100%}}
+body{margin:0;padding:16px 12px;background:#f5f7fb;color:#1f2937;font-family:Arial,"Noto Sans Devanagari",sans-serif;line-height:1.7}
+.container{max-width:760px;margin:auto}
+.header{background:linear-gradient(135deg,#4f46e5,#9333ea);color:#fff;text-align:center;padding:24px 15px;border-radius:16px;margin-bottom:16px}
+.header h1{font-size:25px;margin:0}.header p{margin:5px 0 0}
+.card{background:#fff;border:1px solid #e5e7eb;border-radius:15px;padding:18px;margin:14px 0;box-shadow:0 4px 14px #1111}
+.topline{display:flex;justify-content:space-between;gap:10px;align-items:center;color:#64748b;font-size:14px}
+.track{height:8px;background:#e5e7eb;border-radius:99px;overflow:hidden;margin:10px 0 20px}
+#bar{height:100%;width:0;background:linear-gradient(90deg,#4f46e5,#a855f7);transition:width .2s}
+#qtitle{font-size:20px;line-height:1.5;color:#312e81;margin:8px 0 18px}
+.answers{display:grid;gap:10px}
+.answer{display:flex;align-items:center;gap:10px;padding:12px;border:1.5px solid #dbe1ea;border-radius:10px;cursor:pointer;background:#fff}
+.answer:has(input:checked){border-color:#7c3aed;background:#f5f3ff}
+.answer input{width:18px;height:18px;accent-color:#6d28d9;flex-shrink:0}
+.answer span{font-size:16px}
+.actions{display:flex;gap:10px;margin-top:20px}
+button{border:0;border-radius:9px;padding:12px 16px;font-size:16px;font-weight:bold;cursor:pointer}
+#next{background:#4f46e5;color:#fff;flex:1}
+#prev{background:#e5e7eb;color:#374151}
+button:disabled{opacity:.45;cursor:not-allowed}
+#feedback{display:none;margin-top:14px;padding:12px;border-radius:10px;background:#f0fdf4;color:#166534}
+#feedback.bad{background:#fef2f2;color:#991b1b}
+#result{display:none;text-align:center;border-top:4px solid #16a34a}
+#result h2{color:#166534}
+#review{text-align:left;margin-top:16px}
+.review-item{border-top:1px solid #e5e7eb;padding:12px 0}
+.small{font-size:13px;color:#64748b}
+@media(max-width:480px){.header h1{font-size:22px}.card{padding:14px}#qtitle{font-size:18px}.actions button{font-size:15px}}
 </style>
 </head>
 <body>
 <div class="container">
 <header class="header">
 <h1>🌈 पाठ–4: इन्द्रधनुष</h1>
-<p>कक्षा 6 हिंदी | ऑनलाइन MCQ टेस्ट</p>
+<p>कक्षा 6 हिंदी | Online Quiz</p>
 </header>
-
-<div class="info">
-<strong>📝 टेस्ट के निर्देश</strong>
-<ul>
-<li>हर प्रश्न को ध्यान से पढ़ें और एक सही विकल्प चुनें।</li>
-<li>सही/गलत वाले प्रश्नों में अपना उत्तर चुनें।</li>
-<li>अंत में <b>उत्तर जमा करें</b> दबाकर अपना स्कोर देखें।</li>
-<li>सभी प्रश्नों के सही उत्तर और स्पष्टीकरण भी दिखाई देंगे।</li>
-</ul>
-<p id="progress">प्रश्न: 0 | उत्तर दिए: 0</p>
+<section class="card">
+<div class="topline"><span id="count">प्रश्न 1 / 20</span><span id="answered">उत्तर दिए: 0</span></div>
+<div class="track"><div id="bar"></div></div>
+<div class="small" id="kind">बहुविकल्पीय प्रश्न</div>
+<h2 id="qtitle"></h2>
+<div class="answers" id="answers"></div>
+<div id="feedback" role="status"></div>
+<div class="actions">
+<button id="prev" type="button">← पिछला</button>
+<button id="next" type="button">Next Question →</button>
 </div>
-
-<form id="quizForm">
-<div id="questions"></div>
-<div class="controls">
-<button class="btn" type="submit">✅ उत्तर जमा करें</button>
-<button class="btn secondary" type="button" id="resetBtn">🔄 दोबारा टेस्ट दें</button>
-</div>
-</form>
-
-<section class="result" id="result" aria-live="polite">
+<p class="small">पहले विकल्प चुनें, फिर Next Question दबाएँ। अंतिम प्रश्न पर Submit Quiz दिखाई देगा।</p>
+</section>
+<section class="card" id="result">
 <h2>📊 आपका परिणाम</h2>
 <p id="score"></p>
 <p id="message"></p>
 <div id="review"></div>
+<button type="button" id="restart" style="background:#4f46e5;color:white;width:100%">🔄 दोबारा टेस्ट दें</button>
 </section>
-<div class="footer">कक्षा 6 हिंदी अध्ययन | पाठ–4 इन्द्रधनुष</div>
 </div>
-
 <script>
-const questions = [
-{type:"mcq",q:"कविता में बादलों का रंग कैसा बताया गया है?",o:["काला","सफेद","लाल","पीला"],a:0,e:"कविता में बादलों का रंग काला बताया गया है।"},
-{type:"mcq",q:"वर्षा के बाद प्रकृति कैसी दिखाई देती है?",o:["सूखी","हरी-भरी","बंजर","धूल भरी"],a:1,e:"वर्षा के बाद प्रकृति हरी-भरी दिखाई देती है।"},
-{type:"mcq",q:"वर्षा के बाद सूर्य दिखाई देने पर नभ पर क्या दिखाई देता है?",o:["तारे","चाँद","इन्द्रधनुष","ओस"],a:2,e:"सूर्य और वर्षा के बाद आकाश में इन्द्रधनुष दिखाई दे सकता है।"},
-{type:"mcq",q:"इन्द्रधनुष का आकार कैसा होता है?",o:["चौकोर","त्रिभुज जैसा","सीधी रेखा जैसा","अर्ध-वृत्त जैसा"],a:3,e:"इन्द्रधनुष का आकार अर्ध-वृत्त या आधे गोले जैसा होता है।"},
-{type:"mcq",q:"कवि ने इन्द्रधनुष के लिए कौन-सा अन्य शब्द प्रयोग किया है?",o:["सतरंगी पींघ","मेघ","किरण","धरा"],a:0,e:"कविता में इन्द्रधनुष के लिए सतरंगी पींघ अर्थात सतरंगी झूले का भाव आया है।"},
-{type:"mcq",q:"'प्रभु' का पर्यायवाची शब्द कौन-सा है?",o:["जलद","परमात्मा","गगन","धरा"],a:1,e:"प्रभु के पर्यायवाची परमात्मा और ईश्वर हैं।"},
-{type:"mcq",q:"'मेघ' का पर्यायवाची शब्द कौन-सा है?",o:["आँगन","छेद","बादल","किरण"],a:2,e:"मेघ का अर्थ बादल होता है।"},
-{type:"mcq",q:"'नभ' का पर्यायवाची शब्द कौन-सा है?",o:["वर्षा","प्रकृति","झूला","आकाश"],a:3,e:"नभ के पर्यायवाची आकाश और गगन हैं।"},
-{type:"mcq",q:"'अचानक' का हिंदी अर्थ क्या है?",o:["सहसा","आँगन","मेघ","नभ"],a:0,e:"अचानक का समान अर्थ सहसा है।"},
-{type:"mcq",q:"'ਧਰਤੀ' का हिंदी अर्थ क्या है?",o:["आकाश","धरा","झूला","छेद"],a:1,e:"पंजाबी शब्द धरती का हिंदी अर्थ धरा है।"},
-{type:"mcq",q:"इन्द्रधनुष में कितने रंग माने जाते हैं?",o:["पाँच","छह","सात","आठ"],a:2,e:"इन्द्रधनुष में सात रंग माने जाते हैं।"},
-{type:"mcq",q:"वर्षा ऋतु में कौन नाचता है?",o:["कौआ","कबूतर","तोता","मोर"],a:3,e:"वर्षा ऋतु में मोर नाचते हैं।"},
-{type:"mcq",q:"यदि वर्षा न हो तो क्या पड़ सकता है?",o:["सूखा","बाढ़","हिमपात","ओले"],a:0,e:"वर्षा न होने पर सूखा पड़ सकता है और फसलों को पानी नहीं मिलता।"},
-{type:"mcq",q:"अधिक वर्षा होने पर क्या हो सकता है?",o:["सूखा","बाढ़","गर्मी","पाला"],a:1,e:"अधिक वर्षा से बाढ़ आ सकती है और फसलों को नुकसान हो सकता है।"},
-{type:"mcq",q:"'किरण' के दिए गए पर्यायवाची में से एक कौन-सा है?",o:["मेघ","धरा","मयूख","आँगन"],a:2,e:"किरण के पर्यायवाची कर और मयूख हैं।"},
-{type:"tf",q:"वर्षा के बाद प्रकृति हरी-भरी दिखाई देती है।",a:true,e:"वर्षा के बाद वनस्पति ताजा और हरी-भरी दिखाई देती है।"},
-{type:"tf",q:"'नभ' का अर्थ धरती होता है।",a:false,e:"नभ का अर्थ आकाश या गगन होता है; धरती का अर्थ धरा है।"},
-{type:"tf",q:"'कर्म' शब्द में 'र्म' संयुक्त अक्षर है।",a:true,e:"कर्म शब्द में र् और म मिलकर 'र्म' बनाते हैं।"},
-{type:"tf",q:"वर्षा न होने से फसलों को पर्याप्त पानी मिलता है।",a:false,e:"वर्षा न होने पर फसलों को पानी की कमी हो सकती है और सूखा पड़ सकता है।"},
-{type:"tf",q:"कविता में वर्षा ऋतु से मुस्कुराते रहने और खुशियाँ फैलाने का संदेश मिलता है।",a:true,e:"कविता हमें मुस्कुराकर चारों ओर खुशियों के रंग फैलाने का संदेश देती है।"}
+const questions=[
+{t:"mcq",q:"कविता में बादलों का रंग कैसा बताया गया है?",o:["काला","सफेद","लाल","पीला"],a:0,e:"कविता में बादलों का रंग काला बताया गया है।"},
+{t:"mcq",q:"वर्षा के बाद प्रकृति कैसी दिखाई देती है?",o:["सूखी","हरी-भरी","बंजर","धूल भरी"],a:1,e:"वर्षा के बाद प्रकृति हरी-भरी दिखाई देती है।"},
+{t:"mcq",q:"वर्षा के बाद सूर्य दिखाई देने पर नभ पर क्या दिखाई देता है?",o:["तारे","चाँद","इन्द्रधनुष","ओस"],a:2,e:"वर्षा के बाद सूर्य दिखाई देने पर नभ पर इन्द्रधनुष दिखाई देता है।"},
+{t:"mcq",q:"इन्द्रधनुष का आकार कैसा होता है?",o:["चौकोर","त्रिभुज जैसा","सीधी रेखा जैसा","अर्ध-वृत्त जैसा"],a:3,e:"इन्द्रधनुष का आकार अर्ध-वृत्त या आधे गोले जैसा होता है।"},
+{t:"mcq",q:"कवि ने इन्द्रधनुष के लिए कौन-सा अन्य शब्द प्रयोग किया है?",o:["सतरंगी पींघ","मेघ","किरण","धरा"],a:0,e:"कविता में इन्द्रधनुष के लिए सतरंगी पींघ शब्द आया है।"},
+{t:"mcq",q:"'प्रभु' का पर्यायवाची शब्द कौन-सा है?",o:["जलद","परमात्मा","गगन","धरा"],a:1,e:"प्रभु के पर्यायवाची परमात्मा और ईश्वर हैं।"},
+{t:"mcq",q:"'मेघ' का पर्यायवाची शब्द कौन-सा है?",o:["आँगन","छेद","बादल","किरण"],a:2,e:"मेघ का अर्थ बादल होता है।"},
+{t:"mcq",q:"'नभ' का पर्यायवाची शब्द कौन-सा है?",o:["वर्षा","प्रकृति","झूला","आकाश"],a:3,e:"नभ के पर्यायवाची आकाश और गगन हैं।"},
+{t:"mcq",q:"'अचानक' का हिंदी अर्थ क्या है?",o:["सहसा","आँगन","मेघ","नभ"],a:0,e:"अचानक का समान अर्थ सहसा है।"},
+{t:"mcq",q:"पंजाबी शब्द 'ਧਰਤੀ' का हिंदी अर्थ क्या है?",o:["आकाश","धरा","झूला","छेद"],a:1,e:"'ਧਰਤੀ' का हिंदी अर्थ धरा या धरती है।"},
+{t:"mcq",q:"इन्द्रधनुष में कितने रंग माने जाते हैं?",o:["पाँच","छह","सात","आठ"],a:2,e:"इन्द्रधनुष में सात रंग माने जाते हैं।"},
+{t:"mcq",q:"वर्षा ऋतु में कौन नाचता है?",o:["कौआ","कबूतर","तोता","मोर"],a:3,e:"वर्षा ऋतु में मोर नाचते हैं।"},
+{t:"mcq",q:"यदि वर्षा न हो तो क्या पड़ सकता है?",o:["सूखा","बाढ़","हिमपात","ओले"],a:0,e:"वर्षा न होने पर सूखा पड़ सकता है।"},
+{t:"mcq",q:"अधिक वर्षा होने पर क्या हो सकता है?",o:["सूखा","बाढ़","गर्मी","पाला"],a:1,e:"अधिक वर्षा से बाढ़ आ सकती है और फसलों को नुकसान हो सकता है।"},
+{t:"mcq",q:"'किरण' का एक पर्यायवाची कौन-सा है?",o:["मेघ","धरा","मयूख","आँगन"],a:2,e:"किरण के पर्यायवाची कर और मयूख हैं।"},
+{t:"tf",q:"वर्षा के बाद प्रकृति हरी-भरी दिखाई देती है।",a:true,e:"वर्षा के बाद प्रकृति हरी-भरी दिखाई देती है।"},
+{t:"tf",q:"'नभ' का अर्थ धरती होता है।",a:false,e:"नभ का अर्थ आकाश या गगन होता है।"},
+{t:"tf",q:"'कर्म' शब्द में 'र्म' संयुक्त अक्षर है।",a:true,e:"कर्म शब्द में र् और म मिलकर 'र्म' बनाते हैं।"},
+{t:"tf",q:"वर्षा न होने से फसलों को पर्याप्त पानी मिलता है।",a:false,e:"वर्षा न होने पर फसलों को पानी की कमी हो सकती है।"},
+{t:"tf",q:"वर्षा ऋतु हमें मुस्कुराकर खुशियाँ फैलाने का संदेश देती है।",a:true,e:"कविता हमें मुस्कुराते रहने और चारों ओर खुशियाँ फैलाने का संदेश देती है।"}
 ];
-
-const root = document.getElementById("questions");
-const letters = ["क","ख","ग","घ"];
-questions.forEach((item,i)=>{
-  const card=document.createElement("section");
-  card.className="question";
-  const title=document.createElement("h3");
-  title.textContent=(i+1)+". "+item.q;
-  card.appendChild(title);
-  const options=document.createElement("div");
-  options.className="options";
-  const values=item.type==="mcq"?item.o:["सही","गलत"];
-  values.forEach((label,j)=>{
-    const lab=document.createElement("label");
-    lab.className="option";
-    const input=document.createElement("input");
-    input.type="radio";
-    input.name="q"+i;
-    input.value=item.type==="mcq"?String(j):(j===0?"true":"false");
-    input.addEventListener("change",updateProgress);
-    const span=document.createElement("span");
-    span.textContent=item.type==="mcq"?`(${letters[j]}) ${label}`:label;
-    lab.append(input,span);
-    options.appendChild(lab);
-  });
-  card.appendChild(options);
-  root.appendChild(card);
-});
-
-function updateProgress(){
- const count=questions.filter((_,i)=>document.querySelector(`input[name="q${i}"]:checked`)).length;
- document.getElementById("progress").textContent=`कुल प्रश्न: ${questions.length} | उत्तर दिए: ${count}`;
+let index=0;
+const selected=Array(questions.length).fill(null);
+const letters=["क","ख","ग","घ"];
+const title=document.getElementById("qtitle"), answers=document.getElementById("answers");
+const feedback=document.getElementById("feedback"), next=document.getElementById("next");
+function render(){
+ const item=questions[index];
+ document.getElementById("count").textContent=`प्रश्न ${index+1} / ${questions.length}`;
+ document.getElementById("answered").textContent=`उत्तर दिए: ${selected.filter(v=>v!==null).length}`;
+ document.getElementById("bar").style.width=`${((index+1)/questions.length)*100}%`;
+ document.getElementById("kind").textContent=item.t==="tf"?"सही या गलत चुनें":"बहुविकल्पीय प्रश्न";
+ title.textContent=item.q; answers.replaceChildren();
+ const opts=item.t==="mcq"?item.o:["सही","गलत"];
+ opts.forEach((label,j)=>{
+  const lab=document.createElement("label");lab.className="answer";
+  const inp=document.createElement("input");inp.type="radio";inp.name="answer";inp.value=item.t==="mcq"?String(j):(j===0?"true":"false");
+  const val=item.t==="mcq"?String(j):(j===0?"true":"false");
+  inp.checked=selected[index]===val;
+  inp.addEventListener("change",()=>{selected[index]=val;feedback.style.display="none";document.getElementById("answered").textContent=`उत्तर दिए: ${selected.filter(v=>v!==null).length}`;});
+  const span=document.createElement("span");span.textContent=item.t==="mcq"?`(${letters[j]}) ${label}`:label;
+  lab.append(inp,span);answers.append(lab);
+ });
+ feedback.style.display="none";feedback.className="";
+ document.getElementById("prev").disabled=index===0;
+ next.textContent=index===questions.length-1?"🏁 Submit Quiz":"Next Question →";
 }
-document.getElementById("quizForm").addEventListener("submit",function(ev){
- ev.preventDefault();
- let score=0;
- const review=document.getElementById("review");
- review.replaceChildren();
+document.getElementById("prev").addEventListener("click",()=>{if(index>0){index--;render();}});
+next.addEventListener("click",()=>{
+ if(selected[index]===null){feedback.textContent="कृपया पहले एक विकल्प चुनें।";feedback.className="bad";feedback.style.display="block";return;}
+ if(index<questions.length-1){index++;render();}else showResult();
+});
+function showResult(){
+ let score=0;const review=document.getElementById("review");review.replaceChildren();
  questions.forEach((item,i)=>{
-  const chosen=document.querySelector(`input[name="q${i}"]:checked`);
-  const userValue=chosen?chosen.value:null;
-  const correctValue=item.type==="mcq"?String(item.a):String(item.a);
-  const isCorrect=userValue===correctValue;
-  if(isCorrect)score++;
-  const p=document.createElement("p");
-  p.className=isCorrect?"correct":"wrong";
-  let answerText=item.type==="mcq"?item.o[item.a]:(item.a?"सही":"गलत");
-  p.textContent=`${i+1}. ${isCorrect?"✓ सही":"✗ गलत या उत्तर नहीं दिया"} — सही उत्तर: ${answerText}`;
-  const note=document.createElement("div");
-  note.className="answer-note";
-  note.textContent=item.e;
-  review.append(p,note);
+  const correct=item.t==="mcq"?String(item.a):String(item.a);
+  const ok=selected[i]===correct;if(ok)score++;
+  const div=document.createElement("div");div.className="review-item";
+  const p=document.createElement("p");p.className=ok?"correct":"wrong";
+  const ans=item.t==="mcq"?item.o[item.a]:(item.a?"सही":"गलत");
+  p.textContent=`${i+1}. ${ok?"✓ सही":"✗ गलत"} — सही उत्तर: ${ans}`;
+  const note=document.createElement("div");note.className="small";note.textContent=item.e;
+  div.append(p,note);review.append(div);
  });
  document.getElementById("score").textContent=`आपके अंक: ${score} / ${questions.length} (${Math.round(score/questions.length*100)}%)`;
- document.getElementById("message").textContent=score>=questions.length*0.8?"बहुत बढ़िया! आपकी तैयारी अच्छी है।":score>=questions.length*0.5?"अच्छा प्रयास! गलत उत्तरों को दोबारा पढ़ें।":"पाठ के नोट्स पढ़कर फिर से अभ्यास करें।";
+ document.getElementById("message").textContent=score>=16?"बहुत बढ़िया! आपकी तैयारी अच्छी है।":score>=10?"अच्छा प्रयास! गलत उत्तरों को दोबारा पढ़ें।":"पाठ के नोट्स पढ़कर फिर से अभ्यास करें।";
+ document.querySelector(".container").querySelectorAll(".card")[0].style.display="none";
  document.getElementById("result").style.display="block";
- document.getElementById("result").scrollIntoView({behavior:"smooth",block:"start"});
-});
-document.getElementById("resetBtn").addEventListener("click",()=>{
- document.getElementById("quizForm").reset();
- document.getElementById("result").style.display="none";
- document.getElementById("review").replaceChildren();
- updateProgress();
  window.scrollTo({top:0,behavior:"smooth"});
+}
+document.getElementById("restart").addEventListener("click",()=>{
+ index=0;selected.fill(null);
+ document.querySelector(".container").querySelectorAll(".card")[0].style.display="block";
+ document.getElementById("result").style.display="none";render();window.scrollTo({top:0,behavior:"smooth"});
 });
-updateProgress();
+render();
 </script>
 </body>
 </html>
