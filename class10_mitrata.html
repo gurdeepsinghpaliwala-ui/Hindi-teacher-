@@ -74,11 +74,111 @@ main{max-width:900px;margin:20px auto;padding:0 13px 30px}
 </section>
 <footer>कक्षा 10 हिंदी · पाठ 12 मित्रता · अभ्यास के लिए तैयार किए गए नोट्स</footer>
 </main>
+
 <script>
-const tabs=document.querySelectorAll('.tab'),panels=document.querySelectorAll('.panel');
-tabs.forEach(btn=>btn.addEventListener('click',()=>{tabs.forEach(b=>b.classList.remove('active'));panels.forEach(p=>p.classList.remove('active'));btn.classList.add('active');document.getElementById(btn.dataset.tab).classList.add('active');}));
-function checkQuiz(){const answers={q1:'b',q2:'c',q3:'a',q4:'b',q5:'c',q6:'a',q7:'b',q8:'c',q9:'a',q10:'b'};let score=0,answered=0;for(const [q,a] of Object.entries(answers)){const chosen=document.querySelector('input[name="'+q+'"]:checked');if(chosen){answered++;if(chosen.value===a)score++;}}const result=document.getElementById('result');result.style.display='block';result.textContent='आपके अंक: '+score+'/10 · आपने '+answered+'/10 प्रश्नों के उत्तर दिए।';}
-function resetQuiz(){setTimeout(()=>{const r=document.getElementById('result');r.style.display='none';r.textContent='';},0);}
-</script>
+const tabs = document.querySelectorAll('.tab');
+const panels = document.querySelectorAll('.panel');
+
+tabs.forEach(btn => {
+  btn.addEventListener('click', () => {
+    tabs.forEach(b => b.classList.remove('active'));
+    panels.forEach(p => p.classList.remove('active'));
+
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab).classList.add('active');
+  });
+});
+
+function checkQuiz() {
+  const answers = {
+    q1: 'b',
+    q2: 'c',
+    q3: 'a',
+    q4: 'b',
+    q5: 'c',
+    q6: 'a',
+    q7: 'b',
+    q8: 'c',
+    q9: 'a',
+    q10: 'b'
+  };
+
+  let score = 0;
+  let answered = 0;
+
+  for (const [q, correctAnswer] of Object.entries(answers)) {
+    const question = document.querySelector(
+      'input[name="' + q + '"]'
+    ).closest('.quizq');
+
+    question.querySelectorAll('label').forEach(label => {
+      label.classList.remove('correct', 'wrong');
+    });
+
+    const oldFeedback = question.querySelector('.feedback');
+    if (oldFeedback) oldFeedback.remove();
+
+    const correctInput = question.querySelector(
+      'input[value="' + correctAnswer + '"]'
+    );
+
+    const correctLabel = correctInput.closest('label');
+    correctLabel.classList.add('correct');
+
+    const chosen = question.querySelector(
+      'input[name="' + q + '"]:checked'
+    );
+
+    const feedback = document.createElement('div');
+    feedback.className = 'feedback';
+
+    if (chosen) {
+      answered++;
+
+      if (chosen.value === correctAnswer) {
+        score++;
+        feedback.classList.add('good');
+        feedback.textContent = '✓ सही उत्तर!';
+      } else {
+        chosen.closest('label').classList.add('wrong');
+        feedback.classList.add('bad');
+        feedback.textContent =
+          '✗ गलत उत्तर! सही उत्तर: ' +
+          correctLabel.textContent.trim();
+      }
+    } else {
+      feedback.classList.add('bad');
+      feedback.textContent =
+        'उत्तर नहीं दिया। सही उत्तर: ' +
+        correctLabel.textContent.trim();
+    }
+
+    question.appendChild(feedback);
+  }
+
+  const result = document.getElementById('result');
+  result.style.display = 'block';
+  result.textContent =
+    'आपके अंक: ' + score + '/10 · उत्तर दिए: ' +
+    answered + '/10 प्रश्न';
+}
+
+function resetQuiz() {
+  setTimeout(() => {
+    document.querySelectorAll('.quizq label').forEach(label => {
+      label.classList.remove('correct', 'wrong');
+    });
+
+    document.querySelectorAll('.quizq .feedback').forEach(item => {
+      item.remove();
+    });
+
+    const result = document.getElementById('result');
+    result.style.display = 'none';
+    result.textContent = '';
+  }, 0);
+}
+  </script>
+  
 </body>
 </html>
