@@ -498,10 +498,115 @@ details[open]>summary:after{content:"−"}
 
 </div>
 
+
 <script>
 (function () {
   const quiz = document.getElementById("countryQuiz");
   const questions = Array.from(quiz.querySelectorAll(".quiz-question"));
   const result = document.getElementById("countryQuizResult");
   const checkButton = document.getElementById("checkQuiz");
-  const 
+  const resetButton = document.getElementById("resetQuiz");
+
+  function checkAnswer(question) {
+    const correctAnswer = question.dataset.answer;
+    const selected = question.querySelector('input[type="radio"]:checked');
+    const feedback = question.querySelector(".feedback");
+    const options = question.querySelectorAll(".quiz-option");
+
+    options.forEach(function (option) {
+      option.classList.remove("correct", "wrong");
+      const input = option.querySelector("input");
+
+      if (input.value === correctAnswer) {
+        option.classList.add("correct");
+      }
+    });
+
+    if (!selected) {
+      feedback.textContent = "⚠️ अभी उत्तर नहीं चुना गया है।";
+      feedback.className = "feedback show bad";
+      return false;
+    }
+
+    const selectedOption = selected.closest(".quiz-option");
+
+    if (selected.value === correctAnswer) {
+      feedback.textContent = "✅ बिल्कुल सही उत्तर!";
+      feedback.className = "feedback show good";
+      return true;
+    } else {
+      selectedOption.classList.add("wrong");
+      const correctOption = question.querySelector(
+        'input[value="' + correctAnswer + '"]'
+      ).closest(".quiz-option");
+
+      feedback.textContent =
+        "❌ गलत उत्तर। सही उत्तर: " +
+        correctOption.textContent.trim();
+
+      feedback.className = "feedback show bad";
+      return false;
+    }
+  }
+
+  questions.forEach(function (question) {
+    question.querySelectorAll('input[type="radio"]').forEach(function (input) {
+      input.addEventListener("change", function () {
+        checkAnswer(question);
+        result.textContent = "सभी प्रश्न हल करने के बाद स्कोर देखें।";
+      });
+    });
+  });
+
+  checkButton.addEventListener("click", function () {
+    let score = 0;
+    let attempted = 0;
+
+    questions.forEach(function (question) {
+      const selected = question.querySelector(
+        'input[type="radio"]:checked'
+      );
+
+      if (selected) {
+        attempted++;
+        if (selected.value === question.dataset.answer) {
+          score++;
+        }
+      }
+
+      checkAnswer(question);
+    });
+
+    result.textContent =
+      "🏆 आपका स्कोर: " + score + " / " + questions.length +
+      " | हल किए गए प्रश्न: " + attempted + " / " + questions.length;
+
+    if (score === questions.length) {
+      result.textContent += " 🎉 शानदार! सभी उत्तर सही हैं।";
+    } else if (attempted < questions.length) {
+      result.textContent += " बाकी प्रश्न भी हल करें।";
+    } else {
+      result.textContent += " 👍 अभ्यास जारी रखें!";
+    }
+  });
+
+  resetButton.addEventListener("click", function () {
+    quiz.reset();
+
+    questions.forEach(function (question) {
+      question.querySelectorAll(".quiz-option").forEach(function (option) {
+        option.classList.remove("correct", "wrong");
+      });
+
+      const feedback = question.querySelector(".feedback");
+      feedback.textContent = "";
+      feedback.className = "feedback";
+    });
+
+    result.textContent = "आपका स्कोर यहाँ दिखाई देगा।";
+  });
+})();
+</script>
+</body>
+</html>
+
