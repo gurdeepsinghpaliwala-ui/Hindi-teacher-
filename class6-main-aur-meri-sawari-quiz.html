@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>कक्षा 6 | पाठ 6 – मैं और मेरी सवारी Quiz</title>
+<style>
+:root{--primary:#7c3aed;--primary2:#9333ea;--ink:#1f2937;--muted:#64748b;--bg:#f5f7fb;--card:#fff;--line:#e8eaf2;--good:#15803d;--bad:#b91c1c}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,"Noto Sans Devanagari",sans-serif;background:linear-gradient(180deg,#f3e8ff 0,#f8fafc 250px,var(--bg) 100%);color:var(--ink);line-height:1.6}
+.wrap{max-width:850px;margin:0 auto;padding:18px 14px 38px}
+.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#6d28d9,#9333ea 55%,#c084fc);color:white;padding:25px 20px;border-radius:24px;box-shadow:0 12px 28px #7c3aed30}
+.hero:after{content:"✦";position:absolute;right:22px;top:-22px;font-size:110px;color:#ffffff22}
+.kicker{font-size:13px;font-weight:700;letter-spacing:.5px;opacity:.9}
+h1{font-size:clamp(24px,5vw,34px);line-height:1.25;margin:7px 0}
+.hero p{margin:8px 0 0;color:#f3e8ff}
+.pills{display:flex;gap:8px;flex-wrap:wrap;margin-top:15px}
+.pill{font-size:12px;font-weight:700;padding:5px 10px;border-radius:999px;background:#ffffff25;border:1px solid #ffffff40}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:22px;padding:20px;margin-top:17px;box-shadow:0 8px 22px #3341550b}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}
+.small{font-size:13px;color:var(--muted);font-weight:700}
+.progress{height:8px;background:#ede9fe;border-radius:99px;overflow:hidden;margin:10px 0 20px}
+.bar{height:100%;width:0;background:linear-gradient(90deg,#7c3aed,#c084fc);border-radius:99px;transition:width .25s}
+.qnum{display:inline-flex;align-items:center;gap:6px;background:#f3e8ff;color:#6d28d9;font-weight:800;font-size:12px;padding:6px 10px;border-radius:999px}
+.question{font-size:20px;font-weight:800;line-height:1.45;margin:13px 0 18px}
+.options{display:grid;gap:10px}
+.option{display:flex;align-items:flex-start;gap:11px;text-align:left;width:100%;padding:13px 14px;border:1.5px solid var(--line);background:#fff;border-radius:14px;color:var(--ink);font-size:16px;cursor:pointer;transition:.15s}
+.option:hover{border-color:#c4b5fd;background:#faf5ff}
+.option .letter{display:inline-flex;align-items:center;justify-content:center;flex:0 0 28px;height:28px;border-radius:9px;background:#f1f5f9;font-weight:800;color:#475569;font-size:13px}
+.option.selected{border-color:#8b5cf6;background:#f5f3ff}
+.option.correct{border-color:#86efac;background:#f0fdf4}
+.option.wrong{border-color:#fca5a5;background:#fef2f2}
+.option:disabled{cursor:default}
+.feedback{display:none;padding:12px 14px;border-radius:13px;margin-top:14px;font-size:14px}
+.feedback.show{display:block}
+.feedback.good{background:#f0fdf4;color:#166534;border:1px solid #bbf7d0}
+.feedback.bad{background:#fef2f2;color:#991b1b;border:1px solid #fecaca}
+.controls{display:flex;gap:10px;justify-content:space-between;align-items:center;margin-top:20px}
+button.nav{border:0;border-radius:12px;padding:12px 17px;font-size:15px;font-weight:800;cursor:pointer}
+button:disabled{opacity:.45;cursor:not-allowed}
+.prev{background:#f1f5f9;color:#334155}
+.next{background:linear-gradient(135deg,#7c3aed,#9333ea);color:#fff;box-shadow:0 5px 12px #7c3aed25}
+.result{display:none;text-align:center}
+.result.show{display:block}
+.scorecircle{width:118px;height:118px;border-radius:50%;display:grid;place-items:center;margin:12px auto;background:linear-gradient(135deg,#ede9fe,#f5d0fe);border:8px solid #ddd6fe;color:#6d28d9;font-size:27px;font-weight:900}
+.result h2{margin:6px 0;font-size:26px}
+.review{text-align:left;margin-top:20px;display:grid;gap:10px}
+.reviewitem{padding:12px;border:1px solid var(--line);border-radius:12px;background:#fff}
+.reviewitem strong{display:block;margin-bottom:4px}
+.restart{margin-top:18px;background:#7c3aed;color:white;border:0;border-radius:12px;padding:12px 18px;font-weight:800;font-size:15px;cursor:pointer}
+.foot{text-align:center;color:#94a3b8;font-size:12px;margin:18px 0 0}
+@media(max-width:520px){.wrap{padding:12px 10px 28px}.hero{padding:22px 17px;border-radius:20px}.panel{padding:16px;border-radius:18px}.question{font-size:18px}.option{font-size:15px;padding:12px}.controls button{padding:11px 12px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <div class="kicker">हिंदी अध्ययन • कक्षा छठी</div>
+    <h1>🚲 पाठ–6: मैं और मेरी सवारी</h1>
+    <p>ऑनलाइन वस्तुनिष्ठ प्रश्नोत्तरी — MCQ और सही/गलत</p>
+    <div class="pills"><span class="pill">🎯 अभ्यास टेस्ट</span><span class="pill">30 प्रश्न</span><span class="pill">📱 मोबाइल फ्रेंडली</span></div>
+  </header>
+
+  <section class="panel" id="quizPanel">
+    <div class="topline"><span class="qnum" id="qNum">प्रश्न 1 / 20</span><span class="small" id="scoreLive">स्कोर: 0</span></div>
+    <div class="progress"><div class="bar" id="bar"></div></div>
+    <div class="question" id="question"></div>
+    <div class="options" id="options"></div>
+    <div class="feedback" id="feedback" aria-live="polite"></div>
+    <div class="controls">
+      <button class="nav prev" id="prevBtn" type="button">← पिछला</button>
+      <button class="nav next" id="nextBtn" type="button">अगला प्रश्न →</button>
+    </div>
+  </section>
+
+  <section class="panel result" id="resultPanel">
+    <div style="font-size:42px">🏆</div>
+    <h2>क्विज़ पूरी हुई!</h2>
+    <p>बहुत बढ़िया! अपना परिणाम नीचे देखें।</p>
+    <div class="scorecircle" id="scoreCircle">0/20</div>
+    <div id="resultText"></div>
+    <div class="review" id="review"></div>
+    <button class="restart" id="restartBtn" type="button">🔄 फिर से टेस्ट दें</button>
+  </section>
+  <div class="foot">कक्षा 6 हिंदी • पाठ–6 मैं और मेरी सवारी</div>
+</div>
+<script>
+const questions = [
+ {q:"दो पहिए वाली सवारी को क्या कहते हैं?",o:["मोटरगाड़ी","बाइसिकिल","बस","ट्रैक्टर"],a:1,e:"दो पहिए वाली सवारी को साइकिल या बाइसिकिल कहते हैं।"},
+ {q:"बुज़ुर्गों के स्वास्थ्य का राज़ क्या बताया गया है?",o:["रोज़ साइकिल चलाना","दिन भर सोना","मिठाई खाना","टीवी देखना"],a:0,e:"पाठ के अनुसार बुज़ुर्गों के स्वास्थ्य का राज़ रोज़ साइकिल चलाना है।"},
+ {q:"साइकिल का आविष्कार किसने किया?",o:["न्यूटन","मैकमिलन","एडिसन","गैलीलियो"],a:1,e:"दिए गए पाठ के अनुसार साइकिल का आविष्कार मैकमिलन ने किया।"},
+ {q:"पाठ के अनुसार साइकिल का आविष्कार किस वर्ष हुआ?",o:["1820 ई.","1839 ई.","1901 ई.","1947 ई."],a:1,e:"पाठ में आविष्कार का वर्ष 1839 ई. दिया गया है।"},
+ {q:"थोड़ी दूर जाना हो तो कौन-सी सवारी उत्तम है?",o:["हवाई जहाज़","साइकिल","जहाज़","ट्रेन"],a:1,e:"थोड़ी दूरी के लिए साइकिल उत्तम सवारी है।"},
+ {q:"वायु प्रदूषण किससे होता है?",o:["पेड़ों से","मोटरगाड़ियों के धुएँ से","साइकिल से","फूलों से"],a:1,e:"मोटरगाड़ियों से निकलने वाला धुआँ वायु प्रदूषण करता है।"},
+ {q:"खेल दिवस पर साइकिल दौड़ के कौन-से मुकाबले होते हैं?",o:["केवल लंबी दौड़","धीमी और तेज़ गति की दौड़","केवल पैदल दौड़","तैराकी"],a:1,e:"खेल दिवस पर धीमी गति और तेज़ गति की साइकिल दौड़ होती है।"},
+ {q:"साइकिल चलाना शरीर के लिए कैसा व्यायाम है?",o:["अधूरा व्यायाम","संपूर्ण व्यायाम","कोई व्यायाम नहीं","केवल हाथों का व्यायाम"],a:1,e:"पाठ में साइकिल चलाने को संपूर्ण व्यायाम बताया गया है।"},
+ {q:"साइकिल चलाने के लिए किस ईंधन की ज़रूरत होती है?",o:["पेट्रोल","डीज़ल","कोई ईंधन नहीं","गैस"],a:2,e:"साइकिल चलाने के लिए पेट्रोल या डीज़ल की आवश्यकता नहीं होती।"},
+ {q:"पाठ के अनुसार साइकिल किस देश की राष्ट्रीय सवारी है?",o:["भारत","हालैंड","जापान","नेपाल"],a:1,e:"अभ्यास में हालैंड को साइकिल की राष्ट्रीय सवारी वाला देश बताया गया है।"},
+ {q:"साइकिल का आविष्कार किस देश के मैकमिलन ने किया?",o:["स्कॉटलैंड","भारत","चीन","फ्रांस"],a:0,e:"अभ्यास के अनुसार मैकमिलन स्कॉटलैंड के थे।"},
+ {q:"‘बुझारत’ का हिंदी शब्द क्या है?",o:["पहेली","रुकावट","यातायात","व्यायाम"],a:0,e:"ਪੰਜਾਬੀ ‘ਬੁਝਾਰਤ’ का हिंदी शब्द पहेली है।"},
+ {q:"‘ਖੋਜ’ का हिंदी शब्द क्या है?",o:["मित्रता","आविष्कार","धुआँ","चालक"],a:1,e:"‘खोज’ का दिया गया हिंदी शब्द आविष्कार है।"},
+ {q:"‘ਵੱਡੇ-ਬੁੱਢੇ’ का हिंदी अर्थ क्या है?",o:["बच्चे","बुज़ुर्ग","विजेता","हमसफ़र"],a:1,e:"‘वੱਡੇ-ਬੁੱਢੇ’ का अर्थ बुज़ुर्ग है।"},
+ {q:"‘ਅਸਲ ਵਿੱਚ’ का हिंदी रूप क्या है?",o:["दरअसल","अंधाधुंध","अनुसरण","उपलब्ध"],a:0,e:"‘ਅਸਲ ਵਿੱਚ’ का हिंदी रूप दरअसल है।"},
+ {q:"‘ਆਵਾਜਾਈ’ का हिंदी शब्द क्या है?",o:["व्यायाम","यातायात","पर्यावरण","मित्रता"],a:1,e:"‘ਆਵਾਜਾਈ’ का हिंदी शब्द यातायात है।"},
+ {q:"‘ਧੁਨੀ ਪ੍ਰਦੂਸ਼ਣ’ का हिंदी अर्थ क्या है?",o:["वायु प्रदूषण","ध्वनि प्रदूषण","जल प्रदूषण","मिट्टी प्रदूषण"],a:1,e:"‘ਧੁਨੀ ਪ੍ਰਦੂਸ਼ਣ’ का हिंदी रूप ध्वनि प्रदूषण है।"},
+ {q:"‘ਮੂੰਹ ਦੇ ਬਲ ਡਿੱਗਣਾ’ मुहावरे का अर्थ क्या है?",o:["धीरे चलना","ज़ोर से अचानक गिरना","बहुत तेज़ दौड़ना","हँसना"],a:1,e:"‘मुँह के बल गिरना’ का अर्थ ज़ोर से अचानक गिरना है।"},
+ {q:"‘अंधाधुंध चलाना’ का अर्थ क्या है?",o:["सावधानी से चलाना","बिना सोचे-समझे चलाना","धीरे चलाना","वाहन रोकना"],a:1,e:"अंधाधुंध चलाने का अर्थ बिना सोचे-समझे चलाना है।"},
+ {q:"‘नानी याद आना’ मुहावरे का अर्थ क्या है?",o:["बहुत परिश्रम करना","खुश होना","घर जाना","सो जाना"],a:0,e:"इस पाठ के अभ्यास में इसका अर्थ बहुत परिश्रम करना है।"},
+ {q:"‘हवा से बातें करना’ का अर्थ क्या है?",o:["बहुत तेज़ चलना","धीरे चलना","हवा में बोलना","रुक जाना"],a:0,e:"‘हवा से बातें करना’ का अर्थ बहुत तेज़ चलना है।"},
+ {q:"‘अगला’ का विपरीत शब्द क्या है?",o:["आगे","पिछला","बूढ़ा","अमीर"],a:1,e:"अगला का विपरीत शब्द पिछला है।"},
+ {q:"‘अमीर’ का विपरीत शब्द क्या है?",o:["गरीब","बुज़ुर्ग","सभ्य","अनपढ़"],a:0,e:"अमीर का विपरीत शब्द गरीब है।"},
+ {q:"‘सभ्य’ का विपरीत शब्द क्या है?",o:["शुद्ध","असभ्य","नौजवान","पीछे"],a:1,e:"सभ्य का विपरीत शब्द असभ्य है।"},
+ {q:"सही या गलत: साइकिल चलाने से वायु प्रदूषण नहीं होता।",tf:true,a:true,e:"यह सही है; साइकिल धुआँ नहीं छोड़ती।"},
+ {q:"सही या गलत: साइकिल चलाने के लिए पेट्रोल-डीज़ल ज़रूरी है।",tf:true,a:false,e:"यह गलत है; साइकिल चलाने के लिए पेट्रोल-डीज़ल की ज़रूरत नहीं होती।"},
+ {q:"सही या गलत: ‘रुकना’ का विपरीत शब्द ‘चलना’ है।",tf:true,a:true,e:"यह सही है; रुकना का विपरीत चलना है।"},
+ {q:"सही या गलत: ‘पढ़े-लिखे’ का विपरीत शब्द ‘अनपढ़’ है।",tf:true,a:true,e:"यह सही है; पढ़े-लिखे का विपरीत अनपढ़ है।"},
+ {q:"सही या गलत: साइकिल यातायात का महँगा साधन है।",tf:true,a:false,e:"यह गलत है; साइकिल यातायात का सबसे सस्ता साधन है।"},
+ {q:"सही या गलत: साइकिल शोरगुल करती है और प्रदूषण फैलाती है।",tf:true,a:false,e:"यह गलत है; साइकिल न शोरगुल करती है, न प्रदूषण फैलाती है।"}
+];
+let current=0, answers=Array(questions.length).fill(null), locked=Array(questions.length).fill(false);
+const qNum=document.getElementById('qNum'), scoreLive=document.getElementById('scoreLive'), bar=document.getElementById('bar'), questionEl=document.getElementById('question'), optionsEl=document.getElementById('options'), feedback=document.getElementById('feedback'), prevBtn=document.getElementById('prevBtn'), nextBtn=document.getElementById('nextBtn'), quizPanel=document.getElementById('quizPanel'), resultPanel=document.getElementById('resultPanel');
+function isCorrect(i){return questions[i].tf ? answers[i]===questions[i].a : answers[i]===questions[i].a}
+function score(){return answers.reduce((n,ans,i)=>n+(ans!==null&&isCorrect(i)?1:0),0)}
+function render(){
+ const item=questions[current]; qNum.textContent=`प्रश्न ${current+1} / ${questions.length}`; scoreLive.textContent=`स्कोर: ${score()}`; bar.style.width=`${((current+1)/questions.length)*100}%`;
+ questionEl.textContent=item.q; optionsEl.innerHTML=''; feedback.className='feedback'; feedback.textContent='';
+ const opts=item.tf?[{label:"सही",value:true},{label:"गलत",value:false}]:item.o.map((label,i)=>({label,value:i}));
+ opts.forEach((opt,i)=>{
+  const btn=document.createElement('button');btn.type='button';btn.className='option';btn.innerHTML=`<span class="letter">${item.tf?(i===0?'✓':'✕'):String.fromCharCode(65+i)}</span><span>${opt.label}</span>`;
+  if(answers[current]!==null){btn.disabled=true;if(opt.value===item.a)btn.classList.add('correct');if(opt.value===answers[current]&&!isCorrect(current))btn.classList.add('wrong');}
+  btn.addEventListener('click',()=>choose(opt.value)); optionsEl.appendChild(btn);
+ });
+ if(answers[current]!==null){feedback.className='feedback show '+(isCorrect(current)?'good':'bad');feedback.textContent=(isCorrect(current)?'✓ सही उत्तर! ':'✗ सही उत्तर: ')+(item.tf?(item.a?'सही':'गलत'):item.o[item.a])+'. '+item.e;}
+ prevBtn.disabled=current===0;nextBtn.textContent=current===questions.length-1?'परिणाम देखें ✓':'अगला प्रश्न →';
+}
+function choose(value){if(answers[current]!==null)return;answers[current]=value;render();}
+prevBtn.addEventListener('click',()=>{if(current>0){current--;render()}});
+nextBtn.addEventListener('click',()=>{if(current<questions.length-1){current++;render()}else showResult()});
+function showResult(){
+ quizPanel.style.display='none';resultPanel.classList.add('show');const s=score(),pct=Math.round(s/questions.length*100);document.getElementById('scoreCircle').textContent=`${s}/${questions.length}`;document.getElementById('resultText').textContent=`आपका परिणाम: ${pct}% — ${pct>=80?'शानदार! आपकी तैयारी बहुत अच्छी है।':pct>=50?'अच्छा प्रयास! एक बार गलत उत्तरों को दोहराएँ।':'अभ्यास जारी रखें; फिर से क्विज़ देकर बेहतर अंक पाएँ।'}`;
+ const review=document.getElementById('review');review.innerHTML='';questions.forEach((item,i)=>{const ok=answers[i]!==null&&isCorrect(i);const ans=item.tf?(item.a?'सही':'गलत'):item.o[item.a];const div=document.createElement('div');div.className='reviewitem';div.innerHTML=`<strong>${i+1}. ${item.q}</strong><span style="color:${ok?'#15803d':'#b91c1c'}">${ok?'✓ आपका उत्तर सही':'✗ सही उत्तर: '+ans}</span><div style="color:#64748b;font-size:13px;margin-top:4px">${item.e}</div>`;review.appendChild(div)});
+}
+document.getElementById('restartBtn').addEventListener('click',()=>{current=0;answers=Array(questions.length).fill(null);locked=Array(questions.length).fill(false);quizPanel.style.display='block';resultPanel.classList.remove('show');render();window.scrollTo({top:0,behavior:'smooth'})});
+render();
+</script>
+</body>
+</html>
