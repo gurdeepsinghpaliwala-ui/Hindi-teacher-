@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>पाठ 9 दो कलाकार – कक्षा 10 हिंदी</title>
+<style>
+:root{--primary:#4f46e5;--secondary:#7c3aed;--ink:#1f2937;--muted:#64748b;--bg:#f4f7fb}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,"Noto Sans Devanagari",sans-serif;background:var(--bg);color:var(--ink);line-height:1.75}
+.hero{background:linear-gradient(135deg,#312e81,#7c3aed);color:#fff;padding:28px 16px 32px;text-align:center}
+.hero h1{margin:0 0 8px;font-size:clamp(24px,5vw,34px)}
+.hero p{margin:0;color:#ede9fe}
+.wrap{max-width:950px;margin:20px auto;padding:0 14px}
+.notice{background:#fff;border:1px solid #e0e7ff;border-left:5px solid var(--primary);padding:13px 15px;border-radius:12px;margin-bottom:16px}
+.tabs{display:flex;gap:9px;flex-wrap:wrap;margin:16px 0}
+.tab{border:0;border-radius:10px;padding:11px 15px;background:#e7eafe;color:#3730a3;font-weight:700;cursor:pointer;flex:1;min-width:115px}
+.tab.active{background:linear-gradient(135deg,var(--primary),var(--secondary));color:white;box-shadow:0 4px 10px #4f46e533}
+.panel{display:none}
+.panel.active{display:block}
+.card{background:#fff;border-radius:14px;padding:17px 18px;margin:13px 0;box-shadow:0 4px 16px #0f172a0b;border:1px solid #e8edf5}
+.q{font-weight:700;color:#312e81;margin:0 0 5px}
+.ans{margin:0;color:#334155}
+.section-title{margin:20px 0 8px;color:#312e81}
+.badge{display:inline-block;font-size:12px;font-weight:700;background:#ede9fe;color:#5b21b6;border-radius:999px;padding:3px 9px;margin-bottom:7px}
+.option{display:block;padding:9px 11px;border:1px solid #dbe3ef;border-radius:9px;margin:7px 0;cursor:pointer}
+.option input{margin-right:8px}
+.check-btn{border:0;border-radius:10px;background:var(--primary);color:#fff;font-weight:700;padding:12px 18px;cursor:pointer;margin-top:10px}
+#result{font-weight:700;margin-top:12px;padding:10px;border-radius:9px}
+.small{color:var(--muted);font-size:13px}
+footer{text-align:center;color:var(--muted);padding:20px}
+@media(max-width:520px){.card{padding:14px}.tab{min-width:calc(50% - 8px)}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <h1>📚 पाठ 9 – दो कलाकार</h1>
+  <p>लेखिका: मन्नू भंडारी | महत्त्वपूर्ण प्रश्न-उत्तर और Objective Quiz</p>
+</header>
+<main class="wrap">
+  <div class="notice"><strong>पढ़ने का तरीका:</strong> छोटे, बड़े और लंबे प्रश्नों के लिए अलग-अलग टैब दिए गए हैं। पहले महत्त्वपूर्ण प्रश्न-उत्तर पढ़ें, फिर नीचे Objective Quiz हल करें।</div>
+  <nav class="tabs" aria-label="प्रश्नों के टैब">
+    <button class="tab active" data-tab="short">छोटे प्रश्न</button>
+    <button class="tab" data-tab="medium">बड़े प्रश्न</button>
+    <button class="tab" data-tab="long">लंबे प्रश्न</button>
+    <button class="tab" data-tab="language">भाषा-बोध</button>
+    <button class="tab" data-tab="quiz">Objective Quiz</button>
+  </nav>
+
+  <section id="short" class="panel active">
+    <h2 class="section-title">छोटे प्रश्न-उत्तर (1–2 पंक्तियाँ)</h2>
+    <article class="card"><div class="badge">प्रश्न 1</div><p class="q">छात्रावास में रहने वाली दो सहेलियों के क्या नाम थे?</p><p class="ans">उत्तर: दोनों सहेलियों के नाम अरुणा और चित्रा थे।</p></article>
+    <article class="card"><div class="badge">प्रश्न 2</div><p class="q">चित्रा कहानी के आरंभ में अरुणा को क्यों जगाती है?</p><p class="ans">उत्तर: चित्रा अपना बनाया हुआ चित्र अरुणा को दिखाने के लिए उसे जगाती है।</p></article>
+    <article class="card"><div class="badge">प्रश्न 3</div><p class="q">अरुणा चित्रा के चित्रों के बारे में क्या कहती है?</p><p class="ans">उत्तर: अरुणा कहती है कि बेजान चित्र बनाने के बजाय किसी की जिंदगी सँवारनी चाहिए।</p></article>
+    <article class="card"><div class="badge">प्रश्न 4</div><p class="q">अरुणा देर रात छात्रावास लौटती है, तो शीला उसके बारे में क्या कहती है?</p><p class="ans">उत्तर: शीला कहती है कि अरुणा बहुत गुणी है और दूसरों के बारे में सोचने वाली समाजसेविका है।</p></article>
+    <article class="card"><div class="badge">प्रश्न 5</div><p class="q">चित्रा के पिताजी ने पत्र में क्या लिखा था?</p><p class="ans">उत्तर: उन्होंने लिखा था कि पढ़ाई पूरी होते ही चित्रा विदेश जा सकती है।</p></article>
+    <article class="card"><div class="badge">प्रश्न 6</div><p class="q">अरुणा बाढ़ पीड़ितों की सहायता करके कितने दिनों बाद लौटी?</p><p class="ans">उत्तर: अरुणा स्वयंसेवकों के दल के साथ पंद्रह दिनों बाद लौटी।</p></article>
+    <article class="card"><div class="badge">प्रश्न 7</div><p class="q">विदेश में चित्रा के किस चित्र ने धूम मचाई?</p><p class="ans">उत्तर: भिखारिन और उसके दो अनाथ बच्चों के चित्र ने विदेश में धूम मचाई।</p></article>
+  </section>
+
+  <section id="medium" class="panel">
+    <h2 class="section-title">बड़े प्रश्न-उत्तर (3–4 पंक्तियाँ)</h2>
+    <article class="card"><div class="badge">प्रश्न 1</div><p class="q">अरुणा के समाज-सेवा के कार्यों के बारे में लिखिए।</p><p class="ans">उत्तर: अरुणा सच्ची समाजसेविका है। वह छात्रावास में चपरासियों और दाइयों के बच्चों को मुफ्त पढ़ाती है। वह बाढ़ पीड़ितों की सहायता करती है और बीमार बच्चे की सेवा भी करती है। भिखारिन की मृत्यु के बाद वह उसके दोनों बच्चों को पालती है।</p></article>
+    <article class="card"><div class="badge">प्रश्न 2</div><p class="q">मरी हुई भिखारिन और उसके बच्चों को देखकर चित्रा ने क्या किया?</p><p class="ans">उत्तर: चित्रा ने देखा कि भिखारिन मर चुकी थी और दोनों बच्चे उससे लिपटकर रो रहे थे। यह दृश्य देखकर उसका मन दुखी हुआ। उसने उस दृश्य का चित्र बना लिया। इसी चित्र से उसे बहुत प्रसिद्धि मिली।</p></article>
+    <article class="card"><div class="badge">प्रश्न 3</div><p class="q">चित्रा की विदाई के समय अरुणा क्यों नहीं पहुँच सकी?</p><p class="ans">उत्तर: चित्रा ने अरुणा को भिखारिन और उसके बच्चों के बारे में बताया। यह सुनकर अरुणा तुरंत उन बच्चों के पास चली गई। वह बच्चों को सँभालने और उनकी देखभाल में व्यस्त हो गई। इसलिए वह चित्रा की विदाई में नहीं पहुँच सकी।</p></article>
+    <article class="card"><div class="badge">प्रश्न 4</div><p class="q">प्रदर्शनी में अरुणा के साथ कौन-से बच्चे थे?</p><p class="ans">उत्तर: प्रदर्शनी में अरुणा के साथ भिखारिन के दोनों बच्चे थे। चित्रा ने उन्हीं बच्चों का चित्र बनाकर प्रसिद्धि पाई थी। अरुणा ने उन बच्चों को माँ की तरह पाला-पोसा और उन्हें प्यार दिया।</p></article>
+  </section>
+
+  <section id="long" class="panel">
+    <h2 class="section-title">लंबे प्रश्न-उत्तर (6–7 पंक्तियाँ)</h2>
+    <article class="card"><div class="badge">प्रश्न 1</div><p class="q">‘दो कलाकार’ कहानी का उद्देश्य स्पष्ट कीजिए।</p><p class="ans">उत्तर: ‘दो कलाकार’ मन्नू भंडारी की उद्देश्यपूर्ण कहानी है। इसमें अरुणा और चित्रा दो सहेलियाँ हैं। चित्रा एक कुशल चित्रकार है और अपने चित्रों से प्रसिद्धि पाती है। भिखारिन और उसके रोते हुए बच्चों का चित्र बनाकर वह नाम कमाती है। दूसरी ओर, अरुणा उन्हीं बच्चों को अपने पास रखकर पालती-पोसती है। वह उन्हें माँ जैसा प्यार और सहारा देती है। कहानी का उद्देश्य है कि कला के साथ मानवीय गुण और दूसरों की सहायता करने की भावना भी बहुत महत्त्वपूर्ण हैं।</p></article>
+    <article class="card"><div class="badge">प्रश्न 2</div><p class="q">‘दो कलाकार’ के आधार पर अरुणा का चरित्र-चित्रण कीजिए।</p><p class="ans">उत्तर: अरुणा कहानी की मुख्य पात्रों में से एक है। वह दयालु, संवेदनशील और सच्ची समाजसेविका है। वह गरीब बच्चों को मुफ्त पढ़ाती है। वह जरूरतमंदों और बाढ़ पीड़ितों की सहायता करती है। वह बीमार बच्चे की सेवा भी करती है। भिखारिन की मृत्यु के बाद वह उसके दोनों बच्चों को अपने बच्चों की तरह पालती है। उसके काम बताते हैं कि वह दूसरों के दुख को अपना दुख समझती है। अपने मानवीय गुणों के कारण वह एक महान कलाकार कहलाती है।</p></article>
+    <article class="card"><div class="badge">प्रश्न 3</div><p class="q">‘चित्रा एक मँझी हुई चित्रकार है’—इस कथन से आप कहाँ तक सहमत हैं?</p><p class="ans">उत्तर: हम इस कथन से सहमत हैं कि चित्रा एक मँझी हुई चित्रकार है। उसे चित्र बनाने का बहुत शौक है और वह अपने चित्रों में भावनाएँ दिखाती है। भिखारिन और उसके रोते हुए बच्चों का चित्र बहुत प्रभावशाली था। इस चित्र से उसे देश-विदेश में प्रसिद्धि मिली। वह किसी दृश्य को ध्यान से देखकर उसे कागज पर उतार सकती है। फिर भी कहानी यह बताती है कि केवल कला ही नहीं, बल्कि मानवता भी बहुत जरूरी है।</p></article>
+    <article class="card"><div class="badge">प्रश्न 4</div><p class="q">‘दो कलाकार’ कहानी के शीर्षक की सार्थकता स्पष्ट कीजिए।</p><p class="ans">उत्तर: ‘दो कलाकार’ शीर्षक उचित है क्योंकि कहानी में अरुणा और चित्रा दोनों को कलाकार के रूप में दिखाया गया है। चित्रा अपनी चित्रकला से लोगों का ध्यान खींचती है और प्रसिद्धि प्राप्त करती है। वह भिखारिन और उसके बच्चों का चित्र बनाती है। अरुणा उन बच्चों की देखभाल करके उन्हें नया जीवन देती है। चित्रा की कला कागज पर दिखाई देती है, जबकि अरुणा की कला उसके अच्छे कामों में दिखाई देती है। इसलिए कहानी का शीर्षक ‘दो कलाकार’ सार्थक है।</p></article>
+  </section>
+
+  <section id="language" class="panel">
+    <h2 class="section-title">भाषा-बोध: महत्त्वपूर्ण अभ्यास</h2>
+    <article class="card"><h3>1. मुहावरे और वाक्य</h3>
+      <p><strong>राह देखना</strong> — इंतजार करना। <br><span class="ans">वाक्य: चित्रा अपनी सहेली अरुणा की राह देख रही थी।</span></p>
+      <p><strong>रोब खाना</strong> — किसी के प्रभाव में रहना। <br><span class="ans">वाक्य: विद्यार्थी प्रधानाचार्य का रोब खाते हैं।</span></p>
+      <p><strong>आँखें छलछला आना</strong> — आँखों में आँसू आ जाना। <br><span class="ans">वाक्य: दुख भरी कहानी सुनकर मेरी आँखें छलछला आईं।</span></p>
+      <p><strong>पीठ थपथपाना</strong> — शाबाशी देना। <br><span class="ans">वाक्य: अच्छे अंक आने पर अध्यापक ने मेरी पीठ थपथपाई।</span></p>
+      <p><strong>धूम मचना</strong> — बहुत प्रसिद्धि होना। <br><span class="ans">वाक्य: चित्रा के चित्र की देश-विदेश में धूम मच गई।</span></p>
+    </article>
+    <article class="card"><h3>2. विलोम शब्द</h3>
+      <p>बेवकूफी — समझदारी | गुण — अवगुण</p><p>निरक्षरता — साक्षरता | आदर्श — यथार्थ</p><p>जिंदगी — मौत | बंधन — मुक्ति</p><p>शोहरत — बदनामी | बीमार — स्वस्थ</p><p>धनी — निर्धन | विदेश — स्वदेश</p>
+    </article>
+    <article class="card"><h3>3. पंजाबी से हिंदी अनुवाद</h3>
+      <p><strong>वाक्य 1:</strong> “मेरे बच्चे हैं, और किसके? यह तुम्हारी चित्रा मासी है। नमस्ते करो अपनी मासी को।” अरुणा ने आदेश दिया।</p>
+      <p><strong>वाक्य 2:</strong> “सच?” बच्ची हैरानी से बोली। “फिर तो मासी, आप चित्रकला में जरूर प्रथम स्थान लाती होंगी। मैं भी प्रथम स्थान लाती हूँ।”</p>
+      <p><strong>वाक्य 3:</strong> “चित्रों को नहीं, चित्रा को देखने आई थी। तुम तो एकदम भूल ही गई।”</p>
+    </article>
+  </section>
+
+  <section id="quiz" class="panel">
+    <h2 class="section-title">Objective Type Questions – Quiz</h2>
+    <p class="small">हर प्रश्न का एक सही उत्तर चुनें। अंत में “उत्तर जाँचें” दबाएँ।</p>
+    <form id="quizForm">
+      <div class="card"><p class="q">1. ‘दो कलाकार’ कहानी की लेखिका कौन हैं?</p>
+        <label class="option"><input type="radio" name="q1" value="a">महादेवी वर्मा</label>
+        <label class="option"><input type="radio" name="q1" value="b">मन्नू भंडारी</label>
+        <label class="option"><input type="radio" name="q1" value="c">सुभद्रा कुमारी चौहान</label></div>
+      <div class="card"><p class="q">2. कहानी की दो सहेलियाँ कौन थीं?</p>
+        <label class="option"><input type="radio" name="q2" value="a">अरुणा और चित्रा</label>
+        <label class="option"><input type="radio" name="q2" value="b">शीला और फुलिया</label>
+        <label class="option"><input type="radio" name="q2" value="c">रमा और सीमा</label></div>
+      <div class="card"><p class="q">3. चित्रा किस कला में निपुण थी?</p>
+        <label class="option"><input type="radio" name="q3" value="a">गायन</label>
+        <label class="option"><input type="radio" name="q3" value="b">नृत्य</label>
+        <label class="option"><input type="radio" name="q3" value="c">चित्रकला</label></div>
+      <div class="card"><p class="q">4. अरुणा किस काम के लिए जानी जाती थी?</p>
+        <label class="option"><input type="radio" name="q4" value="a">व्यापार</label>
+        <label class="option"><input type="radio" name="q4" value="b">समाज-सेवा</label>
+        <label class="option"><input type="radio" name="q4" value="c">खेल</label></div>
+      <div class="card"><p class="q">5. अरुणा बाढ़ पीड़ितों की सहायता करके कितने दिनों बाद लौटी?</p>
+        <label class="option"><input type="radio" name="q5" value="a">पाँच दिन</label>
+        <label class="option"><input type="radio" name="q5" value="b">दस दिन</label>
+        <label class="option"><input type="radio" name="q5" value="c">पंद्रह दिन</label></div>
+      <div class="card"><p class="q">6. चित्रा के किस चित्र ने प्रसिद्धि पाई?</p>
+        <label class="option"><input type="radio" name="q6" value="a">फूलों का चित्र</label>
+        <label class="option"><input type="radio" name="q6" value="b">भिखारिन और उसके बच्चों का चित्र</label>
+        <label class="option"><input type="radio" name="q6" value="c">पहाड़ों का चित्र</label></div>
+      <div class="card"><p class="q">7. भिखारिन की मृत्यु के बाद बच्चों को किसने पाला?</p>
+        <label class="option"><input type="radio" name="q7" value="a">चित्रा ने</label>
+        <label class="option"><input type="radio" name="q7" value="b">शीला ने</label>
+        <label class="option"><input type="radio" name="q7" value="c">अरुणा ने</label></div>
+      <div class="card"><p class="q">8. कहानी का मुख्य संदेश क्या है?</p>
+        <label class="option"><input type="radio" name="q8" value="a">प्रसिद्धि सबसे जरूरी है</label>
+        <label class="option"><input type="radio" name="q8" value="b">मानवता और सेवा का बहुत महत्त्व है</label>
+        <label class="option"><input type="radio" name="q8" value="c">विदेश जाना जरूरी है</label></div>
+      <div class="card"><p class="q">9. ‘धूम मचना’ मुहावरे का अर्थ क्या है?</p>
+        <label class="option"><input type="radio" name="q9" value="a">प्रसिद्धि होना</label>
+        <label class="option"><input type="radio" name="q9" value="b">शोर बंद होना</label>
+        <label class="option"><input type="radio" name="q9" value="c">डर जाना</label></div>
+      <div class="card"><p class="q">10. ‘धनी’ का विलोम शब्द क्या है?</p>
+        <label class="option"><input type="radio" name="q10" value="a">अमीर</label>
+        <label class="option"><input type="radio" name="q10" value="b">निर्धन</label>
+        <label class="option"><input type="radio" name="q10" value="c">धनवान</label></div>
+      <button class="check-btn" type="button" onclick="checkQuiz()">उत्तर जाँचें</button>
+      <button class="check-btn" type="reset" style="background:#475569" onclick="document.getElementById('result').textContent=''">फिर से करें</button>
+      <div id="result" aria-live="polite"></div>
+    </form>
+  </section>
+  <footer>हिंदी अध्ययन Hub • पाठ 9 – दो कलाकार</footer>
+</main>
+<script>
+const tabs=document.querySelectorAll('.tab');
+const panels=document.querySelectorAll('.panel');
+tabs.forEach(btn=>btn.addEventListener('click',()=>{
+  tabs.forEach(b=>b.classList.remove('active'));
+  panels.forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(btn.dataset.tab).classList.add('active');
+  window.scrollTo({top:document.querySelector('.tabs').offsetTop-8,behavior:'smooth'});
+}));
+function checkQuiz(){
+ const answers={q1:'b',q2:'a',q3:'c',q4:'b',q5:'c',q6:'b',q7:'c',q8:'b',q9:'a',q10:'b'};
+ let score=0,attempted=0;
+ for(const [q,a] of Object.entries(answers)){
+   const chosen=document.querySelector('input[name="'+q+'"]:checked');
+   if(chosen){attempted++;if(chosen.value===a)score++;}
+ }
+ const result=document.getElementById('result');
+ result.style.background=score>=7?'#dcfce7':'#fef3c7';
+ result.style.color='#1f2937';
+ result.textContent='आपके अंक: '+score+'/10 | हल किए गए प्रश्न: '+attempted+'/10'+(score>=7?' — बहुत बढ़िया!':' — उत्तर फिर से पढ़कर अभ्यास करें।');
+}
+</script>
+</body>
+</html>
