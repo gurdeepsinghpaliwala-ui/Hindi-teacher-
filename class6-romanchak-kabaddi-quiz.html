@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>पाठ 9 - रोमांचक कबड्डी मुकाबला | कक्षा 6 हिंदी Quiz</title>
+<style>
+*{box-sizing:border-box} body{margin:0;font-family:Arial,"Noto Sans Devanagari",sans-serif;background:linear-gradient(135deg,#f5f3ff,#fff7ed);color:#241b35;padding:18px}
+.container{max-width:760px;margin:20px auto;background:#fff;border-radius:22px;padding:24px;box-shadow:0 12px 35px #5b21b015}
+.badge{display:inline-block;background:linear-gradient(120deg,#7c3aed,#db2777);color:#fff;border-radius:22px;padding:8px 14px;font-size:13px;font-weight:bold}
+h1{color:#6d28d9;margin:16px 0 8px;font-size:clamp(24px,5vw,34px)} .sub{color:#665b75;line-height:1.6}
+.progress-row{display:flex;justify-content:space-between;gap:10px;font-size:14px;color:#625570;margin:20px 0 8px}
+.progress{height:9px;background:#ede9fe;border-radius:99px;overflow:hidden} .bar{height:100%;width:0;background:linear-gradient(90deg,#7c3aed,#db2777);transition:width .25s}
+.question{font-size:21px;font-weight:700;line-height:1.55;margin:24px 0 18px}
+.option{display:block;width:100%;text-align:left;border:2px solid #e9e3f5;background:#fff;padding:14px 15px;border-radius:13px;margin:10px 0;font-size:16px;color:#302641;cursor:pointer}
+.option:hover:not(:disabled){border-color:#a78bfa;background:#faf5ff} .option:disabled{cursor:default}
+.option.correct{border-color:#16a34a;background:#f0fdf4} .option.wrong{border-color:#dc2626;background:#fef2f2}
+.feedback{display:none;padding:14px;border-radius:12px;line-height:1.6;margin-top:14px} .feedback.show{display:block} .feedback.good{background:#f0fdf4;color:#166534} .feedback.bad{background:#fef2f2;color:#991b1b}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px} button.nav{border:0;border-radius:12px;padding:13px 18px;font-weight:bold;font-size:15px;cursor:pointer} .primary{background:linear-gradient(100deg,#6d28d9,#9333ea,#db2777);color:white;flex:1} .secondary{background:#f3f0fa;color:#4b3b61} button:disabled{opacity:.45;cursor:not-allowed}
+#result{display:none} .score{font-size:38px;font-weight:800;color:#6d28d9;margin:12px 0} .review-item{padding:14px;border:1px solid #eee6f8;border-radius:12px;margin:10px 0;line-height:1.6}
+@media(max-width:480px){body{padding:10px}.container{padding:18px}.question{font-size:19px}}
+</style>
+</head>
+<body>
+<div class="container">
+<div class="badge">🏆 HINDI QUIZ • CLASS 6</div>
+<h1>पाठ 9: रोमांचक कबड्डी मुकाबला</h1>
+<p class="sub">महत्वपूर्ण प्रश्न-उत्तर, शब्दार्थ, मुहावरे, बहुवचन और शब्द-रचना पर आधारित ऑनलाइन टेस्ट। हर प्रश्न का उत्तर चुनें और फिर <b>अगला प्रश्न →</b> दबाएँ।</p>
+<div id="quiz">
+<div class="progress-row"><span id="count">प्रश्न 1 / 25</span><span id="scoreNow">स्कोर: 0</span></div>
+<div class="progress"><div class="bar" id="bar"></div></div>
+<div class="question" id="question"></div>
+<div id="options"></div>
+<div id="feedback" class="feedback"></div>
+<div class="actions">
+<button class="nav secondary" id="prev" onclick="previous()" disabled>← पिछला प्रश्न</button>
+<button class="nav primary" id="next" onclick="next()" disabled>अगला प्रश्न →</button>
+</div>
+</div>
+<div id="result">
+<h2>🎉 Quiz पूरा हुआ!</h2><p>आपका परिणाम</p><div class="score" id="finalScore"></div><p id="message"></p>
+<div class="actions"><button class="nav primary" onclick="restart()">🔄 दोबारा Quiz दें</button></div>
+<h3>उत्तर की समीक्षा</h3><div id="review"></div>
+</div>
+</div>
+<script>
+const questions = [{"q": "कबड्डी की दोनों टीमों के क्या नाम थे?", "options": ["सरोजिनी टीम और लक्ष्मीबाई टीम", "भारत टीम और पंजाब टीम", "अशोक टीम और रमन टीम", "विद्यालय टीम और खिलाड़ी टीम"], "answer": 0, "explanation": "दोनों टीमों के नाम सरोजिनी टीम और लक्ष्मीबाई टीम थे।"}, {"q": "प्रत्येक टीम में कितने खिलाड़ी थे?", "options": ["पाँच-पाँच", "छह-छह", "सात-सात", "ग्यारह-ग्यारह"], "answer": 2, "explanation": "प्रत्येक टीम में सात-सात खिलाड़ी थे।"}, {"q": "सरोजिनी टीम के कप्तान का नाम क्या था?", "options": ["रमन", "अशोक", "गोबिंद", "अब्दुल"], "answer": 1, "explanation": "सरोजिनी टीम के कप्तान अशोक थे।"}, {"q": "लक्ष्मीबाई टीम के कप्तान का नाम क्या था?", "options": ["अशोक", "रेफरी", "रमन", "विद्यालय"], "answer": 2, "explanation": "लक्ष्मीबाई टीम के कप्तान रमन थे।"}, {"q": "कौन-सी टीम विजयी घोषित की गई?", "options": ["लक्ष्मीबाई टीम", "सरोजिनी टीम", "दोनों टीमें", "कोई भी नहीं"], "answer": 1, "explanation": "सरोजिनी टीम विजयी घोषित की गई।"}, {"q": "रेडर की साँस टूटने पर क्या होता है?", "options": ["उसे कप्तान बनाते हैं", "उसे मरा हुआ घोषित किया जाता है", "मैच तुरंत जीत जाता है", "उसे रेफरी बनाते हैं"], "answer": 1, "explanation": "पाठ के अनुसार, कबड्डी डालते समय रेडर की साँस टूट जाए तो उसे मरा हुआ घोषित किया जाता है।"}, {"q": "‘विद्यालय’ का समानार्थी शब्द क्या है?", "options": ["स्कूल", "छोर", "साँस", "विजयी"], "answer": 0, "explanation": "विद्यालय का समानार्थी शब्द स्कूल है।"}, {"q": "‘प्रयास’ का समानार्थी शब्द क्या है?", "options": ["मध्यांतर", "कोशिश", "नेतृत्व", "शेष"], "answer": 1, "explanation": "प्रयास का अर्थ कोशिश या यत्न है।"}, {"q": "‘विजयी’ का अर्थ क्या है?", "options": ["हारने वाला", "जीतने वाला", "दर्शक", "कप्तान"], "answer": 1, "explanation": "विजयी का अर्थ जीतने वाला है।"}, {"q": "‘मध्यांतर’ का अर्थ क्या है?", "options": ["खेल का अंत", "आधा समय", "टीम का नाम", "मैदान का छोर"], "answer": 1, "explanation": "मध्यांतर का अर्थ आधा समय है।"}, {"q": "‘चक्रव्यूह’ किसे कहते हैं?", "options": ["आसान रास्ता", "ऐसा घेरा जिससे निकलना मुश्किल हो", "खेल की घंटी", "झंडा"], "answer": 1, "explanation": "चक्रव्यूह ऐसा घेरा है जिसमें से निकलना मुश्किल होता है।"}, {"q": "‘नेतृत्व’ का अर्थ क्या है?", "options": ["अगुवाई", "साँस", "मछली", "किनारा"], "answer": 0, "explanation": "नेतृत्व का अर्थ अगुवाई है।"}, {"q": "‘हिरन की तरह चौकड़ी भरना’ मुहावरे का अर्थ क्या है?", "options": ["धीरे चलना", "खूब उछलते हुए आगे बढ़ना", "छिप जाना", "रोना"], "answer": 1, "explanation": "इस मुहावरे का अर्थ खूब उछलते हुए आगे बढ़ना है।"}, {"q": "‘नौ दो ग्यारह होना’ का अर्थ क्या है?", "options": ["बहुत खुश होना", "जल्दी से भाग जाना", "बहुत मेहनत करना", "सो जाना"], "answer": 1, "explanation": "नौ दो ग्यारह होना यानी जल्दी से भाग जाना।"}, {"q": "‘एड़ी-चोटी का ज़ोर लगाना’ का अर्थ क्या है?", "options": ["बहुत कोशिश करना", "आराम करना", "खेलना बंद करना", "जीत का जश्न मनाना"], "answer": 0, "explanation": "इस मुहावरे का अर्थ बहुत कोशिश करना है।"}, {"q": "‘पलक झपकते ही’ का अर्थ क्या है?", "options": ["बहुत देर में", "एकदम, थोड़ी-सी देर में", "अगले दिन", "धीरे-धीरे"], "answer": 1, "explanation": "पलक झपकते ही का अर्थ बहुत कम समय में है।"}, {"q": "‘जाल में फँसी मछली की तरह’ किस स्थिति को बताता है?", "options": ["बहुत प्रसन्न होना", "मुसीबत में पड़ा आदमी", "खूब उछलना", "नेतृत्व करना"], "answer": 1, "explanation": "यह मुहावरा मुसीबत में पड़े व्यक्ति के लिए है।"}, {"q": "‘फूले नहीं समाना’ का अर्थ क्या है?", "options": ["बहुत खुश होना", "बहुत डरना", "थक जाना", "भाग जाना"], "answer": 0, "explanation": "फूले नहीं समाना का अर्थ बहुत खुश होना है।"}, {"q": "‘खिलाड़ी’ का बहुवचन रूप क्या है?", "options": ["खिलाड़ीओं", "खिलाड़ियों", "खिलाड़ियाँ", "खिलाड़ी"], "answer": 1, "explanation": "दिए गए अभ्यास के अनुसार बहुवचन रूप ‘खिलाड़ियों’ है।"}, {"q": "‘नियम’ का बहुवचन रूप क्या है?", "options": ["नियमों", "नियमियाँ", "नियमोंएँ", "नियम"], "answer": 0, "explanation": "नियम का बहुवचन रूप नियमों है।"}, {"q": "‘मित्र + ता’ से कौन-सा शब्द बनता है?", "options": ["मित्रता", "मित्राई", "मित्राहट", "मित्रपन"], "answer": 0, "explanation": "मित्र + ता = मित्रता।"}, {"q": "‘सफल + ता’ से कौन-सा शब्द बनता है?", "options": ["सफलई", "सफलता", "सफलाहट", "सफलपन"], "answer": 1, "explanation": "सफल + ता = सफलता।"}, {"q": "‘घबराना + आहट’ से कौन-सा शब्द बनता है?", "options": ["घबराई", "घबराता", "घबराहट", "घबराना"], "answer": 2, "explanation": "घबराना + आहट = घबराहट।"}, {"q": "‘प्र’ संयुक्त व्यंजन किन अक्षरों से बनता है?", "options": ["प् + र", "श् + र", "क् + क", "स् + व"], "answer": 0, "explanation": "प्र = प् + र।"}, {"q": "‘वर्दी’ का बहुवचन रूप क्या है?", "options": ["वर्दियों", "वर्दियाँ", "वर्दीओं", "वर्दीयों"], "answer": 1, "explanation": "वर्दी का बहुवचन रूप वर्दियाँ है।"}];
+let current=0, answers=Array(questions.length).fill(null);
+function render(){
+ const item=questions[current], selected=answers[current];
+ document.getElementById('count').textContent=`प्रश्न ${current+1} / ${questions.length}`;
+ document.getElementById('scoreNow').textContent='स्कोर: '+answers.filter((a,i)=>a===questions[i].answer).length;
+ document.getElementById('bar').style.width=((current+1)/questions.length*100)+'%';
+ document.getElementById('question').textContent=(current+1)+'. '+item.q;
+ const box=document.getElementById('options');box.innerHTML='';
+ item.options.forEach((opt,i)=>{
+  const b=document.createElement('button');b.className='option';b.textContent=String.fromCharCode(65+i)+'. '+opt;
+  if(selected!==null){b.disabled=true;if(i===item.answer)b.classList.add('correct');if(i===selected&&selected!==item.answer)b.classList.add('wrong')}
+  b.onclick=()=>choose(i);box.appendChild(b);
+ });
+ const fb=document.getElementById('feedback');
+ if(selected!==null){fb.className='feedback show '+(selected===item.answer?'good':'bad');fb.innerHTML=(selected===item.answer?'✅ सही जवाब! ':'❌ गलत जवाब। ')+item.explanation;}
+ else{fb.className='feedback';fb.textContent='';}
+ document.getElementById('prev').disabled=current===0;
+ document.getElementById('next').disabled=selected===null;
+ document.getElementById('next').textContent=current===questions.length-1?'परिणाम देखें →':'अगला प्रश्न →';
+}
+function choose(i){if(answers[current]!==null)return;answers[current]=i;render()}
+function next(){if(answers[current]===null)return;if(current<questions.length-1){current++;render()}else showResult()}
+function previous(){if(current>0){current--;render()}}
+function showResult(){document.getElementById('quiz').style.display='none';document.getElementById('result').style.display='block';let score=answers.filter((a,i)=>a===questions[i].answer).length;document.getElementById('finalScore').textContent=score+' / '+questions.length;document.getElementById('message').textContent=score>=20?'बहुत बढ़िया! आपकी तैयारी शानदार है।':score>=14?'अच्छा प्रयास! थोड़ी और अभ्यास करें।':'अभ्यास जारी रखें—आप और बेहतर कर सकते हैं।';document.getElementById('review').innerHTML=questions.map((q,i)=>`<div class="review-item"><b>${i+1}. ${q.q}</b><br>आपका उत्तर: ${answers[i]===null?'नहीं दिया':q.options[answers[i]]}<br>सही उत्तर: <b>${q.options[q.answer]}</b></div>`).join('')}
+function restart(){current=0;answers=Array(questions.length).fill(null);document.getElementById('quiz').style.display='block';document.getElementById('result').style.display='none';render()}
+render();
+</script>
+</body></html>
