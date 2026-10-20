@@ -1,153 +1,199 @@
-<!-- पाठ 13: मैं और मेरा देश – कक्षा 10 हिंदी -->
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>मैं और मेरा देश – कक्षा 10 हिंदी पाठ 13</title>
+
 <style>
-.country-card {
-  background: #fff;
-  border: 1px solid #e2e8f0;
-  border-radius: 16px;
-  padding: 18px;
-  margin: 20px 0;
-  box-shadow: 0 5px 18px rgba(15,23,42,0.07);
-  color: #1e293b;
+*{box-sizing:border-box}
+body{
+  margin:0;
+  padding:16px;
+  background:#f5f7fb;
+  color:#1e293b;
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+  line-height:1.8;
 }
-.country-card .lesson-tag {
-  display: inline-block;
-  background: #eef2ff;
-  color: #4338ca;
-  padding: 5px 11px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 700;
+.country-card{
+  max-width:900px;
+  margin:10px auto;
+  padding:20px;
+  background:#fff;
+  border:1px solid #e2e8f0;
+  border-radius:18px;
+  box-shadow:0 6px 22px rgba(15,23,42,.08);
 }
-.country-card h2 {
-  color: #3730a3;
-  font-size: 23px;
-  line-height: 1.5;
-  margin: 10px 0;
+.hero{
+  padding:22px 16px;
+  text-align:center;
+  color:#fff;
+  border-radius:14px;
+  background:linear-gradient(135deg,#3730a3,#6366f1,#0d9488);
 }
-.country-card .intro {
-  color: #64748b;
-  font-size: 14px;
-  line-height: 1.7;
+.hero .tag{
+  display:inline-block;
+  padding:4px 12px;
+  border:1px solid rgba(255,255,255,.45);
+  border-radius:30px;
+  font-size:13px;
 }
-.country-card details {
-  margin: 12px 0;
-  border: 1px solid #e2e8f0;
-  border-radius: 11px;
-  overflow: hidden;
-  background: #fff;
+.hero h1{font-size:27px;line-height:1.5;margin:10px 0}
+.hero p{margin:0;color:#eef2ff}
+.section-title{
+  margin:24px 0 12px;
+  padding:11px 14px;
+  border-radius:10px;
+  color:white;
+  font-size:17px;
+  font-weight:800;
+  background:linear-gradient(90deg,#4f46e5,#818cf8);
 }
-.country-card summary {
-  cursor: pointer;
-  padding: 14px 12px;
-  font-weight: 700;
-  line-height: 1.6;
-  list-style: none;
-  background: #f8fafc;
-  color: #334155;
+.green{background:linear-gradient(90deg,#047857,#10b981)}
+.orange{background:linear-gradient(90deg,#c2410c,#fb923c)}
+.purple{background:linear-gradient(90deg,#7e22ce,#c084fc)}
+.teal{background:linear-gradient(90deg,#0f766e,#2dd4bf)}
+.intro{color:#64748b;font-size:14px}
+details{
+  margin:11px 0;
+  border:1px solid #e2e8f0;
+  border-radius:11px;
+  overflow:hidden;
+  background:#fff;
 }
-.country-card summary::-webkit-details-marker {
-  display: none;
+summary{
+  cursor:pointer;
+  list-style:none;
+  padding:13px 14px;
+  background:#f8fafc;
+  font-weight:700;
+  line-height:1.7;
 }
-.country-card summary::after {
-  content: "+";
-  float: right;
-  color: #4f46e5;
-  font-size: 21px;
-  margin-left: 8px;
+summary::-webkit-details-marker{display:none}
+summary:after{
+  content:"+";
+  float:right;
+  margin-left:8px;
+  color:#4f46e5;
+  font-size:21px;
 }
-.country-card details[open] summary::after {
-  content: "−";
+details[open]>summary:after{content:"−"}
+.answer{
+  padding:13px 15px;
+  border-top:1px solid #e2e8f0;
+  line-height:1.95;
 }
-.country-card .answer {
-  padding: 12px 14px;
-  line-height: 1.9;
-  border-top: 1px solid #e2e8f0;
+.answer p{margin:4px 0 12px}
+.word-table{
+  width:100%;
+  border-collapse:collapse;
+  margin:8px 0;
 }
-.country-card .answer p {
-  margin: 5px 0 12px;
+.word-table th,.word-table td{
+  padding:9px;
+  border:1px solid #dbe3ef;
+  text-align:left;
 }
-.country-card .section-label {
-  display: block;
-  padding: 11px 13px;
-  margin: 22px 0 12px;
-  border-radius: 9px;
-  font-weight: 800;
-  color: #fff;
-  background: #4f46e5;
+.word-table th{background:#eef2ff;color:#3730a3}
+.quiz-intro{
+  padding:12px;
+  border-radius:10px;
+  background:#f0fdfa;
+  color:#115e59;
+  font-size:14px;
 }
-.country-card .green-label {
-  background: #047857;
+.quiz-option{
+  display:block;
+  margin:8px 0;
+  padding:10px 12px;
+  border:1px solid #cbd5e1;
+  border-radius:9px;
+  cursor:pointer;
+  background:#fff;
+  transition:.2s;
 }
-.country-card .orange-label {
-  background: #c2410c;
+.quiz-option:hover{background:#f8fafc}
+.quiz-option input{margin-right:8px}
+.quiz-option.correct{
+  background:#dcfce7;
+  border-color:#16a34a;
+  color:#166534;
+  font-weight:700;
 }
-.country-card .purple-label {
-  background: #7e22ce;
+.quiz-option.wrong{
+  background:#fee2e2;
+  border-color:#dc2626;
+  color:#991b1b;
 }
-.country-card .quiz-option {
-  display: block;
-  padding: 9px 10px;
-  margin: 8px 0;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 400;
-  background: #fff;
+.feedback{
+  display:none;
+  margin-top:10px;
+  padding:10px 12px;
+  border-radius:8px;
+  font-weight:700;
+  font-size:14px;
 }
-.country-card .quiz-option:has(input:checked) {
-  background: #eef2ff;
-  border-color: #6366f1;
+.feedback.show{display:block}
+.feedback.good{background:#dcfce7;color:#166534}
+.feedback.bad{background:#fee2e2;color:#991b1b}
+.quiz-btn{
+  display:inline-block;
+  margin:10px 5px 5px 0;
+  padding:11px 17px;
+  border:0;
+  border-radius:9px;
+  background:#4f46e5;
+  color:#fff;
+  font-weight:700;
+  font-size:15px;
+  cursor:pointer;
 }
-.country-card .quiz-option input {
-  margin-right: 8px;
+.quiz-btn.reset{background:#475569}
+.quiz-result{
+  margin-top:14px;
+  padding:15px;
+  border-radius:11px;
+  background:#eef2ff;
+  color:#312e81;
+  font-weight:800;
+  text-align:center;
 }
-.country-card .quiz-btn {
-  background: #4f46e5;
-  color: #fff;
-  border: 0;
-  border-radius: 9px;
-  padding: 11px 17px;
-  font-weight: 700;
-  cursor: pointer;
-  margin: 8px 5px 8px 0;
+.footer-note{
+  margin-top:22px;
+  padding:12px;
+  text-align:center;
+  color:#64748b;
+  font-size:13px;
 }
-.country-card .quiz-btn.reset {
-  background: #475569;
-}
-.country-card .quiz-result {
-  margin-top: 12px;
-  padding: 12px;
-  border-radius: 9px;
-  background: #f1f5f9;
-  line-height: 1.8;
-  font-weight: 700;
-}
-.country-card .word-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 8px;
-}
-.country-card .word-table th,
-.country-card .word-table td {
-  border: 1px solid #e2e8f0;
-  padding: 9px;
-  text-align: left;
-}
-.country-card .word-table th {
-  background: #eef2ff;
+@media(max-width:600px){
+  body{padding:8px}
+  .country-card{padding:12px;border-radius:13px}
+  .hero{padding:18px 10px}
+  .hero h1{font-size:23px}
+  .section-title{font-size:16px}
+  summary{padding:12px;font-size:14px}
+  .answer{padding:11px;font-size:14px}
+  .word-table th,.word-table td{padding:7px;font-size:13px}
 }
 </style>
+</head>
 
+<body>
 <div class="country-card" id="lesson13-country">
 
-  <span class="lesson-tag">📚 कक्षा 10 • हिंदी पाठ 13</span>
-  <h2>मैं और मेरा देश</h2>
+  <header class="hero">
+    <span class="tag">📚 कक्षा 10 • हिंदी पाठ 13</span>
+    <h1>मैं और मेरा देश</h1>
+    <p>महत्त्वपूर्ण प्रश्न-उत्तर • भाषा-बोध • ऑनलाइन Quiz</p>
+  </header>
+
   <p class="intro">
-    महत्वपूर्ण प्रश्न-उत्तर, भाषा बोध और अभ्यास के लिए
-    नीचे दिए गए टैब पर क्लिक करें।
+    सभी प्रश्नों के उत्तर पढ़ने के लिए प्रश्न पर क्लिक करें।
+    अंत में Objective Type Quiz हल करके अपना स्कोर देखें।
   </p>
 
-  <span class="section-label">📝 1. छोटे प्रश्न-उत्तर</span>
+  <div class="section-title">📝 1. छोटे प्रश्न-उत्तर</div>
 
   <details>
     <summary>प्रश्न 1. लेखक को अपनी पूर्णता का बोध कब हुआ?</summary>
@@ -209,95 +255,71 @@
     <div class="answer">शल्य महाभारत के युद्ध में कर्ण का सारथी था।</div>
   </details>
 
-  <span class="section-label green-label">📖 2. बड़े प्रश्न-उत्तर</span>
+  <div class="section-title green">📖 2. बड़े प्रश्न-उत्तर</div>
 
   <details>
     <summary>प्रश्न 1. लाला लाजपत राय के किस अनुभव ने लेखक की पूर्णता को अपूर्णता में बदल दिया?</summary>
-    <div class="answer">
-      लेखक स्वयं को पूर्ण व्यक्ति समझता था। लाला लाजपत राय जी ने बताया कि विदेश यात्राओं के दौरान उन्हें भारत की गुलामी के कारण अपमान का अनुभव हुआ। इस अनुभव से लेखक को समझ आया कि जब देश गुलाम हो, तब व्यक्ति स्वयं को पूरी तरह पूर्ण नहीं मान सकता। इस प्रकार उनकी पूर्णता अपूर्णता में बदल गई।
-    </div>
+    <div class="answer">लेखक स्वयं को पूर्ण व्यक्ति समझता था। लाला लाजपत राय जी ने बताया कि विदेश यात्राओं के दौरान उन्हें भारत की गुलामी के कारण अपमान का अनुभव हुआ। इस अनुभव से लेखक को समझ आया कि जब देश गुलाम हो, तब व्यक्ति स्वयं को पूरी तरह पूर्ण नहीं मान सकता। इस प्रकार उनकी पूर्णता अपूर्णता में बदल गई।</div>
   </details>
 
   <details>
     <summary>प्रश्न 2. जापानी युवक ने फलों की टोकरी का मूल्य पूछने पर क्या कहा?</summary>
-    <div class="answer">
-      स्वामी रामतीर्थ द्वारा फलों का मूल्य पूछने पर जापानी युवक ने कहा कि इनका कोई मूल्य नहीं है। यदि स्वामी जी मूल्य देना ही चाहते हैं, तो वे अपने देश जाकर यह न कहें कि जापान में अच्छे फल नहीं मिलते। वह अपने देश की प्रतिष्ठा बनाए रखना चाहता था।
-    </div>
+    <div class="answer">स्वामी रामतीर्थ द्वारा फलों का मूल्य पूछने पर जापानी युवक ने कहा कि इनका कोई मूल्य नहीं है। यदि स्वामी जी मूल्य देना ही चाहते हैं, तो वे अपने देश जाकर यह न कहें कि जापान में अच्छे फल नहीं मिलते। वह अपने देश की प्रतिष्ठा बनाए रखना चाहता था।</div>
   </details>
 
   <details>
     <summary>प्रश्न 3. विद्यार्थी ने जापान में ऐसा क्या किया जिससे उसके देश का अपमान हुआ?</summary>
-    <div class="answer">
-      एक विद्यार्थी ने जापान के पुस्तकालय से पुस्तक लेकर उसके कुछ दुर्लभ चित्र फाड़ लिए और पुस्तक लौटा दी। उसकी इस अनुचित हरकत के कारण उसे जापान से निकाल दिया गया। पुस्तकालय में उसके देश के विद्यार्थियों के प्रवेश पर भी रोक लगा दी गई। इस प्रकार एक व्यक्ति के गलत व्यवहार से उसके देश की बदनामी हुई।
-    </div>
+    <div class="answer">एक विद्यार्थी ने जापान के पुस्तकालय से पुस्तक लेकर उसके कुछ दुर्लभ चित्र फाड़ लिए और पुस्तक लौटा दी। उसकी इस अनुचित हरकत के कारण उसे जापान से निकाल दिया गया। पुस्तकालय में उसके देश के विद्यार्थियों के प्रवेश पर भी रोक लगा दी गई। इस प्रकार एक व्यक्ति के गलत व्यवहार से उसके देश की बदनामी हुई।</div>
   </details>
 
   <details>
     <summary>प्रश्न 4. लेखक के अनुसार कोई भी कार्य महान कैसे बन जाता है?</summary>
-    <div class="answer">
-      लेखक के अनुसार कोई भी कार्य छोटा या बड़ा नहीं होता। कार्य करने के पीछे छिपी शुभ भावना उसे महान बनाती है। इसके विपरीत बुरी भावना से किया गया बड़ा कार्य भी हीन बन जाता है। इसलिए कार्य की महानता उसके पीछे की भावना पर निर्भर करती है।
-    </div>
+    <div class="answer">लेखक के अनुसार कोई भी कार्य छोटा या बड़ा नहीं होता। कार्य करने के पीछे छिपी शुभ भावना उसे महान बनाती है। इसके विपरीत बुरी भावना से किया गया बड़ा कार्य भी हीन बन जाता है। इसलिए कार्य की महानता उसके पीछे की भावना पर निर्भर करती है।</div>
   </details>
 
   <details>
     <summary>प्रश्न 5. शल्य ने कौन-सा महत्वपूर्ण कार्य किया?</summary>
-    <div class="answer">
-      महाभारत के युद्ध में शल्य कर्ण का सारथी था, लेकिन वह वास्तव में अर्जुन के पक्ष में था। जब कर्ण अपनी वीरता पर प्रसन्न होता, तब शल्य अर्जुन की प्रशंसा करने लगता। इससे कर्ण का आत्मविश्वास कमजोर हुआ और उसकी पराजय की नींव पड़ी।
-    </div>
+    <div class="answer">महाभारत के युद्ध में शल्य कर्ण का सारथी था, लेकिन वह वास्तव में अर्जुन के पक्ष में था। जब कर्ण अपनी वीरता पर प्रसन्न होता, तब शल्य अर्जुन की प्रशंसा करने लगता। इससे कर्ण का आत्मविश्वास कमजोर हुआ और उसकी पराजय की नींव पड़ी।</div>
   </details>
 
   <details>
     <summary>प्रश्न 6. शक्ति-बोध और सौंदर्य-बोध से क्या अभिप्राय है?</summary>
-    <div class="answer">
-      शक्ति-बोध का अर्थ है देश की शक्ति और सामर्थ्य का अनुभव करना। सौंदर्य-बोध का अर्थ है देश को सुंदर, स्वच्छ और व्यवस्थित बनाना। प्रत्येक नागरिक को ऐसा काम करना चाहिए जिससे देश की शक्ति बढ़े और उसकी सुंदरता बनी रहे।
-    </div>
+    <div class="answer">शक्ति-बोध का अर्थ है देश की शक्ति और सामर्थ्य का अनुभव करना। सौंदर्य-बोध का अर्थ है देश को सुंदर, स्वच्छ और व्यवस्थित बनाना। प्रत्येक नागरिक को ऐसा काम करना चाहिए जिससे देश की शक्ति बढ़े और उसकी सुंदरता बनी रहे।</div>
   </details>
 
   <details>
     <summary>प्रश्न 7. हम अपने देश के शक्ति-बोध को किस प्रकार चोट पहुँचाते हैं?</summary>
-    <div class="answer">
-      जब हम सार्वजनिक स्थानों पर अपने देश की कमियों का वर्णन करते हैं और दूसरे देशों की तुलना में अपने देश को हीन बताते हैं, तब हम देश के शक्ति-बोध को चोट पहुँचाते हैं। हमें अपने देश की कमियों को सुधारने का प्रयास करना चाहिए।
-    </div>
+    <div class="answer">जब हम सार्वजनिक स्थानों पर अपने देश की कमियों का वर्णन करते हैं और दूसरे देशों की तुलना में अपने देश को हीन बताते हैं, तब हम देश के शक्ति-बोध को चोट पहुँचाते हैं। हमें अपने देश की कमियों को सुधारने का प्रयास करना चाहिए।</div>
   </details>
 
   <details>
     <summary>प्रश्न 8. हम अपने देश के सौंदर्य-बोध को किस प्रकार चोट पहुँचाते हैं?</summary>
-    <div class="answer">
-      सार्वजनिक स्थानों पर गंदगी फैलाना, सड़कों पर कूड़ा फेंकना, घर और गलियों को गंदा रखना तथा समय का पालन न करना देश के सौंदर्य-बोध को चोट पहुँचाता है। हमें स्वच्छता, अनुशासन और अच्छे व्यवहार का पालन करना चाहिए।
-    </div>
+    <div class="answer">सार्वजनिक स्थानों पर गंदगी फैलाना, सड़कों पर कूड़ा फेंकना, घर और गलियों को गंदा रखना तथा समय का पालन न करना देश के सौंदर्य-बोध को चोट पहुँचाता है। हमें स्वच्छता, अनुशासन और अच्छे व्यवहार का पालन करना चाहिए।</div>
   </details>
 
   <details>
     <summary>प्रश्न 9. देश की उच्चता और हीनता की कसौटी क्या है?</summary>
-    <div class="answer">
-      लेखक के अनुसार चुनाव देश की उच्चता और हीनता की कसौटी हैं। जो नागरिक बुद्धि और विवेक से योग्य व्यक्ति को मतदान करते हैं, वे देश को उन्नत बनाते हैं। इसके विपरीत लालच में गलत व्यक्ति को चुनना देश की प्रगति में बाधा डालता है।
-    </div>
+    <div class="answer">लेखक के अनुसार चुनाव देश की उच्चता और हीनता की कसौटी हैं। जो नागरिक बुद्धि और विवेक से योग्य व्यक्ति को मतदान करते हैं, वे देश को उन्नत बनाते हैं। इसके विपरीत लालच में गलत व्यक्ति को चुनना देश की प्रगति में बाधा डालता है।</div>
   </details>
 
-  <span class="section-label orange-label">📚 3. लंबे प्रश्न-उत्तर</span>
+  <div class="section-title orange">📚 3. लंबे प्रश्न-उत्तर</div>
 
   <details>
     <summary>प्रश्न 1. लाला लाजपत राय जी ने देश के लिए कौन-सा महत्वपूर्ण कार्य किया?</summary>
-    <div class="answer">
-      लाला लाजपत राय जी सच्चे देशभक्त थे। उन्होंने अनेक देशों की यात्राएँ कीं और विदेशों में भारत की गुलामी के कारण होने वाले अपमान को अनुभव किया। उन्होंने देश की गुलामी के विषय में लेख और निबंध लिखे। अपने जोशीले भाषणों से देशवासियों में उत्साह और देशभक्ति की भावना जगाई। उन्होंने लोगों को स्वतंत्रता के लिए संघर्ष करने की प्रेरणा दी। इस प्रकार उन्होंने भारत की आजादी के लिए महत्वपूर्ण योगदान दिया।
-    </div>
+    <div class="answer">लाला लाजपत राय जी सच्चे देशभक्त थे। उन्होंने अनेक देशों की यात्राएँ कीं और विदेशों में भारत की गुलामी के कारण होने वाले अपमान को अनुभव किया। उन्होंने देश की गुलामी के विषय में लेख और निबंध लिखे। अपने जोशीले भाषणों से देशवासियों में उत्साह और देशभक्ति की भावना जगाई। उन्होंने लोगों को स्वतंत्रता के लिए संघर्ष करने की प्रेरणा दी। इस प्रकार उन्होंने भारत की आजादी के लिए महत्वपूर्ण योगदान दिया।</div>
   </details>
 
   <details>
     <summary>प्रश्न 2. कमाल पाशा और पंडित जवाहरलाल नेहरू की घटनाओं से लेखक क्या संदेश देना चाहता है?</summary>
-    <div class="answer">
-      कमाल पाशा ने एक साधारण किसान द्वारा दी गई शहद की हाँडी को प्रेमपूर्वक स्वीकार किया। इसी प्रकार पंडित जवाहरलाल नेहरू ने एक किसान की रंगीन सुतलियों से बुनी खाट को महत्व दिया। ये उपहार आर्थिक रूप से बहुत मूल्यवान नहीं थे, लेकिन इनमें प्रेम और स्नेह की भावना छिपी थी। लेखक इन घटनाओं से समझाना चाहता है कि किसी कार्य या उपहार की महानता उसकी कीमत में नहीं, बल्कि उसके पीछे छिपी भावना में होती है।
-    </div>
+    <div class="answer">कमाल पाशा ने एक साधारण किसान द्वारा दी गई शहद की हाँडी को प्रेमपूर्वक स्वीकार किया। इसी प्रकार पंडित जवाहरलाल नेहरू ने एक किसान की रंगीन सुतलियों से बुनी खाट को महत्व दिया। ये उपहार आर्थिक रूप से बहुत मूल्यवान नहीं थे, लेकिन इनमें प्रेम और स्नेह की भावना छिपी थी। लेखक इन घटनाओं से समझाना चाहता है कि किसी कार्य या उपहार की महानता उसकी कीमत में नहीं, बल्कि उसके पीछे छिपी भावना में होती है।</div>
   </details>
 
   <details>
     <summary>प्रश्न 3. लेखक ने नागरिकों को चुनाव में किन बातों का ध्यान रखने को कहा है?</summary>
-    <div class="answer">
-      लेखक ने नागरिकों को चुनाव में अपने मत का सही प्रयोग करने की सलाह दी है। प्रत्येक नागरिक को मतदान अवश्य करना चाहिए। मतदान करते समय बुद्धि, विवेक और समझदारी से योग्य व्यक्ति का चुनाव करना चाहिए। किसी लालच, स्वार्थ या प्रलोभन में आकर गलत व्यक्ति को वोट नहीं देना चाहिए। योग्य प्रतिनिधि देश की उन्नति में योगदान देते हैं। इसलिए सही मतदान करना प्रत्येक नागरिक का महत्वपूर्ण कर्तव्य है।
-    </div>
+    <div class="answer">लेखक ने नागरिकों को चुनाव में अपने मत का सही प्रयोग करने की सलाह दी है। प्रत्येक नागरिक को मतदान अवश्य करना चाहिए। मतदान करते समय बुद्धि, विवेक और समझदारी से योग्य व्यक्ति का चुनाव करना चाहिए। किसी लालच, स्वार्थ या प्रलोभन में आकर गलत व्यक्ति को वोट नहीं देना चाहिए। योग्य प्रतिनिधि देश की उन्नति में योगदान देते हैं। इसलिए सही मतदान करना प्रत्येक नागरिक का महत्वपूर्ण कर्तव्य है।</div>
   </details>
 
-  <span class="section-label purple-label">✍️ 4. भाषा बोध</span>
+  <div class="section-title purple">✍️ 4. भाषा-बोध</div>
 
   <details>
     <summary>प्रश्न 1. भाववाचक संज्ञाएँ बनाइए</summary>
@@ -354,157 +376,132 @@
     </div>
   </details>
 
-  <span class="section-label">🎯 5. Objective Type Quiz (MCQ)</span>
-  <p class="intro">सही उत्तर चुनें और अंत में अपना स्कोर चेक करें।</p>
+  <div class="section-title teal">🎯 5. Objective Type Quiz (MCQ)</div>
+  <p class="quiz-intro">
+    हर प्रश्न का सही विकल्प चुनें। उत्तर चुनते ही सही/गलत का संकेत मिलेगा।
+    सभी प्रश्न हल करने के बाद अपना स्कोर देखें।
+  </p>
 
   <form id="countryQuiz">
 
-    <details open>
-      <summary>1. लेखक को देश को किन दो बातों की आवश्यकता बताई गई है?</summary>
+    <details class="quiz-question" data-answer="b">
+      <summary>1. लेखक के अनुसार देश को किन दो बातों की आवश्यकता है?</summary>
       <div class="answer">
         <label class="quiz-option"><input type="radio" name="cq1" value="a"> धन और संपत्ति</label>
         <label class="quiz-option"><input type="radio" name="cq1" value="b"> शक्ति-बोध और सौंदर्य-बोध</label>
         <label class="quiz-option"><input type="radio" name="cq1" value="c"> शिक्षा और नौकरी</label>
+        <div class="feedback"></div>
       </div>
     </details>
 
-    <details>
+    <details class="quiz-question" data-answer="c">
       <summary>2. कमाल पाशा किस देश के राष्ट्रपति थे?</summary>
       <div class="answer">
         <label class="quiz-option"><input type="radio" name="cq2" value="a"> जापान</label>
         <label class="quiz-option"><input type="radio" name="cq2" value="b"> भारत</label>
         <label class="quiz-option"><input type="radio" name="cq2" value="c"> तुर्की</label>
+        <div class="feedback"></div>
       </div>
     </details>
 
-    <details>
+    <details class="quiz-question" data-answer="a">
       <summary>3. बूढ़े किसान ने कमाल पाशा को क्या दिया?</summary>
       <div class="answer">
         <label class="quiz-option"><input type="radio" name="cq3" value="a"> शहद की हाँडी</label>
         <label class="quiz-option"><input type="radio" name="cq3" value="b"> सोने की अंगूठी</label>
         <label class="quiz-option"><input type="radio" name="cq3" value="c"> कपड़े</label>
+        <div class="feedback"></div>
       </div>
     </details>
 
-    <details>
+    <details class="quiz-question" data-answer="b">
       <summary>4. पंडित जवाहरलाल नेहरू को किसान ने क्या उपहार दिया?</summary>
       <div class="answer">
         <label class="quiz-option"><input type="radio" name="cq4" value="a"> पुस्तक</label>
         <label class="quiz-option"><input type="radio" name="cq4" value="b"> रंगीन सुतलियों से बुनी खाट</label>
         <label class="quiz-option"><input type="radio" name="cq4" value="c"> फल</label>
+        <div class="feedback"></div>
       </div>
     </details>
 
-    <details>
+    <details class="quiz-question" data-answer="c">
       <summary>5. कर्ण का सारथी कौन था?</summary>
       <div class="answer">
         <label class="quiz-option"><input type="radio" name="cq5" value="a"> अर्जुन</label>
         <label class="quiz-option"><input type="radio" name="cq5" value="b"> भीष्म</label>
         <label class="quiz-option"><input type="radio" name="cq5" value="c"> शल्य</label>
+        <div class="feedback"></div>
       </div>
     </details>
 
-    <details>
+    <details class="quiz-question" data-answer="a">
       <summary>6. लाला लाजपत राय जी किस भावना के लिए प्रसिद्ध थे?</summary>
       <div class="answer">
         <label class="quiz-option"><input type="radio" name="cq6" value="a"> देशभक्ति</label>
         <label class="quiz-option"><input type="radio" name="cq6" value="b"> स्वार्थ</label>
         <label class="quiz-option"><input type="radio" name="cq6" value="c"> आलस्य</label>
+        <div class="feedback"></div>
       </div>
     </details>
 
-    <details>
+    <details class="quiz-question" data-answer="b">
       <summary>7. देश की उच्चता और हीनता की कसौटी क्या बताई गई है?</summary>
       <div class="answer">
         <label class="quiz-option"><input type="radio" name="cq7" value="a"> मौसम</label>
         <label class="quiz-option"><input type="radio" name="cq7" value="b"> चुनाव</label>
         <label class="quiz-option"><input type="radio" name="cq7" value="c"> जनसंख्या</label>
+        <div class="feedback"></div>
       </div>
     </details>
 
-    <details>
+    <details class="quiz-question" data-answer="c">
       <summary>8. किसी कार्य की महानता किस पर निर्भर करती है?</summary>
       <div class="answer">
         <label class="quiz-option"><input type="radio" name="cq8" value="a"> उसकी कीमत पर</label>
         <label class="quiz-option"><input type="radio" name="cq8" value="b"> उसके आकार पर</label>
         <label class="quiz-option"><input type="radio" name="cq8" value="c"> उसके पीछे की भावना पर</label>
+        <div class="feedback"></div>
       </div>
     </details>
 
-    <details>
+    <details class="quiz-question" data-answer="a">
       <summary>9. सौंदर्य-बोध को चोट पहुँचाने वाला कार्य कौन-सा है?</summary>
       <div class="answer">
         <label class="quiz-option"><input type="radio" name="cq9" value="a"> गंदगी फैलाना</label>
         <label class="quiz-option"><input type="radio" name="cq9" value="b"> स्वच्छता रखना</label>
         <label class="quiz-option"><input type="radio" name="cq9" value="c"> समय का पालन करना</label>
+        <div class="feedback"></div>
       </div>
     </details>
 
-    <details>
+    <details class="quiz-question" data-answer="b">
       <summary>10. सही मतदान करते समय किसका प्रयोग करना चाहिए?</summary>
       <div class="answer">
         <label class="quiz-option"><input type="radio" name="cq10" value="a"> लालच</label>
         <label class="quiz-option"><input type="radio" name="cq10" value="b"> बुद्धि और विवेक</label>
         <label class="quiz-option"><input type="radio" name="cq10" value="c"> दूसरों का दबाव</label>
+        <div class="feedback"></div>
       </div>
     </details>
 
-    <button type="button" class="quiz-btn" onclick="checkCountryQuiz()">उत्तर चेक करें</button>
-    <button type="button" class="quiz-btn reset" onclick="resetCountryQuiz()">दोबारा हल करें</button>
+    <button type="button" class="quiz-btn" id="checkQuiz">🏆 स्कोर देखें</button>
+    <button type="button" class="quiz-btn reset" id="resetQuiz">🔄 दोबारा हल करें</button>
 
     <div id="countryQuizResult" class="quiz-result" role="status" aria-live="polite">
-      आपका परिणाम यहाँ दिखाई देगा।
+      आपका स्कोर यहाँ दिखाई देगा।
     </div>
-
   </form>
+
+  <div class="footer-note">
+    कक्षा 10 हिंदी • पाठ 13 – मैं और मेरा देश
+  </div>
+
 </div>
 
 <script>
 (function () {
-  const answers = {
-    cq1: "b",
-    cq2: "c",
-    cq3: "a",
-    cq4: "b",
-    cq5: "c",
-    cq6: "a",
-    cq7: "b",
-    cq8: "c",
-    cq9: "a",
-    cq10: "b"
-  };
-
-  window.checkCountryQuiz = function () {
-    let score = 0;
-    let attempted = 0;
-
-    Object.keys(answers).forEach(function (name) {
-      const selected = document.querySelector(
-        '#countryQuiz input[name="' + name + '"]:checked'
-      );
-
-      if (selected) {
-        attempted++;
-        if (selected.value === answers[name]) score++;
-      }
-    });
-
-    const result = document.getElementById("countryQuizResult");
-
-    result.textContent =
-      "आपका स्कोर: " + score + "/10 | " +
-      "हल किए गए प्रश्न: " + attempted + "/10" +
-      (attempted < 10
-        ? " | बाकी प्रश्न भी हल करें।"
-        : score >= 8
-          ? " | बहुत बढ़िया! 🎉"
-          : " | सही उत्तर देखकर दोबारा अभ्यास करें।");
-  };
-
-  window.resetCountryQuiz = function () {
-    document.getElementById("countryQuiz").reset();
-    document.getElementById("countryQuizResult").textContent =
-      "आपका परिणाम यहाँ दिखाई देगा।";
-  };
-})();
-</script>
+  const quiz = document.getElementById("countryQuiz");
+  const questions = Array.from(quiz.querySelectorAll(".quiz-question"));
+  const result = document.getElementById("countryQuizResult");
+  const checkButton = document.getElementById("checkQuiz");
+  const 
