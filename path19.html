@@ -1,0 +1,414 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>पाठ 19 देश के दुश्मन - कक्षा 10 हिंदी</title>
+<style>
+:root{--p:#4f46e5;--s:#7c3aed;--ink:#1f2937;--bg:#f4f7fb}
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,"Noto Sans Devanagari",sans-serif;background:var(--bg);color:var(--ink);line-height:1.8}
+.hero{background:linear-gradient(135deg,#172554,#6d28d9);color:white;text-align:center;padding:28px 15px}
+.hero h1{font-size:clamp(24px,5vw,34px);margin:0}
+.hero p{margin:6px 0 0;color:#ede9fe}
+.wrap{max-width:950px;margin:20px auto;padding:0 14px}
+.notice,.card{background:white;border-radius:14px;padding:16px;margin:13px 0;border:1px solid #e5e7eb;box-shadow:0 4px 14px #0f172a0b}
+.notice{border-left:5px solid var(--p)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0}
+.tab{flex:1;min-width:125px;border:0;border-radius:11px;padding:12px 9px;background:#e7eafe;color:#3730a3;font-weight:bold;cursor:pointer}
+.tab.active{background:linear-gradient(135deg,var(--p),var(--s));color:white;box-shadow:0 4px 12px #4f46e544}
+.panel{display:none}.panel.active{display:block}
+.section-title{color:#312e81;margin:20px 0 10px}
+.badge{display:inline-block;background:#ede9fe;color:#5b21b6;border-radius:20px;padding:3px 10px;font-size:12px;font-weight:bold;margin-bottom:6px}
+.q{font-weight:bold;color:#312e81;margin:0 0 5px}
+.ans{margin:0;color:#334155}
+.subhead{color:#5b21b6;margin-bottom:5px}
+.option{display:block;background:#fff;border:1px solid #dbe3ef;border-radius:10px;padding:10px 12px;margin:8px 0;cursor:pointer;transition:.2s}
+.option:hover{background:#f1f5f9}
+.option input{margin-right:8px}
+.option.correct{background:#dcfce7;border:2px solid #22c55e;color:#166534;font-weight:bold}
+.option.wrong{background:#fee2e2;border:2px solid #ef4444;color:#991b1b;font-weight:bold}
+.option.correct::after{content:" ✓ सही";float:right}
+.option.wrong::after{content:" ✗ गलत";float:right}
+.quiz-feedback{padding:10px 12px;border-radius:9px;margin-top:10px;font-weight:bold}
+.good{background:#dcfce7;color:#166534}
+.bad{background:#fee2e2;color:#991b1b}
+.unanswered{background:#fef3c7;color:#92400e}
+.check-btn{border:0;border-radius:10px;padding:12px 17px;margin:8px 7px 0 0;background:var(--p);color:white;font-weight:bold;cursor:pointer}
+.reset-btn{background:#475569}
+.result{display:none;padding:17px;margin-top:16px;border-radius:14px;background:linear-gradient(135deg,#eef2ff,#f5f3ff);border:1px solid #c7d2fe;color:#312e81}
+.result-heading{font-size:20px;font-weight:800;margin-bottom:12px}
+.result-stats{display:flex;flex-wrap:wrap;gap:9px}
+.result-item{flex:1;min-width:90px;padding:12px 8px;border-radius:10px;text-align:center;background:white;border:1px solid #e2e8f0}
+.result-item strong{display:block;font-size:25px}
+.result-item span{font-size:13px;font-weight:bold}
+.small{color:#64748b;font-size:13px}
+footer{text-align:center;padding:20px;color:#64748b}
+@media(max-width:520px){.card{padding:14px}.tab{min-width:calc(50% - 8px)}.result-heading{font-size:18px}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+<h1>📚 पाठ 19 – देश के दुश्मन</h1>
+<p>लेखक: जयनाथ नलिन | कक्षा 10 हिंदी</p>
+</header>
+
+<main class="wrap">
+<div class="notice">
+<strong>📖 पढ़ने का तरीका:</strong>
+छोटे, बड़े, लंबे प्रश्न और भाषा-बोध के लिए अलग टैब चुनें।
+दोनों Objective Quiz हल करने के बाद उत्तर जाँचें।
+</div>
+
+<nav class="tabs">
+<button type="button" class="tab active" data-tab="short">छोटे प्रश्न</button>
+<button type="button" class="tab" data-tab="medium">बड़े प्रश्न</button>
+<button type="button" class="tab" data-tab="long">लंबे प्रश्न</button>
+<button type="button" class="tab" data-tab="language">भाषा-बोध</button>
+<button type="button" class="tab" data-tab="quiz">पाठ Quiz</button>
+<button type="button" class="tab" data-tab="grammar">व्याकरण Quiz</button>
+</nav>
+
+<!-- छोटे प्रश्न -->
+<section id="short" class="panel active">
+<h2 class="section-title">✍️ छोटे प्रश्न-उत्तर (1–2 पंक्तियाँ)</h2>
+
+<article class="card"><div class="badge">प्रश्न 1</div><p class="q">सुमित्रा के पुत्र का नाम बताइए।</p><p class="ans">उत्तर: सुमित्रा के पुत्र का नाम जयदेव है।</p></article>
+
+<article class="card"><div class="badge">प्रश्न 2</div><p class="q">जयदेव वाघा बॉर्डर पर किस पद पर नियुक्त था?</p><p class="ans">उत्तर: जयदेव वाघा बॉर्डर पर डी.एस.पी. के पद पर नियुक्त था।</p></article>
+
+<article class="card"><div class="badge">प्रश्न 3</div><p class="q">जयदेव की पत्नी कौन थी?</p><p class="ans">उत्तर: जयदेव की पत्नी का नाम नीलम था।</p></article>
+
+<article class="card"><div class="badge">प्रश्न 4</div><p class="q">मीना कौन थी?</p><p class="ans">उत्तर: मीना जयदेव की बहन थी।</p></article>
+
+<article class="card"><div class="badge">प्रश्न 5</div><p class="q">वाघा बॉर्डर पर मारे गए दो सरकारी अफसर कौन थे?</p><p class="ans">उत्तर: उनमें एक हेड कांस्टेबल और दूसरा सब-इंस्पेक्टर था।</p></article>
+
+<article class="card"><div class="badge">प्रश्न 6</div><p class="q">जयदेव ने तस्करों से कितने लाख रुपये का सोना छीना?</p><p class="ans">उत्तर: जयदेव ने तस्करों से पाँच लाख रुपये का सोना छीना।</p></article>
+
+<article class="card"><div class="badge">प्रश्न 7</div><p class="q">जयदेव को कितने रुपये इनाम देने की घोषणा हुई?</p><p class="ans">उत्तर: जयदेव को दस हज़ार रुपये इनाम देने की घोषणा हुई।</p></article>
+
+<article class="card"><div class="badge">प्रश्न 8</div><p class="q">जयदेव इनाम की राशि किसे देना चाहता था?</p><p class="ans">उत्तर: वह इनाम की राशि शहीद अफसरों की विधवाओं में आधी-आधी बाँटना चाहता था।</p></article>
+</section>
+
+<!-- बड़े प्रश्न -->
+<section id="medium" class="panel">
+<h2 class="section-title">📝 बड़े प्रश्न-उत्तर (3–4 पंक्तियाँ)</h2>
+
+<article class="card"><div class="badge">प्रश्न 1</div><p class="q">सुमित्रा क्यों कहती है कि उसका हृदय अब दुर्बल हो चुका है?</p><p class="ans">उत्तर: सुमित्रा ने अपने पति के बलिदान का दुख सहन किया था। अब उसकी हिम्मत टूट चुकी है। वह अपने इकलौते पुत्र जयदेव को खोना नहीं चाहती। इसलिए थोड़ी-सी आशंका से भी उसका हृदय काँप उठता है।</p></article>
+
+<article class="card"><div class="badge">प्रश्न 2</div><p class="q">नीलम जयदेव से मान-भरी मुद्रा में क्या कहती है?</p><p class="ans">उत्तर: नीलम कहती है कि उसकी राह देखते-देखते आँखें पथरा गई हैं। जयदेव को उसकी चिंता नहीं है और उसे यह भी परवाह नहीं कि उसके मन पर क्या बीतती है।</p></article>
+
+<article class="card"><div class="badge">प्रश्न 3</div><p class="q">जयदेव को गुप्तचरों से क्या समाचार मिला?</p><p class="ans">उत्तर: गुप्तचरों ने बताया कि रात के अँधेरे में कुछ लोग पुलिस पिकेट से दक्षिण की ओर बॉर्डर पार करने वाले हैं। शक था कि वे सोने की तस्करी कर रहे हैं।</p></article>
+
+<article class="card"><div class="badge">प्रश्न 4</div><p class="q">जयदेव ने अपनी छुट्टी क्यों कैंसिल करवा दी?</p><p class="ans">उत्तर: जयदेव को तस्करों के बॉर्डर पार करने की सूचना मिली थी। वह उन्हें पकड़ने का अवसर खोना नहीं चाहता था। इसलिए उसने अपनी छुट्टी कैंसिल करवा दी।</p></article>
+
+<article class="card"><div class="badge">प्रश्न 5</div><p class="q">डी.सी. और जयदेव की घनिष्ठता किस संवाद से पता चलती है?</p><p class="ans">उत्तर: डी.सी. जयदेव से कहता है कि वह उसका बचपन का दोस्त और सहपाठी है। वह उसे औपचारिक रूप से ‘सर’ कहने से मना करता है। इससे दोनों की पुरानी मित्रता और घनिष्ठता का पता चलता है।</p></article>
+</section>
+
+<!-- लंबे प्रश्न -->
+<section id="long" class="panel">
+<h2 class="section-title">📘 लंबे प्रश्न-उत्तर (6–7 पंक्तियाँ)</h2>
+
+<article class="card"><div class="badge">प्रश्न 1</div><p class="q">जयदेव ने तस्करों को कैसे पकड़ा?</p><p class="ans">उत्तर: जयदेव ने तस्करों को पकड़ने का निश्चय किया। आधी रात को जब वे बॉर्डर पार कर रहे थे, तब उसने उन्हें चुनौती दी। तस्करों ने गोलियाँ चलाईं और जीप से भागने लगे। पुलिस की गाड़ियों ने उनका पीछा किया। जयदेव ने निशाना लगाकर उनकी जीप का पहिया उड़ा दिया। जीप गड्ढे में जा गिरी और तस्करों को घेरकर पकड़ लिया गया।</p></article>
+
+<article class="card"><div class="badge">प्रश्न 2</div><p class="q">डी.सी. को जयदेव और उसके परिवार पर गर्व क्यों होता है?</p><p class="ans">उत्तर: जयदेव ने साहस और वीरता से तस्करों का मुकाबला किया। उसने तस्करों से पाँच लाख रुपये का सोना पकड़ा। उसकी बहादुरी के सम्मान में दस हज़ार रुपये का इनाम घोषित हुआ। जयदेव ने यह राशि अपने पास रखने के बजाय शहीद अफसरों की विधवाओं को देने का निर्णय किया। उसकी वीरता, त्याग और दूसरों के प्रति संवेदना देखकर डी.सी. को उस पर और उसके परिवार पर गर्व होता है।</p></article>
+
+<article class="card"><div class="badge">प्रश्न 3</div><p class="q">पुलिस और सेना के अफसरों के परिवारों को किन मुसीबतों का सामना करना पड़ता है?</p><p class="ans">उत्तर: पुलिस और सेना के अफसरों के परिवारों को हमेशा अपने प्रियजनों की चिंता रहती है। वे उनकी कुशलता की खबर का इंतजार करते रहते हैं। ड्यूटी कठिन और जोखिम भरी होने के कारण परिवारों के मन में अनेक आशंकाएँ रहती हैं। समय पर चिट्ठी या खबर न मिलने पर चिंता और बढ़ जाती है। कई बार उन्हें अपने प्रियजनों से लंबे समय तक दूर रहना पड़ता है। शहादत की स्थिति में परिवार को गहरा दुख सहना पड़ता है।</p></article>
+
+<article class="card"><div class="badge">प्रश्न 4</div><p class="q">‘देश के दुश्मन’ एकांकी का मुख्य संदेश लिखिए।</p><p class="ans">उत्तर: इस एकांकी में देश की रक्षा करने वाले पुलिस अधिकारियों की वीरता और कर्तव्यनिष्ठा दिखाई गई है। जयदेव तस्करों का साहसपूर्वक सामना करता है। वह अपनी जिम्मेदारी को निजी आराम से अधिक महत्त्व देता है। इनाम की राशि शहीद अफसरों की विधवाओं को देने का उसका निर्णय त्याग और मानवता का उदाहरण है। एकांकी हमें देशभक्ति, साहस, कर्तव्यपालन और दूसरों के दुख में सहायता करने की प्रेरणा देती है।</p></article>
+
+<article class="card"><div class="badge">प्रश्न 5</div><p class="q">‘बलिदान कभी व्यर्थ नहीं जाता’ कथन का आशय स्पष्ट कीजिए।</p><p class="ans">उत्तर: इस कथन का अर्थ है कि देश और समाज के लिए किया गया महान त्याग कभी बेकार नहीं जाता। देश की रक्षा करते हुए शहीद होने वाले लोग सबके लिए सम्माननीय होते हैं। उनका साहस दूसरों को प्रेरणा देता है। उनके परिवारों का सम्मान और सहायता करना समाज का कर्तव्य है। एकांकी में यह विचार देशभक्ति और बलिदान के महत्त्व को उजागर करता है।</p></article>
+</section>
+
+<!-- भाषा बोध -->
+<section id="language" class="panel">
+<h2 class="section-title">📚 भाषा-बोध: महत्त्वपूर्ण सामग्री</h2>
+
+<article class="card">
+<h3 class="subhead">1. पर्यायवाची शब्द</h3>
+<p><strong>निराशा:</strong> हताशा, आशाहीनता</p>
+<p><strong>सभ्य:</strong> सुसंस्कृत, शालीन</p>
+<p><strong>सूर्य:</strong> दिनकर, दिवाकर</p>
+<p><strong>गौरव:</strong> सम्मान, महिमा</p>
+<p><strong>हित:</strong> भलाई, कल्याण</p>
+</article>
+
+<article class="card">
+<h3 class="subhead">2. विलोम शब्द</h3>
+<p>स्वार्थ — परमार्थ</p>
+<p>रात — दिन</p>
+<p>दंड — क्षमा</p>
+<p>टूटना — जुड़ना</p>
+<p>अनर्थ — अर्थ</p>
+<p>हित — अहित</p>
+<p>आशीर्वाद — अभिशाप</p>
+<p>आसान — मुश्किल</p>
+<p>निश्चय — अनिश्चय</p>
+<p>जल्दी — देरी</p>
+<p>सभ्य — असभ्य</p>
+<p>दुर्बल — सबल</p>
+</article>
+
+<article class="card">
+<h3 class="subhead">3. अनेकार्थी शब्द</h3>
+<p><strong>सोना:</strong> स्वर्ण धातु, नींद लेना</p>
+<p><strong>मुद्रा:</strong> धन/करेंसी, हाव-भाव</p>
+<p><strong>माँग:</strong> आवश्यकता/इच्छा, बालों के बीच की रेखा</p>
+</article>
+
+<article class="card">
+<h3 class="subhead">4. महत्त्वपूर्ण मुहावरे</h3>
+<p><strong>वज्रपात होना:</strong> अचानक बड़ा दुख आ पड़ना।</p>
+<p><strong>वाक्य:</strong> पिता की मृत्यु के बाद मोहन पर वज्रपात हो गया।</p>
+<p><strong>छाती फटना:</strong> असहनीय दुख होना।</p>
+<p><strong>वाक्य:</strong> बेटे के शहीद होने की खबर सुनकर माँ की छाती फट गई।</p>
+<p><strong>बाल बाँका न होना:</strong> जरा भी नुकसान न होना।</p>
+<p><strong>वाक्य:</strong> भगवान करे, तुम्हारा बाल भी बाँका न हो।</p>
+<p><strong>दिल धक-धक करना:</strong> भयभीत होना।</p>
+<p><strong>वाक्य:</strong> परिणाम की खबर सुनकर मेरा दिल धक-धक करने लगा।</p>
+<p><strong>हृदय पर पत्थर रखना:</strong> दुख को चुपचाप सहन करना।</p>
+<p><strong>वाक्य:</strong> माँ ने हृदय पर पत्थर रखकर बेटे को ड्यूटी पर भेजा।</p>
+<p><strong>हिम्मत टूटना:</strong> निराश हो जाना।</p>
+<p><strong>वाक्य:</strong> कठिन परिस्थिति में सैनिकों की हिम्मत नहीं टूटनी चाहिए।</p>
+<p><strong>आँखें पथरा जाना:</strong> लंबे इंतजार से थक जाना।</p>
+<p><strong>वाक्य:</strong> बेटे की राह देखते-देखते माँ की आँखें पथरा गईं।</p>
+</article>
+</section>
+
+<!-- पाठ क्विज -->
+<section id="quiz" class="panel">
+<h2 class="section-title">🎯 पाठ 19 – Objective Quiz</h2>
+<p class="small">उत्तर चुनें। सही और गलत उत्तर देखने के लिए “उत्तर जाँचें” दबाएँ।</p>
+<form id="quizForm">
+<div class="card"><p class="q">1. ‘देश के दुश्मन’ के लेखक कौन हैं?</p>
+<label class="option"><input type="radio" name="q1" value="a">प्रेमचंद</label>
+<label class="option"><input type="radio" name="q1" value="b">जयनाथ नलिन</label>
+<label class="option"><input type="radio" name="q1" value="c">मन्नू भंडारी</label></div>
+
+<div class="card"><p class="q">2. सुमित्रा के पुत्र का नाम क्या है?</p>
+<label class="option"><input type="radio" name="q2" value="a">बलुआ</label>
+<label class="option"><input type="radio" name="q2" value="b">जयदेव</label>
+<label class="option"><input type="radio" name="q2" value="c">माधवराम</label></div>
+
+<div class="card"><p class="q">3. जयदेव किस पद पर नियुक्त था?</p>
+<label class="option"><input type="radio" name="q3" value="a">डी.एस.पी.</label>
+<label class="option"><input type="radio" name="q3" value="b">कलेक्टर</label>
+<label class="option"><input type="radio" name="q3" value="c">इंस्पेक्टर जनरल</label></div>
+
+<div class="card"><p class="q">4. जयदेव की पत्नी कौन थी?</p>
+<label class="option"><input type="radio" name="q4" value="a">मीना</label>
+<label class="option"><input type="radio" name="q4" value="b">शीला</label>
+<label class="option"><input type="radio" name="q4" value="c">नीलम</label></div>
+
+<div class="card"><p class="q">5. जयदेव ने तस्करों से कितने रुपये का सोना पकड़ा?</p>
+<label class="option"><input type="radio" name="q5" value="a">एक लाख</label>
+<label class="option"><input type="radio" name="q5" value="b">पाँच लाख</label>
+<label class="option"><input type="radio" name="q5" value="c">दस लाख</label></div>
+
+<div class="card"><p class="q">6. जयदेव को कितने रुपये इनाम देने की घोषणा हुई?</p>
+<label class="option"><input type="radio" name="q6" value="a">पाँच हजार</label>
+<label class="option"><input type="radio" name="q6" value="b">दस हजार</label>
+<label class="option"><input type="radio" name="q6" value="c">पचास हजार</label></div>
+
+<div class="card"><p class="q">7. जयदेव इनाम की राशि किसे देना चाहता था?</p>
+<label class="option"><input type="radio" name="q7" value="a">अपने मित्रों को</label>
+<label class="option"><input type="radio" name="q7" value="b">अपने परिवार को</label>
+<label class="option"><input type="radio" name="q7" value="c">शहीद अफसरों की विधवाओं को</label></div>
+
+<div class="card"><p class="q">8. मीना कौन थी?</p>
+<label class="option"><input type="radio" name="q8" value="a">जयदेव की बहन</label>
+<label class="option"><input type="radio" name="q8" value="b">जयदेव की पत्नी</label>
+<label class="option"><input type="radio" name="q8" value="c">डी.सी. की बहन</label></div>
+
+<div class="card"><p class="q">9. जयदेव को तस्करों की सूचना किससे मिली?</p>
+<label class="option"><input type="radio" name="q9" value="a">चाचा से</label>
+<label class="option"><input type="radio" name="q9" value="b">गुप्तचरों से</label>
+<label class="option"><input type="radio" name="q9" value="c">नीलम से</label></div>
+
+<div class="card"><p class="q">10. एकांकी का मुख्य संदेश क्या है?</p>
+<label class="option"><input type="radio" name="q10" value="a">केवल प्रसिद्धि पाना</label>
+<label class="option"><input type="radio" name="q10" value="b">देशभक्ति, कर्तव्य और त्याग</label>
+<label class="option"><input type="radio" name="q10" value="c">आराम करना</label></div>
+
+<button class="check-btn" type="button" onclick="checkQuiz('quizForm','result1',chapterAnswers)">✓ उत्तर जाँचें</button>
+<button class="check-btn reset-btn" type="reset">↻ फिर से करें</button>
+<div id="result1" class="result" aria-live="polite"></div>
+</form>
+</section>
+
+<!-- व्याकरण क्विज -->
+<section id="grammar" class="panel">
+<h2 class="section-title">🔤 व्याकरण – Objective Quiz</h2>
+<p class="small">पर्यायवाची, विलोम, अनेकार्थी शब्द और मुहावरों पर आधारित अभ्यास।</p>
+<form id="grammarForm">
+<div class="card"><p class="q">1. ‘सूर्य’ का पर्यायवाची शब्द कौन-सा है?</p>
+<label class="option"><input type="radio" name="g1" value="a">निशाकर</label>
+<label class="option"><input type="radio" name="g1" value="b">दिनकर</label>
+<label class="option"><input type="radio" name="g1" value="c">पवन</label></div>
+
+<div class="card"><p class="q">2. ‘निराशा’ का पर्यायवाची शब्द है—</p>
+<label class="option"><input type="radio" name="g2" value="a">हताशा</label>
+<label class="option"><input type="radio" name="g2" value="b">उल्लास</label>
+<label class="option"><input type="radio" name="g2" value="c">उत्साह</label></div>
+
+<div class="card"><p class="q">3. ‘हित’ का विलोम क्या है?</p>
+<label class="option"><input type="radio" name="g3" value="a">लाभ</label>
+<label class="option"><input type="radio" name="g3" value="b">भलाई</label>
+<label class="option"><input type="radio" name="g3" value="c">अहित</label></div>
+
+<div class="card"><p class="q">4. ‘दुर्बल’ का विलोम शब्द है—</p>
+<label class="option"><input type="radio" name="g4" value="a">कमजोर</label>
+<label class="option"><input type="radio" name="g4" value="b">सबल</label>
+<label class="option"><input type="radio" name="g4" value="c">निर्बल</label></div>
+
+<div class="card"><p class="q">5. ‘स्वार्थ’ का विलोम शब्द है—</p>
+<label class="option"><input type="radio" name="g5" value="a">परमार्थ</label>
+<label class="option"><input type="radio" name="g5" value="b">लालच</label>
+<label class="option"><input type="radio" name="g5" value="c">लाभ</label></div>
+
+<div class="card"><p class="q">6. ‘सोना’ का एक अर्थ क्या है?</p>
+<label class="option"><input type="radio" name="g6" value="a">केवल चलना</label>
+<label class="option"><input type="radio" name="g6" value="b">स्वर्ण धातु</label>
+<label class="option"><input type="radio" name="g6" value="c">पढ़ना</label></div>
+
+<div class="card"><p class="q">7. ‘मुद्रा’ का अर्थ क्या हो सकता है?</p>
+<label class="option"><input type="radio" name="g7" value="a">केवल नदी</label>
+<label class="option"><input type="radio" name="g7" value="b">केवल पेड़</label>
+<label class="option"><input type="radio" name="g7" value="c">धन या हाव-भाव</label></div>
+
+<div class="card"><p class="q">8. ‘वज्रपात होना’ मुहावरे का अर्थ है—</p>
+<label class="option"><input type="radio" name="g8" value="a">बहुत खुश होना</label>
+<label class="option"><input type="radio" name="g8" value="b">अचानक बड़ा दुख आ पड़ना</label>
+<label class="option"><input type="radio" name="g8" value="c">तेज दौड़ना</label></div>
+
+<div class="card"><p class="q">9. ‘आँखें पथरा जाना’ का अर्थ है—</p>
+<label class="option"><input type="radio" name="g9" value="a">लंबे इंतजार से थक जाना</label>
+<label class="option"><input type="radio" name="g9" value="b">हँसना</label>
+<label class="option"><input type="radio" name="g9" value="c">सो जाना</label></div>
+
+<div class="card"><p class="q">10. ‘आशीर्वाद’ का विलोम शब्द है—</p>
+<label class="option"><input type="radio" name="g10" value="a">सम्मान</label>
+<label class="option"><input type="radio" name="g10" value="b">अभिशाप</label>
+<label class="option"><input type="radio" name="g10" value="c">सहायता</label></div>
+
+<button class="check-btn" type="button" onclick="checkQuiz('grammarForm','result2',grammarAnswers)">✓ उत्तर जाँचें</button>
+<button class="check-btn reset-btn" type="reset">↻ फिर से करें</button>
+<div id="result2" class="result" aria-live="polite"></div>
+</form>
+</section>
+
+<footer>हिंदी अध्ययन Hub • कक्षा 10 • पाठ 19 – देश के दुश्मन</footer>
+</main>
+
+<script>
+const chapterAnswers={
+q1:'b',q2:'b',q3:'a',q4:'c',q5:'b',
+q6:'b',q7:'c',q8:'a',q9:'b',q10:'b'
+};
+
+const grammarAnswers={
+g1:'b',g2:'a',g3:'c',g4:'b',g5:'a',
+g6:'b',g7:'c',g8:'b',g9:'a',g10:'b'
+};
+
+document.querySelectorAll('.tab').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById(btn.dataset.tab).classList.add('active');
+    window.scrollTo({top:document.querySelector('.tabs').offsetTop-8,behavior:'smooth'});
+  });
+});
+
+function checkQuiz(formId, resultId, answers) {
+  const form = document.getElementById(formId);
+  const result = document.getElementById(resultId);
+
+  if (!form || !result) return;
+
+  const questions = form.querySelectorAll(".question");
+  let correct = 0;
+  let wrong = 0;
+  let unanswered = 0;
+
+  questions.forEach((question, index) => {
+    const qName = "q" + (index + 1);
+    const selected = form.querySelector(
+      'input[name="' + qName + '"]:checked'
+    );
+    const options = question.querySelectorAll(".option");
+
+    options.forEach(option => {
+      option.classList.remove("correct", "wrong");
+    });
+
+    const correctAnswer = answers[qName];
+
+    options.forEach(option => {
+      const input = option.querySelector("input");
+
+      if (input && input.value === correctAnswer) {
+        option.classList.add("correct");
+      }
+    });
+
+    if (!selected) {
+      unanswered++;
+    } else if (selected.value === correctAnswer) {
+      correct++;
+    } else {
+      wrong++;
+
+      const selectedOption = selected.closest(".option");
+      if (selectedOption) {
+        selectedOption.classList.add("wrong");
+      }
+    }
+  });
+
+  result.innerHTML =
+    "<h3>ਨਤੀਜਾ</h3>" +
+    "<p>✅ ਸਹੀ ਉੱਤਰ: " + correct + "</p>" +
+    "<p>❌ ਗਲਤ ਉੱਤਰ: " + wrong + "</p>" +
+    "<p>⚪ ਬਿਨਾਂ ਜਵਾਬ: " + unanswered + "</p>" +
+    "<p>ਕੁੱਲ ਪ੍ਰਸ਼ਨ: " + questions.length + "</p>";
+}
+
+function resetQuiz(formId, resultId) {
+  const form = document.getElementById(formId);
+  const result = document.getElementById(resultId);
+
+  if (!form || !result) return;
+
+  form.reset();
+
+  form.querySelectorAll(".option").forEach(option => {
+    option.classList.remove("correct", "wrong");
+  });
+
+  result.innerHTML = "";
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll(".check-btn").forEach(button => {
+    button.addEventListener("click", function () {
+      const formId = this.dataset.form;
+      const resultId = this.dataset.result;
+      const answers = JSON.parse(this.dataset.answers);
+
+      checkQuiz(formId, resultId, answers);
+    });
+  });
+
+  document.querySelectorAll(".reset-btn").forEach(button => {
+    button.addEventListener("click", function () {
+      resetQuiz(this.dataset.form, this.dataset.result);
+    });
+  });
+});
+</script>
+</body>
+</html>
