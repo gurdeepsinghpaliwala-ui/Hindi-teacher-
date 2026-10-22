@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>कक्षा 9 हिंदी व्याकरण पाठ 4-5 Quiz</title>
+<style>
+body{font-family:Arial,sans-serif;background:#eef2ff;margin:0;padding:15px;color:#222}
+.container{max-width:720px;margin:auto}
+header{background:linear-gradient(120deg,#4338ca,#9333ea);color:white;text-align:center;padding:22px;border-radius:18px}
+.card{background:white;padding:20px;margin-top:16px;border-radius:16px;box-shadow:0 5px 16px #0001}
+.tabs{display:flex;gap:8px;margin-top:15px}
+button{cursor:pointer;font-size:16px;border:0;border-radius:10px;padding:12px}
+.tabs button{flex:1;background:#ddd6fe;color:#4c1d95;font-weight:bold}
+.tabs button.active{background:#6d28d9;color:white}
+.option{display:block;width:100%;text-align:left;margin:9px 0;background:#f3f4f6;border:2px solid #e5e7eb}
+.option.correct{background:#dcfce7;border-color:#16a34a}
+.option.wrong{background:#fee2e2;border-color:#dc2626}
+.primary{background:#6d28d9;color:white;margin-top:15px}
+.secondary{background:#e5e7eb;color:#222;margin-top:15px}
+#feedback{font-weight:bold;margin-top:12px}
+#question{font-size:21px;line-height:1.6}
+</style>
+</head>
+<body>
+<div class="container">
+<header>
+<h2>📚 कक्षा 9 हिंदी व्याकरण</h2>
+<p>पाठ–4 लिंग परिवर्तन | पाठ–5 वचन परिवर्तन</p>
+</header>
+
+<div class="tabs">
+<button id="lingTab" class="active" onclick="changeSection('ling')">पाठ–4 लिंग</button>
+<button id="vachanTab" onclick="changeSection('vachan')">पाठ–5 वचन</button>
+</div>
+
+<div class="card" id="quiz">
+<p id="progress"></p>
+<h3 id="question"></h3>
+<div id="options"></div>
+<p id="feedback"></p>
+<button class="primary" id="next" onclick="nextQuestion()" disabled>अगला प्रश्न ➜</button>
+<br>
+<button class="secondary" onclick="restart()">फिर से शुरू करें ↻</button>
+</div>
+</div>
+
+<script>
+const ling = [
+["शिष्य","शिष्या"],["अनुज","अनुजा"],["सुशील","सुशीला"],
+["वृद्ध","वृद्धा"],["ब्राह्मण","ब्राह्मणी"],["मौसा","मौसी"],
+["लोटा","लुटिया"],["चूहा","चुहिया"],["पंडित","पंडिताइन"],
+["बनिया","बनियाइन"],["उपदेशक","उपदेशिका"],
+["अध्यापक","अध्यापिका"],["नायक","नायिका"],["पत्र","पत्रिका"],
+["आयुष्मान","आयुष्मती"],["रूपवान","रूपवती"],["सेठ","सेठानी"],
+["पठान","पठानिन"],["कुम्हार","कुम्हारिन"],["माली","मालिन"],
+["पड़ोसी","पड़ोसिन"],["भक्त","भक्तिन"],
+["संन्यासी","संन्यासिन"],["हितकारी","हितकारिन"],
+["मनस्वी","मनस्विनी"],["परोपकारी","परोपकारिणी"],
+["प्रबंधकर्त्ता","प्रबंधकर्त्री"],["रचयिता","रचयित्री"],
+["मज़दूर","मज़दूरिन"],["रीछ","रीछनी"],["आदमी","औरत"],
+["साधु","साध्वी"],["विद्वान","विदुषी"],["भैंसा","भैंस"],
+["नर","नारी"],["भाई","बहन"]
+];
+
+const vachan = [
+["बोतल","बोतलें"],["कलम","कलमें"],["दीवार","दीवारें"],
+["बात","बातें"],["कुत्ता","कुत्ते"],["रास्ता","रास्ते"],
+["भेड़िया","भेड़िये"],["कौआ","कौए"],["गुड़िया","गुड़ियाँ"],
+["बुढ़िया","बुढ़ियाँ"],["शक्ति","शक्तियाँ"],["निधि","निधियाँ"],
+["तिथि","तिथियाँ"],["विधि","विधियाँ"],["स्त्री","स्त्रियाँ"],
+["दवाई","दवाइयाँ"],["गाड़ी","गाड़ियाँ"],["मिठाई","मिठाइयाँ"],
+["मछली","मछलियाँ"],["पत्नी","पत्नियाँ"],["बहू","बहुएँ"],
+["लू","लूएँ"],["कन्या","कन्याएँ"],["माता","माताएँ"],
+["अध्यापिका","अध्यापिकाएँ"],["आत्मा","आत्माएँ"],
+["वार्ता","वार्ताएँ"],["कथा","कथाएँ"]
+];
+
+let section="ling", index=0, score=0, answered=false;
+
+function data(){return section==="ling"?ling:vachan}
+
+function changeSection(s){
+ section=s; index=0; score=0;
+ document.getElementById("lingTab").classList.toggle("active",s==="ling");
+ document.getElementById("vachanTab").classList.toggle("active",s==="vachan");
+ render();
+}
+
+function shuffle(arr){
+ return arr.sort(()=>Math.random()-0.5);
+}
+
+function render(){
+ answered=false;
+ const arr=data();
+ if(index>=arr.length){showResult();return}
+ const item=arr[index];
+ document.getElementById("progress").textContent=
+ (section==="ling"?"पाठ–4 लिंग परिवर्तन":"पाठ–5 वचन परिवर्तन")+
+ " | प्रश्न "+(index+1)+" / "+arr.length;
+ document.getElementById("question").textContent=
+ section==="ling"?
+ item[0]+" का स्त्रीलिंग क्या है?":
+ item[0]+" का बहुवचन क्या है?";
+
+ document.getElementById("feedback").textContent="";
+ document.getElementById("next").disabled=true;
+ const box=document.getElementById("options");
+ box.innerHTML="";
+
+ let wrong=[];
+ if(section==="ling"){
+   wrong=ling.filter(x=>x[1]!==item[1]).map(x=>x[1]);
+ }else{
+   wrong=vachan.filter(x=>x[1]!==item[1]).map(x=>x[1]);
+ }
+ let choices=shuffle([item[1],...shuffle([...new Set(wrong)]).slice(0,3)]);
+
+ choices.forEach((choice,i)=>{
+   const b=document.createElement("button");
+   b.className="option";
+   b.textContent=String.fromCharCode(65+i)+". "+choice;
+   b.style.display="block";
+   b.onclick=()=>check(b,choice,item[1]);
+   box.appendChild(b);
+ });
+}
+
+function check(btn,choice,answer){
+ if(answered)return;
+ answered=true;
+ document.querySelectorAll(".option").forEach(b=>{
+   b.disabled=true;
+   if(b.textContent.slice(3)===answer)b.classList.add("correct");
+ });
+ const f=document.getElementById("feedback");
+ if(choice===answer){
+   score++;
+   f.textContent="✅ बिल्कुल सही!";
+   f.style.color="#15803d";
+ }else{
+   btn.classList.add("wrong");
+   f.textContent="❌ सही उत्तर: "+answer;
+   f.style.color="#b91c1c";
+ }
+ document.getElementById("next").disabled=false;
+}
+
+function nextQuestion(){
+ if(!answered)return;
+ index++;
+ render();
+}
+
+function restart(){
+ index=0;score=0;render();
+}
+
+function showResult(){
+ document.getElementById("quiz").innerHTML=`
+ <div style="text-align:center">
+ <h2>🎉 क्विज़ पूरा हुआ!</h2>
+ <p>${section==="ling"?"पाठ–4: लिंग परिवर्तन":"पाठ–5: वचन परिवर्तन"}</p>
+ <h1>${score} / ${data().length}</h1>
+ <p>आपका स्कोर</p>
+ <button class="primary" onclick="restart()">दोबारा प्रयास करें ↻</button>
+ <br>
+ <button class="secondary" onclick="changeSection('${section==="ling"?"vachan":"ling"}')">
+ ${section==="ling"?"पाठ–5 वचन परिवर्तन":"पाठ–4 लिंग परिवर्तन"} खोलें
+ </button>
+ </div>`;
+}
+
+render();
+</script>
+</body>
+</html>
