@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>पाठ–3 वर्तनी | कक्षा 9 PSEB Quiz</title>
+<style>
+*{box-sizing:border-box}body{margin:0;padding:14px;background:#f1f5f9;color:#172033;font-family:Arial,"Noto Sans Devanagari",sans-serif;line-height:1.6}
+.card{max-width:700px;margin:22px auto;background:white;border:1px solid #dbeafe;border-radius:18px;padding:22px;box-shadow:0 8px 25px #0f172a12}
+h1{font-size:23px;margin:0;color:#1e3a8a}.subtitle{color:#64748b;margin:5px 0 18px}.counter{display:flex;justify-content:space-between;gap:10px;background:#eff6ff;border-radius:10px;padding:9px 12px;font-weight:bold;margin-bottom:18px}
+#question{font-size:21px;font-weight:bold;margin:12px 0 16px}.options{display:grid;gap:10px}.opt{padding:12px;border:1px solid #cbd5e1;border-radius:10px;background:#fff;text-align:left;font-size:17px;cursor:pointer;color:#172033}.opt:hover:not(:disabled){background:#eff6ff;border-color:#60a5fa}.opt:disabled{cursor:default}.opt.correct{background:#dcfce7;border-color:#22c55e;color:#166534}.opt.wrong{background:#fee2e2;border-color:#ef4444;color:#991b1b}
+#feedback{display:none;margin-top:15px;padding:12px;border-radius:10px;font-weight:bold}#feedback.good{display:block;background:#dcfce7;color:#166534}#feedback.bad{display:block;background:#fee2e2;color:#991b1b}
+.buttons{display:flex;gap:10px;margin-top:18px;flex-wrap:wrap}button.action{border:0;border-radius:10px;padding:12px 18px;font-size:16px;font-weight:bold;cursor:pointer}.next{background:#1d4ed8;color:white}.restart{background:#e2e8f0;color:#172033}button:disabled{opacity:.45;cursor:not-allowed}
+#summary{display:none;text-align:center}.score{font-size:30px;color:#1d4ed8;font-weight:bold}
+@media(max-width:480px){.card{padding:16px}h1{font-size:20px}#question{font-size:19px}}
+</style>
+</head>
+<body>
+<main class="card">
+<section id="play">
+<h1>📚 पाठ–3: वर्तनी — कक्षा 9वीं (PSEB)</h1>
+<p class="subtitle">एक बार में एक प्रश्न • उत्तर चुनें और तुरंत सही/गलत देखें।</p>
+<div class="counter"><span id="number">प्रश्न 1 / 70</span><span id="score">अंक: 0</span></div>
+<div id="question"></div>
+<div class="options" id="options"></div>
+<div id="feedback" aria-live="polite"></div>
+<div class="buttons"><button id="next" class="action next" disabled onclick="nextQuestion()">Next Question ❓</button></div>
+</section>
+<section id="summary">
+<h1>🎉 क्विज़ पूरा हुआ!</h1>
+<p class="score" id="finalScore"></p>
+<p id="message"></p>
+<div class="buttons" style="justify-content:center"><button class="action next" onclick="restartQuiz()">फिर से क्विज़ करें</button></div>
+</section>
+</main>
+<script>
+const words = [{"wrong": "हस्ताक्षेप", "right": "हस्तक्षेप"}, {"wrong": "अनाधिकार", "right": "अनधिकार"}, {"wrong": "व्यवहारिक", "right": "व्यावहारिक"}, {"wrong": "वर्दीयाँ", "right": "वर्दियाँ"}, {"wrong": "आशिर्वाद", "right": "आशीर्वाद"}, {"wrong": "पत्नि", "right": "पत्नी"}, {"wrong": "देहिक", "right": "दैहिक"}, {"wrong": "अलंकारिक", "right": "आलंकारिक"}, {"wrong": "हिंदु", "right": "हिंदू"}, {"wrong": "दुसरा", "right": "दूसरा"}, {"wrong": "स्थिती", "right": "स्थिति"}, {"wrong": "आंख", "right": "आँख"}, {"wrong": "गुंगा", "right": "गूँगा"}, {"wrong": "चांद", "right": "चाँद"}, {"wrong": "मुंह", "right": "मुँह"}, {"wrong": "हंसना", "right": "हँसना"}, {"wrong": "मासांहारी", "right": "माँसाहारी"}, {"wrong": "द्वदंव", "right": "द्वंद्व"}, {"wrong": "किरन", "right": "किरण"}, {"wrong": "हिन्सा", "right": "हिंसा"}, {"wrong": "बुड़ापा", "right": "बुढ़ापा"}, {"wrong": "ह्रदय", "right": "हृदय"}, {"wrong": "श्रेष्ट", "right": "श्रेष्ठ"}, {"wrong": "अधियापक", "right": "अध्यापक"}, {"wrong": "नबाब", "right": "नवाब"}, {"wrong": "बनस्पति", "right": "वनस्पति"}, {"wrong": "अमावश्या", "right": "अमावस्या"}, {"wrong": "नछत्र", "right": "नक्षत्र"}, {"wrong": "आग्या", "right": "आज्ञा"}, {"wrong": "उदेश्य", "right": "उद्देश्य"}, {"wrong": "तदोपरांत", "right": "तदुपरांत"}, {"wrong": "उपरोक्त", "right": "उपर्युक्त"}, {"wrong": "सुरिंद्र", "right": "सुरेंद्र"}, {"wrong": "हिंदुस्थान", "right": "हिंदुस्तान"}, {"wrong": "मेघनाथ", "right": "मेघनाद"}, {"wrong": "उत्कर्शता", "right": "उत्कर्षता"}, {"wrong": "श्रृंखला", "right": "शृंखला"}, {"wrong": "फवारा", "right": "फव्वारा"}, {"wrong": "त्यौहार", "right": "त्योहार"}, {"wrong": "ठाकुराइन", "right": "ठकुराइन"}, {"wrong": "विधार्थी", "right": "विद्यार्थी"}, {"wrong": "गठ्ठर", "right": "गट्ठर"}, {"wrong": "पथ्थर", "right": "पत्थर"}, {"wrong": "कार्यकर्म", "right": "कार्यक्रम"}, {"wrong": "प्रमात्मा", "right": "परमात्मा"}, {"wrong": "टेड़ा", "right": "टेढ़ा"}, {"wrong": "सन्यासी", "right": "संन्यासी"}, {"wrong": "गुरुपदेश", "right": "गुरूपदेश"}, {"wrong": "कढ़ाही", "right": "कढ़ाई"}, {"wrong": "धब्भा", "right": "धब्बा"}, {"wrong": "चिन्ह", "right": "चिह्न"}, {"wrong": "जिव्हा", "right": "जिह्वा"}, {"wrong": "ज्योतसना", "right": "ज्योत्स्ना"}, {"wrong": "पराप्त", "right": "प्राप्त"}, {"wrong": "समुदर", "right": "समुद्र"}, {"wrong": "अतैव", "right": "अतएव"}, {"wrong": "निसंकोच", "right": "निःसंकोच"}, {"wrong": "निरोग", "right": "नीरोग"}, {"wrong": "साधारणतय:", "right": "साधारणतः"}, {"wrong": "जरूरत", "right": "ज़रूरत"}, {"wrong": "कर्ज", "right": "कर्ज़"}, {"wrong": "डाक्टर", "right": "डॉक्टर"}, {"wrong": "परायवाची", "right": "पर्यायवाची"}, {"wrong": "उपलक्ष", "right": "उपलक्ष्य"}, {"wrong": "स्वास्थ", "right": "स्वास्थ्य"}, {"wrong": "रितु", "right": "ऋतु"}, {"wrong": "घ्रिणा", "right": "घृणा"}, {"wrong": "रूपया", "right": "रुपया"}, {"wrong": "उज्जवल", "right": "उज्ज्वल"}, {"wrong": "ग्रहस्थ", "right": "गृहस्थ"}];
+let order=[], index=0, score=0, answered=false;
+function shuffle(a){for(let i=a.length-1;i>0;i--){let j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function startQuiz(){order=words.map((_,i)=>i);index=0;score=0;answered=false;document.getElementById('play').style.display='block';document.getElementById('summary').style.display='none';renderQuestion()}
+function renderQuestion(){
+ answered=false;
+ const item=words[order[index]];
+ document.getElementById('number').textContent=`प्रश्न ${index+1} / ${words.length}`;
+ document.getElementById('score').textContent=`अंक: ${score}`;
+ document.getElementById('question').textContent=`❓ ‘${item.wrong}’ का शुद्ध रूप चुनिए।`;
+ document.getElementById('feedback').className='';document.getElementById('feedback').style.display='none';
+ document.getElementById('next').disabled=true;
+ let distractors=shuffle(words.filter((w,i)=>i!==order[index]&&w.right!==item.right).map(w=>w.right));
+ let opts=shuffle([item.right,...[...new Set(distractors)].slice(0,3)]);
+ const box=document.getElementById('options');box.innerHTML='';
+ opts.forEach(opt=>{
+  const b=document.createElement('button');b.className='opt';b.textContent=opt;
+  b.onclick=()=>chooseAnswer(b,opt,item.right);box.appendChild(b);
+ });
+}
+function chooseAnswer(button,selected,correct){
+ if(answered)return;answered=true;
+ const buttons=[...document.querySelectorAll('.opt')];buttons.forEach(b=>{b.disabled=true;if(b.textContent===correct)b.classList.add('correct')});
+ const fb=document.getElementById('feedback');
+ if(selected===correct){score++;fb.textContent='✅ बिल्कुल सही! शुद्ध रूप: '+correct;fb.className='good'}
+ else{button.classList.add('wrong');fb.textContent='❌ गलत उत्तर। सही रूप है: '+correct;fb.className='bad'}
+ fb.style.display='block';document.getElementById('score').textContent=`अंक: ${score}`;
+ document.getElementById('next').disabled=false;
+ document.getElementById('next').textContent=index===words.length-1?'परिणाम देखें':'Next Question ❓';
+}
+function nextQuestion(){if(!answered)return;if(index<words.length-1){index++;renderQuestion()}else{document.getElementById('play').style.display='none';document.getElementById('summary').style.display='block';document.getElementById('finalScore').textContent=`${score} / ${words.length}`;document.getElementById('message').textContent=`आपका स्कोर ${Math.round(score/words.length*100)}% है।`;}}
+function restartQuiz(){startQuiz()}
+startQuiz();
+</script>
+</body></html>
