@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>भाषा और लिपि - कक्षा 9 क्विज़</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+  margin:0;
+  padding:15px;
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+  background:#f0f5ff;
+  color:#172554;
+}
+.container{
+  max-width:650px;
+  margin:20px auto;
+  background:white;
+  padding:22px;
+  border-radius:16px;
+  box-shadow:0 5px 18px #00000015;
+}
+h2{text-align:center;color:#1d4ed8;margin-top:0}
+.info{text-align:center;color:#64748b}
+.progress{
+  height:9px;background:#dbeafe;
+  border-radius:10px;overflow:hidden;margin:18px 0;
+}
+#progressBar{
+  height:100%;width:0;background:#2563eb;
+  transition:width .3s;
+}
+#question{
+  font-size:20px;line-height:1.7;
+  margin:20px 0;font-weight:bold;
+}
+.option{
+  display:block;width:100%;text-align:left;
+  padding:13px;margin:10px 0;
+  border:2px solid #dbeafe;border-radius:10px;
+  background:white;font-size:17px;cursor:pointer;
+  color:#172554;
+}
+.option:hover{background:#eff6ff}
+.option.correct{
+  background:#dcfce7;border-color:#16a34a;color:#166534;
+}
+.option.wrong{
+  background:#fee2e2;border-color:#dc2626;color:#991b1b;
+}
+.option:disabled{cursor:default}
+#feedback{
+  font-size:17px;font-weight:bold;
+  margin:16px 0;min-height:26px;
+}
+button.main{
+  padding:12px 22px;border:0;border-radius:9px;
+  background:#2563eb;color:white;font-size:17px;
+  cursor:pointer;
+}
+button.main:disabled{background:#94a3b8;cursor:not-allowed}
+.actions{text-align:center;margin-top:20px}
+#result{text-align:center;line-height:1.8}
+.hidden{display:none}
+@media(max-width:480px){
+  .container{padding:17px;margin:5px auto}
+  #question{font-size:18px}
+  .option{font-size:16px}
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+  <h2>📚 पाठ–1: भाषा और लिपि</h2>
+  <p class="info">कक्षा नौवीं | ऑनलाइन क्विज़</p>
+
+  <div id="quiz">
+    <div class="info" id="counter">प्रश्न 1 / 10</div>
+    <div class="progress"><div id="progressBar"></div></div>
+    <div id="question"></div>
+    <div id="options"></div>
+    <div id="feedback" aria-live="polite"></div>
+    <div class="actions">
+      <button class="main" id="nextBtn" disabled onclick="nextQuestion()">
+        Next ➜
+      </button>
+    </div>
+  </div>
+
+  <div id="result" class="hidden">
+    <h2>🎉 क्विज़ पूरा हुआ!</h2>
+    <p id="scoreText"></p>
+    <p id="message"></p>
+    <div class="actions">
+      <button class="main" onclick="history.back()">↩ वापस जाएँ</button>
+      <button class="main" onclick="restartQuiz()">🔄 दोबारा खेलें</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const questions = [
+{
+ q:"❓ प्रश्न 1. भाषा के कितने रूप हैं? उनके नाम लिखिए।",
+ options:[
+  "दो — मौखिक भाषा और लिखित भाषा",
+  "तीन — वर्ण, शब्द और वाक्य",
+  "चार — हिंदी, पंजाबी, उर्दू और अंग्रेज़ी",
+  "एक — केवल लिखित भाषा"
+ ],
+ a:0
+},
+{
+ q:"❓ प्रश्न 2. व्याकरण के मुख्यतः कितने अंग हैं?",
+ options:[
+  "दो — भाषा और लिपि",
+  "तीन — वर्ण विचार, शब्द विचार और वाक्य विचार",
+  "चार — संज्ञा, सर्वनाम, क्रिया और विशेषण",
+  "पाँच — पाँच प्रकार के वाक्य"
+ ],
+ a:1
+},
+{
+ q:"❓ प्रश्न 3. रचना की दृष्टि से भाषा की सबसे लघु इकाई क्या है?",
+ options:["शब्द","वाक्य","वर्ण","अनुच्छेद"],
+ a:2
+},
+{
+ q:"❓ प्रश्न 4. मौखिक भाषा की आधारभूत इकाई क्या है?",
+ options:["लिपि","ध्वनि","वाक्य","अनुच्छेद"],
+ a:1
+},
+{
+ q:"❓ प्रश्न 5. हिंदी की लिपि कौन-सी है?",
+ options:["गुरुमुखी","रोमन","फ़ारसी","देवनागरी"],
+ a:3
+},
+{
+ q:"❓ प्रश्न 6. पंजाबी की लिपि कौन-सी है?",
+ options:["देवनागरी","गुरुमुखी","रोमन","फ़ारसी"],
+ a:1
+},
+{
+ q:"❓ प्रश्न 7. रोमन लिपि में लिखी जाने वाली भाषा कौन-सी है?",
+ options:["पंजाबी","हिंदी","अंग्रेज़ी","संस्कृत"],
+ a:2
+},
+{
+ q:"❓ प्रश्न 8. बाईं ओर से दाईं ओर लिखी जाने वाली भाषा और लिपि का सही जोड़ा चुनिए।",
+ options:[
+  "उर्दू — फ़ारसी",
+  "हिंदी — देवनागरी",
+  "अरबी — अरबी",
+  "इनमें से कोई नहीं"
+ ],
+ a:1
+},
+{
+ q:"❓ प्रश्न 9. दाईं ओर से बाईं ओर लिखी जाने वाली भाषा और लिपि का सही जोड़ा चुनिए।",
+ options:[
+  "हिंदी — देवनागरी",
+  "अंग्रेज़ी — रोमन",
+  "उर्दू — फ़ारसी",
+  "मराठी — देवनागरी"
+ ],
+ a:2
+},
+{
+ q:"❓ प्रश्न 10. नेपाली और मराठी भाषाओं की लिपि कौन-सी है?",
+ options:["गुरुमुखी","रोमन","देवनागरी","फ़ारसी"],
+ a:2
+}
+];
+
+let current = 0;
+let score = 0;
+let answered = false;
+
+function showQuestion(){
+  answered = false;
+  const item = questions[current];
+
+  document.getElementById("counter").textContent =
+    `प्रश्न ${current+1} / ${questions.length}`;
+  document.getElementById("progressBar").style.width =
+    `${(current/questions.length)*100}%`;
+  document.getElementById("question").textContent = item.q;
+  document.getElementById("feedback").textContent = "";
+  document.getElementById("nextBtn").disabled = true;
+
+  const box = document.getElementById("options");
+  box.innerHTML = "";
+
+  item.options.forEach((option,index)=>{
+    const btn = document.createElement("button");
+    btn.className = "option";
+    btn.textContent = String.fromCharCode(65+index)+". "+option;
+    btn.onclick = ()=>checkAnswer(index,btn);
+    box.appendChild(btn);
+  });
+}
+
+function checkAnswer(selected, chosenButton){
+  if(answered) return;
+  answered = true;
+
+  const item = questions[current];
+  const buttons = document.querySelectorAll(".option");
+  buttons.forEach(btn=>btn.disabled=true);
+
+  const feedback = document.getElementById("feedback");
+
+  if(selected === item.a){
+    score++;
+    chosenButton.classList.add("correct");
+    feedback.textContent = "✅ बिल्कुल सही उत्तर!";
+    feedback.style.color = "#15803d";
+  }else{
+    chosenButton.classList.add("wrong");
+    buttons[item.a].classList.add("correct");
+    feedback.textContent =
+      "❌ गलत उत्तर! सही उत्तर: "+item.options[item.a];
+    feedback.style.color = "#b91c1c";
+  }
+
+  document.getElementById("nextBtn").disabled = false;
+  document.getElementById("nextBtn").textContent =
+    current === questions.length-1 ? "परिणाम देखें 🏁" : "Next ➜";
+}
+
+function nextQuestion(){
+  if(!answered) return;
+
+  current++;
+
+  if(current < questions.length){
+    showQuestion();
+  }else{
+    document.getElementById("quiz").classList.add("hidden");
+    document.getElementById("result").classList.remove("hidden");
+    document.getElementById("progressBar").style.width = "100%";
+    document.getElementById("scoreText").textContent =
+      `आपका स्कोर: ${score} / ${questions.length}`;
+    document.getElementById("message").textContent =
+      score >= 8 ? "🌟 बहुत बढ़िया! आपकी तैयारी अच्छी है।" :
+      score >= 5 ? "👍 अच्छा प्रयास! एक बार फिर अभ्यास करें।" :
+      "📖 पाठ को दोबारा पढ़ें और फिर प्रयास करें।";
+  }
+}
+
+function restartQuiz(){
+  current = 0;
+  score = 0;
+  document.getElementById("result").classList.add("hidden");
+  document.getElementById("quiz").classList.remove("hidden");
+  showQuestion();
+}
+
+showQuestion();
+</script>
+</body>
+</html>
