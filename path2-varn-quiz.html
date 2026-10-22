@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>पाठ 2 - वर्ण | कक्षा 9</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;padding:15px;background:#f0f5ff;font-family:Arial,"Noto Sans Devanagari",sans-serif;color:#1e293b}
+.card{max-width:680px;margin:15px auto;background:white;padding:22px;border-radius:18px;box-shadow:0 5px 18px #0001}
+h2{text-align:center;color:#4338ca;margin-top:0}
+.info{text-align:center;color:#64748b}
+.bar{height:9px;background:#e0e7ff;border-radius:10px;overflow:hidden;margin:16px 0}
+#progress{height:100%;width:0;background:#6366f1;transition:.3s}
+#part{display:inline-block;background:#ede9fe;color:#5b21b6;padding:6px 12px;border-radius:20px;font-weight:bold}
+#question{font-size:20px;line-height:1.8;font-weight:bold;margin:20px 0}
+.option{display:block;width:100%;text-align:left;padding:13px;margin:10px 0;border:2px solid #dbeafe;border-radius:11px;background:#fff;color:#1e293b;font-size:16px;line-height:1.6;cursor:pointer;overflow-wrap:anywhere}
+.option:disabled{cursor:default}
+.option.correct{background:#dcfce7;border-color:#16a34a;color:#166534}
+.option.wrong{background:#fee2e2;border-color:#dc2626;color:#991b1b}
+#feedback{min-height:30px;font-weight:bold;line-height:1.6;margin-top:14px}
+.actions{text-align:center;margin-top:20px}
+.main{background:#4f46e5;color:white;border:0;border-radius:10px;padding:12px 22px;font-size:16px;margin:4px;cursor:pointer}
+.hidden{display:none}
+#result{text-align:center;line-height:1.8}
+@media(max-width:480px){.card{padding:16px}#question{font-size:18px}.option{font-size:15px}}
+</style>
+</head>
+<body>
+<div class="card">
+<h2>📚 पाठ–2: वर्ण</h2>
+<p class="info">कक्षा नौवीं हिंदी व्याकरण</p>
+
+<div id="quiz">
+<p class="info" id="counter"></p>
+<div><span id="part">भाग–1</span></div>
+<div class="bar"><div id="progress"></div></div>
+<div id="question"></div>
+<div id="options"></div>
+<div id="feedback" aria-live="polite"></div>
+<div class="actions">
+<button class="main" id="next" onclick="nextQ()" disabled>Next ➜</button>
+</div>
+</div>
+
+<div id="result" class="hidden">
+<h2>🎉 क्विज़ पूरा हुआ!</h2>
+<h3 id="score"></h3>
+<p id="message"></p>
+<button class="main" onclick="history.back()">↩ वापस जाएँ</button>
+<button class="main" onclick="restart()">🔄 दोबारा खेलें</button>
+</div>
+</div>
+
+<script>
+const part1 = [
+["अंकुर","अं + क् + उ + र् + अ"],
+["अनुभव","अ + न् + उ + भ् + अ + व् + अ"],
+["इच्छा","इ + च् + छ् + आ"],
+["ईश्वर","ई + श् + व् + अ + र् + अ"],
+["उपाधि","उ + प् + आ + ध् + इ"],
+["ऊर्जा","ऊ + र् + ज् + आ"],
+["ऋतु","ऋ + त् + उ"],
+["एकांत","ए + क् + आं + त् + अ"],
+["ऐतिहासिक","ऐ + त् + इ + ह् + आ + स् + इ + क् + अ"],
+["ओजस्वी","ओ + ज् + अ + स् + व् + ई"],
+["औपचारिक","औ + प् + अ + च् + आ + र् + इ + क् + अ"],
+["क्रमानुसार","क् + र् + अ + म् + आ + न् + उ + स् + आ + र् + अ"],
+["खिन्न","ख् + इ + न् + न् + अ"],
+["गर्दन","ग् + अ + र् + द् + अ + न् + अ"],
+["घमासान","घ् + अ + म् + आ + स् + आ + न् + अ"],
+["चतुर्भुज","च् + अ + त् + उ + र् + भ् + उ + ज् + अ"],
+["छियानवे","छ् + इ + य् + आ + न् + अ + व् + ए"],
+["जिह्वा","ज् + इ + ह् + व् + आ"],
+["ज्ञानवर्द्धक","ज् + ञ् + आ + न् + अ + व् + अ + र् + द् + ध् + अ + क् + अ"],
+["झंझट","झ् + अं + झ् + अ + ट् + अ"],
+["ट्रैफिक","ट् + र् + ऐ + फ् + इ + क् + अ"],
+["ठंडक","ठ् + अं + ड् + अ + क् + अ"],
+["ड्राइवर","ड् + र् + आ + इ + व् + अ + र् + अ"],
+["ढूंढना","ढ् + ऊं + ढ् + अ + न् + आ"],
+["त्याग","त् + य् + आ + ग् + अ"],
+["थिरकना","थ् + इ + र् + अ + क् + अ + न् + आ"],
+["दुग्ध","द् + उ + ग् + ध् + अ"],
+["धोखेबाज","ध् + ओ + ख् + ए + ब् + आ + ज् + अ"],
+["न्यून","न् + य् + ऊ + न् + अ"],
+["पर्वत","प् + अ + र् + व् + अ + त् + अ"],
+["फरीदकोट","फ् + अ + र् + ई + द् + अ + क् + ओ + ट् + अ"],
+["बर्मा","ब् + अ + र् + म् + आ"],
+["भ्रष्टाचार","भ् + र् + अ + ष् + ट् + आ + च् + आ + र् + अ"],
+["मनोव्यथा","म् + अ + न् + ओ + व् + य् + अ + थ् + आ"],
+["योद्धा","य् + ओ + द् + ध् + आ"],
+["रहस्य","र् + अ + ह् + अ + स् + य् + अ"],
+["लिखवाना","ल् + इ + ख् + अ + व् + आ + न् + आ"],
+["विज्ञान","व् + इ + ज् + ञ् + आ + न् + अ"],
+["व्यवहार","व् + य् + अ + व् + अ + ह् + आ + र् + अ"],
+["शृंगार","श् + ऋं + ग् + आ + र् + अ"],
+["श्रीमती","श् + र् + ई + म् + अ + त् + ई"],
+["सूक्ष्म","स् + ऊ + क् + ष् + अ + म् + अ"],
+["हृदय","ह् + ऋ + द् + अ + य् + अ"]
+];
+
+const part2 = [
+["उ + प् + आ + य् + अ","उपाय"],
+["ऊ + ष् + म् + आ","ऊष्मा"],
+["औ + ष् + अ + ध् + इ","औषधि"],
+["क् + अं + च् + अ + न् + अ","कंचन"],
+["ग् + य् + आ + र् + अ + ह् + अ","ग्यारह"],
+["न् + इ + श् + च् + इ + त् + अ","निश्चित"],
+["प् + र् + अ + द् + अ + र् + श् + अ + न् + अ","प्रदर्शन"],
+["प् + र् + अ + स् + अ + न् + न् + अ + त् + आ","प्रसन्नता"],
+["स् + व् + अ + र् + ग् + ई + य् + अ","स्वर्गीय"],
+["स् + अ + र् + व् + ओ + च् + च् + अ","सर्वोच्च"],
+["प् + अ + र् + इ + श् + र् + अ + म् + अ","परिश्रम"],
+["प् + अ + त् + र् + इ + क् + आ","पत्रिका"],
+["व् + अ + र् + त् + अ + म् + आ + न् + अ","वर्तमान"],
+["ग् + अ + र् + इ + म् + आ","गरिमा"],
+["च् + इ + क् + इ + त् + स् + आ + ल् + अ + य् + अ","चिकित्सालय"],
+["ठ् + अ + क् + उ + र् + आ + इ + न् + अ","ठकुराइन"],
+["त् + ई + व् + र् + अ","तीव्र"],
+["थ् + आ + न् + ए + द् + आ + र् + अ","थानेदार"],
+["द् + उ + र् + भ् + आ + ग् + य् + अ","दुर्भाग्य"],
+["आ + श् + च् + अ + र् + य् + अ","आश्चर्य"]
+];
+
+const questions = [
+...part1.map(([word,split],i)=>({
+ part:1,
+ q:`निम्नलिखित शब्द का सही वर्ण-विच्छेद चुनिए: ${word}`,
+ answer:split,
+ choices:[split,...part1.filter((_,j)=>j!==i).slice(0,3).map(x=>x[1])]
+})),
+...part2.map(([split,word],i)=>({
+ part:2,
+ q:`निम्नलिखित वर्णों को जोड़कर सही शब्द बनाइए:\n${split}`,
+ answer:word,
+ choices:[word,...part2.filter((_,j)=>j!==i).slice(0,3).map(x=>x[1])]
+}))
+];
+
+let index=0, score=0, locked=false;
+
+function shuffle(arr){
+ for(let i=arr.length-1;i>0;i--){
+  const j=Math.floor(Math.random()*(i+1));
+  [arr[i],arr[j]]=[arr[j],arr[i]];
+ }
+ return arr;
+}
+
+function render(){
+ locked=false;
+ const item=questions[index];
+ document.getElementById("counter").textContent=
+ `प्रश्न ${index+1} / ${questions.length}`;
+ document.getElementById("part").textContent=
+ item.part===1?"भाग–1: वर्ण-विच्छेद":"भाग–2: वर्ण जोड़कर शब्द";
+ document.getElementById("progress").style.width=
+ `${index/questions.length*100}%`;
+ document.getElementById("question").textContent="❓ "+item.q;
+ document.getElementById("feedback").textContent="";
+ const next=document.getElementById("next");
+ next.disabled=true;
+ next.textContent=index===questions.length-1?"परिणाम देखें 🏁":"Next ➜";
+
+ const opts=shuffle([...new Set(item.choices)]);
+ const box=document.getElementById("options");
+ box.innerHTML="";
+ opts.forEach((option,i)=>{
+  const btn=document.createElement("button");
+  btn.className="option";
+  btn.textContent=String.fromCharCode(65+i)+". "+option;
+  btn.onclick=()=>check(btn,option);
+  box.appendChild(btn);
+ });
+}
+
+function check(btn,selected){
+ if(locked)return;
+ locked=true;
+ const item=questions[index];
+ document.querySelectorAll(".option").forEach(b=>b.disabled=true);
+ const fb=document.getElementById("feedback");
+
+ if(selected===item.answer){
+  score++;
+  btn.classList.add("correct");
+  fb.textContent="✅ सही उत्तर!";
+  fb.style.color="#15803d";
+ }else{
+  btn.classList.add("wrong");
+  document.querySelectorAll(".option").forEach(b=>{
+   if(b.textContent.slice(3)===item.answer)b.classList.add("correct");
+  });
+  fb.textContent="❌ गलत उत्तर। सही उत्तर: "+item.answer;
+  fb.style.color="#b91c1c";
+ }
+ document.getElementById("next").disabled=false;
+}
+
+function nextQ(){
+ if(!locked)return;
+ index++;
+ if(index<questions.length){render();return;}
+ document.getElementById("quiz").classList.add("hidden");
+ document.getElementById("result").classList.remove("hidden");
+ document.getElementById("progress").style.width="100%";
+ document.getElementById("score").textContent=
+ `आपका स्कोर: ${score} / ${questions.length}`;
+ document.getElementById("message").textContent=
+ score>=50?"🌟 बहुत बढ़िया!":score>=30?"👍 अच्छा प्रयास! फिर अभ्यास करें।":"📚 पाठ दोबारा पढ़कर फिर प्रयास करें।";
+}
+
+function restart(){
+ index=0;score=0;
+ document.getElementById("result").classList.add("hidden");
+ document.getElementById("quiz").classList.remove("hidden");
+ render();
+}
+render();
+</script>
+</body>
+</html>
