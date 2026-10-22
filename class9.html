@@ -32,6 +32,7 @@ body{
     padding:0 15px;
 }
 
+/* Cards */
 .card{
     background:white;
     padding:20px;
@@ -60,7 +61,7 @@ body{
     margin-bottom:10px;
 }
 
-/* Attractive Tabs */
+/* Top Tabs */
 .tabs{
     display:flex;
     gap:8px;
@@ -69,6 +70,9 @@ body{
     background:linear-gradient(135deg,#ede9fe,#fce7f3);
     border-radius:18px;
     box-shadow:0 4px 12px #ddd;
+    position:sticky;
+    top:0;
+    z-index:10;
 }
 
 .tab-btn{
@@ -91,6 +95,7 @@ body{
     box-shadow:0 4px 10px #4b3ff055;
 }
 
+/* Only selected section is visible */
 .tab-content{
     display:none;
 }
@@ -117,22 +122,27 @@ body{
 
 <div class="container">
 
-<!-- Navigation Tabs -->
+<!-- TOP NAVIGATION TABS -->
 <div class="tabs">
-    <button class="tab-btn active"
+
+    <button type="button"
+        class="tab-btn active"
         onclick="showTab('anuched',this)">
         📚 अनुच्छेद
     </button>
 
-    <button class="tab-btn"
+    <button type="button"
+        class="tab-btn"
         onclick="showTab('patra',this)">
         ✉️ पत्र लेखन
     </button>
 
-    <button class="tab-btn"
+    <button type="button"
+        class="tab-btn"
         onclick="showTab('vyakaran',this)">
         📘 व्याकरण
     </button>
+
 </div>
 
 <!-- ANUCHHED SECTION -->
@@ -199,6 +209,8 @@ body{
 </a>
 
 </div>
+
+<!-- आगे नए अनुच्छेदों के कार्ड इसी सेक्शन में जोड़ें -->
 
 </section>
 
@@ -306,6 +318,8 @@ body{
 <p>तुम्हारी बड़ी बहन<br>________</p>
 </div>
 
+<!-- आगे नए पत्रों के कार्ड इसी सेक्शन में जोड़ें -->
+
 </section>
 
 <!-- VYAKARAN SECTION -->
@@ -328,22 +342,31 @@ style="display:inline-block;background:#4b3ff0;color:white;padding:12px 18px;bor
 
 </div>
 
+<!-- आगे नए व्याकरण कार्ड इसी सेक्शन में जोड़ें -->
+
 </section>
 
 </div>
 
 <script>
 function showTab(tabId, button) {
+    // Hide all sections
     document.querySelectorAll('.tab-content').forEach(function(tab) {
         tab.classList.remove('active');
     });
 
+    // Deactivate all buttons
     document.querySelectorAll('.tab-btn').forEach(function(btn) {
         btn.classList.remove('active');
     });
 
-    document.getElementById(tabId).classList.add('active');
-    button.classList.add('active');
+    // Show selected section
+    const selectedTab = document.getElementById(tabId);
+
+    if (selectedTab) {
+        selectedTab.classList.add('active');
+        button.classList.add('active');
+    }
 }
 </script>
 
