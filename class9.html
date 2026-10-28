@@ -15,7 +15,7 @@ body{
 }
 
 .header{
-    background:#4b3ff0;
+    background:linear-gradient(135deg,#4b3ff0,#9333ea);
     color:white;
     text-align:center;
     padding:25px 15px;
@@ -64,6 +64,7 @@ body{
 /* Top Tabs */
 .tabs{
     display:flex;
+    flex-wrap:wrap;
     gap:8px;
     margin:20px 0;
     padding:10px;
@@ -76,7 +77,7 @@ body{
 }
 
 .tab-btn{
-    flex:1;
+    flex:1 1 20%;
     min-width:0;
     padding:13px 5px;
     border:2px solid transparent;
@@ -95,6 +96,25 @@ body{
     box-shadow:0 4px 10px #4b3ff055;
 }
 
+/* Attractive Lessons Button */
+.tab-btn.lessons-btn{
+    background:linear-gradient(135deg,#ff4ecd,#9333ea,#3b82f6);
+    color:white;
+    border:2px solid white;
+    border-radius:14px;
+    font-size:14px;
+    font-weight:bold;
+    box-shadow:0 4px 14px #9333ea55;
+    transition:0.3s ease;
+}
+
+.tab-btn.lessons-btn.active{
+    background:linear-gradient(135deg,#7c3aed,#ec4899,#f97316);
+    color:white;
+    box-shadow:0 6px 18px #ec489966;
+    transform:translateY(-2px);
+}
+
 /* Only selected section is visible */
 .tab-content{
     display:none;
@@ -104,10 +124,80 @@ body{
     display:block;
 }
 
+/* Lessons Main Card */
+.lessons-hero{
+    background:linear-gradient(135deg,#fdf4ff,#ede9fe,#dbeafe);
+    border:2px solid #c084fc;
+    border-radius:22px;
+    padding:24px 18px;
+    text-align:center;
+    box-shadow:0 8px 22px #8b5cf633;
+}
+
+.lessons-hero h2{
+    color:#6d28d9;
+    margin:12px 0;
+}
+
+.lessons-hero p{
+    color:#4c1d95;
+    text-align:center;
+}
+
+.lessons-label{
+    display:inline-block;
+    background:linear-gradient(135deg,#9333ea,#ec4899);
+    color:white;
+    padding:8px 18px;
+    border-radius:25px;
+    font-weight:bold;
+}
+
+.lesson-icon{
+    font-size:46px;
+    margin:15px 0;
+}
+
+/* Individual Lesson Cards */
+.lesson-card{
+    border:1px solid #e9d5ff;
+    border-radius:18px;
+    background:linear-gradient(135deg,#ffffff,#faf5ff);
+}
+
+.lesson-card h2{
+    color:#6d28d9;
+}
+
+.lesson-link{
+    display:inline-block;
+    background:linear-gradient(135deg,#7c3aed,#db2777);
+    color:white;
+    padding:12px 20px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:bold;
+    box-shadow:0 4px 10px #9333ea33;
+}
+
+.lesson-link:hover{
+    opacity:0.9;
+}
+
+/* Mobile */
 @media(max-width:380px){
     .tab-btn{
+        flex:1 1 40%;
         font-size:12px;
         padding:12px 3px;
+    }
+
+    .header h1{
+        font-size:25px;
+    }
+
+    .card p{
+        font-size:16px;
     }
 }
 </style>
@@ -143,9 +233,18 @@ body{
         📘 व्याकरण
     </button>
 
+    <button type="button"
+        class="tab-btn lessons-btn"
+        onclick="showTab('lessons',this)">
+        ✨ 📖 Lessons
+    </button>
+
 </div>
 
+<!-- ================================= -->
 <!-- ANUCHHED SECTION -->
+<!-- ================================= -->
+
 <section id="anuched" class="tab-content active">
 
 <div class="card">
@@ -185,7 +284,7 @@ body{
 <h2>जब मेरी माँ बीमार पड़ गईं</h2>
 <p>
 <a href="jab-meri-maa-bimaar-pad-gayi.html">
-अनुच्छेद पढ़ें
+अनुच्छेद पढ़ें →
 </a>
 </p>
 </div>
@@ -210,18 +309,18 @@ body{
 
 </div>
 
-<!-- आगे नए अनुच्छेदों के कार्ड इसी सेक्शन में जोड़ें -->
-
 </section>
 
+<!-- ================================= -->
 <!-- PATRA LEKHAN SECTION -->
+<!-- ================================= -->
+
 <section id="patra" class="tab-content">
 
 <div class="card">
-<span class="badge">Part 2</span>
-<span class="badge">Part 2</span>
-<h2>पत्र लेखन</h2>
-<p>कक्षा 9 के महत्वपूर्ण पत्र</p>
+<span class="badge">पत्र लेखन</span>
+<h2>कक्षा 9 के महत्वपूर्ण पत्र</h2>
+<p>परीक्षा की तैयारी के लिए महत्वपूर्ण पत्र पढ़ें।</p>
 </div>
 
 <div class="card">
@@ -318,11 +417,12 @@ body{
 <p>तुम्हारी बड़ी बहन<br>________</p>
 </div>
 
-<!-- आगे नए पत्रों के कार्ड इसी सेक्शन में जोड़ें -->
-
 </section>
 
+<!-- ================================= -->
 <!-- VYAKARAN SECTION -->
+<!-- ================================= -->
+
 <section id="vyakaran" class="tab-content">
 
 <!-- पाठ 1: भाषा और लिपि -->
@@ -351,6 +451,7 @@ body{
     font-weight:bold;
   ">📝 क्विज़ शुरू करें ➜</a>
 </div>
+
 <!-- पाठ 2: वर्ण -->
 <div class="card" style="
   background:linear-gradient(135deg,#fff7ed,#ffedd5);
@@ -376,6 +477,7 @@ body{
     font-weight:bold;
   ">📝 क्विज़ शुरू करें ➜</a>
 </div>
+
 <!-- पाठ 3: वर्तनी -->
 <div class="card" style="
   background:linear-gradient(135deg,#ffffff,#ede9fe);
@@ -397,6 +499,7 @@ body{
     font-weight:bold;
   ">📝 वर्तनी Quiz शुरू करें →</a>
 </div>
+
 <!-- पाठ 4-5: लिंग एवं वचन परिवर्तन -->
 <div class="card" style="
   background:linear-gradient(135deg,#fdf4ff,#ede9fe,#dbeafe);
@@ -443,12 +546,82 @@ body{
     box-shadow:0 4px 10px rgba(109,40,217,0.25);
   ">📝 क्विज़ शुरू करें ➜</a>
 </div>
+
 </section>
-    
+
+<!-- ================================= -->
+<!-- LESSONS SECTION -->
+<!-- ================================= -->
+
+<section id="lessons" class="tab-content">
+
+    <!-- Attractive Main Card -->
+    <div class="lessons-hero">
+
+        <span class="lessons-label">
+            📚 CLASS 9 • HINDI
+        </span>
+
+        <div class="lesson-icon">📖✨🎓</div>
+
+        <h2>हिंदी पाठ (Lessons)</h2>
+
+        <p>
+            कक्षा 9वीं हिंदी के महत्वपूर्ण पाठ पढ़ें और अपनी परीक्षा की तैयारी करें।
+        </p>
+
+        <p>
+            🌟 पढ़ें • सीखें • अभ्यास करें 🌟
+        </p>
+
+    </div>
+
+    <!-- Lesson Card 1 -->
+    <div class="card lesson-card">
+        <span class="badge">📘 पाठ 1</span>
+        <h2>हिंदी पाठ 1</h2>
+        <p>पहले पाठ की सामग्री यहाँ पढ़ें।</p>
+
+        <a class="lesson-link" href="lesson-1.html">
+            📖 पाठ पढ़ें →
+        </a>
+    </div>
+
+    <!-- Lesson Card 2 -->
+    <div class="card lesson-card">
+        <span class="badge">📗 पाठ 2</span>
+        <h2>हिंदी पाठ 2</h2>
+        <p>दूसरे पाठ की सामग्री यहाँ पढ़ें।</p>
+
+        <a class="lesson-link" href="lesson-2.html">
+            📖 पाठ पढ़ें →
+        </a>
+    </div>
+
+    <!-- Lesson Card 3 -->
+    <div class="card lesson-card">
+        <span class="badge">📙 पाठ 3</span>
+        <h2>हिंदी पाठ 3</h2>
+        <p>तीसरे पाठ की सामग्री यहाँ पढ़ें।</p>
+
+        <a class="lesson-link" href="lesson-3.html">
+            📖 पाठ पढ़ें →
+        </a>
+    </div>
+
+    <!-- Add More Lessons Here -->
+
+</section>
+
 </div>
+
+<!-- ================================= -->
+<!-- JAVASCRIPT -->
+<!-- ================================= -->
 
 <script>
 function showTab(tabId, button) {
+
     // Hide all sections
     document.querySelectorAll('.tab-content').forEach(function(tab) {
         tab.classList.remove('active');
@@ -465,6 +638,12 @@ function showTab(tabId, button) {
     if (selectedTab) {
         selectedTab.classList.add('active');
         button.classList.add('active');
+
+        // Return to the content area
+        window.scrollTo({
+            top: document.querySelector('.tabs').offsetTop,
+            behavior: 'smooth'
+        });
     }
 }
 </script>
