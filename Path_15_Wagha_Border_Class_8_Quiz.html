@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>पाठ 15: वाघा बार्डर — ऑनलाइन क्विज़</title>
+<style>
+:root{--primary:#b91c1c;--secondary:#fff1f2;--ink:#1f2937}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,"Noto Sans Devanagari",sans-serif;background:linear-gradient(135deg,#fee2e2,#fff7ed 52%,#dbeafe);color:var(--ink);min-height:100vh}
+.wrap{max-width:780px;margin:auto;padding:18px}
+.hero{padding:26px;border-radius:24px;background:linear-gradient(135deg,#991b1b,#dc2626 55%,#1d4ed8);color:white;box-shadow:0 12px 30px #7f1d1d30}
+.kicker{font-size:.9rem;opacity:.92;margin-bottom:8px}
+h1{font-size:clamp(1.5rem,5vw,2.2rem);line-height:1.35;margin:0 0 8px}
+.hero p{margin:0;line-height:1.65}
+.panel{background:white;border:1px solid #fecaca;border-radius:22px;padding:22px;margin-top:18px;box-shadow:0 8px 25px #7f1d1d12}
+.topline{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;font-weight:750;margin-bottom:14px}
+.pill{background:#fee2e2;color:#991b1b;padding:7px 12px;border-radius:99px;font-size:.9rem}
+.track{height:10px;background:#fee2e2;border-radius:99px;overflow:hidden;margin-bottom:22px}
+#bar{height:100%;width:0;background:linear-gradient(90deg,#dc2626,#f59e0b,#2563eb);transition:width .3s}
+#question{font-size:1.2rem;line-height:1.65;margin:0 0 18px}
+.answers{display:grid;gap:11px}
+.answer{width:100%;display:flex;align-items:center;gap:12px;text-align:left;font:inherit;padding:14px;border:2px solid #e5e7eb;border-radius:15px;background:#fff;cursor:pointer;min-height:58px;transition:.15s}
+.answer:hover:not(:disabled){border-color:#dc2626;background:#fff7f7;transform:translateY(-1px)}
+.answer:disabled{cursor:default}
+.letter{display:grid;place-items:center;flex:0 0 34px;height:34px;border-radius:11px;background:#fee2e2;color:#991b1b;font-weight:850}
+.answer.correct{border-color:#16a34a;background:#f0fdf4;color:#166534}
+.answer.correct .letter{background:#16a34a;color:white}
+.answer.wrong{border-color:#dc2626;background:#fff1f2;color:#9f1239}
+.answer.wrong .letter{background:#dc2626;color:white}
+#feedback{min-height:28px;margin-top:15px;line-height:1.6;font-weight:700}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.btn{border:0;border-radius:13px;padding:13px 18px;font:inherit;font-weight:750;cursor:pointer}
+.primary{background:#b91c1c;color:white}.secondary{background:#fee2e2;color:#991b1b}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+#result{text-align:center}.score{font-size:2.5rem;font-weight:850;color:#b91c1c;margin:12px}
+.hidden{display:none!important}
+footer{text-align:center;padding:20px 0 5px;opacity:.75;font-size:.88rem}
+@media(max-width:520px){.wrap{padding:12px}.hero{padding:21px}.panel{padding:16px}}
+</style>
+</head>
+<body>
+<main class="wrap">
+<header class="hero">
+<div class="kicker">🇮🇳 पढ़ो · समझो · अभ्यास करो 🇮🇳</div>
+<h1>पाठ 15: वाघा बार्डर</h1>
+<p>कक्षा आठवीं हिन्दी · महत्वपूर्ण प्रश्न-उत्तर, शब्दार्थ, पर्यायवाची, व्याकरण और 40 सवालों का ऑनलाइन MCQ टेस्ट।</p>
+</header>
+<section id="quiz" class="panel" aria-live="polite">
+<div class="topline"><span id="counter">📝 प्रश्न 1 / 40</span><span class="pill" id="scoreTag">🏆 अंक: 0</span></div>
+<div class="track"><div id="bar"></div></div>
+<h2 id="question">🤔 प्रश्न यहाँ दिखाई देगा</h2>
+<div id="answers" class="answers"></div>
+<div id="feedback" role="status"></div>
+<div class="actions"><button id="next" class="btn primary" disabled>अगला सवाल ➜</button><button id="restartSmall" class="btn secondary">🔄 फिर से शुरू करें</button></div>
+</section>
+<section id="result" class="panel hidden">
+<div class="pill">🎉 क्विज़ पूरा हुआ</div><h2>बहुत अच्छा! आपने अभ्यास पूरा कर लिया।</h2>
+<div class="score" id="finalScore">0 / 40</div><p id="resultMessage"></p>
+<div class="actions" style="justify-content:center"><button id="again" class="btn primary">🔁 फिर से क्विज़ दें</button></div>
+</section>
+<footer>पाठ 15 · वाघा बार्डर · कक्षा आठवीं हिन्दी</footer>
+</main>
+<script>
+const questions = [["वाघा बार्डर को किस नाम से जाना जाता है?", ["एशिया की बर्लिन दीवार", "भारत का प्रवेश द्वार", "पंजाब की दीवार", "स्वतंत्रता द्वार"], 0, "वाघा बार्डर को ‘एशिया की बर्लिन दीवार’ कहा जाता है।"], ["वाघा बार्डर किन दो देशों के बीच स्थित है?", ["भारत और नेपाल", "भारत और पाकिस्तान", "पाकिस्तान और चीन", "भारत और बांग्लादेश"], 1, "वाघा बार्डर भारत और पाकिस्तान के बीच स्थित है।"], ["वाघा बार्डर के पास भारत की ओर कौन-सा प्रसिद्ध नगर है?", ["दिल्ली", "चंडीगढ़", "अमृतसर", "जयपुर"], 2, "भारत की ओर अमृतसर प्रसिद्ध नगर है।"], ["वाघा बार्डर के पास पाकिस्तान की ओर कौन-सा प्रसिद्ध नगर है?", ["कराची", "लाहौर", "इस्लामाबाद", "पेशावर"], 1, "पाकिस्तान की ओर लाहौर प्रसिद्ध नगर है।"], ["वाघा गाँव अमृतसर से लगभग कितनी दूरी पर है?", ["13 किलोमीटर", "23 किलोमीटर", "33 किलोमीटर", "53 किलोमीटर"], 2, "वाघा गाँव अमृतसर से लगभग 33 किलोमीटर दूर है।"], ["वाघा बार्डर का मुख्य आकर्षण क्या है?", ["ऊँचा पहाड़", "रिट्रीट की रस्म", "समुद्र तट", "रेलगाड़ी संग्रहालय"], 1, "यहाँ हर रोज़ शाम को होने वाली रिट्रीट की रस्म मुख्य आकर्षण है।"], ["वाघा गाँव विभाजन के बाद किन देशों में बँट गया?", ["भारत और नेपाल", "भारत और चीन", "भारत और पाकिस्तान", "पाकिस्तान और अफ़ग़ानिस्तान"], 2, "विभाजन के बाद वाघा गाँव भारत और पाकिस्तान में बँट गया।"], ["झंडा उतारने की रस्म प्रायः शाम कितने बजे शुरू होती है?", ["4:00 बजे", "5:30 बजे", "6:30 बजे", "7:00 बजे"], 1, "पाठ के अनुसार रस्म प्रायः शाम 5:30 बजे शुरू होती है।"], ["झंडा उतारने की रस्म लगभग कितनी देर में संपन्न होती है?", ["10 मिनट", "आधे-पौने घंटे में", "दो घंटे में", "तीन घंटे में"], 1, "यह रस्म लगभग आधे-पौने घंटे में संपन्न होती है।"], ["बी.एस.एफ. का पूरा नाम क्या है?", ["बॉर्डर सिक्योरिटी फोर्स", "भारत सेवा फोर्स", "बेसिक सिक्योरिटी फेडरेशन", "बॉर्डर स्टूडेंट फोर्स"], 0, "बी.एस.एफ. का पूरा नाम बॉर्डर सिक्योरिटी फोर्स है।"], ["बी.एस.एफ. के जवान कौन-सा नारा लगाते हैं?", ["हिन्दुस्तान ज़िंदाबाद", "जय विज्ञान", "खेलो भारत", "सबका साथ"], 0, "पाठ में ‘हिन्दुस्तान ज़िंदाबाद’, ‘भारत माता की जय’ और ‘वन्दे मातरम्’ नारों का उल्लेख है।"], ["झंडा उतारते समय दोनों देशों के सैनिक क्या करते हैं?", ["एक-दूसरे से हाथ मिलाते हैं", "खेल खेलते हैं", "गीत गाते हैं", "दौड़ लगाते हैं"], 0, "रस्म के दौरान दोनों देशों के सैनिक एक-दूसरे से हाथ मिलाते हैं।"], ["‘बार्डर’ का अर्थ क्या है?", ["पहाड़", "सीमा या हद", "नगर", "रास्ता"], 1, "बार्डर का अर्थ सीमा या हद है।"], ["‘आदमक़द’ का अर्थ क्या है?", ["बहुत छोटा", "मनुष्य के आकार का", "बहुत ऊँचा", "गोल आकार का"], 1, "आदमक़द का अर्थ मनुष्य के आकार का है।"], ["‘प्रतिमा’ का समानार्थी शब्द कौन-सा है?", ["मूर्ति", "नदी", "झंडा", "सड़क"], 0, "प्रतिमा का अर्थ मूर्ति है।"], ["‘सैलानी’ का अर्थ क्या है?", ["सैनिक", "अध्यापक", "पर्यटक", "व्यापारी"], 2, "सैलानी का अर्थ पर्यटक है।"], ["‘एकमात्र’ का अर्थ क्या है?", ["अनेक", "अकेला", "प्रसिद्ध", "ऐतिहासिक"], 1, "एकमात्र का अर्थ अकेला या केवल एक है।"], ["‘सौहार्द’ का अर्थ क्या है?", ["दुश्मनी", "सद्भाव और दोस्ती", "जल्दी", "सामर्थ्य"], 1, "सौहार्द का अर्थ दोस्ती, सद्भाव और हृदय की सरलता है।"], ["‘ऐतिहासिक’ का अर्थ क्या है?", ["भविष्य से संबंधित", "इतिहास से संबंधित", "भूगोल से संबंधित", "विज्ञान से संबंधित"], 1, "ऐतिहासिक का अर्थ इतिहास से संबंधित है।"], ["‘मुस्तैदी’ का अर्थ क्या है?", ["सुस्ती", "तेज़ी और तत्परता", "शांति", "कमज़ोरी"], 1, "मुस्तैदी का अर्थ तेज़ी या तत्परता है।"], ["‘क्षमता’ का अर्थ क्या है?", ["सामर्थ्य", "सीमा", "यातायात", "प्रतिमा"], 0, "क्षमता का अर्थ सामर्थ्य है।"], ["‘हौसला अफ़जाई’ का अर्थ क्या है?", ["हौसला बढ़ाना", "रोकना", "डाँटना", "भूल जाना"], 0, "हौसला अफ़जाई का अर्थ हौसला या धैर्य बढ़ाना है।"], ["‘स्वतंत्रता दिवस’ का पंजाबी में दिया गया रूप किससे संबंधित है?", ["आज़ादी दिवस", "यातायात", "साम्राज्य", "प्रतिमा"], 0, "‘ਆਜ਼ਾਦੀ ਦਿਵਸ’ का हिंदी अर्थ स्वतंत्रता दिवस है।"], ["‘ਆਵਾਜਾਈ’ का हिंदी शब्द क्या है?", ["साम्राज्य", "यातायात", "प्रतिमा", "सीमा"], 1, "‘ਆਵਾਜਾਈ’ का हिंदी शब्द यातायात है।"], ["‘ਸਾਮਰਾਜ’ का हिंदी शब्द क्या है?", ["साम्राज्य", "सैलानी", "आदमक़द", "सीमा"], 0, "‘ਸਾਮਰਾਜ’ का हिंदी रूप साम्राज्य है।"], ["‘ਝੰਡਾ’ का पर्यायवाची शब्द कौन-सा है?", ["ध्वज", "आदेश", "चैन", "यातायात"], 0, "झंडा का पर्यायवाची ध्वज या पताका है।"], ["‘आज्ञा’ का पर्यायवाची शब्द कौन-सा है?", ["शांति", "आदेश", "दर्शक", "यात्री"], 1, "आज्ञा का पर्यायवाची आदेश या हुक्म है।"], ["‘अमन’ का पर्यायवाची शब्द कौन-सा है?", ["शांति", "आदेश", "सीमा", "हौसला"], 0, "अमन का पर्यायवाची शांति या चैन है।"], ["‘आकर्षण’ से बना सही शब्द कौन-सा है?", ["आकर्षित", "आकर्षणीयता", "आकर्षणा", "आकर्षकता से"], 0, "आकर्षण से ‘आकर्षित’ शब्द बनाया जा सकता है।"], ["‘उत्साह’ से बना सही शब्द कौन-सा है?", ["उत्साहित", "उत्साहीत", "उत्साहना", "उत्साहिक"], 0, "उत्साह से ‘उत्साहित’ शब्द बनता है।"], ["‘इतिहास’ से बना विशेषण कौन-सा है?", ["ऐतिहासिक", "इतिहासता", "इतिहासिकता", "इतिहासवान"], 0, "इतिहास से ‘ऐतिहासिक’ शब्द बनता है।"], ["‘व्यापार’ से बना शब्द कौन-सा है?", ["व्यापारिक", "व्यापारित", "व्यापारता", "व्यापारीक"], 0, "व्यापार से ‘व्यापारिक’ शब्द बनता है।"], ["‘भारत’ से बना शब्द कौन-सा है?", ["भारतीय", "भारतता", "भारतित", "भारतीक"], 0, "भारत से ‘भारतीय’ शब्द बनता है।"], ["‘राष्ट्र’ से बना शब्द कौन-सा है?", ["राष्ट्रीय", "राष्ट्रित", "राष्ट्रता", "राष्ट्रिकता"], 0, "राष्ट्र से ‘राष्ट्रीय’ शब्द बनता है।"], ["‘सड़क’ का बहुवचन क्या है?", ["सड़कों", "सड़कें", "सड़कियाँ", "सड़क का"], 1, "‘सड़क’ का बहुवचन ‘सड़कें’ होता है।"], ["‘गेट’ का बहुवचन क्या है?", ["गेटें", "गेटों", "गेटियाँ", "गेट का"], 1, "वाक्य में ‘गेट’ का बहुवचन रूप ‘गेटों’ हो सकता है।"], ["‘वह अपने भावों को नृत्य द्वारा प्रकट करता है।’ का बहुवचन रूप कौन-सा है?", ["वे अपने भावों को नृत्य द्वारा प्रकट करते हैं।", "वह अपने भावों को प्रकट करते हैं।", "वे अपना भाव प्रकट करता है।", "वह भावों को प्रकट करते हैं।"], 0, "बहुवचन में ‘वह’ के स्थान पर ‘वे’ और ‘करता है’ के स्थान पर ‘करते हैं’ होगा।"], ["‘विश्वविद्यालय’ का शुद्ध रूप कौन-सा है?", ["विशवविद्यालय", "विश्वविद्यालय", "विश्वविदयालय", "विश्वविधालय"], 1, "शुद्ध वर्तनी ‘विश्वविद्यालय’ है।"], ["‘ध्वज’ का शुद्ध रूप कौन-सा है?", ["धवज", "ध्वज", "ध्वज्ज", "धव्ज"], 1, "शुद्ध शब्द ‘ध्वज’ है।"], ["‘वृद्धि’ का शुद्ध रूप कौन-सा है?", ["वृदधी", "वृद्धि", "व्रिद्धि", "वृद्धी"], 1, "शुद्ध वर्तनी ‘वृद्धि’ है।"]];
+let index=0,score=0,answered=false;
+const $=id=>document.getElementById(id);
+function render(){
+ answered=false;const item=questions[index];
+ $('quiz').classList.remove('hidden');$('result').classList.add('hidden');
+ $('counter').textContent=`📝 प्रश्न ${index+1} / ${questions.length}`;
+ $('scoreTag').textContent=`🏆 अंक: ${score}`;
+ $('bar').style.width=`${index/questions.length*100}%`;
+ $('question').textContent=`🤔 ${item[0]}`;$('answers').innerHTML='';$('feedback').textContent='';$('next').disabled=true;
+ $('next').textContent=index===questions.length-1?'🏆 परिणाम देखें':'अगला सवाल ➜';
+ item[1].forEach((choice,i)=>{const b=document.createElement('button');b.className='answer';b.innerHTML=`<span class="letter">${['क','ख','ग','घ'][i]}</span><span>${choice}</span>`;b.addEventListener('click',()=>choose(i));$('answers').appendChild(b)});
+}
+function choose(i){
+ if(answered)return;answered=true;const item=questions[index];const buttons=[...$('answers').children];
+ buttons.forEach((b,j)=>{b.disabled=true;if(j===item[2])b.classList.add('correct');if(j===i&&i!==item[2])b.classList.add('wrong')});
+ if(i===item[2]){score++;$('feedback').textContent='😊 बिल्कुल सही! '+item[3]}else{$('feedback').textContent='😢 सही उत्तर: '+item[1][item[2]]+'। '+item[3]}
+ $('scoreTag').textContent=`🏆 अंक: ${score}`;$('next').disabled=false;
+}
+function finish(){
+ $('quiz').classList.add('hidden');$('result').classList.remove('hidden');$('bar').style.width='100%';
+ $('finalScore').textContent=`${score} / ${questions.length}`;
+ const pct=Math.round(score/questions.length*100);
+ $('resultMessage').textContent=pct>=80?`🌟 शानदार! आपने ${pct}% अंक प्राप्त किए।` :pct>=50?`👏 अच्छा प्रयास! आपने ${pct}% अंक प्राप्त किए। गलत उत्तर दोहराकर फिर कोशिश करें।`:`💪 आपने ${pct}% अंक प्राप्त किए। पाठ के प्रश्न-उत्तर और शब्दार्थ दोहराएँ, फिर से अभ्यास करें।`;
+}
+function restart(){index=0;score=0;render()}
+$('next').addEventListener('click',()=>{if(!answered)return;if(index<questions.length-1){index++;render()}else finish()});
+$('restartSmall').addEventListener('click',restart);$('again').addEventListener('click',restart);
+render();
+</script>
+</body>
+</html>
