@@ -1,59 +1,124 @@
+
 <!DOCTYPE html>
 <html lang="hi">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Class 6 - Hindi Teacher</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class 6 - Hindi Teacher</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f7fb;
-      color: #222;
-    }
+<style>
+* {
+  box-sizing: border-box;
+}
 
-    header {
-      background: #4f46e5;
-      color: white;
-      padding: 25px 15px;
-      text-align: center;
-    }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f5f7fb;
+  color: #222;
+}
 
-    .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 20px;
-    }
+header {
+  background: #4f46e5;
+  color: white;
+  padding: 20px 10px;
+  text-align: center;
+}
 
-    .box {
-      background: white;
-      padding: 20px;
-      margin-bottom: 15px;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px #ddd;
-      text-align: center;
-    }
+header h1 {
+  margin: 5px;
+}
 
-    .btn {
-      display: inline-block;
-      background: #4f46e5;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-    }
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 15px;
+}
 
-    .back {
-      display: inline-block;
-      margin-top: 20px;
-      background: #222;
-      color: white;
-      padding: 12px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-    }
-  </style>
+/* TAB BUTTONS */
+.tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin: 15px 0 22px;
+}
+
+.tab-btn {
+  border: none;
+  background: #e0e7ff;
+  color: #3730a3;
+  padding: 12px 15px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.tab-btn.active {
+  background: #4f46e5;
+  color: white;
+}
+
+/* TAB CONTENT */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.box {
+  background: white;
+  padding: 20px;
+  margin-bottom: 15px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px #ddd;
+  text-align: center;
+}
+
+.btn {
+  display: inline-block;
+  background: #4f46e5;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.back {
+  display: inline-block;
+  margin-top: 20px;
+  background: #222;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+}
+
+.story-image {
+  width: 100%;
+  max-width: 750px;
+  height: auto;
+  border-radius: 15px;
+  display: block;
+  margin: 15px auto;
+}
+
+@media(max-width:480px) {
+  .tab-btn {
+    flex: 1 1 30%;
+    font-size: 13px;
+    padding: 11px 5px;
+  }
+
+  .box {
+    padding: 15px;
+  }
+}
+</style>
 </head>
 
 <body>
@@ -65,275 +130,241 @@
 
 <div class="container">
 
-  <div class="box">
-    <h2>अध्याय 1</h2>
+<!-- ALL TABS -->
+<div class="tabs">
+
+  <button class="tab-btn active" onclick="openTab('pdf',this)">
+    📄 PDF
+  </button>
+
+  <button class="tab-btn" onclick="openTab('quiz',this)">
+    🎯 Quiz
+  </button>
+
+  <button class="tab-btn" onclick="openTab('lessons',this)">
+    📚 Lessons
+  </button>
+
+  <button class="tab-btn" onclick="openTab('stories',this)">
+    📖 कहानियाँ
+  </button>
+
+  <button class="tab-btn" onclick="openTab('grammar',this)">
+    ✍️ व्याकरण
+  </button>
+
+  <button class="tab-btn" onclick="openTab('marks',this)">
+    📊 Marks Sheet
+  </button>
+
+</div>
+
+
+<!-- PDF TAB -->
+<div id="pdf" class="tab-content active">
+
+  <div class="box" style="border-top:4px solid #2563eb;">
+    <h2>📄 अध्याय 1</h2>
     <p>हिन्दी अध्याय 1 PDF</p>
 
     <a class="btn" href="adhyay1.pdf">
       📄 PDF खोलें
     </a>
   </div>
-<div class="box" style="border-top:4px solid #7c3aed;">
-  <h2>📘 पाठ 1: प्रार्थना</h2>
-  <p>शब्दार्थ, प्रश्न-उत्तर, व्याकरण और काव्य अभ्यास का ऑनलाइन MCQ टेस्ट दें।</p>
-  <a class="btn" style="background:#7c3aed;" href="prarthana-class6-quiz.html">
-    🎯 Online Quiz शुरू करें
-  </a>
+
 </div>
+
+
+<!-- QUIZ TAB -->
+<div id="quiz" class="tab-content">
+
+  <div class="box" style="border-top:4px solid #7c3aed;">
+    <h2>📘 पाठ 1: प्रार्थना</h2>
+    <p>शब्दार्थ, प्रश्न-उत्तर, व्याकरण और काव्य अभ्यास का ऑनलाइन MCQ टेस्ट दें।</p>
+    <a class="btn" style="background:#7c3aed;" href="prarthana-class6-quiz.html">
+      🎯 Online Quiz शुरू करें
+    </a>
   </div>
 
-<!-- यहाँ Card डालें -->
-<div class="box" style="border-top:4px solid #2563eb;">
-  <h2>📘 पाठ 2: सबसे बड़ा धन</h2>
-  <p>महत्वपूर्ण प्रश्न-उत्तर, विलोम शब्द और व्याकरण का ऑनलाइन MCQ टेस्ट दें।</p>
-
-  <a class="btn" style="background:#2563eb;" href="sabse-bada-dhan-class6-quiz.html">
-    🎯 Online Quiz शुरू करें
-  </a>
-</div>
-<!-- पाठ 3: जय जवान! जय किसान! Online Quiz -->
-<div class="box" style="border-top:4px solid #16a34a;">
-  <h2>📘 पाठ 3: जय जवान! जय किसान!</h2>
-  <p>महत्वपूर्ण प्रश्न-उत्तर, शब्दार्थ, व्याकरण और अभ्यास का ऑनलाइन MCQ टेस्ट दें।</p>
-
-  <a class="btn" style="background:#16a34a;" href="jai-jawan-jai-kisan-class6-quiz.html">
-    🎯 Online Quiz शुरू करें
-  </a>
-</div>
-<!-- पाठ 4: इन्द्रधनुष Online Quiz -->
-<div class="box" style="border-top:4px solid #9333ea;">
-  <h2>🌈 पाठ 4: इन्द्रधनुष</h2>
-  <p>महत्वपूर्ण MCQ प्रश्न, सही-गलत और ऑनलाइन Quiz देकर अपनी तैयारी जाँचें।</p>
-
-  <a class="btn" style="background:#9333ea;"
-     href="indra-dhanush-class6-quiz.html">
-    🎯 Online Quiz शुरू करें
-  </a>
-</div>
-
-<!-- पाठ 5: ईमानदार शंकर Online Quiz -->
-<div class="box" style="border-top:4px solid #9333ea;">
-  <h2>📘 पाठ 5: ईमानदार शंकर</h2>
-  <p>महत्वपूर्ण वस्तुनिष्ठ प्रश्न, MCQ और सही-गलत Quiz देकर अपनी तैयारी जाँचें।</p>
-
-  <a class="btn" style="background:#9333ea;"
-     href="class6-imanadar-shankar-quiz.html">
-    🎯 Online Quiz शुरू करें
-  </a>
-</div>
-
-<!-- पाठ 6: मैं और मेरी सवारी Online Quiz -->
-<div class="box" style="border-top:4px solid #9333ea;">
-  <h2>🚲 पाठ 6: मैं और मेरी सवारी</h2>
-  <p>महत्वपूर्ण वस्तुनिष्ठ प्रश्न, MCQ और सही-गलत Quiz देकर अपनी तैयारी जाँचें।</p>
-
-  <a class="btn" style="background:#9333ea;"
-     href="class6-main-aur-meri-sawari-quiz.html">
-    🎯 Online Quiz शुरू करें
-  </a>
-</div>
-
-<!-- पाठ 7: सूरज Online Quiz -->
-<div class="box" style="
-  border-top: 5px solid #9333ea;
-  background: linear-gradient(135deg, #ffffff, #faf5ff);
-  border-radius: 16px;
-  box-shadow: 0 5px 16px rgba(109,40,217,0.12);
-  padding: 20px;
-  margin-bottom: 20px;
-">
-
-  <div style="
-    display: inline-block;
-    background: linear-gradient(135deg, #7c3aed, #db2777);
-    color: white;
-    padding: 7px 14px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: bold;
-  ">
-    ☀️ HINDI QUIZ • CLASS 6
+  <div class="box" style="border-top:4px solid #2563eb;">
+    <h2>📘 पाठ 2: सबसे बड़ा धन</h2>
+    <p>महत्वपूर्ण प्रश्न-उत्तर, विलोम शब्द और व्याकरण का ऑनलाइन MCQ टेस्ट दें।</p>
+    <a class="btn" style="background:#2563eb;" href="sabse-bada-dhan-class6-quiz.html">
+      🎯 Online Quiz शुरू करें
+    </a>
   </div>
 
-  <h2 style="color: #6d28d9; margin: 15px 0 8px;">
-    पाठ 7: सूरज
-  </h2>
-
-  <p style="color: #514866; line-height: 1.7;">
-    महत्वपूर्ण वस्तुनिष्ठ प्रश्नों, पर्यायवाची शब्दों,
-    संयुक्त व्यंजन और अक्षर-क्रम का ऑनलाइन टेस्ट दें
-    और अपना स्कोर जाँचें।
-  </p>
-
-  <a href="class6-suraj-quiz.html" style="
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    background: linear-gradient(100deg, #6d28d9, #9333ea, #db2777);
-    color: white;
-    padding: 13px 16px;
-    border-radius: 12px;
-    font-weight: bold;
-    box-shadow: 0 4px 10px rgba(109,40,217,0.2);
-  ">
-    🎯 अभी Quiz शुरू करें →
-  </a>
-
-</div>
-
-<!-- पाठ 8: प्रायश्चित Online Quiz -->
-<div class="box" style="
-  border-top: 5px solid #9333ea;
-  background: linear-gradient(135deg, #ffffff, #faf5ff);
-  border-radius: 16px;
-  box-shadow: 0 5px 16px rgba(109,40,217,0.12);
-  padding: 20px;
-  margin-bottom: 20px;
-">
-  <div style="
-    display: inline-block;
-    background: linear-gradient(135deg, #7c3aed, #db2777);
-    color: white;
-    padding: 7px 14px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: bold;
-  ">
-    📚 HINDI QUIZ • CLASS 6
+  <div class="box" style="border-top:4px solid #16a34a;">
+    <h2>📘 पाठ 3: जय जवान! जय किसान!</h2>
+    <p>महत्वपूर्ण प्रश्न-उत्तर, शब्दार्थ, व्याकरण और अभ्यास का ऑनलाइन MCQ टेस्ट दें।</p>
+    <a class="btn" style="background:#16a34a;" href="jai-jawan-jai-kisan-class6-quiz.html">
+      🎯 Online Quiz शुरू करें
+    </a>
   </div>
 
-  <h2 style="color: #6d28d9; margin: 15px 0 8px;">
-    पाठ 8: प्रायश्चित
-  </h2>
-
-  <p style="color: #514866; line-height: 1.7;">
-    महत्वपूर्ण प्रश्न-उत्तर, शब्दार्थ, मुहावरे और समानार्थी शब्दों का
-    ऑनलाइन टेस्ट दें और अपना स्कोर जाँचें।
-  </p>
-
-  <a href="class6-prayashchit-quiz.html" style="
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    background: linear-gradient(100deg, #6d28d9, #9333ea, #db2777);
-    color: white;
-    padding: 13px 16px;
-    border-radius: 12px;
-    font-weight: bold;
-  ">🎯 अभी Quiz शुरू करें →</a>
-</div>
-
-<!-- पाठ 9: रोमांचक कबड्डी मुकाबला Online Quiz -->
-<div class="box" style="
-  border-top: 5px solid #9333ea;
-  background: linear-gradient(135deg, #ffffff, #faf5ff);
-  border-radius: 16px;
-  box-shadow: 0 5px 16px rgba(109,40,217,0.12);
-  padding: 20px;
-  margin-bottom: 20px;
-">
-  <div style="
-    display: inline-block;
-    background: linear-gradient(135deg, #7c3aed, #db2777);
-    color: white;
-    padding: 7px 14px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: bold;
-  ">
-    🏆 HINDI QUIZ • CLASS 6
+  <div class="box" style="border-top:4px solid #9333ea;">
+    <h2>🌈 पाठ 4: इन्द्रधनुष</h2>
+    <p>महत्वपूर्ण MCQ प्रश्न, सही-गलत और ऑनलाइन Quiz देकर अपनी तैयारी जाँचें।</p>
+    <a class="btn" style="background:#9333ea;" href="indra-dhanush-class6-quiz.html">
+      🎯 Online Quiz शुरू करें
+    </a>
   </div>
 
-  <h2 style="color: #6d28d9; margin: 15px 0 8px;">
-    पाठ 9: रोमांचक कबड्डी मुकाबला
-  </h2>
-
-  <p style="color: #514866; line-height: 1.7;">
-    महत्वपूर्ण प्रश्न-उत्तर, शब्दार्थ, मुहावरे, बहुवचन और शब्द-रचना
-    पर आधारित ऑनलाइन टेस्ट दें और अपना स्कोर जाँचें।
-  </p>
-
-  <a href="class6-romanchak-kabaddi-quiz.html" style="
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    background: linear-gradient(100deg, #6d28d9, #9333ea, #db2777);
-    color: white;
-    padding: 13px 16px;
-    border-radius: 12px;
-    font-weight: bold;
-  ">🎯 अभी Quiz शुरू करें →</a>
-</div>
-
-<!-- पाठ 10: चिड़िया का गीत Online Quiz -->
-<div class="box" style="
-  border-top: 5px solid #9333ea;
-  background: linear-gradient(135deg, #ffffff, #faf5ff);
-  border-radius: 16px;
-  box-shadow: 0 5px 16px rgba(109,40,217,0.12);
-  padding: 20px;
-  margin-bottom: 20px;
-">
-  <div style="
-    display: inline-block;
-    background: linear-gradient(135deg, #7c3aed, #db2777);
-    color: white;
-    padding: 7px 14px;
-    border-radius: 20px;
-    font-size: 13px;
-    font-weight: bold;
-  ">
-    🐦 HINDI QUIZ • CLASS 6
+  <div class="box" style="border-top:4px solid #9333ea;">
+    <h2>📘 पाठ 5: ईमानदार शंकर</h2>
+    <p>महत्वपूर्ण वस्तुनिष्ठ प्रश्न, MCQ और सही-गलत Quiz देकर अपनी तैयारी जाँचें।</p>
+    <a class="btn" style="background:#9333ea;" href="class6-imanadar-shankar-quiz.html">
+      🎯 Online Quiz शुरू करें
+    </a>
   </div>
 
-  <h2 style="color: #6d28d9; margin: 15px 0 8px;">
-    पाठ 10: चिड़िया का गीत
-  </h2>
+  <div class="box" style="border-top:4px solid #9333ea;">
+    <h2>🚲 पाठ 6: मैं और मेरी सवारी</h2>
+    <p>महत्वपूर्ण वस्तुनिष्ठ प्रश्न, MCQ और सही-गलत Quiz देकर अपनी तैयारी जाँचें।</p>
+    <a class="btn" style="background:#9333ea;" href="class6-main-aur-meri-sawari-quiz.html">
+      🎯 Online Quiz शुरू करें
+    </a>
+  </div>
 
-  <p style="color: #514866; line-height: 1.7;">
-    महत्वपूर्ण प्रश्न-उत्तर, पर्यायवाची, विलोम शब्द और सर्वनाम के
-    रूपों का ऑनलाइन टेस्ट दें और अपना स्कोर जाँचें।
-  </p>
+  <div class="box" style="border-top:5px solid #9333ea;">
+    <h2>☀️ पाठ 7: सूरज</h2>
+    <p>महत्वपूर्ण प्रश्न, पर्यायवाची शब्द, संयुक्त व्यंजन और अक्षर-क्रम का ऑनलाइन टेस्ट दें।</p>
+    <a class="btn" style="background:#9333ea;" href="class6-suraj-quiz.html">
+      🎯 अभी Quiz शुरू करें →
+    </a>
+  </div>
 
-  <a href="class6-chidiya-ka-geet-quiz.html" style="
-    display: block;
-    text-align: center;
-    text-decoration: none;
-    background: linear-gradient(100deg, #6d28d9, #9333ea, #db2777);
-    color: white;
-    padding: 13px 16px;
-    border-radius: 12px;
-    font-weight: bold;
-  ">🎯 अभी Quiz शुरू करें →</a>
+  <div class="box" style="border-top:5px solid #9333ea;">
+    <h2>📚 पाठ 8: प्रायश्चित</h2>
+    <p>महत्वपूर्ण प्रश्न-उत्तर, शब्दार्थ, मुहावरे और समानार्थी शब्दों का ऑनलाइन टेस्ट दें।</p>
+    <a class="btn" style="background:#9333ea;" href="class6-prayashchit-quiz.html">
+      🎯 अभी Quiz शुरू करें →
+    </a>
+  </div>
+
+  <div class="box" style="border-top:5px solid #9333ea;">
+    <h2>🏆 पाठ 9: रोमांचक कबड्डी मुकाबला</h2>
+    <p>महत्वपूर्ण प्रश्न-उत्तर, शब्दार्थ, मुहावरे, बहुवचन और शब्द-रचना का ऑनलाइन टेस्ट दें।</p>
+    <a class="btn" style="background:#9333ea;" href="class6-romanchak-kabaddi-quiz.html">
+      🎯 अभी Quiz शुरू करें →
+    </a>
+  </div>
+
+  <div class="box" style="border-top:5px solid #9333ea;">
+    <h2>🐦 पाठ 10: चिड़िया का गीत</h2>
+    <p>महत्वपूर्ण प्रश्न-उत्तर, पर्यायवाची, विलोम शब्द और सर्वनाम का ऑनलाइन टेस्ट दें।</p>
+    <a class="btn" style="background:#9333ea;" href="class6-chidiya-ka-geet-quiz.html">
+      🎯 अभी Quiz शुरू करें →
+    </a>
+  </div>
+
 </div>
-  
-<!-- कक्षा 6वीं Marks Sheet -->
-<div class="box" style="border-top:4px solid #16a34a;">
-  <h2>📊 कक्षा 6वीं — Marks Sheet 2026-27</h2>
-  <p>कक्षा 6वीं सत्र 2026-27 की Marks Sheet</p>
 
-  <a class="btn"
-     style="background:#16a34a;"
-     href="https://docs.google.com/spreadsheets/d/112b2FJMEjM6nm8fBoIJe1RKiJsWTxCGyRwsvlfACN2w/edit?usp=drivesdk"
-     target="_blank">
-    📊 Marks Sheet खोलें
-  </a>
 
-  <br><br>
+<!-- LESSONS TAB -->
+<div id="lessons" class="tab-content">
 
-  <a class="btn"
-     style="background:#374151;"
-     href="Class_6th_2026-27_Marks_Sheet.xlsx"
-     download>
-    ⬇️ Excel Sheet Download करें
-  </a>
+  <div class="box" style="border-top:5px solid #0d9488;">
+    <h2>📚 हिन्दी पाठों की अध्ययन सामग्री</h2>
+    <p>यहाँ सभी पाठों के सारांश, शब्दार्थ, प्रश्न-उत्तर और पाठ्य सामग्री उपलब्ध होगी।</p>
+    <p>अध्ययन सामग्री जल्द जोड़ी जाएगी।</p>
+  </div>
+
 </div>
 
+
+<!-- STORIES TAB -->
+<div id="stories" class="tab-content">
+
+  <div class="box" style="border-top:5px solid #f59e0b;">
+    <h2 style="color:#d97706;">
+      📖 चार रोचक कहानियाँ
+    </h2>
+
+    <p>
+      पढ़िए चार मजेदार और शिक्षाप्रद कहानियाँ।
+    </p>
+
+    <img
+      class="story-image"
+      src="4-rochak-kahaniyan.png"
+      alt="चार रोचक कहानियाँ">
+
+    <p style="color:#92400e;">
+      ⭐ कहानियों से सीखें अच्छी बातें और नैतिक शिक्षा।
+    </p>
+  </div>
+
+</div>
+
+
+<!-- GRAMMAR TAB -->
+<div id="grammar" class="tab-content">
+
+  <div class="box" style="border-top:5px solid #db2777;">
+    <h2 style="color:#be185d;">✍️ हिन्दी व्याकरण</h2>
+    <p>यहाँ हिन्दी व्याकरण के नोट्स, उदाहरण, अभ्यास और ऑनलाइन टेस्ट जोड़े जाएँगे।</p>
+    <p>व्याकरण सामग्री जल्द जोड़ी जाएगी।</p>
+  </div>
+
+</div>
+
+
+<!-- MARKS SHEET TAB -->
+<div id="marks" class="tab-content">
+
+  <div class="box" style="border-top:5px solid #16a34a;">
+    <h2>📊 कक्षा 6वीं — Marks Sheet 2026-27</h2>
+    <p>कक्षा 6वीं सत्र 2026-27 की Marks Sheet</p>
+
+    <a class="btn"
+       style="background:#16a34a;"
+       href="https://docs.google.com/spreadsheets/d/112b2FJMEjM6nm8fBoIJe1RKiJsWTxCGyRwsvlfACN2w/edit?usp=drivesdk"
+       target="_blank">
+      📊 Google Marks Sheet खोलें
+    </a>
+
+    <br><br>
+
+    <a class="btn"
+       style="background:#374151;"
+       href="Class_6th_2026-27_Marks_Sheet.xlsx"
+       download>
+      ⬇️ Excel Sheet Download करें
+    </a>
+  </div>
+
+</div>
+
+
+<!-- HOME BUTTON -->
 <a class="back" href="index.html">
   ⬅️ वापस Home
 </a>
 
 </div>
+
+
+<script>
+function openTab(tabId, button) {
+
+  document.querySelectorAll('.tab-content').forEach(function(tab) {
+    tab.classList.remove('active');
+  });
+
+  document.querySelectorAll('.tab-btn').forEach(function(btn) {
+    btn.classList.remove('active');
+  });
+
+  document.getElementById(tabId).classList.add('active');
+  button.classList.add('active');
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
+}
+</script>
 
 </body>
 </html>
