@@ -1,0 +1,568 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>पाठ 11 दूध का दूध पानी का पानी Quiz</title>
+
+<style>
+*{
+  box-sizing:border-box;
+}
+body{
+  margin:0;
+  padding:15px;
+  font-family:Arial,"Noto Sans Devanagari",sans-serif;
+  background:linear-gradient(135deg,#312e81,#7c3aed,#2563eb);
+  min-height:100vh;
+}
+.container{
+  max-width:650px;
+  margin:20px auto;
+  background:#fff;
+  border-radius:22px;
+  padding:22px;
+  box-shadow:0 10px 35px #0004;
+}
+.header{
+  text-align:center;
+  background:linear-gradient(135deg,#4f46e5,#9333ea);
+  color:white;
+  padding:23px 12px;
+  border-radius:17px;
+  margin-bottom:20px;
+}
+.header h1{
+  font-size:25px;
+  margin:8px 0;
+}
+.header p{
+  margin:5px 0;
+  font-size:15px;
+}
+.badge{
+  display:inline-block;
+  background:#fff;
+  color:#6d28d9;
+  padding:7px 15px;
+  border-radius:30px;
+  font-weight:bold;
+}
+.info{
+  display:flex;
+  justify-content:space-between;
+  gap:10px;
+  margin-bottom:15px;
+  font-weight:bold;
+  color:#4338ca;
+}
+.progress-bg{
+  width:100%;
+  height:10px;
+  background:#e5e7eb;
+  border-radius:20px;
+  overflow:hidden;
+  margin-bottom:22px;
+}
+.progress{
+  height:100%;
+  width:0%;
+  background:linear-gradient(90deg,#8b5cf6,#2563eb);
+  transition:.3s;
+}
+.question{
+  font-size:20px;
+  font-weight:bold;
+  color:#1e1b4b;
+  line-height:1.6;
+  margin-bottom:20px;
+}
+.options{
+  display:grid;
+  gap:12px;
+}
+.option{
+  padding:15px;
+  border:2px solid #ddd6fe;
+  border-radius:13px;
+  background:#faf5ff;
+  font-size:17px;
+  text-align:left;
+  cursor:pointer;
+  color:#312e81;
+  transition:.2s;
+}
+.option:active{
+  transform:scale(.98);
+}
+.option:hover:not(:disabled){
+  background:#ede9fe;
+  border-color:#7c3aed;
+}
+.option.correct{
+  background:#dcfce7;
+  border-color:#16a34a;
+  color:#166534;
+  font-weight:bold;
+}
+.option.wrong{
+  background:#fee2e2;
+  border-color:#dc2626;
+  color:#991b1b;
+  font-weight:bold;
+}
+.option:disabled{
+  cursor:default;
+}
+.feedback{
+  margin-top:17px;
+  padding:13px;
+  border-radius:12px;
+  font-weight:bold;
+  display:none;
+  line-height:1.5;
+}
+.feedback.good{
+  display:block;
+  background:#dcfce7;
+  color:#166534;
+}
+.feedback.bad{
+  display:block;
+  background:#fee2e2;
+  color:#991b1b;
+}
+.next-btn,.restart-btn{
+  width:100%;
+  padding:15px;
+  border:0;
+  border-radius:13px;
+  background:linear-gradient(135deg,#4f46e5,#9333ea);
+  color:white;
+  font-size:18px;
+  font-weight:bold;
+  margin-top:20px;
+  cursor:pointer;
+}
+.next-btn:disabled{
+  background:#c4b5fd;
+  cursor:not-allowed;
+}
+.result{
+  display:none;
+  text-align:center;
+  padding:15px 5px;
+}
+.result h2{
+  color:#6d28d9;
+  font-size:27px;
+}
+.score-circle{
+  width:150px;
+  height:150px;
+  margin:20px auto;
+  border-radius:50%;
+  background:linear-gradient(135deg,#7c3aed,#2563eb);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-direction:column;
+  color:white;
+}
+.score-circle strong{
+  font-size:35px;
+}
+.result p{
+  font-size:18px;
+  line-height:1.7;
+}
+.footer{
+  text-align:center;
+  color:#777;
+  font-size:13px;
+  margin-top:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="header">
+  <div style="font-size:43px;">📚 🏆 ✨</div>
+  <span class="badge">कक्षा छठी – हिंदी</span>
+  <h1>पाठ 11</h1>
+  <h2>दूध का दूध पानी का पानी</h2>
+  <p>ऑनलाइन MCQ टेस्ट</p>
+</div>
+
+<div id="quiz">
+
+<div class="info">
+  <span id="questionNo">प्रश्न 1 / 30</span>
+  <span id="score">स्कोर: 0</span>
+</div>
+
+<div class="progress-bg">
+  <div class="progress" id="progress"></div>
+</div>
+
+<div class="question" id="question"></div>
+
+<div class="options" id="options"></div>
+
+<div class="feedback" id="feedback"></div>
+
+<button class="next-btn" id="nextBtn" disabled onclick="nextQuestion()">
+  NEXT QUESTION ➜
+</button>
+
+</div>
+
+<div class="result" id="result">
+  <div style="font-size:55px;">🏆🎉</div>
+  <h2>टेस्ट पूरा हुआ!</h2>
+  <div class="score-circle">
+    <strong id="finalScore">0/30</strong>
+    <span>आपका स्कोर</span>
+  </div>
+  <p id="resultText"></p>
+  <button class="restart-btn" onclick="restartQuiz()">
+    🔄 दोबारा टेस्ट दें
+  </button>
+</div>
+
+<div class="footer">
+  ✨ Hindi Teacher – GSSS Paliwala ✨
+</div>
+
+</div>
+
+<script>
+
+const questions = [
+
+{
+q:"'कण' शब्द का हिंदी अर्थ क्या है?",
+o:["शहर","कण","सड़क","मुट्ठी"],
+a:1
+},
+{
+q:"'ਮੁਕੱਦਮੇ' का हिंदी अर्थ क्या है?",
+o:["मुकद्दमे","मुकुट","मुकाम","मुकाबला"],
+a:0
+},
+{
+q:"'ਬੇਨਤੀ' का हिंदी अर्थ क्या है?",
+o:["शोर","विनती","दंड","संकल्प"],
+a:1
+},
+{
+q:"'ਅਸਤਬਲ' का हिंदी अर्थ क्या है?",
+o:["बाजार","अदालत","अस्तबल","सड़क"],
+a:2
+},
+{
+q:"'ਬਜ਼ਾਰ' का हिंदी अर्थ क्या है?",
+o:["बाजार","घोड़ा","पीठ","शहर"],
+a:0
+},
+{
+q:"'ਖੁਸ਼' का हिंदी अर्थ क्या है?",
+o:["दुखी","प्रसन्न","क्रोधित","चिंतित"],
+a:1
+},
+{
+q:"'ਇਨਸਾਫ਼' का हिंदी अर्थ क्या है?",
+o:["अन्याय","शोर","न्याय","सजा"],
+a:2
+},
+{
+q:"'ਸਜ਼ਾ' का हिंदी अर्थ क्या है?",
+o:["दंड","प्रसन्न","भेष","परीक्षा"],
+a:0
+},
+{
+q:"राजा की परीक्षा किसने लेनी चाही?",
+o:["किसान ने","ठग ने","पड़ोसी राज्य के राजा ने","नौकर ने"],
+a:2
+},
+{
+q:"राजा को रास्ते में कौन मिला?",
+o:["एक किसान","एक ठग","एक व्यापारी","एक सैनिक"],
+a:1
+},
+{
+q:"घोड़े का असली मालिक कौन था?",
+o:["ठग","किसान","पड़ोसी राज्य का राजा","नौकर"],
+a:2
+},
+{
+q:"किसान को कितने चाबुक लगाने का दंड दिया गया?",
+o:["दस","बीस","पच्चीस","पचास"],
+a:3
+},
+{
+q:"कहानी में कौन-सा पात्र गूँगा और बहरा था?",
+o:["राजा","किसान","नौकर","ठग"],
+a:2
+},
+{
+q:"सच्चा न्याय के लिए किस मुहावरे का प्रयोग होता है?",
+o:["आँखों का तारा","दूध का दूध पानी का पानी","नाक कटना","हाथ मलना"],
+a:1
+},
+{
+q:"पड़ोसी राजा ने अंत में क्या संकल्प किया?",
+o:["युद्ध करने का","बुद्धि से न्याय करने का","राज्य छोड़ने का","घोड़ा बेचने का"],
+a:1
+},
+{
+q:"ठग ने घोड़े को पहचान लिया, लेकिन घोड़े ने ठग को क्यों नहीं पहचाना?",
+o:["घोड़ा सो रहा था","ठग उसका असली मालिक नहीं था","घोड़ा बीमार था","ठग डर गया था"],
+a:1
+},
+{
+q:"राजा ने घोड़े को कहाँ बाँध दिया?",
+o:["महल में","बाजार में","अस्तबल में","सड़क पर"],
+a:2
+},
+{
+q:"घोड़ा किसे देखकर हिनहिनाने लगा?",
+o:["ठग को","किसान को","पड़ोसी राजा को","नौकर को"],
+a:2
+},
+{
+q:"राजा ने घोड़े के मुकद्दमे का फैसला किसके हक में सुनाया?",
+o:["ठग के","पड़ोसी राजा के","किसान के","नौकर के"],
+a:1
+},
+{
+q:"'राजा' का समानार्थी शब्द कौन-सा है?",
+o:["प्रजा","नरेश","किसान","नौकर"],
+a:1
+},
+{
+q:"'घोड़ा' का समानार्थी शब्द कौन-सा है?",
+o:["गज","खच्चर","अश्व","हाथी"],
+a:2
+},
+{
+q:"'किसान' का समानार्थी शब्द कौन-सा है?",
+o:["कृषक","बागवान","व्यापारी","नौकर"],
+a:0
+},
+{
+q:"'दूध' का समानार्थी शब्द कौन-सा है?",
+o:["छाछ","दही","पय","जल"],
+a:2
+},
+{
+q:"'पानी' का समानार्थी शब्द कौन-सा है?",
+o:["अग्नि","नीर","हवा","धूल"],
+a:1
+},
+{
+q:"'संकल्प' का समानार्थी शब्द कौन-सा है?",
+o:["शंका","झिझक","इरादा","डर"],
+a:2
+},
+{
+q:"'विनती' का अर्थ क्या है?",
+o:["प्रार्थना","झगड़ा","दंड","शोर"],
+a:0
+},
+{
+q:"'चाबुक' का अर्थ क्या है?",
+o:["घोड़ा","कोड़ा","जूता","रस्सी"],
+a:1
+},
+{
+q:"घोड़े पर सवार व्यक्ति को क्या कहते हैं?",
+o:["घुड़सवार","किसान","तेली","न्यायाधीश"],
+a:0
+},
+{
+q:"जहाँ घोड़े बाँधे जाते हैं, उसे क्या कहते हैं?",
+o:["बाजार","अदालत","अस्तबल","विद्यालय"],
+a:2
+},
+{
+q:"जो बोल नहीं सकता, उसे क्या कहते हैं?",
+o:["बहरा","गूँगा","पड़ोसी","ठग"],
+a:1
+}
+
+];
+
+let current = 0;
+let totalScore = 0;
+let answered = false;
+
+function loadQuestion(){
+
+answered = false;
+
+const q = questions[current];
+
+document.getElementById("questionNo").innerText =
+"प्रश्न " + (current+1) + " / " + questions.length;
+
+document.getElementById("score").innerText =
+"स्कोर: " + totalScore;
+
+document.getElementById("progress").style.width =
+((current)/questions.length*100) + "%";
+
+document.getElementById("question").innerText =
+(current+1)+". "+q.q;
+
+document.getElementById("feedback").className="feedback";
+document.getElementById("feedback").innerText="";
+
+document.getElementById("nextBtn").disabled=true;
+
+const optionsDiv=document.getElementById("options");
+optionsDiv.innerHTML="";
+
+q.o.forEach((option,index)=>{
+
+const btn=document.createElement("button");
+
+btn.className="option";
+btn.innerText=String.fromCharCode(65+index)+". "+option;
+
+btn.onclick=()=>checkAnswer(index);
+
+optionsDiv.appendChild(btn);
+
+});
+
+}
+
+function checkAnswer(selected){
+
+if(answered) return;
+
+answered=true;
+
+const correct=questions[current].a;
+const buttons=document.querySelectorAll(".option");
+const feedback=document.getElementById("feedback");
+
+buttons.forEach((btn,index)=>{
+
+btn.disabled=true;
+
+if(index===correct){
+btn.classList.add("correct");
+}
+
+if(index===selected && selected!==correct){
+btn.classList.add("wrong");
+}
+
+});
+
+if(selected===correct){
+
+totalScore++;
+
+feedback.className="feedback good";
+feedback.innerText="🎉 बिल्कुल सही जवाब! बहुत बढ़िया!";
+
+}else{
+
+feedback.className="feedback bad";
+feedback.innerText="❌ आपका जवाब गलत है। सही उत्तर है: "+questions[current].o[correct];
+
+}
+
+document.getElementById("score").innerText=
+"स्कोर: "+totalScore;
+
+document.getElementById("nextBtn").disabled=false;
+
+if(current===questions.length-1){
+
+document.getElementById("nextBtn").innerText="🏆 RESULT देखें";
+
+}
+
+}
+
+function nextQuestion(){
+
+if(!answered) return;
+
+current++;
+
+if(current<questions.length){
+
+loadQuestion();
+
+}else{
+
+showResult();
+
+}
+
+}
+
+function showResult(){
+
+document.getElementById("quiz").style.display="none";
+
+const result=document.getElementById("result");
+
+result.style.display="block";
+
+document.getElementById("progress").style.width="100%";
+
+document.getElementById("finalScore").innerText=
+totalScore+"/"+questions.length;
+
+let percentage=Math.round((totalScore/questions.length)*100);
+
+let message="";
+
+if(percentage>=90){
+message="🌟 शानदार! आपने बहुत अच्छा प्रदर्शन किया है।";
+}
+else if(percentage>=70){
+message="👏 बहुत अच्छा! आपकी तैयारी अच्छी है।";
+}
+else if(percentage>=40){
+message="👍 अच्छा प्रयास! थोड़ा और अभ्यास करें।";
+}
+else{
+message="📚 पाठ को दोबारा पढ़ें और फिर से टेस्ट दें।";
+}
+
+document.getElementById("resultText").innerHTML=
+message+"<br>आपका प्रतिशत: "+percentage+"%";
+
+}
+
+function restartQuiz(){
+
+current=0;
+totalScore=0;
+
+document.getElementById("quiz").style.display="block";
+document.getElementById("result").style.display="none";
+
+document.getElementById("nextBtn").innerText="NEXT QUESTION ➜";
+
+loadQuestion();
+
+}
+
+loadQuestion();
+
+</script>
+
+</body>
+</html>
