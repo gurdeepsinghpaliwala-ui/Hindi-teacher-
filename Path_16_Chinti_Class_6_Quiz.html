@@ -1,0 +1,288 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>पाठ 16 - चींटी Quiz</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;padding:14px;font-family:Arial,sans-serif;
+ background:linear-gradient(135deg,#fef3c7,#dbeafe,#fce7f3);
+ color:#222;
+}
+.container{
+ max-width:680px;margin:18px auto;background:white;
+ padding:22px;border-radius:22px;
+ box-shadow:0 7px 25px #0002;
+}
+h1{text-align:center;color:#92400e;font-size:27px}
+.sub{text-align:center;color:#666;font-weight:bold}
+.top-icon{text-align:center;font-size:45px;margin:8px}
+.progress{height:12px;background:#eee;border-radius:20px;overflow:hidden;margin:18px 0}
+#bar{height:100%;width:0%;background:linear-gradient(90deg,#f59e0b,#16a34a);transition:.4s}
+#count{display:inline-block;background:#fef3c7;color:#92400e;padding:8px 14px;border-radius:20px;font-weight:bold}
+.question{font-size:19px;font-weight:bold;line-height:1.6;margin:20px 0;color:#1e3a8a}
+.option{
+ display:block;width:100%;padding:14px;margin:11px 0;
+ border:2px solid transparent;border-radius:13px;
+ text-align:left;font-size:16px;font-weight:600;cursor:pointer;
+ transition:.2s;
+}
+.option:nth-child(1){background:#dbeafe;border-color:#60a5fa;color:#1e40af}
+.option:nth-child(2){background:#fce7f3;border-color:#f472b6;color:#9d174d}
+.option:nth-child(3){background:#dcfce7;border-color:#4ade80;color:#166534}
+.option:nth-child(4){background:#fef3c7;border-color:#fbbf24;color:#92400e}
+.option:disabled{cursor:default;opacity:1}
+.option.correct{background:#bbf7d0!important;border:3px solid #16a34a!important;color:#14532d!important}
+.option.wrong{background:#fecaca!important;border:3px solid #dc2626!important;color:#991b1b!important}
+#feedback{min-height:55px;margin:16px 0;padding:12px;border-radius:12px;font-weight:bold;line-height:1.6}
+.next{
+ background:linear-gradient(135deg,#d97706,#15803d);
+ color:white;border:0;border-radius:30px;
+ padding:14px 28px;font-size:17px;font-weight:bold;
+ cursor:pointer;box-shadow:0 4px 12px #15803d55;
+}
+.next:disabled{background:#aaa;box-shadow:none;cursor:not-allowed}
+.center{text-align:center;margin-top:12px}
+#result{display:none;text-align:center}
+#result h2{color:#15803d;font-size:26px}
+.score-box{background:linear-gradient(135deg,#fef3c7,#dcfce7);padding:20px;border-radius:15px;margin:18px 0}
+</style>
+</head>
+<body>
+
+<div class="container">
+<div class="top-icon">🐜🌿🏆</div>
+<h1>पाठ 16 – चींटी</h1>
+<p class="sub">कक्षा छठी | ऑनलाइन MCQ टेस्ट</p>
+
+<div id="quiz">
+<div class="progress"><div id="bar"></div></div>
+<p id="count"></p>
+<div class="question" id="question"></div>
+<div id="options"></div>
+<div id="feedback"></div>
+<div class="center">
+<button class="next" id="next" onclick="nextQuestion()" disabled>
+❓ NEXT QUESTION →
+</button>
+</div>
+</div>
+
+<div id="result">
+<h2>🎉 टेस्ट पूरा हुआ!</h2>
+<div class="score-box">
+<h3 id="score"></h3>
+<p id="message"></p>
+</div>
+<button class="next" onclick="restart()">🔄 फिर से टेस्ट दें</button>
+</div>
+</div>
+
+<script>
+const questions = [
+{
+q:"चींटी की काया कैसी है?",
+o:["बहुत बड़ी","छोटी","लंबी","भारी"],a:1
+},
+{
+q:"चींटी से हमें क्या सीख मिलती है?",
+o:["आराम करने की","डरकर रहने की","मेहनत और लगन से कामयाब होने की","काम टालने की"],a:2
+},
+{
+q:"विजय कैसे मिलती है?",
+o:["अथक परिश्रम करने से","केवल भाग्य से","आराम करने से","दूसरों पर निर्भर रहने से"],a:0
+},
+{
+q:"चींटी अपने श्रम में कैसी रहती है?",
+o:["भयभीत","आलसी","लापरवाह","तन्मय"],a:3
+},
+{
+q:"'चींटी कितनी निर्भय है' पंक्ति में चींटी की कौन-सी विशेषता बताई गई है?",
+o:["आलस्य","निडरता","कमजोरी","घबराहट"],a:1
+},
+{
+q:"चींटी अपने काम में किस प्रकार लगी रहती है?",
+o:["डरकर","लापरवाही से","लगन और तन्मयता से","आलस्य से"],a:2
+},
+{
+q:"'कीड़ी' का हिंदी अर्थ क्या है?",
+o:["चींटी","मक्खी","तितली","मधुमक्खी"],a:0
+},
+{
+q:"'ਮਿਹਨਤ' का हिंदी अर्थ क्या है?",
+o:["विजय","प्रेरणा","निर्भय","परिश्रम"],a:3
+},
+{
+q:"'निडर' का समान अर्थ वाला शब्द कौन-सा है?",
+o:["भयभीत","निर्भय","कमजोर","आलसी"],a:1
+},
+{
+q:"'लीन' का हिंदी अर्थ क्या है?",
+o:["परिश्रम","विजय","तन्मय","सर्वस्व"],a:2
+},
+{
+q:"'अटूट' का अर्थ क्या दिया गया है?",
+o:["अथक","कमजोर","अधूरा","साधारण"],a:0
+},
+{
+q:"'उत्साह' के लिए पाठ में कौन-सा शब्द दिया गया है?",
+o:["विजय","सर्वस्व","तन्मय","प्रेरणा"],a:3
+},
+{
+q:"'सब कुछ' का पंजाबी शब्द कौन-सा है?",
+o:["ਨਿਡਰ","ਸਭ ਕੁੱਝ","ਮਿਹਨਤ","ਜਿੱਤ"],a:1
+},
+{
+q:"'निर्भय' शब्द का सही वाक्य कौन-सा है?",
+o:["निर्भय एक फल है।","निर्भय पानी पीता है।","चींटी निर्भय होकर अपने काम में लगी रहती है।","निर्भय आसमान में उड़ता है।"],a:2
+},
+{
+q:"'तन्मय' शब्द का सही प्रयोग किस वाक्य में हुआ है?",
+o:["चींटी अपने कार्य में तन्मय है।","तन्मय एक नदी है।","तन्मय ने भोजन पकाया।","तन्मय बहुत ऊँचा पहाड़ है।"],a:0
+},
+{
+q:"'अथक' शब्द का सही वाक्य प्रयोग कौन-सा है?",
+o:["अथक एक पक्षी है।","किसान खेतों में अथक परिश्रम करता है।","अथक से वर्षा होती है।","अथक एक त्योहार है।"],a:1
+},
+{
+q:"'विजय श्री' शब्द का सही अर्थ क्या है?",
+o:["हार जाना","डर जाना","जीत या सफलता","आराम करना"],a:2
+},
+{
+q:"'सर्वस्व' शब्द का अर्थ क्या है?",
+o:["थोड़ा-सा","केवल धन","केवल भोजन","सब कुछ"],a:3
+},
+{
+q:"'परि + त्याग' से कौन-सा शब्द बनता है?",
+o:["परित्याग","परिधान","परिणाम","परिहास"],a:0
+},
+{
+q:"'परि + वर्तन' से कौन-सा शब्द बनता है?",
+o:["परिमाण","परिवर्तन","परिधान","परित्याग"],a:1
+},
+{
+q:"'परि + हास' से कौन-सा शब्द बनता है?",
+o:["परिणाम","परिवर्तन","परिहास","परिधान"],a:2
+},
+{
+q:"'परि + धान' से कौन-सा शब्द बनता है?",
+o:["परित्याग","परिमाण","परिणाम","परिधान"],a:3
+},
+{
+q:"'निर्भय' शब्द में 'र' व्यंजन आधा है या पूरा?",
+o:["आधा","पूरा","दोनों","इनमें से कोई नहीं"],a:0
+},
+{
+q:"'श्रम' शब्द में 'र' व्यंजन कैसा है?",
+o:["आधा","पूरा","मात्रा","अनुस्वार"],a:1
+},
+{
+q:"'सर्वस्व' शब्द में 'र' व्यंजन कैसा है?",
+o:["पूरा","मात्रा","आधा","अनुस्वार"],a:2
+},
+{
+q:"'तन्मय' शब्द से 'न्म' अक्षर जोड़कर कौन-सा नया शब्द बनता है?",
+o:["स्वभाव","स्वाद","स्वर","जन्म"],a:3
+},
+{
+q:"'स्व' से बनने वाला सही शब्द कौन-सा है?",
+o:["स्वभाव","जन्म","सन्मुख","सन्मान"],a:0
+},
+{
+q:"चींटी का जीवन हमें क्या करने की प्रेरणा देता है?",
+o:["काम छोड़ने की","आगे बढ़ने और मेहनत करने की","दूसरों से डरने की","समय गँवाने की"],a:1
+},
+{
+q:"'परिश्रम' शब्द में 'श्रम' से पहले कौन-सा शब्दांश लगा है?",
+o:["प्र","सु","परि","निः"],a:2
+},
+{
+q:"कवि के अनुसार चींटी अपने श्रम में कैसी है?",
+o:["आलसी","डरपोक","लापरवाह","तन्मय"],a:3
+}
+];
+
+let current=0,score=0,answered=false;
+
+function loadQuestion(){
+ answered=false;
+ document.getElementById("feedback").innerHTML="";
+ document.getElementById("next").disabled=true;
+ document.getElementById("count").innerText=
+ "प्रश्न "+(current+1)+" / "+questions.length;
+ document.getElementById("bar").style.width=
+ (current/questions.length*100)+"%";
+
+ let q=questions[current];
+ document.getElementById("question").innerText=q.q;
+ let box=document.getElementById("options");
+ box.innerHTML="";
+
+ q.o.forEach((option,index)=>{
+  let btn=document.createElement("button");
+  btn.className="option";
+  btn.innerText=(index+1)+". "+option;
+  btn.onclick=()=>checkAnswer(index,btn);
+  box.appendChild(btn);
+ });
+}
+
+function checkAnswer(index,btn){
+ if(answered)return;
+ answered=true;
+ let q=questions[current];
+ let buttons=document.querySelectorAll(".option");
+ buttons.forEach(b=>b.disabled=true);
+ let feedback=document.getElementById("feedback");
+
+ if(index===q.a){
+  btn.classList.add("correct");
+  feedback.innerHTML="🎉 शाबाश! बिल्कुल सही जवाब! ⭐";
+  feedback.style.background="#dcfce7";
+  feedback.style.color="#166534";
+  score++;
+ }else{
+  btn.classList.add("wrong");
+  buttons[q.a].classList.add("correct");
+  feedback.innerHTML="❌ सही उत्तर है: "+(q.a+1)+". "+q.o[q.a];
+  feedback.style.background="#fee2e2";
+  feedback.style.color="#991b1b";
+ }
+ document.getElementById("next").disabled=false;
+}
+
+function nextQuestion(){
+ if(!answered)return;
+ current++;
+ if(current<questions.length){
+  loadQuestion();
+ }else{
+  showResult();
+ }
+}
+
+function showResult(){
+ document.getElementById("quiz").style.display="none";
+ document.getElementById("result").style.display="block";
+ document.getElementById("score").innerText=
+ "आपका स्कोर: "+score+" / "+questions.length;
+ let percent=score/questions.length*100;
+ document.getElementById("message").innerText=
+ percent>=80?"🏆 शानदार! आपकी तैयारी बहुत अच्छी है।":
+ percent>=50?"👏 अच्छा प्रयास! थोड़ा और अभ्यास करें।":
+ "📚 पाठ को दोबारा पढ़ें और फिर टेस्ट दें।";
+}
+
+function restart(){
+ current=0;score=0;
+ document.getElementById("result").style.display="none";
+ document.getElementById("quiz").style.display="block";
+ loadQuestion();
+}
+loadQuestion();
+</script>
+</body>
+</html>
