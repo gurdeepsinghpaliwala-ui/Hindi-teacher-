@@ -1,0 +1,361 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>पाठ 12 रेणुका झील Quiz</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;padding:15px;
+ font-family:Arial,sans-serif;
+ background:linear-gradient(135deg,#064e3b,#0d9488,#2563eb);
+ min-height:100vh;
+}
+.container{
+ max-width:650px;margin:20px auto;
+ background:white;padding:20px;
+ border-radius:22px;
+ box-shadow:0 10px 35px #0004;
+}
+.header{
+ text-align:center;color:white;
+ padding:22px 10px;border-radius:17px;
+ background:linear-gradient(135deg,#059669,#2563eb);
+ margin-bottom:20px;
+}
+.header h1{margin:10px 0;font-size:26px}
+.header p{margin:5px}
+.badge{
+ background:white;color:#047857;
+ padding:7px 16px;border-radius:30px;
+ font-weight:bold;
+}
+.info{
+ display:flex;justify-content:space-between;
+ color:#047857;font-weight:bold;margin-bottom:15px;
+}
+.progress-bg{
+ height:10px;background:#e5e7eb;
+ border-radius:20px;overflow:hidden;margin-bottom:22px;
+}
+.progress{
+ height:100%;width:0%;
+ background:linear-gradient(90deg,#10b981,#2563eb);
+ transition:.3s;
+}
+.question{
+ font-size:20px;font-weight:bold;
+ color:#064e3b;line-height:1.6;
+ margin-bottom:20px;
+}
+.options{display:grid;gap:12px}
+.option{
+ padding:15px;border:2px solid #a7f3d0;
+ border-radius:13px;background:#ecfdf5;
+ font-size:17px;text-align:left;
+ cursor:pointer;color:#064e3b;
+}
+.option:hover:not(:disabled){background:#d1fae5}
+.option.correct{
+ background:#dcfce7;border-color:#16a34a;
+ color:#166534;font-weight:bold;
+}
+.option.wrong{
+ background:#fee2e2;border-color:#dc2626;
+ color:#991b1b;font-weight:bold;
+}
+.option:disabled{cursor:default}
+.feedback{
+ display:none;margin-top:16px;
+ padding:13px;border-radius:12px;
+ font-weight:bold;line-height:1.5;
+}
+.feedback.good{display:block;background:#dcfce7;color:#166534}
+.feedback.bad{display:block;background:#fee2e2;color:#991b1b}
+.next-btn,.restart-btn{
+ width:100%;padding:15px;border:0;
+ border-radius:13px;
+ background:linear-gradient(135deg,#059669,#2563eb);
+ color:white;font-size:18px;font-weight:bold;
+ margin-top:20px;cursor:pointer;
+}
+.next-btn:disabled{background:#9ca3af;cursor:not-allowed}
+.result{display:none;text-align:center;padding:15px 5px}
+.result h2{color:#047857}
+.circle{
+ width:150px;height:150px;margin:20px auto;
+ border-radius:50%;
+ background:linear-gradient(135deg,#059669,#2563eb);
+ color:white;display:flex;
+ flex-direction:column;justify-content:center;align-items:center;
+}
+.circle strong{font-size:35px}
+.footer{text-align:center;color:#777;font-size:13px;margin-top:20px}
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+ <div style="font-size:45px">🏞️🌳📚</div>
+ <span class="badge">कक्षा छठी – हिंदी</span>
+ <h1>पाठ 12</h1>
+ <h2>रेणुका झील</h2>
+ <p>ऑनलाइन MCQ टेस्ट</p>
+</div>
+
+<div id="quiz">
+ <div class="info">
+  <span id="questionNo"></span>
+  <span id="score">स्कोर: 0</span>
+ </div>
+ <div class="progress-bg">
+  <div class="progress" id="progress"></div>
+ </div>
+ <div class="question" id="question"></div>
+ <div class="options" id="options"></div>
+ <div class="feedback" id="feedback"></div>
+ <button class="next-btn" id="nextBtn" disabled onclick="nextQuestion()">
+  NEXT QUESTION ➜
+ </button>
+</div>
+
+<div class="result" id="result">
+ <div style="font-size:55px">🏆🎉</div>
+ <h2>टेस्ट पूरा हुआ!</h2>
+ <div class="circle">
+  <strong id="finalScore">0/30</strong>
+  <span>आपका स्कोर</span>
+ </div>
+ <p id="resultText"></p>
+ <button class="restart-btn" onclick="restartQuiz()">🔄 दोबारा टेस्ट दें</button>
+</div>
+
+<div class="footer">✨ Hindi Teacher – GSSS Paliwala ✨</div>
+</div>
+
+<script>
+const questions=[
+
+{q:"क्षितिज अपने परिवार के साथ कहाँ घूमने गया था?",
+o:["मनाली","रेणुका जी","शिमला","चंडीगढ़"],a:1},
+
+{q:"रेणुका जी किस ज़िले में स्थित है?",
+o:["सिरमौर","कांगड़ा","मंडी","कुल्लू"],a:0},
+
+{q:"श्री बालाजी सुन्दरी जी का मंदिर कहाँ है?",
+o:["नाहन","त्रिलोकपुर गाँव","पाँवटा साहिब","रेणुका"],a:1},
+
+{q:"त्रिलोकपुर गाँव काला अंब से कितनी दूर है?",
+o:["तीन किलोमीटर","चार किलोमीटर","छह किलोमीटर","दस किलोमीटर"],a:2},
+
+{q:"तालाबों का शहर किसे कहा जाता है?",
+o:["शिमला","नाहन","चंडीगढ़","मनाली"],a:1},
+
+{q:"रेणुका जी किसकी माता थीं?",
+o:["श्री राम जी","श्री कृष्ण जी","परशुराम जी","श्री गुरु गोबिंद सिंह जी"],a:2},
+
+{q:"रेणुका का मेला कहाँ आयोजित किया जाता है?",
+o:["नाहन शहर में","रेणुका झील के किनारे","चंडीगढ़ में","त्रिलोकपुर में"],a:1},
+
+{q:"पाँवटा साहिब गुरुद्वारे का संबंध किससे है?",
+o:["श्री गुरु नानक देव जी","श्री गुरु अर्जुन देव जी","श्री गुरु गोबिंद सिंह जी","श्री गुरु तेग बहादुर जी"],a:2},
+
+{q:"नाहन शहर किस पहाड़ी क्षेत्र में बसा है?",
+o:["अरावली","शिवालिक","विंध्य","सतपुड़ा"],a:1},
+
+{q:"नाहन शहर समुद्र तल से कितनी ऊँचाई पर है?",
+o:["672 मीटर","800 मीटर","933 मीटर","1200 मीटर"],a:2},
+
+{q:"नाहन का प्रसिद्ध मंदिर कौन-सा है?",
+o:["रानी तालाब मंदिर","ज्वाला जी मंदिर","बद्रीनाथ मंदिर","स्वर्ण मंदिर"],a:0},
+
+{q:"रेणुका झील किस प्रकार की झील है?",
+o:["कृत्रिम झील","प्राकृतिक झील","नमक की झील","हिमानी झील"],a:1},
+
+{q:"रेणुका झील हिमाचल प्रदेश की कैसी झील है?",
+o:["सबसे छोटी प्राकृतिक झील","सबसे बड़ी प्राकृतिक झील","सबसे गहरी कृत्रिम झील","सबसे ऊँची झील"],a:1},
+
+{q:"रेणुका झील की लंबाई कितनी है?",
+o:["1241 मीटर","2241 मीटर","3241 मीटर","4241 मीटर"],a:2},
+
+{q:"रेणुका झील समुद्र तल से कितनी ऊँचाई पर है?",
+o:["572 मीटर","672 मीटर","772 मीटर","933 मीटर"],a:1},
+
+{q:"रेणुका झील के पास बच्चों के लिए क्या है?",
+o:["खेल का मैदान","मिनी चिड़ियाघर","संग्रहालय","विद्यालय"],a:1},
+
+{q:"रेणुका झील के किनारे किस महीने में मेला लगता है?",
+o:["जनवरी","मार्च","जुलाई","नवंबर"],a:3},
+
+{q:"पाँवटा साहिब गुरुद्वारा किस नदी के तट पर है?",
+o:["गंगा","यमुना","सतलुज","रावी"],a:1},
+
+{q:"'ਕੁਦਰਤੀ' का हिंदी अर्थ क्या है?",
+o:["प्राकृतिक","परिणत","सुरम्य","वर्जित"],a:0},
+
+{q:"'ਧਰਤੀ' का हिंदी अर्थ क्या है?",
+o:["आकाश","पृथ्वी","जल","वायु"],a:1},
+
+{q:"'ਮਨਾਹੀ' का हिंदी अर्थ क्या है?",
+o:["स्वागत","प्राकृतिक","वर्जित","छायादार"],a:2},
+
+{q:"'ਸੂਰਜ ਦਾ ਛਿਪਣਾ' का अर्थ क्या है?",
+o:["सूर्योदय","सूर्यास्त","दोपहर","सूर्य ग्रहण"],a:1},
+
+{q:"'ਲੋਕ ਪ੍ਰਚਲਿਤ ਕਹਾਣੀ' का हिंदी अर्थ क्या है?",
+o:["दंतकथा","कविता","नाटक","उपन्यास"],a:0},
+
+{q:"'माता' का पर्यायवाची शब्द कौन-सा है?",
+o:["जननी","पुत्री","बहन","दादी"],a:0},
+
+{q:"'वर्षा' का पर्यायवाची शब्द कौन-सा है?",
+o:["धूप","बारिश","हवा","बादल"],a:1},
+
+{q:"'रात' का पर्यायवाची शब्द कौन-सा है?",
+o:["प्रभात","दिवस","निशा","संध्या"],a:2},
+
+{q:"'समुद्र' का पर्यायवाची शब्द कौन-सा है?",
+o:["सागर","नदी","तालाब","झरना"],a:0},
+
+{q:"'भीतर' का विलोम शब्द क्या है?",
+o:["ऊपर","नीचे","बाहर","पास"],a:2},
+
+{q:"'शांति' का विलोम शब्द क्या है?",
+o:["प्रेम","युद्ध","सुख","आनंद"],a:1},
+
+{q:"'अधूरी' का विलोम शब्द क्या है?",
+o:["खाली","पूरी","छोटी","कम"],a:1},
+
+{q:"'बंदर' का स्त्रीलिंग क्या है?",
+o:["बंदरनी","बंदरिया","बंदरी","बंदरिन"],a:1},
+
+{q:"'शेर' का स्त्रीलिंग क्या है?",
+o:["शेरिया","शेरनी","शेरी","शेरिन"],a:1},
+
+{q:"'चंडीगढ़' किस प्रकार की संज्ञा है?",
+o:["जातिवाचक","भाववाचक","व्यक्तिवाचक","द्रव्यवाचक"],a:2},
+
+{q:"'हरियाली' किस प्रकार की संज्ञा है?",
+o:["व्यक्तिवाचक","जातिवाचक","भाववाचक","समूहवाचक"],a:2},
+
+{q:"'शेर' किस प्रकार की संज्ञा है?",
+o:["व्यक्तिवाचक","जातिवाचक","भाववाचक","द्रव्यवाचक"],a:1},
+
+{q:"'लंबाई' किस प्रकार की संज्ञा है?",
+o:["भाववाचक","व्यक्तिवाचक","जातिवाचक","समूहवाचक"],a:0}
+
+];
+
+let current=0;
+let totalScore=0;
+let answered=false;
+
+function loadQuestion(){
+ answered=false;
+ const q=questions[current];
+
+ document.getElementById("questionNo").innerText=
+ "प्रश्न "+(current+1)+" / "+questions.length;
+
+ document.getElementById("score").innerText="स्कोर: "+totalScore;
+
+ document.getElementById("progress").style.width=
+ (current/questions.length*100)+"%";
+
+ document.getElementById("question").innerText=
+ (current+1)+". "+q.q;
+
+ document.getElementById("feedback").className="feedback";
+ document.getElementById("feedback").innerText="";
+ document.getElementById("nextBtn").disabled=true;
+ document.getElementById("nextBtn").innerText="NEXT QUESTION ➜";
+
+ const box=document.getElementById("options");
+ box.innerHTML="";
+
+ q.o.forEach((option,index)=>{
+  const btn=document.createElement("button");
+  btn.className="option";
+  btn.innerText=String.fromCharCode(65+index)+". "+option;
+  btn.onclick=()=>checkAnswer(index);
+  box.appendChild(btn);
+ });
+}
+
+function checkAnswer(selected){
+ if(answered)return;
+ answered=true;
+
+ const correct=questions[current].a;
+ const buttons=document.querySelectorAll(".option");
+ const feedback=document.getElementById("feedback");
+
+ buttons.forEach((btn,index)=>{
+  btn.disabled=true;
+  if(index===correct)btn.classList.add("correct");
+  if(index===selected && selected!==correct)btn.classList.add("wrong");
+ });
+
+ if(selected===correct){
+  totalScore++;
+  feedback.className="feedback good";
+  feedback.innerText="🎉 बिल्कुल सही जवाब! बहुत बढ़िया!";
+ }else{
+  feedback.className="feedback bad";
+  feedback.innerText="❌ गलत जवाब! सही उत्तर है: "+questions[current].o[correct];
+ }
+
+ document.getElementById("score").innerText="स्कोर: "+totalScore;
+
+ if(current===questions.length-1){
+  document.getElementById("nextBtn").innerText="🏆 RESULT देखें";
+ }
+
+ document.getElementById("nextBtn").disabled=false;
+}
+
+function nextQuestion(){
+ if(!answered)return;
+ current++;
+ if(current<questions.length){
+  loadQuestion();
+ }else{
+  showResult();
+ }
+}
+
+function showResult(){
+ document.getElementById("quiz").style.display="none";
+ document.getElementById("result").style.display="block";
+ document.getElementById("progress").style.width="100%";
+
+ document.getElementById("finalScore").innerText=
+ totalScore+"/"+questions.length;
+
+ let percentage=Math.round(totalScore/questions.length*100);
+ let message="";
+
+ if(percentage>=90)message="🌟 शानदार! आपने बहुत अच्छा प्रदर्शन किया!";
+ else if(percentage>=70)message="👏 बहुत अच्छा! आपकी तैयारी अच्छी है!";
+ else if(percentage>=40)message="👍 अच्छा प्रयास! थोड़ा और अभ्यास करें!";
+ else message="📚 पाठ को दोबारा पढ़ें और फिर टेस्ट दें!";
+
+ document.getElementById("resultText").innerHTML=
+ message+"<br>आपका प्रतिशत: "+percentage+"%";
+}
+
+function restartQuiz(){
+ current=0;
+ totalScore=0;
+ document.getElementById("quiz").style.display="block";
+ document.getElementById("result").style.display="none";
+ loadQuestion();
+}
+
+loadQuestion();
+</script>
+</body>
+</html>
