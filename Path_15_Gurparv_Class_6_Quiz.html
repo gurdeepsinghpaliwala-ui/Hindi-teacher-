@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>पाठ 15 - गुरुपर्व Quiz</title>
+<style>
+*{box-sizing:border-box}
+body{
+ margin:0;padding:14px;
+ font-family:Arial,sans-serif;
+ background:linear-gradient(135deg,#fff7ed,#ede9fe,#dbeafe);
+ color:#222;
+}
+.container{
+ max-width:680px;margin:18px auto;
+ background:white;padding:22px;
+ border-radius:22px;
+ box-shadow:0 7px 25px #0002;
+}
+h1{text-align:center;color:#7c2d12;font-size:26px}
+.sub{text-align:center;color:#666;font-weight:bold}
+.top-icon{text-align:center;font-size:45px;margin:8px}
+.progress{
+ height:12px;background:#eee;
+ border-radius:20px;overflow:hidden;margin:18px 0;
+}
+#bar{
+ height:100%;width:0%;
+ background:linear-gradient(90deg,#f97316,#9333ea);
+ transition:.4s;
+}
+#count{
+ display:inline-block;background:#fff7ed;
+ color:#c2410c;padding:8px 14px;
+ border-radius:20px;font-weight:bold;
+}
+.question{
+ font-size:19px;font-weight:bold;
+ line-height:1.6;margin:20px 0;
+ color:#312e81;
+}
+.option{
+ display:block;width:100%;
+ padding:14px;margin:11px 0;
+ border:2px solid transparent;
+ border-radius:13px;text-align:left;
+ font-size:16px;font-weight:600;
+ cursor:pointer;transition:.2s;
+}
+.option:nth-child(1){background:#dbeafe;border-color:#60a5fa;color:#1e40af}
+.option:nth-child(2){background:#fce7f3;border-color:#f472b6;color:#9d174d}
+.option:nth-child(3){background:#dcfce7;border-color:#4ade80;color:#166534}
+.option:nth-child(4){background:#fef3c7;border-color:#fbbf24;color:#92400e}
+.option:disabled{cursor:default;opacity:1}
+.option.correct{
+ background:#bbf7d0!important;
+ border:3px solid #16a34a!important;
+ color:#14532d!important;
+}
+.option.wrong{
+ background:#fecaca!important;
+ border:3px solid #dc2626!important;
+ color:#991b1b!important;
+}
+#feedback{
+ min-height:55px;margin:16px 0;
+ padding:12px;border-radius:12px;
+ font-weight:bold;line-height:1.6;
+}
+.next{
+ display:inline-block;
+ background:linear-gradient(135deg,#7c3aed,#db2777);
+ color:white;border:0;border-radius:30px;
+ padding:14px 28px;font-size:17px;
+ font-weight:bold;cursor:pointer;
+ box-shadow:0 4px 12px #7c3aed55;
+}
+.next:disabled{background:#aaa;box-shadow:none;cursor:not-allowed}
+.center{text-align:center;margin-top:12px}
+#result{display:none;text-align:center}
+#result h2{color:#7c3aed;font-size:26px}
+.score-box{
+ background:linear-gradient(135deg,#fef3c7,#fce7f3);
+ padding:20px;border-radius:15px;
+ margin:18px 0;
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+<div class="top-icon">🙏📚✨</div>
+<h1>पाठ 15 – गुरुपर्व</h1>
+<p class="sub">कक्षा छठी | ऑनलाइन MCQ टेस्ट</p>
+
+<div id="quiz">
+<div class="progress"><div id="bar"></div></div>
+<p id="count"></p>
+<div class="question" id="question"></div>
+<div id="options"></div>
+<div id="feedback"></div>
+<div class="center">
+<button class="next" id="next" onclick="nextQuestion()" disabled>
+❓ NEXT QUESTION →
+</button>
+</div>
+</div>
+
+<div id="result">
+<h2>🎉 बधाई हो! टेस्ट पूरा हुआ</h2>
+<div class="score-box">
+<h3 id="score"></h3>
+<p id="message"></p>
+</div>
+<button class="next" onclick="restart()">🔄 फिर से टेस्ट दें</button>
+</div>
+</div>
+
+<script>
+const questions = [
+
+{
+q:"गुरु नानक देव जी का प्रकाश पर्व कब मनाया जाता है?",
+o:["कार्तिक मास की अमावस्या को","कार्तिक मास की पूर्णिमा को","चैत्र मास की पूर्णिमा को","वैशाख मास की पूर्णिमा को"],a:1
+},
+{
+q:"नगर कीर्तन किसकी अगुवाई में होता है?",
+o:["रागी जत्थों की","गुरुद्वारा समिति की","पाँच प्यारों की","श्रद्धालुओं की"],a:2
+},
+{
+q:"नगर कीर्तन में गतका खेलने वाले लोगों को कैसे आकर्षित करते हैं?",
+o:["अपनी वीरता और कला से","अपने मधुर गीतों से","अपनी सजावट से","अपने भाषणों से"],a:0
+},
+{
+q:"नगर कीर्तन विभिन्न स्थानों से होता हुआ कहाँ सम्पन्न होता है?",
+o:["विद्यालय में","बाजार में","नगर भवन में","गुरुद्वारा साहिब में"],a:3
+},
+{
+q:"प्रभातफेरियाँ गुरुपर्व से कितने दिन पहले निकाली जाती हैं?",
+o:["एक दिन पहले","कुछ दिन पहले","एक महीने पहले","एक सप्ताह बाद"],a:1
+},
+{
+q:"प्रभातफेरियों में श्रद्धालु क्या करते हैं?",
+o:["खेल खेलते हैं","भाषण देते हैं","ढोलक और चिमटे बजाकर शब्द उच्चारण करते हैं","पटाखे चलाते हैं"],a:2
+},
+{
+q:"गुरुपर्व के अवसर पर गुरुद्वारों में किस बात का विशेष ध्यान रखा जाता है?",
+o:["साफ-सफाई का","खेलों का","व्यापार का","यात्रा का"],a:0
+},
+{
+q:"गुरुद्वारों को किससे सजाया जाता है?",
+o:["केवल फूलों से","केवल चित्रों से","केवल झंडों से","फूलों की लड़ियों और रंग-बिरंगी रोशनियों से"],a:3
+},
+{
+q:"गुरु का लंगर किस प्रकार चलता रहता है?",
+o:["केवल सुबह","बिना बाधा और रुकावट के निरंतर","केवल शाम को","केवल विशेष लोगों के लिए"],a:1
+},
+{
+q:"लंगर में लोग किस प्रकार बैठकर भोजन करते हैं?",
+o:["अलग-अलग कमरों में","अपनी-अपनी जाति के अनुसार","एक ही पंगत में","केवल परिवार के साथ"],a:2
+},
+{
+q:"लंगर में किस प्रकार का भेदभाव किया जाता है?",
+o:["कोई भेदभाव नहीं किया जाता","केवल अमीरों को भोजन मिलता है","केवल बच्चों को भोजन मिलता है","केवल श्रद्धालुओं को भोजन मिलता है"],a:0
+},
+{
+q:"गुरुपर्व की रात लोग अपने घरों और दुकानों में क्या करते हैं?",
+o:["सफाई करते हैं","प्रभातफेरी निकालते हैं","गतका खेलते हैं","दीपमाला करते हैं और पटाखे चलाते हैं"],a:3
+},
+{
+q:"गुरुद्वारे में दीवान के अवसर पर कौन कीर्तन करते हैं?",
+o:["विद्यालय के विद्यार्थी","दूर-दूर से आए रागी जत्थे","खिलाड़ी","व्यापारी"],a:1
+},
+{
+q:"'उडीक' का हिंदी अर्थ क्या है?",
+o:["प्रबन्ध","उत्साह","इन्तज़ार","अवसर"],a:2
+},
+{
+q:"'होंसला' का हिंदी अर्थ क्या है?",
+o:["उत्साह","अपरम्पार","आकर्षक","वितरण"],a:0
+},
+{
+q:"'मौका' का हिंदी अर्थ क्या है?",
+o:["चाव","सम्पन्न","निःशुल्क","अवसर"],a:3
+},
+{
+q:"'खूबसूरत' का हिंदी अर्थ क्या है?",
+o:["अलौकिक","आकर्षक","सम्पन्न","बरबस"],a:1
+},
+{
+q:"'मुफ़्त' का हिंदी अर्थ क्या है?",
+o:["अपरम्पार","प्रबन्ध","निःशुल्क","इन्तज़ार"],a:2
+},
+{
+q:"'अटूट वितरण' का सही भाव क्या है?",
+o:["बिना रुकावट के लगातार बाँटना","केवल एक बार बाँटना","थोड़ा-थोड़ा बाँटना","केवल विशेष अवसर पर बाँटना"],a:0
+},
+{
+q:"'गुरु + पर्व' से कौन-सा शब्द बनता है?",
+o:["गुरुदर्शन","गुरुसेवक","गुरुचरण","गुरुपर्व"],a:3
+},
+{
+q:"'प्र + दर्शनी' से कौन-सा शब्द बनता है?",
+o:["प्रदर्शित","प्रदर्शनी","दर्शनीय","दर्शक"],a:1
+},
+{
+q:"'निः + शुल्क' से कौन-सा शब्द बनता है?",
+o:["शुल्कहीन","निशुल्कता","निःशुल्क","शुल्करहित"],a:2
+},
+{
+q:"'सुव्यवस्थित' शब्द में कौन-सा उपसर्ग लगा है?",
+o:["सु","प्र","निः","अ"],a:0
+},
+{
+q:"'मैं गुरुपर्व का नाम सुनते ही रोमांचित हो गया।' इस वाक्य में क्रिया कौन-सी है?",
+o:["गुरुपर्व","नाम","रोमांचित","हो गया"],a:3
+},
+{
+q:"'गुरुपर्व से दो दिन पहले नगर कीर्तन का आयोजन किया गया।' इसमें क्रिया शब्द कौन-सा है?",
+o:["नगर कीर्तन","किया गया","दो दिन","आयोजन"],a:1
+},
+{
+q:"'गुरुद्वारा समिति ने प्रभातफेरियों का आयोजन किया।' इसमें क्रिया कौन-सी है?",
+o:["समिति","प्रभातफेरियों","आयोजन किया","गुरुद्वारा"],a:2
+},
+{
+q:"'गुरुपर्व' शब्द किन दो शब्दों से मिलकर बना है?",
+o:["गुरु + पर्व","गुरु + सेवा","गुरु + दर्शन","गुरु + चरण"],a:0
+},
+{
+q:"'गुरुद्वारा' शब्द का सही संधि/शब्द-योग क्या है?",
+o:["गुरु + पर्व","गुरु + सेवक","गुरु + चरण","गुरु + द्वारा"],a:3
+},
+{
+q:"'अलौकिक' शब्द का सही अर्थ क्या है?",
+o:["साधारण","दिव्य या सामान्य से अलग","सुंदर","निःशुल्क"],a:1
+},
+{
+q:"'आकर्षक' शब्द का सही वाक्य प्रयोग कौन-सा है?",
+o:["आकर्षक ने भोजन किया।","आकर्षक स्कूल जाता है।","दरबार साहिब बहुत आकर्षक दिखाई दे रहा है।","आकर्षक ने पटाखे चलाए।"],a:2
+},
+{
+q:"'महिमा' शब्द का सही वाक्य कौन-सा है?",
+o:["भगवान की महिमा अपरम्पार है।","महिमा बस में बैठा है।","महिमा ने गुरुद्वारा धोया।","महिमा एक पटाखा है।"],a:0
+},
+{
+q:"'रोमांचित' शब्द का सही वाक्य प्रयोग कौन-सा है?",
+o:["मैंने पानी रोमांचित किया।","मैं गुरुपर्व का नाम सुनते ही रोमांचित हो गया।","रोमांचित बाजार में गया।","गुरुद्वारा रोमांचित खाता है।"],a:1
+},
+{
+q:"'कारक' किसका संबंध बताता है?",
+o:["केवल शब्दों की ध्वनि","केवल वर्तनी","संज्ञा या सर्वनाम का क्रिया से संबंध","केवल लिंग का संबंध"],a:2
+},
+{
+q:"'गुरुपर्व' के अवसर पर किसका आयोजन किया जाता है?",
+o:["नगर कीर्तन और प्रभातफेरियों का","केवल खेल प्रतियोगिता का","केवल बाजार का","केवल परीक्षा का"],a:0
+}
+
+];
+
+let current=0,score=0,answered=false;
+
+function loadQuestion(){
+ answered=false;
+ document.getElementById("feedback").innerHTML="";
+ document.getElementById("next").disabled=true;
+ document.getElementById("count").innerText=
+ "प्रश्न "+(current+1)+" / "+questions.length;
+ document.getElementById("bar").style.width=
+ (current/questions.length*100)+"%";
+
+ let q=questions[current];
+ document.getElementById("question").innerText=q.q;
+ let box=document.getElementById("options");
+ box.innerHTML="";
+
+ q.o.forEach((option,index)=>{
+  let btn=document.createElement("button");
+  btn.className="option";
+  btn.innerText=(index+1)+". "+option;
+  btn.onclick=()=>checkAnswer(index,btn);
+  box.appendChild(btn);
+ });
+}
+
+function checkAnswer(index,btn){
+ if(answered)return;
+ answered=true;
+ let q=questions[current];
+ let buttons=document.querySelectorAll(".option");
+ buttons.forEach(b=>b.disabled=true);
+
+ let feedback=document.getElementById("feedback");
+
+ if(index===q.a){
+  btn.classList.add("correct");
+  feedback.innerHTML="🎉 शानदार! बिल्कुल सही जवाब! ⭐";
+  feedback.style.background="#dcfce7";
+  feedback.style.color="#166534";
+  score++;
+ }else{
+  btn.classList.add("wrong");
+  buttons[q.a].classList.add("correct");
+  feedback.innerHTML="❌ कोई बात नहीं! सही उत्तर है: "+
+  (q.a+1)+". "+q.o[q.a];
+  feedback.style.background="#fee2e2";
+  feedback.style.color="#991b1b";
+ }
+ document.getElementById("next").disabled=false;
+}
+
+function nextQuestion(){
+ if(!answered)return;
+ current++;
+ if(current<questions.length){
+  loadQuestion();
+ }else{
+  showResult();
+ }
+}
+
+function showResult(){
+ document.getElementById("quiz").style.display="none";
+ document.getElementById("result").style.display="block";
+ document.getElementById("score").innerText=
+ "आपका स्कोर: "+score+" / "+questions.length;
+ let percent=score/questions.length*100;
+ document.getElementById("message").innerText=
+ percent>=80?"🏆 बहुत शानदार! आपकी तैयारी बेहतरीन है।":
+ percent>=50?"👏 अच्छा प्रयास! थोड़ा और अभ्यास करें।":
+ "📚 पाठ को दोबारा पढ़ें और फिर टेस्ट दें।";
+ document.getElementById("bar").style.width="100%";
+}
+
+function restart(){
+ current=0;
+ score=0;
+ document.getElementById("result").style.display="none";
+ document.getElementById("quiz").style.display="block";
+ loadQuestion();
+}
+loadQuestion();
+</script>
+</body>
+</html>
