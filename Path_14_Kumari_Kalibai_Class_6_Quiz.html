@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>पाठ 14 - कुमारी कालीबाई Quiz</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;padding:15px;font-family:Arial,sans-serif;background:linear-gradient(135deg,#fce7f3,#ede9fe);color:#222}
+.container{max-width:650px;margin:20px auto;background:white;padding:22px;border-radius:18px;box-shadow:0 5px 20px #0002}
+h1{text-align:center;color:#be185d;font-size:25px}
+.sub{text-align:center;color:#555}
+.progress{height:10px;background:#eee;border-radius:20px;margin:20px 0;overflow:hidden}
+#bar{height:100%;width:0;background:#db2777;transition:.3s}
+#count{color:#be185d;font-weight:bold}
+.question{font-size:19px;font-weight:bold;line-height:1.6;margin:20px 0}
+.option{display:block;width:100%;padding:13px;margin:10px 0;border:2px solid #ddd;border-radius:12px;background:white;text-align:left;font-size:16px;cursor:pointer}
+.option:hover{background:#fdf2f8;border-color:#db2777}
+.option:disabled{cursor:default}
+.correct{background:#dcfce7!important;border-color:#16a34a!important;color:#166534}
+.wrong{background:#fee2e2!important;border-color:#dc2626!important;color:#991b1b}
+#feedback{font-weight:bold;margin:15px 0;min-height:25px;line-height:1.5}
+.next{background:#be185d;color:white;border:0;padding:13px 25px;border-radius:10px;font-size:17px;cursor:pointer}
+.next:disabled{background:#aaa}
+.center{text-align:center}
+#result{display:none;text-align:center}
+#result h2{color:#be185d}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>🇮🇳 पाठ 14 – कुमारी कालीबाई</h1>
+<p class="sub">कक्षा छठी | हिंदी ऑनलाइन MCQ टेस्ट</p>
+
+<div id="quiz">
+<div class="progress"><div id="bar"></div></div>
+<p id="count"></p>
+<div class="question" id="question"></div>
+<div id="options"></div>
+<div id="feedback"></div>
+<div class="center">
+<button class="next" id="next" onclick="nextQuestion()" disabled>अगला प्रश्न →</button>
+</div>
+</div>
+
+<div id="result">
+<h2>🎉 टेस्ट पूरा हुआ!</h2>
+<h3 id="score"></h3>
+<p id="message"></p>
+<button class="next" onclick="restart()">दोबारा टेस्ट दें ↻</button>
+</div>
+</div>
+
+<script>
+const questions = [
+{
+q:"कुमारी कालीबाई का स्मारक राजस्थान के किस गाँव में बना है?",
+o:["रास्तापाल","उदयपुर","डूंगरपुर","जयपुर"],a:0
+},
+{
+q:"कुमारी कालीबाई जब शहीद हुई तो उसकी उम्र कितनी थी?",
+o:["बारह वर्ष","तेरह वर्ष","चौदह वर्ष","पंद्रह वर्ष"],a:1
+},
+{
+q:"रास्तापाल गाँव के कौन-से दो अध्यापक क्रांतिकारी गतिविधियाँ चलाते थे?",
+o:["भोगीलाल और नानाभाई","नानाभाई और भोगीलाल","नानाभाई खाँट और सेंगाभाई","सेंगाभाई और डिप्टी कमिश्नर"],a:2
+},
+{
+q:"इस घटना में शहीद हुए अध्यापक का नाम क्या था?",
+o:["सेंगाभाई","भोगीलाल पंड्या","कालीबाई","नानाभाई खाँट"],a:3
+},
+{
+q:"भोगीलाल पंड्या और अध्यापक अंग्रेज़ सरकार के खिलाफ क्या करते थे?",
+o:["गुप्त रूप से क्रांतिकारी गतिविधियाँ चलाते थे","सरकारी नौकरी करते थे","अंग्रेज़ों की सहायता करते थे","व्यापार करते थे"],a:0
+},
+{
+q:"क्रांतिकारी लोग अपनी सभाओं के साथ और क्या काम करते थे?",
+o:["खेल प्रतियोगिताएँ करते थे","पर्चे बाँटते और सूचनाएँ भिजवाते थे","मेले लगाते थे","खेती करते थे"],a:1
+},
+{
+q:"अंग्रेज़ों ने सेंगाभाई को किसके पीछे बाँधा था?",
+o:["बस के पीछे","घोड़े के पीछे","जीप के पीछे","ट्रक के पीछे"],a:2
+},
+{
+q:"कालीबाई ने सेंगाभाई की रस्सियाँ किससे काटीं?",
+o:["चाकू से","तलवार से","कैंची से","कचिया से"],a:3
+},
+{
+q:"कालीबाई ने सेंगाभाई को बचाने के लिए क्या किया?",
+o:["जीप के पीछे जाकर रस्सियाँ काट दीं","अंग्रेज़ों से सहायता माँगी","गाँव छोड़ दिया","पुलिस को बुलाया"],a:0
+},
+{
+q:"कालीबाई ने देश के लिए क्या किया?",
+o:["गाँव छोड़ दिया","देश के लिए अपने प्राण न्योछावर कर दिए","अंग्रेज़ों की सहायता की","स्कूल बंद कर दिया"],a:1
+},
+{
+q:"'कुरबानी' का हिंदी अर्थ क्या है?",
+o:["प्रेरणा","निशानी","बलिदान","बहादुरी"],a:2
+},
+{
+q:"'ਵਾਛੜ' का हिंदी अर्थ क्या है?",
+o:["सीमा","ओझल","इलाका","बौछार"],a:3
+},
+{
+q:"'डिप्टी कमिश्नर' का हिंदी शब्द क्या दिया गया है?",
+o:["ज़िलाधीश","अध्यापक","क्रांतिकारी","सैनिक"],a:0
+},
+{
+q:"'तुरंत' के लिए पाठ में कौन-सा शब्द दिया गया है?",
+o:["न्यौछावर","आनन-फानन","मारू बिगुल","ओझल"],a:1
+},
+{
+q:"'लड़ाई का बिगुल' के लिए कौन-सा शब्द दिया गया है?",
+o:["स्मारक","निशानी","मारू बिगुल","बहादुरी"],a:2
+},
+{
+q:"'ओझल' शब्द का अर्थ क्या है?",
+o:["सामने","प्रसिद्ध","साधारण","नज़र से दूर"],a:3
+},
+{
+q:"'प्राणों की बलि देना' मुहावरे का अर्थ क्या है?",
+o:["जान देना","खुश होना","डर जाना","सहायता करना"],a:0
+},
+{
+q:"'रफूचक्कर होना' मुहावरे का अर्थ क्या है?",
+o:["परेशान होना","भाग जाना","गिर जाना","छिपकर बैठना"],a:1
+},
+{
+q:"'एक न एक दिन' मुहावरे का अर्थ क्या है?",
+o:["हर दिन","आज ही","कभी न कभी","रोज़ सुबह"],a:2
+},
+{
+q:"'आग लगना' मुहावरे का अर्थ पाठ के अनुसार क्या है?",
+o:["गुस्सा होना","डर जाना","दुखी होना","प्रेम होना"],a:3
+},
+{
+q:"'शिक्षक' का स्त्रीलिंग रूप क्या है?",
+o:["शिक्षिका","शिक्षकनी","शिक्षकी","शिक्षिका जी"],a:0
+},
+{
+q:"'बालिका' का पुल्लिंग रूप क्या है?",
+o:["बालिका","बालक","बालपन","बच्ची"],a:1
+},
+{
+q:"'अध्यापक' का स्त्रीलिंग रूप क्या है?",
+o:["अध्यापक","अध्यापकी","अध्यापिका","अध्यापन"],a:2
+},
+{
+q:"'जाति' शब्द का सही अर्थ क्या है?",
+o:["जाते हुए","रखी हुई","पढ़ने की क्रिया","वंश या कुल"],a:3
+},
+{
+q:"कालीबाई के जीवन से हमें क्या प्रेरणा मिलती है?",
+o:["अन्याय का विरोध करना और देश के प्रति समर्पित रहना","केवल अपने बारे में सोचना","कठिनाइयों से दूर भागना","दूसरों की सहायता न करना"],a:0
+}
+];
+
+let current=0,score=0,answered=false;
+
+function loadQuestion(){
+answered=false;
+document.getElementById("feedback").innerText="";
+document.getElementById("next").disabled=true;
+document.getElementById("count").innerText=
+"प्रश्न "+(current+1)+" / "+questions.length;
+document.getElementById("bar").style.width=
+(current/questions.length*100)+"%";
+
+let q=questions[current];
+document.getElementById("question").innerText=q.q;
+let box=document.getElementById("options");
+box.innerHTML="";
+
+q.o.forEach((option,index)=>{
+let btn=document.createElement("button");
+btn.className="option";
+btn.innerText=(index+1)+". "+option;
+btn.onclick=()=>checkAnswer(index,btn);
+box.appendChild(btn);
+});
+}
+
+function checkAnswer(index,btn){
+if(answered)return;
+answered=true;
+let q=questions[current];
+let buttons=document.querySelectorAll(".option");
+buttons.forEach(b=>b.disabled=true);
+
+if(index===q.a){
+btn.classList.add("correct");
+document.getElementById("feedback").innerText="✅ बिल्कुल सही जवाब!";
+document.getElementById("feedback").style.color="green";
+score++;
+}else{
+btn.classList.add("wrong");
+buttons[q.a].classList.add("correct");
+document.getElementById("feedback").innerText=
+"❌ गलत जवाब! सही उत्तर है: "+(q.a+1)+". "+q.o[q.a];
+document.getElementById("feedback").style.color="red";
+}
+document.getElementById("next").disabled=false;
+}
+
+function nextQuestion(){
+if(!answered)return;
+current++;
+if(current<questions.length){
+loadQuestion();
+}else{
+showResult();
+}
+}
+
+function showResult(){
+document.getElementById("quiz").style.display="none";
+document.getElementById("result").style.display="block";
+document.getElementById("score").innerText=
+"आपका स्कोर: "+score+" / "+questions.length;
+let percent=score/questions.length*100;
+document.getElementById("message").innerText=
+percent>=80?"बहुत शानदार! आपकी तैयारी बहुत अच्छी है।":
+percent>=50?"अच्छा प्रयास! एक बार फिर अभ्यास करें।":
+"अच्छा प्रयास! पाठ को दोबारा पढ़कर फिर टेस्ट दें।";
+}
+
+function restart(){
+current=0;
+score=0;
+document.getElementById("result").style.display="none";
+document.getElementById("quiz").style.display="block";
+loadQuestion();
+}
+loadQuestion();
+</script>
+</body>
+</html>
