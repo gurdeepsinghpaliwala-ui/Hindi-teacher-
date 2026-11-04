@@ -1,0 +1,234 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>पाठ 13 - काश! मैं भी Quiz</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(135deg,#ede9fe,#d1fae5);padding:15px;color:#222}
+.container{max-width:650px;margin:20px auto;background:white;padding:22px;border-radius:18px;box-shadow:0 5px 20px #0002}
+h1{text-align:center;color:#6d28d9;font-size:25px}
+.sub{text-align:center;color:#555}
+.progress{height:10px;background:#eee;border-radius:20px;margin:20px 0;overflow:hidden}
+#bar{height:100%;width:0;background:#8b5cf6;transition:.3s}
+#count{color:#6d28d9;font-weight:bold}
+.question{font-size:19px;font-weight:bold;line-height:1.6;margin:20px 0}
+.option{display:block;width:100%;padding:13px;margin:10px 0;border:2px solid #ddd;border-radius:12px;background:#fff;text-align:left;font-size:16px;cursor:pointer}
+.option:hover{background:#f5f3ff;border-color:#8b5cf6}
+.option:disabled{cursor:default}
+.correct{background:#dcfce7!important;border-color:#16a34a!important;color:#166534}
+.wrong{background:#fee2e2!important;border-color:#dc2626!important;color:#991b1b}
+#feedback{font-weight:bold;margin:15px 0;min-height:25px}
+button.next{background:#6d28d9;color:white;border:0;padding:13px 25px;border-radius:10px;font-size:17px;cursor:pointer}
+button.next:disabled{background:#aaa}
+.center{text-align:center}
+#result{display:none;text-align:center}
+#result h2{color:#6d28d9}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>📚 पाठ 13 – काश! मैं भी</h1>
+<p class="sub">कक्षा छठी | हिंदी ऑनलाइन MCQ टेस्ट</p>
+
+<div id="quiz">
+<div class="progress"><div id="bar"></div></div>
+<p id="count"></p>
+<div class="question" id="question"></div>
+<div id="options"></div>
+<div id="feedback"></div>
+<div class="center">
+<button class="next" id="next" onclick="nextQuestion()" disabled>अगला प्रश्न →</button>
+</div>
+</div>
+
+<div id="result">
+<h2>🎉 टेस्ट पूरा हुआ!</h2>
+<h3 id="score"></h3>
+<p id="message"></p>
+<button class="next" onclick="restart()">दोबारा टेस्ट दें ↻</button>
+</div>
+</div>
+
+<script>
+const questions = [
+{
+q:"कवयित्री सीमा पर जाकर किससे युद्ध करना चाहती है?",
+o:["भारतीय सैनिकों से","दुश्मन से","अपने मित्रों से","पहाड़ी लोगों से"],a:1
+},
+{
+q:"कवयित्री किस देश की रक्षा के लिए शहीद होना चाहती है?",
+o:["नेपाल","हिमाचल प्रदेश","भारत","पाकिस्तान"],a:2
+},
+{
+q:"कवयित्री अपने हाथों में कैसे हथियार सजाना चाहती है?",
+o:["तलवार और ढाल","तीर और कमान","लाठी और भाला","तोपों और बंदूकों के"],a:3
+},
+{
+q:"कवयित्री किस घाटी का पत्थर बनना चाहती है?",
+o:["कारगिल की घाटी","कश्मीर की घाटी","कुल्लू की घाटी","कांगड़ा की घाटी"],a:0
+},
+{
+q:"कवयित्री अपना जीवन कैसे सफल बनाना चाहती है?",
+o:["धन कमाकर","अमर शहीदों को सलाम करके","यात्रा करके","प्रसिद्ध होकर"],a:1
+},
+{
+q:"'चाँदनी की उन रातों को अंधियारी कर पाती' में कवयित्री क्या कहना चाहती है?",
+o:["चाँद को छिपाना","रात को सुंदर बनाना","गोले बरसाकर धुएँ से अंधेरा करना","दिन का उजाला फैलाना"],a:2
+},
+{
+q:"कवयित्री कारगिल की घाटी का पत्थर क्यों बनना चाहती है?",
+o:["वहाँ बहुत सुंदर फूल हैं","वहाँ ऊँचे पहाड़ हैं","वहाँ झीलें हैं","वहाँ अनेक सैनिकों ने देश के लिए बलिदान दिया"],a:3
+},
+{
+q:"कवयित्री अपने जीवन की सफलता किसमें मानती है?",
+o:["शहीदों को सलाम करने में","खेल-कूद में","धन कमाने में","घर बनाने में"],a:0
+},
+{
+q:"'शहीद' शब्द का सही अर्थ क्या है?",
+o:["यात्री","देश के लिए प्राण देने वाला","व्यापारी","किसान"],a:1
+},
+{
+q:"'ज़िंदगी' का हिंदी शब्द क्या है?",
+o:["सीमा","इतिहास","जीवन","हथियार"],a:2
+},
+{
+q:"'बार्डर' या 'हੱਦ' का हिंदी शब्द क्या है?",
+o:["घाटी","पत्थर","जीवन","सीमा"],a:3
+},
+{
+q:"'ਬੰਦੂਕਾਂ' का हिंदी रूप क्या है?",
+o:["बंदूकें","तोपें","तलवारें","गोलियाँ"],a:0
+},
+{
+q:"'ਪੱਥਰ' का हिंदी अर्थ क्या है?",
+o:["पहाड़","पत्थर","झरना","मैदान"],a:1
+},
+{
+q:"'ਤੋਪਾਂ' का हिंदी शब्द क्या है?",
+o:["बंदूकें","हथियार","तोपें","तलवारें"],a:2
+},
+{
+q:"'ਇਤਿਹਾਸ' का हिंदी शब्द क्या है?",
+o:["भूगोल","विज्ञान","साहित्य","इतिहास"],a:3
+},
+{
+q:"'ਦੁਸ਼ਮਨ' शब्द का वाक्य में सही प्रयोग कौन-सा है?",
+o:["हमें दुश्मन से सावधान रहना चाहिए।","दुश्मन बहुत मीठा फल है।","मैंने दुश्मन में पानी पिया।","दुश्मन आकाश में चमकता है।"],a:0
+},
+{
+q:"'शहीद' शब्द का सही वाक्य कौन-सा है?",
+o:["शहीद खेत में फसल बोता है।","देश की खातिर बहुत से वीर शहीद हो गए।","शहीद से पानी बरसता है।","शहीद एक नदी का नाम है।"],a:1
+},
+{
+q:"'चाँदनी' शब्द का सही प्रयोग किस वाक्य में हुआ है?",
+o:["चाँदनी ने खेत जोता।","चाँदनी पहाड़ का पत्थर है।","चाँदनी रात का दृश्य सुंदर लगता है।","चाँदनी बंदूक चलाती है।"],a:2
+},
+{
+q:"'तोप' का बहुवचन रूप क्या है?",
+o:["तोपें","तोपों","तोपा","तोपी"],a:1
+},
+{
+q:"'बंदूक' का बहुवचन रूप क्या है?",
+o:["बंदूकें","बंदूका","बंदूकों","बंदूकी"],a:2
+},
+{
+q:"'पत्थर' का बहुवचन रूप क्या है?",
+o:["पत्थरी","पत्थरें","पत्थरा","पत्थरों"],a:3
+},
+{
+q:"'अमर' शब्द से बना भाववाचक शब्द कौन-सा है?",
+o:["अमरत्व","अमरता का पेड़","अमरित","अमरक"],a:0
+},
+{
+q:"'इतिहास' से बना सही शब्द कौन-सा है?",
+o:["इतिहासी","ऐतिहासिक","इतिहासता","इतिहासिकता"],a:1
+},
+{
+q:"'पत्थर' से बना सही शब्द कौन-सा है?",
+o:["पत्थरी","पत्थरता","पथरीला","पत्थरपन"],a:2
+}
+];
+
+let current=0, score=0, answered=false;
+
+function loadQuestion(){
+answered=false;
+document.getElementById("feedback").innerText="";
+document.getElementById("next").disabled=true;
+document.getElementById("count").innerText=
+"प्रश्न "+(current+1)+" / "+questions.length;
+document.getElementById("bar").style.width=
+(current/questions.length*100)+"%";
+
+let q=questions[current];
+document.getElementById("question").innerText=q.q;
+let box=document.getElementById("options");
+box.innerHTML="";
+
+q.o.forEach((option,index)=>{
+let btn=document.createElement("button");
+btn.className="option";
+btn.innerText=(index+1)+". "+option;
+btn.onclick=()=>checkAnswer(index,btn);
+box.appendChild(btn);
+});
+}
+
+function checkAnswer(index,btn){
+if(answered)return;
+answered=true;
+let q=questions[current];
+let buttons=document.querySelectorAll(".option");
+buttons.forEach(b=>b.disabled=true);
+
+if(index===q.a){
+btn.classList.add("correct");
+document.getElementById("feedback").innerText="✅ बिल्कुल सही जवाब!";
+document.getElementById("feedback").style.color="green";
+score++;
+}else{
+btn.classList.add("wrong");
+buttons[q.a].classList.add("correct");
+document.getElementById("feedback").innerText=
+"❌ गलत जवाब! सही उत्तर है: "+(q.a+1)+". "+q.o[q.a];
+document.getElementById("feedback").style.color="red";
+}
+document.getElementById("next").disabled=false;
+}
+
+function nextQuestion(){
+if(!answered)return;
+current++;
+if(current<questions.length){
+loadQuestion();
+}else{
+showResult();
+}
+}
+
+function showResult(){
+document.getElementById("quiz").style.display="none";
+document.getElementById("result").style.display="block";
+document.getElementById("score").innerText=
+"आपका स्कोर: "+score+" / "+questions.length;
+let percent=(score/questions.length)*100;
+document.getElementById("message").innerText=
+percent>=80?"बहुत शानदार! आपकी तैयारी बहुत अच्छी है।":
+percent>=50?"अच्छा प्रयास! एक बार फिर अभ्यास करें।":
+"अच्छा प्रयास! पाठ को दोबारा पढ़कर फिर टेस्ट दें।";
+}
+
+function restart(){
+current=0;
+score=0;
+document.getElementById("result").style.display="none";
+document.getElementById("quiz").style.display="block";
+loadQuestion();
+}
+loadQuestion();
+</script>
+</body>
+</html>
